@@ -3,33 +3,33 @@ import './NavbarForEvent.css'
 
 function NavbarForEvent() {
   return (
-    <>
+<>
 
-    <header className='Container'>
+<header className='Container'>
 
-      <div className=''>
+  <div className=''>
 
-        <img className='Voltar' src="./img/arrow_back.png" alt="" />
-        <img className='LogoFundoAzul' src="./img/LogoInkluaAzul.png" alt="" />
+    <img className='Voltar' src="./img/arrow_back.png" alt="" />
+    <img className='LogoFundoAzul' src="./img/LogoInkluaAzul.png" alt="Voltar" />
 
-        
+    
 
-      </div>
+  </div>
 
-        <nav className='Infos'>
+    <nav className='Infos'>
 
-          <li className='InfosNav'>Entrar</li>
-          <li className='separador'></li>
-          <li className='InfosNav'>Cadastrar</li>
+      <li className='InfosNav'>Entrar</li>
+      <li className='separador'></li>
+      <li className='InfosNav'>Cadastrar</li>
+
+    </nav>
+    
+
+
+
+</header>
  
-        </nav>
-        
-
-   
-
-    </header>
-     
-    </>
+</>
   )
 }
 

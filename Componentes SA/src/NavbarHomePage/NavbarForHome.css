@@ -1,0 +1,52 @@
+.Container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #024959;
+    padding: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    
+  
+}
+
+.Voltar{
+
+    width: 30px;
+
+}
+
+.LogoFundoAzul{
+
+width: 180px;
+margin-left: 25px;
+
+}
+
+.Infos{
+
+    display: flex;
+    gap: 20px;
+    margin-right: 40px;
+    font-family: "Poppins", sans-serif;
+  
+}
+
+.InfosNav{
+
+    color: #d9d9d9;
+    list-style-type: none;
+    margin-top: 20px;
+    font-size: 20px;
+    
+}
+
+.separador{
+
+    width: 1px;
+    height: 40px;
+    opacity: 0.5;
+    background-color: #d9d9d9;
+    list-style-type: none;
+    margin: auto;
+    margin-top: 10px;
+
+}
