@@ -18,9 +18,9 @@ function NavbarForEvent() {
 
     <nav className='Infos'>
 
-      <li className='InfosNav'>Entrar</li>
+      <a className='InfosNav'>Entrar</a>
       <li className='separador'></li>
-      <li className='InfosNav'>Cadastrar</li>
+      <a className='InfosNav'>Cadastrar</a>
 
     </nav>
     

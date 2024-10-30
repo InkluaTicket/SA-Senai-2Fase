@@ -1,6 +1,7 @@
 import './App.css'
 import NavbarForEvent from './NavbarEvento/NavbarForEvent'
 import NavBarForHome from './NavbarHomePage/NavbarForHome'
+import SearchBar from './NavbarHomePage/SearchBar'
 
 function App() {
 
@@ -15,6 +16,12 @@ function App() {
 
     <h1>Navbar da Home Page:</h1>
     <NavBarForHome/>
+
+    <br /><br />
+
+
+ 
+
 
 
     </>

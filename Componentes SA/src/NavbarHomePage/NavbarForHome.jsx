@@ -1,26 +1,35 @@
 import React from 'react'
 import './NavbarForHome.css'
+import SearchBar from './SearchBar'
 
 function NavBarForHome() {
   return (
     <>
 
-    <header className='Container'>
+    <header className='ContainerHome'>
 
-      <div className=''>
+      <div className='EndElementsHome'>
 
-        <img className='Voltar' src="./img/arrow_back.png" alt="" />
-        <img className='LogoFundoAzul' src="./img/LogoInkluaAzul.png" alt="" />
+ 
+        <img className='LogoFundoAzulHome' src="./img/LogoInkluaAzul.png" alt="" />
 
-        
+        <SearchBar/>
 
       </div>
 
-        <nav className='Infos'>
+      
 
-          <li className='InfosNav'>Entrar</li>
-          <li className='separador'></li>
-          <li className='InfosNav'>Cadastrar</li>
+        <nav className='InfosHome'>
+
+          <a className='InfosNavHome'>Criar seu evento</a>
+
+          <li className='separadorHome'></li>
+
+          <a className='InfosNavHome'>Entrar</a>
+
+          <li className='separadorHome'></li>
+
+          <a className='InfosNavHome'>Cadastrar</a>
  
         </nav>
         
