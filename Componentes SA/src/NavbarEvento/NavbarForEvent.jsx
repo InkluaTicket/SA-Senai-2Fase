@@ -2,25 +2,33 @@ import React from 'react'
 import './NavbarForEvent.css'
 
 function NavbarForEvent() {
+
+const handlekey = () => {
+
+
+  alert('Tecla Enter funcionando!')
+
+}
+
   return (
 <>
 
 <header className='Container'>
 
-  <div className=''>
+  <nav className=''>
 
-    <img className='Voltar' src="./img/arrow_back.png" alt="" />
-    <img className='LogoFundoAzul' src="./img/LogoInkluaAzul.png" alt="Voltar" />
+    <button className='Voltar' onClick={handlekey}><img className='Voltar' src="./img/arrow_back.png" alt="Voltar" /></button>
+    <img className='LogoFundoAzul' src="./img/LogoInkluaAzul.png" alt="" />
 
     
 
-  </div>
+  </nav>
 
     <nav className='Infos'>
 
-      <a className='InfosNav'>Entrar</a>
+      <a tabIndex={0} className='InfosNav' onClick={handlekey}>Acessar minha conta</a>
       <li className='separador'></li>
-      <a className='InfosNav'>Cadastrar</a>
+      <a tabIndex={0} className='InfosNav' onClick={handlekey}>Cadastrar</a>
 
     </nav>
     

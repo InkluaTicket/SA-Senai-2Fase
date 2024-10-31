@@ -72,3 +72,11 @@ margin-left: 25px;
     margin-top: 10px;
 
 }
+
+.Voltar{
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
