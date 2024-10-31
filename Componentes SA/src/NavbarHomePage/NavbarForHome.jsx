@@ -9,6 +9,16 @@ function NavBarForHome() {
     alert('Tecla Enter funcionando!')
 
   }
+
+  const Verificar = (e) => {
+
+    if(e.key === 'Enter'){
+
+      handlekey()
+
+    }
+
+  }
   
 
   return (
@@ -29,15 +39,15 @@ function NavBarForHome() {
 
         <nav className='InfosHome'>
 
-          <a role='button' tabIndex={0} className='InfosNavHome' onClick={handlekey}>Criar seu evento</a>
+          <a role='button' tabIndex={0} className='InfosNavHome' onKeyDown={Verificar} onClick={handlekey}>Criar seu evento</a>
 
           <li className='separadorHome'></li>
 
-          <a tabIndex={0} className='InfosNavHome' onClick={handlekey}>Acessar minha conta</a>
+          <a tabIndex={0} className='InfosNavHome' onKeyDown={Verificar} onClick={handlekey}>Acessar minha conta</a>
 
           <li className='separadorHome'></li>
 
-          <a tabIndex={0} className='InfosNavHome' onClick={handlekey}>Cadastrar</a>
+          <a tabIndex={0} className='InfosNavHome' onKeyDown={Verificar} onClick={handlekey}>Cadastrar-se</a>
  
         </nav>
         

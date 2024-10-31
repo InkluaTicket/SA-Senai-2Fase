@@ -11,6 +11,10 @@
 .Voltar{
 
     width: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
 
 }
 
@@ -73,10 +77,3 @@ margin-left: 25px;
 
 }
 
-.Voltar{
-
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-}
