@@ -7,7 +7,7 @@ import SobreNos from "../pages/SobreNos";
 const Routes = createBrowserRouter([
 
 {path: '/', element: <Home/>},
-{path: '/sobre', element: <SobreNos/>},
+{path: '/SobreNos', element: <SobreNos/>},
 
 ])
 

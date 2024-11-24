@@ -1,6 +1,8 @@
 import React from 'react'
 import Rodape from '../components/Rodape'
-import SobreNos from '../components/SobreNos'
+import Navbar from '../components/Navbar';
+import "../styles/SobreNos.css"
+import { Link } from 'react-router-dom';
 
 function SobreNos() {
   return (
@@ -65,4 +67,4 @@ function SobreNos() {
   )
 }
 
-export default SobreNos
+export default SobreNos;

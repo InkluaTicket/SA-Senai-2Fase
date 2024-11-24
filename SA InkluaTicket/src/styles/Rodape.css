@@ -1,9 +1,19 @@
-/* Estilos principais do rodapé */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
 .footer {
-    background-color: #222;
-    color: white;
-    padding: 40px 20px;
-    font-family: 'Arial', sans-serif;
+  background-color: #222;
+  color: white;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  bottom: 0;
+  width: 100%;
   }
   
   .footer-container {
