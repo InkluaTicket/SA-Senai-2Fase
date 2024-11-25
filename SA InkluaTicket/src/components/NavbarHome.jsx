@@ -1,17 +1,33 @@
-import React from 'react';
-import '../styles/NavbarHome.css';
+import React from 'react'
+import '../styles/NavbarHome.css'
+import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function NavbarHome() {
+
+
     return (
         <>
-            <nav className="Navbar">
-                <img src="./img/logo.png" className="logo" alt="Logo do evento" />
-            </nav>
+
+            <header className='ContainerHome'>
+
+                <div className='EndElementsHome'>
+                    <img className='LogoFundoAzulHome' src="./img/LogoInkluaAzul.png" alt="Logo Inklua" />
+                    <SearchBar />
+                </div>
+
+                <nav className='InfosHome'>
+                    <Link role='button' tabIndex={0} className='InfosNavHome'>Criar seu evento</Link>
+                    <li className='separadorHome'></li>
+                    <Link tabIndex={0} className='InfosNavHome'>Acessar minha conta</Link>
+                    <li className='separadorHome'></li>
+                    <Link tabIndex={0} className='InfosNavHome'>Cadastrar-se</Link>
+                </nav>
+
+            </header>
+
         </>
-
-
-    );
+    )
 }
 
-export default Navbar;
+export default NavbarHome;
