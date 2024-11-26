@@ -18,7 +18,7 @@ function NavBarForHome() {
       <div className='EndElementsHome'>
 
  
-        <img className='LogoFundoAzulHome' src="./img/LogoInkluaAzul.png" alt="Logo Inklua" />
+        <img className='LogoFundoAzulHome' src="./img/logo.png" alt="Logo Inklua" />
 
         <SearchBar/>
 
