@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .search-bar {
     display: flex;
     margin-top: 12px;
@@ -12,8 +12,6 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) ;
   }
   
-=======
->>>>>>> 55b652dcf04a2d9a2e78198d542134e30daecd32
   .search-input {
     border: none;
     outline: none;
@@ -21,14 +19,9 @@
     padding: 8px;
     font-size: 16px;
     border-radius: 25px;
-<<<<<<< HEAD
-  }
-  
-=======
     width: 60vh;
   }
 
->>>>>>> 55b652dcf04a2d9a2e78198d542134e30daecd32
   .search-button {
     background-color: transparent;
     margin-top: 5px;
@@ -38,12 +31,10 @@
     margin-left: 8px;
   }
 
-<<<<<<< HEAD
   .IconSearch{
 
     width: 20px;
-
-=======
+  }
   .lupa {
     width: 20px;
     cursor: pointer
@@ -56,5 +47,5 @@
 
   .barra-pesquisa{
     height: 20px;
->>>>>>> 55b652dcf04a2d9a2e78198d542134e30daecd32
+
   }
