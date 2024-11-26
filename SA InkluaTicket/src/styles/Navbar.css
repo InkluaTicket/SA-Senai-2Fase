@@ -15,23 +15,27 @@
   }
 
 .Navbar {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    height: 90px;
-    width: 100%;
     background-color: var(--cor1);
+    padding: 10px 20px;
+    height: 90px;
+    flex-wrap: wrap;
 }
 
 .logo {
-    height: 70px;
     position: absolute;
-    left: 30px;
+    width: 190px;
+    height: auto;
+    left: 20px;
 }
 
 .seta {
-    height: 60px;
+    top: 25px;
+    height: 40px;
     position: absolute;
     right: 20px;
-    top: 15px;
     padding: 5px;
     color: var(--cor3);
 }
@@ -42,7 +46,7 @@
     }
 
     .seta {
-        height: 50px;
+        height: 35px;
         position: absolute;
     }
 

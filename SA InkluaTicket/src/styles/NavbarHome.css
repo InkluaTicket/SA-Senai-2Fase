@@ -4,14 +4,13 @@
     align-items: center;
     background-color: #024959;
     padding: 10px 20px;
-    height: 5rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    flex-wrap: wrap; /* Adapta os itens em telas menores */
-}
+    height: 90px;
+    flex-wrap: wrap;
+}   
 
 .LogoFundoAzulHome {
     width: 190px;
-    height: auto; /* Permite ajuste proporcional */
+    height: auto;
 }
 
 .EndElementsHome {
@@ -24,7 +23,7 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    flex-wrap: wrap; /* Quebra os itens em telas menores */
+    flex-wrap: wrap;
 }
 
 .InfosNavHome {
@@ -46,7 +45,6 @@
     opacity: 0.5;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .ContainerHome {
         flex-direction: column;
