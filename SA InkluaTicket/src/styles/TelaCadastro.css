@@ -53,7 +53,7 @@
 .partesInputsUmDois {
   display: inline-flex;
   align-items: center;
-  color: black;
+  color: #333;
   width: 90%;
   height: 90%;
   margin-top: -15%;
@@ -77,7 +77,7 @@
 
 .tamanhoInputs {
   background-color: #FFFFFF;
-  color: black;
+  color: #000000;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -189,5 +189,11 @@
 .olhoSenha{
 
   width: 20px;
+
+}
+
+.LabelInpt{
+
+  font-family: 'Poppins', sans-serif;
 
 }
