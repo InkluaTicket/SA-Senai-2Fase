@@ -20,7 +20,7 @@ function SearchBar() {
         className="search-input"
         placeholder="Pesquisar..."
       />
-      <button className="search-button" onClick={handlekey}><img className='IconSearch' src="./img/Vector.png" alt="Pesquisar" /></button>
+      <img className='IconSearch' src="./img/lupa.png" alt="Pesquisar" />
     </div>
     
   )

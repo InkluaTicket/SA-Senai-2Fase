@@ -20,7 +20,7 @@
     align-items: center;
     background-color: var(--cor1);
     padding: 10px 20px;
-    height: 90px;
+    height: 5rem;
     flex-wrap: wrap;
 }
 
@@ -33,11 +33,7 @@
 
 .seta {
     top: 25px;
-    height: 40px;
-    position: absolute;
-    right: 20px;
-    padding: 5px;
-    color: var(--cor3);
+    height: 60px;
 }
 
 @media (max-width: 768px) {
