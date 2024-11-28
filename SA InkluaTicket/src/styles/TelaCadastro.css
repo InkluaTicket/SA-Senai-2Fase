@@ -197,3 +197,11 @@
   font-family: 'Poppins', sans-serif;
 
 }
+
+.avisoLabel {
+  font-size: 10px; /* Tamanho pequeno para mensagens */
+  color: red; /* Destaque em vermelho */
+  margin-top: 4px; /* Espaçamento do input acima */
+  position: relative; /* Para evitar problemas com contêiner pai */
+  display: block; /* Garante que a mensagem fique abaixo do campo */
+}
