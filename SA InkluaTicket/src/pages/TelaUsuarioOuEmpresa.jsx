@@ -29,7 +29,7 @@ function TelaUsuarioOuEmpresa() {
                             <button className='botaoImg'>Usuário</button>
                         </div>
                     </div>
-                </div>ai pai para 
+                </div>
 
             </div>
     )
