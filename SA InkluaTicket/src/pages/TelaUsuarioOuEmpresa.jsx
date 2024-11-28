@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/TelaUsuarioOuEmpresa.css'
+import { Link } from 'react-router-dom'
 
 function TelaUsuarioOuEmpresa() {
     return (
@@ -26,7 +27,7 @@ function TelaUsuarioOuEmpresa() {
                             <div className="imagemDiv">
                                 <img src="./img/img usuario.png" className="imagemUsuar" />
                             </div>
-                            <button className='botaoImg'>Usuário</button>
+                            <Link to='/CadastroUser' className='botaoImg'>Usuário</Link>
                         </div>
                     </div>
                 </div>
