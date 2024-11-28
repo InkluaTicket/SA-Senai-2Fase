@@ -1,5 +1,5 @@
 import React from 'react'
-import './TelaUsuarioOuEmpresa.css'
+import '../styles/TelaUsuarioOuEmpresa.css'
 
 function TelaUsuarioOuEmpresa() {
     return (
@@ -7,8 +7,8 @@ function TelaUsuarioOuEmpresa() {
 
                 <div className="tudoBtsImgsTxt">
                     <div className="posiImg">
-                        <img src="./imagems/seta .png" className="imagemSeta" />
-                        <img src="./imagems/inkluaTicket.png" className="imagemInklua" />
+                        <img src="./img/seta .png" className="imagemSeta" />
+                        <img src="./img/logo.png" className="imagemInklua" />
                     </div>
                     <div className="textos">
                         <h1>Cadastre-se!</h1>
@@ -17,14 +17,14 @@ function TelaUsuarioOuEmpresa() {
                     <div className="posiBtImg">
                         <div className="btsImgs">
                             <div className="imagemDiv">
-                                <img src="./imagems/img empresa.png" className="imagemEmpre" />
+                                <img src="./img/img empresa.png" className="imagemEmpre" />
                             </div>
                             <button className='botaoImg'>Empresa</button>
                         </div>
-                        <img src="./imagems/image.png" className="imagemPcds" />
+                        <img src="./img/image.png" className="imagemPcds" />
                         <div className="btsImgs">
                             <div className="imagemDiv">
-                                <img src="./imagems/img usuario.png" className="imagemUsuar" />
+                                <img src="./img/img usuario.png" className="imagemUsuar" />
                             </div>
                             <button className='botaoImg'>Usuário</button>
                         </div>
