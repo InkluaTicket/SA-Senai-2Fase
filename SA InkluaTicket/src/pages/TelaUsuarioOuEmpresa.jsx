@@ -7,7 +7,7 @@ function TelaUsuarioOuEmpresa() {
 
                 <div className="tudoBtsImgsTxt">
                     <div className="posiImg">
-                        <img src="./img/seta .png" className="imagemSeta" />
+                        <img src="./img/seta.png" className="imagemSeta" />
                         <img src="./img/logo.png" className="imagemInklua" />
                     </div>
                     <div className="textos">

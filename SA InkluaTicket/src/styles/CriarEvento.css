@@ -1,32 +1,4 @@
-:root {
-  --cor1: #024959;
-  --cor2: #d9d9d9;
-  --cor3: #ffffff;
-  --cor4: #7b9aab;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  border-left: none;
-  border-right: none;
-}
-
-html,
-body {
-  height: 200px;
-  background-color: var(--cor2);
-  font-size: 16px;
-  height: 161rem;
-}
-
-textarea:focus,
-input:focus {
-  outline: 0;
-}
 
 .colocar-foto {
   display: flex;

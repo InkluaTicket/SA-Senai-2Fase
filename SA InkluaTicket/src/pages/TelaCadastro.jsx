@@ -213,7 +213,7 @@ function TelaCadastro() {
         <div className='tudoCadastro'>
           <div className="parteAzul">
 
-            <Link className="btVoltarIMG" to='/'><img src="./img/seta .png" alt="Voltar" /></Link>
+            <Link className="btVoltarIMG" to='/'><img src="./img/seta.png" alt="Voltar" /></Link>
 
             <img className='imagemscadastrar' src="./img/IMG.png" alt="Imagem Cadastro" />
             <img className='imagemscadastrar2' src="./img/image.png" alt="Imagem Cadastro" />
