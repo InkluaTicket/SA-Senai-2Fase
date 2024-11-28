@@ -4,11 +4,6 @@ import '../styles/SearchBar.css'
 
 function SearchBar() {
 
-  const handlekey = (e) => {
-
-      alert('Tecla Enter funcionando!')
-
-  }
 
   return (
     
@@ -20,7 +15,8 @@ function SearchBar() {
         className="search-input"
         placeholder="Pesquisar..."
       />
-      <img className='IconSearch' src="./img/lupa.png" alt="Pesquisar" />
+      <button className='search-button'>
+      <img className='IconSearch' src="./img/lupa.png" alt="Pesquisar" /></button>
     </div>
     
   )
