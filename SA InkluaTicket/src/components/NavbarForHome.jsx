@@ -9,6 +9,7 @@ function NavBarForHome() {
   const [isAdm, setAdm] = useState(false);
   const [isEmpresa, setEmpresa] = useState(false);
   const [isUser, setUser] = useState(false);
+  const [imgPerfil, setImg] = useState(null)
 
   useEffect(() => {
     let token = localStorage.getItem('token') || localStorage.getItem('tokenAdm') || localStorage.getItem('tokenEmpresa');
@@ -47,7 +48,9 @@ function NavBarForHome() {
 
       {validação && isAdm ? (
         <>
-          <Link to='/admPainel'>Administração</Link>
+        <nav className='InfosHome'>
+          <Link className='InfosNavHome' to='/admPainel'>Administração</Link>
+          </nav>
         </>
       ) : validação && isEmpresa ? (
         <>
@@ -56,7 +59,18 @@ function NavBarForHome() {
         </>
       ) : validação && isUser ? (
         <>
-          <Link to='/perfilusuario'>Perfil usuário</Link>
+        <nav className='InfosHome'>
+          <div className='CondicionalNav'>
+          <Link className='InfosNavHomeUser' to='/perfilusuario'>Nome do usuário 
+
+          <li className='separadorHome'></li>
+
+          { imgPerfil ? 
+          (<></>) : (<><div  className='backPng'><img className='imageUser' src="./img/User.png" alt="" /></div></>)}
+          
+          </Link>
+          </div>
+          </nav>
         </>
       ) : (
         <nav className='InfosHome'>
@@ -64,7 +78,7 @@ function NavBarForHome() {
             Criar seu evento
           </Link>
           <li className='separadorHome'></li>
-          <Link to='/EscolhaLogin' tabIndex={0} className='InfosNavHome'>
+          <Link to='/TelaLogin' tabIndex={0} className='InfosNavHome'>
             Acessar minha conta
           </Link>
           <li className='separadorHome'></li>

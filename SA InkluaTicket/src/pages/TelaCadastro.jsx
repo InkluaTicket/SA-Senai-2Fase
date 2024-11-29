@@ -203,6 +203,7 @@ function TelaCadastro() {
 
   }
 
+  
 
 
   return (
@@ -323,14 +324,15 @@ function TelaCadastro() {
                       />
 
                       {mostrarOp && (
-                        <ul>
+                        <ul className='OpDefMae'>
                           {opcoes.map((op, index) => (
-                            <li
+                            <p className='OpDef'
+                              tabIndex={(e) => e.preventDefault()}
                               key={index}
                               onMouseDown={() => handleOpClick(op)} // Corrigido para a forma correta
                             >
                               {op}
-                            </li>
+                            </p>
                           ))}
                         </ul>
                       )}
@@ -360,6 +362,8 @@ function TelaCadastro() {
         </div>
 
       </form>
+
+      <UpdatePageTitle title="Página de cadastro" />
 
     </div>
   );

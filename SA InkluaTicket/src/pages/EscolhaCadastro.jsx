@@ -24,6 +24,7 @@ function EscolhaCadastro() {
       <h1>Escolher forma de cadastro</h1>
 
       <Link to='/CadastroUser'>Usuário</Link>
+
     </div>
   )
 }

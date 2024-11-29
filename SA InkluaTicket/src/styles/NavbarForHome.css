@@ -33,13 +33,16 @@ height: min-content;
 
 .InfosNavHome{
 
+    display: flex;
     color: #d9d9d9;
     list-style-type: none;
+    gap: 10px;
     text-decoration: none;
     margin-top: 20px;
     font-size: 20px;
     position: relative;
     cursor: pointer;
+    align-items: center;
     
 }
 
@@ -78,4 +81,38 @@ height: min-content;
     gap: 20px;
     align-items: center;
 
+}
+
+.backPng {
+    width: 40px; /* Definir tamanho consistente */
+    height: 40px;
+    background-color: #d9d9d9;
+    border-radius: 50%; /* Deixa redondo */
+    display: flex; /* Garante que o conteúdo dentro fique centralizado */
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.imageUser{
+
+    width: 30px;
+
+}
+
+.InfosNavHomeUser{
+
+    display: flex;
+    color: #d9d9d9;
+    list-style-type: none;
+    gap: 10px;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 20px;
+    position: relative;
+    cursor: pointer;
+    align-items: center;
+    
 }

@@ -205,3 +205,15 @@
   position: relative; /* Para evitar problemas com contêiner pai */
   display: block; /* Garante que a mensagem fique abaixo do campo */
 }
+
+
+.OpDef{
+
+  box-shadow: 0 6px 12px rgba(0.1, 0.1, 0.1, 0.2);
+  border-radius: 10px;
+
+
+
+
+
+}
