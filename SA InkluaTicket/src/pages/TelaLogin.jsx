@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import '../styles/TelaLogin.css'
 import jwt_decode from 'jwt-decode';
 
 function TelaLogin() {
@@ -30,7 +31,7 @@ function TelaLogin() {
 
             if(!response.ok){
 
-                setMensagem("Erro ao efetuar login!")
+                setMensagem("Senha incorreta!")
 
             }else{
 
@@ -66,38 +67,69 @@ function TelaLogin() {
             }
     }
 
+    const [verSenha, setVerSenha] = useState(false);
+
+    function alternarConfirmarVerSenha() {
+      setVerSenha((prevState) => !prevState);
+    }
+
   return (
 
     <div>
 
-      <Link to='/'>Voltar</Link>
-
-      <h1>Login</h1>
-
       <form onSubmit={EfetuarLogin}>
-       
-       <label htmlFor="">Email:</label>
+      <div className='tudoLogin'>
+        <div className="parteAzulLog">
+            <Link to='/EscolhaLogin' className="btVoltarIMGLog">  
+          <img src="./img/seta.png"  alt="Voltar" />
+          </Link>
+          <img className='imagemscadastrarLog' src="./img/IMG.png" alt="Imagem Login" />
+          <img className='imagemscadastrarLog' src="./img/image.png" alt="Imagem Login" />
+        </div>
+        <div className="parteBrancaLog">
+          <div className="cadastrarLog">
+            <h1 className='Cadastre-seLog'>Login de usuário</h1>
+            <h3>Digite seus dados abaixo</h3>
+          </div>
+          <div className="tudoInputsCheckBTLog">
+            <div className="partesInputsUmDoisLog">
+              <div className="parteUmInpusLog">
+                <div className="inputsLocalLog">
+                  <label>E-mail
+                    <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
+                  </label>
+                </div>
+                <div className="inputsLocaLog">
+                  <label>Senha
+                    <input
+                      type={verSenha ? "text" : "password"}
+                      className='tamanhoInputsLog'
+                      value={FormLogin.Senha} onChange={(e) => setLogin({...FormLogin, Senha: e.target.value})}
+                      placeholder='Digite sua senha'
+                    />
+                    <button className='btSenha' onClick={alternarConfirmarVerSenha}>
+                      {verSenha ? "⨂" : "⨀"}
+                    </button>
+                  </label>
+                </div>
+              </div>
+            </div>
 
-       <br />
-
-      <input type="text" required value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})}/>
-       <br /><br />
-
-       <label htmlFor="">Senha:</label>
-
-       <br />
-
-      <input type="text" value={FormLogin.Senha} onChange={(e) => setLogin({...FormLogin, Senha: e.target.value})}/>
- 
-       <br /><br />
-
-      <input type="submit" />
-
-</form>
-
-{Mensagem}
-
+            <div className="checkboxPCDLog">
+              <label>
+                Não possui uma conta? <a href="#">Cadastre-se</a>
+              </label>
+            </div>
+            <div className="btLocalLog">
+              <input type='submit' className='btCadastrarLog'/>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
     </div>
+
   )
 }
 

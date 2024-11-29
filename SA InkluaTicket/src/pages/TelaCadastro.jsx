@@ -214,7 +214,7 @@ function TelaCadastro() {
         <div className='tudoCadastro'>
           <div className="parteAzul">
 
-            <Link className="btVoltarIMG" to='/'><img src="./img/seta.png" alt="Voltar" /></Link>
+            <Link className="btVoltarIMG" to='/EscolhaCadastro'><img src="./img/seta.png" alt="Voltar" /></Link>
 
             <img className='imagemscadastrar' src="./img/IMG.png" alt="Imagem Cadastro" />
             <img className='imagemscadastrar2' src="./img/image.png" alt="Imagem Cadastro" />
@@ -323,19 +323,32 @@ function TelaCadastro() {
                         value={Form.Deficiencia}
                       />
 
-                      {mostrarOp && (
-                        <ul className='OpDefMae'>
-                          {opcoes.map((op, index) => (
-                            <p className='OpDef'
-                              tabIndex={(e) => e.preventDefault()}
-                              key={index}
-                              onMouseDown={() => handleOpClick(op)} // Corrigido para a forma correta
-                            >
-                              {op}
-                            </p>
-                          ))}
-                        </ul>
-                      )}
+
+
+{mostrarOp && (
+  <ul className="OpDefMae">
+    {opcoes.map((op, index) => (
+      <li
+        className="OpDef"
+        key={index}
+        tabIndex="0" // Permite navegação com Tab
+        onMouseDown={(e) => {
+          e.preventDefault(); // Evita perda de foco ao clicar
+          handleOpClick(op); // Seleção ao clicar
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault(); // Previne comportamento padrão
+            handleOpClick(op); // Seleção ao pressionar Enter
+          }
+        }}
+      >
+        {op}
+      </li>
+    ))}
+  </ul>
+)}
+
 
                     </label>
                   </div>
@@ -362,8 +375,6 @@ function TelaCadastro() {
         </div>
 
       </form>
-
-      <UpdatePageTitle title="Página de cadastro" />
 
     </div>
   );

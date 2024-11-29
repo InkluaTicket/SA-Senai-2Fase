@@ -8,7 +8,8 @@ function TelaUsuarioOuEmpresa() {
 
                 <div className="tudoBtsImgsTxt">
                     <div className="posiImg">
-                        <img src="./img/seta.png" className="imagemSeta" />
+                        <Link to='/'>
+                        <img src="./img/seta.png" className="imagemSeta" /> </Link>
                         <img src="./img/logo.png" className="imagemInklua" />
                     </div>
                     <div className="textos">
