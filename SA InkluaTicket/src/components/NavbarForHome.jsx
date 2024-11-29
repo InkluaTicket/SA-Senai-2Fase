@@ -74,11 +74,11 @@ function NavBarForHome() {
         </>
       ) : (
         <nav className='InfosHome'>
-          <Link role='button' tabIndex={0} className='InfosNavHome'>
+          <Link to="" role='button' tabIndex={0} className='InfosNavHome'>
             Criar seu evento
           </Link>
           <li className='separadorHome'></li>
-          <Link to='/TelaLogin' tabIndex={0} className='InfosNavHome'>
+          <Link to='/EscolhaLogin' tabIndex={0} className='InfosNavHome'>
             Acessar minha conta
           </Link>
           <li className='separadorHome'></li>
