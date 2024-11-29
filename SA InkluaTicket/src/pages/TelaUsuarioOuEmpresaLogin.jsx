@@ -12,7 +12,7 @@ function TelaUsuarioOuEmpresa() {
                         <img src="./img/logo.png" className="imagemInklua" />
                     </div>
                     <div className="textos">
-                        <h1>Realize seu login!</h1>
+                        <h1>Realize seu login !</h1>
                         <h3>Login como usuário para avaliar eventos ou como empresa para organizá-los.</h3>
                     </div>
                     <div className="posiBtImg">
