@@ -1,8 +1,10 @@
 import React from 'react'
+import '../styles/Home.css'
 import NavBarForHome from '../components/NavbarForHome'
+import Carrossel from './Carrossel';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import '../styles/Home.css'
+import Rodape from '../components/Rodape';
 
 function Home() {
 
@@ -19,9 +21,10 @@ function Home() {
 
   return (
     <div>
-      <NavBarForHome/>
-      AAAAAAA
       <UpdatePageTitle title="Página Inicial - InkluaTicket" />
+      <NavBarForHome/>
+      <Carrossel/>
+      <Rodape/>
     </div>
   )
 }
