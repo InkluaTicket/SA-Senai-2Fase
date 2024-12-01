@@ -1,23 +1,23 @@
 .tudocarrossel {
-  font-family: Arial, sans-serif;
+  overflow: hidden; /* Evite rolagem se algo ainda ultrapassar */
+  font-family: "Poppins", sans-serif;
   background-color: #d9d9d9;
   color: #024959;
-  max-width: 100%;
   text-align: center;
-  margin-top: 2%;
-  font-family: "Poppins", sans-serif;
+  max-width: 100%;
+  max-height: 100%;
 }
 .tudoCadastro {
+  box-sizing: border-box; /* Inclua bordas no cálculo do tamanho */
   display: inline-flex;
   width: 100%;
   height: 100%;
   position: absolute;
-  margin-top: 0%;
-  font-family: "Poppins", sans-serif;
 }
+
 /* Estilos do Carrossel */
-.maisUmCarrosselKKK {
-  margin-top: -2%;
+.carrosselPrincipal{
+  margin-top: 0%;
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0) 65%, #d9d9d9 100%), /* Gradiente inferior */
     url('/public/img/imgAzul.png'); /* Imagem de fundo */
@@ -25,95 +25,168 @@
   background-size: cover; /* Faz a imagem preencher o elemento */
   background-repeat: no-repeat; /* Evita que a imagem se repita */
   background-position: center; /* Centraliza a imagem */
-}
-.carrosselPrincipalUmDois{
   display: inline-flex;
-  justify-content: center;
+  flex-direction: column;
   width: 100%;
-  height: 100;
+  height: 600px;
+  margin-bottom: -6%;
 }
-.carrosselPrincipal{
+
+.carrosselTudoImgTt{
+  transition: transform 0.5s ease;
+  display: inline-flex;
+  margin-top: -5%;
+}
+
+.carrosselsImgsTts{
+  display: inline-flex;
+  overflow: hidden;
+  min-width: 100%;
+}
+
+.carrossel-item {
+  min-width: 100%;
+  position: relative;
+  display: inline-flex;
+  margin-top: 15px;
+  color: #d9d9d9;
+}
+.carrosselImgTt{
   width: 50%;
-  height: 50;
 }
-.carrosselPrincipalDOIS{
+.carrosselImgTtDois{
   width: 50%;
-  height: 50;
 }
+.imgs123{
+  margin-top: 10%;
+  width: 80%;
+  border-radius: 8px;
+}
+
 .textosDosShows{
   margin-top: 15%;
+  width: 50%;
+  height: 30%;  
 }
-.btCarrosselPrincipalDOIS{
+.btCarrosselPrincipal{
+  font-weight: 900;
   background-color: #024959;
   color: #d9d9d9;
   width: 50%;
+  height: 30%;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   transform: scale(1.1); 
   transition: 1s;
-}
-.btCarrosselPrincipalDOIS:hover{
+}.btCarrosselPrincipal:hover{
+  font-weight: 900;
   background-color: #d9d9d9;
   color: #024959;
-  width: 50%;
+  width: 60%;
+  height: 40%; 
   border: 1px solid #024959;
   border-radius: 10px;
   transform: scale(1.1); 
   transition: 1s;
 }
-.carrosselIMG{
-  margin-left: 5%;
-  position: relative;
-  width: 90%;
-  overflow: hidden;
-}
-
-.carrossel-conteudo {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carrossel-item {
-  min-width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.carrossel-item .imgs123{
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.carrossel-item {
-  margin-top: 10px;
-  color: #333;
-}
 
 .carrossel-botao {
+  font-weight: 900;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
+  top: 40%;
+  height: 10%;
+  background-color: #d9d9d9;
+  color: #024959;
+  border: 1px solid #024959;
+  border-radius: 10%;
   padding: 10px;
   cursor: pointer;
   font-size: 18px;
-}
-
-.carrossel-botao.anterior {
+}.carrossel-botao:hover {
+  font-weight: 900;
+  position: absolute;
+  top: 40%;
+  height: 10%;
+  background-color: #024959;
+  color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  border-radius: 10%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transform: scale(1.1); 
+  transition: 1s;
+}.carrossel-botao.anterior {
   left: 10px;
-}
-
-.carrossel-botao.proximo {
+}.carrossel-botao.proximo {
   right: 10px;
 }
 
-/* Estilos da Lista de Shows e Festivais */
+
+.carrosselTudoImgTt2{
+  transition: transform 0.5s ease;
+  display: inline-flex;
+  margin-top: -5%;
+}
+.carrossel-item2{
+  margin-left: 100%;
+  min-width: 100%;
+  position:  fixed;
+  display: inline-flex;
+  margin-top: 15px;
+  color: #d9d9d9;
+}
+.carrosselImgTt2{
+  width: 50%;
+}
+.carrosselImgTtDois2{
+  width: 50%;
+}
+.textosDosShows2{
+  margin-top: 15%;
+  width: 50%;
+  height: 30%; 
+}
+.carrosselTudoImgTt3{
+  transition: transform 0.5s ease;
+  display: inline-flex;
+  margin-top: -5%;
+}
+.carrossel-item3{
+  margin-left: 200%;
+  min-width: 100%;
+  position:  fixed;
+  display: inline-flex;
+  margin-top: 15px;
+  color: #d9d9d9;
+}
+.carrosselImgTt3{
+  width: 50%;
+}
+.carrosselImgTtDois3{
+  width: 50%;
+}
+.textosDosShows3{
+  margin-top: 15%;
+  width: 50%;
+  height: 30%; 
+}
+
+
+/* Estilos da Lista de Shows e Festivais e Eventos*/
+.carrosselShowsFestivaisEventos{
+  display: inline-flex;
+  flex-direction: column;
+  gap: 30%;
+}
+.carrossel-conteudo {
+  transition: transform 0.5s ease;
+  display: inline-flex;
+}
 .carrossel{
+  gap: 5% ;
   position: relative;
-  width: 100%;
+  width: 100%; 
   overflow: hidden;
   margin-bottom: 10%;
 }
@@ -127,14 +200,55 @@
 }
 
 .cartao {
-  background-color: #5e88e2;
+  background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 100%, #d9d9d9 100%), /* Gradiente inferior */
+    url('/public/img/imgAzul.png'); /* Imagem de fundo */
+  color: #d9d9d9;
+  background-size: cover; /* Faz a imagem preencher o elemento */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center; /* Centraliza a imagem */
   border-radius: 8px;
-  padding: 0%5%;
-  max-width: 5%;
-  max-height: 0%;
+  padding: 0%6%;
+  max-width: 6%;
+  max-height: 6%;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  color: #333;
 }
 .espacoShowFestivais{
   margin-left: 2%;
+}
+
+.carrossel-botao2 {
+  font-weight: 900;
+  position: absolute;
+  top: 54%;
+  height: 25%;
+  transform: translateY(-50%);
+  background-color: #d9d9d9;
+  color: #024959;
+  border: 1px solid #024959;
+  border-radius: 10%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transform: scale(1.1); 
+  transition: 1s;
+}.carrossel-botao2:hover {
+  font-weight: 900;
+  position: absolute;
+  top: 44%;
+  height: 35%;
+  transform: translateY(-50%);
+  background-color: #024959;
+  color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  border-radius: 10%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transform: scale(1.1); 
+  transition: 1s;
+}.carrossel-botao2.anterior2 {
+  left: 10px;
+}.carrossel-botao2.proximo2 {
+  right: 10px;
 }

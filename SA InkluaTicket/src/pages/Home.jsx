@@ -1,13 +1,12 @@
 import React from 'react'
 import '../styles/Home.css'
 import NavBarForHome from '../components/NavbarForHome'
-import Carrossel from './Carrossel';
+import Carrossel from '../pages/Carrossel';
+import Rodape from '../components/Rodape';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Rodape from '../components/Rodape';
 
 function Home() {
-
 
   const UpdatePageTitle = ({ title }) => {
     const location = useLocation();
