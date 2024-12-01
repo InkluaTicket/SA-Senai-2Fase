@@ -83,6 +83,9 @@ function TelaCadastro() {
   }
 
 
+  useEffect(() => {
+    document.title = 'Tela de cadastro'; // Altera o título da aba
+  }, []);
 
 
 
@@ -100,13 +103,11 @@ function TelaCadastro() {
 
   };
 
-  const handleBlur = () => {
+  const handleBlur = (e) => {
 
-    setTimeout(() => {
-
-      setOp(false);
-
-    }, 150)
+      if (!e.currentTarget.contains(e.relatedTarget)) {
+        setOp(false); 
+      }
 
 
   }
@@ -214,7 +215,7 @@ function TelaCadastro() {
         <div className='tudoCadastro'>
           <div className="parteAzul">
 
-            <Link className="btVoltarIMG" to='/EscolhaCadastro'><img src="./img/seta.png" alt="Voltar" /></Link>
+            <Link className="btVoltarIMG" to='/EscolhaCadastro'><img className='ImgVoltar' src="./img/seta.png" alt="Voltar" /></Link>
 
             <img className='imagemscadastrar' src="./img/IMG.png" alt="Imagem Cadastro" />
             <img className='imagemscadastrar2' src="./img/image.png" alt="Imagem Cadastro" />
@@ -224,10 +225,19 @@ function TelaCadastro() {
               <h1 className='Cadastre-se'>Cadastre-se</h1>
               <h3>Digite seus dados abaixo</h3>
             </div>
+            
             <div className="tudoInputsCheckBT">
               <div className="partesInputsUmDois">
                 <div className="parteUmInpus">
+                   
+                <label className='labelCheckboxPcd'>
+                  <input id='PCD' type="checkbox" className='inputsCheckbox' onChange={Check} />Você é uma pessoa PCD?
+                  <img src="./img/img logo.png" className="imgPCD" alt="Logo PCD" />
+                </label>
+
                   <div className="inputsLocal">
+                    
+                    
                     <label>Nome de usuário
 
                       <input type="text" className='tamanhoInputs'
@@ -289,8 +299,8 @@ function TelaCadastro() {
                         onChange={(e) => { handleChange(e); setForm({ ...Form, Senha: e.target.value }) }}
                         
                       />
-                      <button className='btSenha' onClick={(e) => { e.preventDefault(); alternarVerSenha(); }}>
-                        {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
+                      <button className='btSenha' alt="Mostrar senha" onClick={(e) => { e.preventDefault(); alternarVerSenha(); }}>
+                        {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="Esconder senha" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="Mostrar senha" /></>}
                       </button>
                       {erros.Senha && <p className='avisoLabel'>{erros.Senha}</p>}
                     
@@ -305,19 +315,20 @@ function TelaCadastro() {
                         placeholder='Digite sua senha novamente'
                       />
                       <button className='btSenha' onClick={(e) => { e.preventDefault(); alternarConfirmarVerSenha(); }}>
-                        {verConfirmarSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
+                        {verConfirmarSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="Esconder senha" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="Mostrar senha"/></>}
                       </button>
                       {erros.SenhaConfirm && <p className='avisoLabel'>{erros.SenhaConfirm}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">
+                    <div onBlur={handleBlur}  onFocus={handleFocus}>
+                        
                     <label>Tipo de deficiência <img src="./img/img logo.png" className="imgTipo" alt="Logo Tipo" />
                       <input type="text"
                         id='InptDeficiencias'
                         className={disable ? "InptDisabled" : "tamanhoInputs"}
+                        readOnly
                         placeholder="Não especificado"
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
                         disabled={disable}
                         onChange={handleChangeDef}
                         value={Form.Deficiencia}
@@ -333,7 +344,7 @@ function TelaCadastro() {
         key={index}
         tabIndex="0" // Permite navegação com Tab
         onMouseDown={(e) => {
-          e.preventDefault(); // Evita perda de foco ao clicar
+          
           handleOpClick(op); // Seleção ao clicar
         }}
         onKeyDown={(e) => {
@@ -348,24 +359,22 @@ function TelaCadastro() {
     ))}
   </ul>
 )}
+    </label></div>
+    
 
-
-                    </label>
                   </div>
-                </div>
+
+                </div>                
               </div>
 
               <div className="checkboxPCD">
-                <label className='labelCheckbox'>
-                  <input id='PCD' type="checkbox" className='inputsCheckbox' onChange={Check} />Você é Pessoa PCD
-                  <img src="./img/img logo.png" className="imgPCD" alt="Logo PCD" />
-                </label>
+               
                 <label className='labelCheckbox'>
                   <input type="checkbox" className='inputsCheckbox' />Eu li e aceito os termos de uso
                 </label>
               </div>
               <label className='labelCheckbox1'>
-                Já possui uma conta? <a href="#">Fazer login</a>
+                Já possui uma conta? <Link to='/TelaLogin'>Fazer login</Link>
               </label>
               <div className="btLocal">
                 <input type='submit' className='btCadastrar' /><br />

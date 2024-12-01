@@ -10,6 +10,50 @@ function NavBarForHome() {
   const [isEmpresa, setEmpresa] = useState(false);
   const [isUser, setUser] = useState(false);
   const [imgPerfil, setImg] = useState(null)
+  const [UsuarioLogado, setUserLog] = useState('')
+ 
+
+ 
+
+    const PuxarUsuario = async () => {
+
+      const token = localStorage.getItem('token');
+
+      
+      try{  
+      const response = await fetch('http://localhost:3000/perfil', {
+
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      }
+
+      });
+
+      if (response.ok) {
+
+          const userData = await response.json();
+          setUserLog(userData)
+
+      }else{
+
+        console.log('deu b.o', response)
+
+      }
+    
+    }
+
+      catch (err) {
+
+        console.error('Erro ao buscar usuario', err)
+  
+      }
+
+    }
+
+
+
 
   useEffect(() => {
     let token = localStorage.getItem('token') || localStorage.getItem('tokenAdm') || localStorage.getItem('tokenEmpresa');
@@ -30,6 +74,9 @@ function NavBarForHome() {
         setUser(true);
         setAdm(false);
         setEmpresa(false);
+         
+        PuxarUsuario();
+        
       }
     } else {
       setVali(false);
@@ -61,7 +108,9 @@ function NavBarForHome() {
         <>
         <nav className='InfosHome'>
           <div className='CondicionalNav'>
-          <Link className='InfosNavHomeUser' to='/perfilusuario'>Nome do usuário 
+          <Link className='InfosNavHomeUser' to='/GerenciamentoUser'>
+
+          Bem vindo {UsuarioLogado.nome}!
 
           <li className='separadorHome'></li>
 

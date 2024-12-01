@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../styles/TelaLogin.css'
 import jwt_decode from 'jwt-decode';
@@ -7,12 +7,25 @@ function TelaLogin() {
 
 
     const [FormLogin, setLogin] = useState ({ Email: '', Senha: ''})
-    const [Mensagem, setMensagem] = useState('')
+    const [MensagemSenha, setSenha] = useState('')
+    const [Feedback, setFeed] = useState('')
+    const [MensagemEmail, setEmail] = useState('')
     const navigate = useNavigate();
+
+    const [erros, setErros] = useState({
+      Email: '', Senha: ''
+    })
 
     const EfetuarLogin = async (e) =>{
 
         e.preventDefault();
+
+        const validationErrors = validateForm(FormLogin);
+    setErros(validationErrors);
+
+
+    if (Object.values(validationErrors).every(error => error === '')) {
+      console.log('Formulário enviado com sucesso!', FormLogin)
 
         try{
 
@@ -25,23 +38,39 @@ function TelaLogin() {
                 
             });
 
-            
-
+          
+      
             
 
             if(!response.ok){
 
-                setMensagem("Senha incorreta!")
+              const data = await response.json();
+              console.log(data)
 
-            }else{
+              if(data.message === 'Usuário não encontrado!'){
 
-                
+                setEmail(data.message)
+                setSenha('')
 
+              }else{
+
+                setEmail('')
+
+              }
+              if(data.message === 'Senha incorreta!'){ 
+
+                setSenha(data.message)}
+
+            }
+          
+            else{
+
+            
                 const data = await response.json();
 
                 if(!data.token){
 
-                    setMensagem('Token não recebido');
+                    console.log('Token não recebido');
                     return
 
                 }
@@ -49,14 +78,26 @@ function TelaLogin() {
 
                 if(decode.papel === 'Administrador'){
 
-                    setMensagem('Administrador logado!')
+                    setFeed('Login como moderador bem sucedido!')
                     localStorage.setItem('tokenAdm', data.token)
+
+                    setTimeout(() => { 
+
                     navigate('/')
 
+                    }, 3000)
+
                 }else{
-                setMensagem("Login bem sucedido!")
+               
+
+                setFeed('Login bem sucedido!')
                 localStorage.setItem('token', data.token)
-                navigate('/')
+                setTimeout(() => { 
+                      
+                    navigate('/')
+
+                    }, 3000)
+
              }
             } 
          }   catch (error){
@@ -65,7 +106,32 @@ function TelaLogin() {
             console.error('Erro durante o login!', error)
 
             }
+          }
     }
+
+    const validateForm = (data) => {
+
+      const erros = {}
+  
+     
+      if (!data.Email) {
+        erros.Email = 'Campo obrigatório!';
+      } else if (!/^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.com$/.test(data.Email)) {
+        erros.Email = 'Email inválido!';
+      }
+  
+  
+      if (!data.Senha) {
+        erros.Senha = 'Campo obrigatório!';
+      }
+  
+      return erros;
+  
+    }
+
+    useEffect(() => {
+      document.title = 'Tela de login'; // Altera o título da aba
+    }, []);
 
     const [verSenha, setVerSenha] = useState(false);
 
@@ -96,7 +162,12 @@ function TelaLogin() {
               <div className="parteUmInpusLog">
                 <div className="inputsLocalLog">
                   <label>E-mail
-                    <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
+                    <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => 
+                       setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
+                       {erros.Email ? <p aria-live='assertive' className='avisoLabel'>{erros.Email}</p> : <><p 
+                        aria-live='assertive' 
+                        className='avisoLabel'> 
+                          {MensagemEmail}</p></>}
                   </label>
                 </div>
                 <div className="inputsLocaLog">
@@ -107,9 +178,14 @@ function TelaLogin() {
                       value={FormLogin.Senha} onChange={(e) => setLogin({...FormLogin, Senha: e.target.value})}
                       placeholder='Digite sua senha'
                     />
-                    <button className='btSenha' onClick={alternarConfirmarVerSenha}>
+                    <button className='btSenha' onClick={(e) => {e.preventDefault(); 
+                       alternarConfirmarVerSenha()}}>
                       {verSenha ? "⨂" : "⨀"}
                     </button>
+                    {erros.Senha ? <p aria-live='assertive'  className='avisoLabel'>{erros.Senha}</p> : 
+                    <><p aria-live='assertive' 
+                        className='avisoLabel'> 
+                       {MensagemSenha}</p></>}
                   </label>
                 </div>
               </div>
@@ -117,11 +193,12 @@ function TelaLogin() {
 
             <div className="checkboxPCDLog">
               <label>
-                Não possui uma conta? <a href="#">Cadastre-se</a>
+                Não possui uma conta? <Link to='/CadastroUser'>Cadastre-se</Link>
               </label>
             </div>
             <div className="btLocalLog">
               <input type='submit' className='btCadastrarLog'/>
+              {<><p aria-live='assertive'>{Feedback}</p></>}
               
             </div>
           </div>

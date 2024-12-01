@@ -224,7 +224,7 @@ app.post('/login', async(req, res) => {
 
     try{
         
-        let result = await pool.query('SELECT * FROM adm WHERE email = $1 ', [Email])
+        let result = await pool.query('SELECT * FROM moderador WHERE email = $1 ', [Email])
         let isAdm = false;
         let user = null
 
@@ -239,7 +239,7 @@ app.post('/login', async(req, res) => {
             result = await pool.query('SELECT * FROM usuarios WHERE email = $1', [Email])
 
             if(result.rows.length === 0){
-                return res.status(400).json({message: 'Usuário ou adm não encontrado'})
+                return res.status(400).json({message: 'Usuário não encontrado!'})
             }
 
             user = result.rows[0]
@@ -328,6 +328,8 @@ app.post('/loginEmpresa', async (req, res) => {
 const AutenticaçãoDeToken = (req, res, next) => {
 
     const token = req.headers['authorization']?.split(' ')[1];
+
+    console.log(token)
 
     
 
@@ -533,6 +535,8 @@ app.get('/buscarUsuarioComentarios/:userId', async (req, res) => {
     }
 
 })
+
+
 
 
 app.listen(3000, () => {

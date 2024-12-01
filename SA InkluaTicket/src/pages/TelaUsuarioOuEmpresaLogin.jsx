@@ -1,15 +1,22 @@
 import React from 'react'
 import '../styles/TelaUsuarioOuEmpresa.css'
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 function TelaUsuarioOuEmpresa() {
+
+    useEffect(() => {
+        document.title = 'Tela de escolha'; // Altera o título da aba
+      }, []);
+
+
     return (
             <div className="tudoUsuarioOuEmpresa">
 
                 <div className="tudoBtsImgsTxt">
                     <div className="posiImg">
                         <Link to='/'>
-                        <img src="./img/seta.png" className="imagemSeta" /> </Link>
+                        <img src="./img/seta.png" className="imagemSeta" alt='Voltar' /> </Link>
                         <img src="./img/logo.png" className="imagemInklua" />
                     </div>
                     <div className="textos">

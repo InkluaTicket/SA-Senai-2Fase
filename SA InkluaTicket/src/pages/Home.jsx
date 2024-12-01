@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/Home.css'
 import NavBarForHome from '../components/NavbarForHome'
 import Carrossel from './Carrossel';
@@ -8,7 +8,7 @@ import Rodape from '../components/Rodape';
 
 function Home() {
 
-
+  
   const UpdatePageTitle = ({ title }) => {
     const location = useLocation();
   

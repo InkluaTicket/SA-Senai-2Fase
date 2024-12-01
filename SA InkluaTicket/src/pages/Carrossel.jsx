@@ -76,7 +76,7 @@ function Carrossel() {
       <h2>Shows</h2>
       <div className="carrossel">
         <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideShow * 35}%)` }}>
-          <div className="cartao">
+          <div tabIndex={0} className="cartao">
             <h3>Show 1</h3>
             <p>Detalhes sobre o Show 1</p>
           </div>
@@ -144,7 +144,7 @@ function Carrossel() {
       <h2>Festivais</h2>
       <div className="carrossel">
         <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * 35}%)` }}>
-          <div className="cartao">
+          <div tabIndex={0} className="cartao">
             <h3>Festival 1</h3>
             <p>Detalhes sobre o Festival 1</p>
           </div>
