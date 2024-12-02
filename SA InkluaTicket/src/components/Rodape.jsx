@@ -1,5 +1,5 @@
 import React from 'react'
-import './Rodape.css'
+import '../styles/Rodape.css'
 
 function Rodape() {
     return (
@@ -8,14 +8,23 @@ function Rodape() {
                 <br />
                 <div class="espaçoCorFim"></div>
                 <br />
-                <div class="textFinal">
-                    <button class="corbotão" onclick="sobre()"><h3>sobre nós</h3></button>
-                    <br />
-                    <button class="corbotão" onclick="serviços()"><h3>serviços</h3></button>
-                    <br />
-                    <button class="corbotão" onclick="logo()"><h3>logomarca</h3></button>
-                    <br />
-                    <button class="corbotão" onclick="fale()"><h3>fale conosco</h3></button>
+                <div className="textFinalUmDois">
+                    <div class="textFinal">
+                        <h3 class="corbotão" onclick="sobre()">sobre nós</h3>
+                        <br />
+                        <h3 class="corbotão" onclick="serviços()">serviços</h3>
+                        <br />
+                        <h3 class="corbotão" onclick="logo()">logomarca</h3>
+                        <br />
+                        <h3 class="corbotão" onclick="fale()">fale conosco</h3>
+                    </div>
+                    <div class="textFinalDois">
+                        <h3 onclick="sobre()">
+                            A InkluaTicked busca abrir caminhos e facilitar o acesso  ao mercado de interativo de entretenimento para <br />
+                            milhares de pessoas com deficiência. Nossa plataforma funciona como uma corrente colaborativa compostade <br />
+                            elos sociais e profissionais que garantem oportunidades para organizações e pessoas Em toda SC. <br />
+                        </h3>
+                    </div>
                 </div>
                 <br />
                 <div class="espaçoCorFim"></div>
