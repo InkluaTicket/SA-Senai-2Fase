@@ -21,6 +21,7 @@ function Gerenciamento() {
   const [NomeEdit, setNomeEdit] = useState(true)
   const [TelefoneEdit, setTeleEdit] = useState(true)
   const [CEPEdit, setCEPEdit] = useState(true)
+  const [DefEdit, setDefEdit] = useState(true)
   const [Pcd, setPcd] = useState(false)
   const navigate = useNavigate();
   const token = localStorage.getItem('token') || localStorage.getItem('tokenAdm')
@@ -77,24 +78,46 @@ function Gerenciamento() {
   const ChangeName = () => {
 
     if(NomeEdit === true)
-        {setNomeEdit(false); setAlterar(true)}; 
+        {setNomeEdit(false); setAlterar(true)}
 
-    if(NomeEdit === false){ 
-    setNomeEdit(true); if(TelefoneEdit === true && CEPEdit === true && imgPreview === false){
+    else if(Pcd){
+
+        setNomeEdit(true); if(TelefoneEdit === true && CEPEdit === true && DefEdit === true && imgPreview === null || imgPreview === 
+        false){
+
+            setAlterar(false)
+    
+        }
+
+    }else if(!Pcd && NomeEdit === false){ 
+    setNomeEdit(true); if(TelefoneEdit === true && CEPEdit === true && imgPreview === null || imgPreview === false){
 
         setAlterar(false)
 
-    }} 
+    }}
 
-  }
+
+     
+}
 
   const ChangeTele = () => {
 
     if(TelefoneEdit === true)
-        {setTeleEdit(false); setAlterar(true)}; 
+        {setTeleEdit(false); setAlterar(true)}
 
-    if(TelefoneEdit === false){ 
-    setTeleEdit(true); if(NomeEdit === true && CEPEdit === true && imgPreview === false){
+    else if(Pcd){
+
+        setTeleEdit(true); if(NomeEdit === true && CEPEdit === true && DefEdit === true && imgPreview === null 
+             || imgPreview === 
+        false){
+
+            setAlterar(false)
+    
+        }
+    }
+
+    else if(!Pcd && TelefoneEdit === false){ 
+    setTeleEdit(true); if(NomeEdit === true && CEPEdit === true && imgPreview === null || imgPreview === false){
 
         setAlterar(false)
 
@@ -105,10 +128,34 @@ function Gerenciamento() {
   const ChangeCEP = () => {
 
     if(CEPEdit === true)
-        {setCEPEdit(false); setAlterar(true)}; 
+        {setCEPEdit(false); setAlterar(true)}
 
-    if(CEPEdit === false){ 
-    setCEPEdit(true); if(TelefoneEdit === true && NomeEdit === true && imgPreview === false){
+    else if(Pcd){
+
+        setCEPEdit(true); if(TelefoneEdit === true && NomeEdit === true && DefEdit === true && imgPreview === null 
+            || imgPreview === 
+        false){
+
+            setAlterar(false)
+    
+        }}
+
+    else if(!Pcd && CEPEdit === false){ 
+    setCEPEdit(true); if(TelefoneEdit === true && NomeEdit === true && imgPreview === null || imgPreview === false){
+
+        setAlterar(false)
+
+    }} 
+
+  }
+
+  const ChangeDef = () => {
+
+    if(DefEdit === true)
+        {setDefEdit(false); setAlterar(true)}; 
+
+    if(DefEdit === false){ 
+    setDefEdit(true); if(TelefoneEdit === true && NomeEdit === true && CEPEdit === true  &&imgPreview === null  || imgPreview === false){
 
         setAlterar(false)
 
@@ -123,6 +170,8 @@ function Gerenciamento() {
     setTeleEdit(true)
     setAlterar(false)
     setMostrar(true)
+    setLimpar(true)
+    setPrev(null)
 
     if(NewInfos.NovaImagem){
         setNew({NovoNome: User.nome, NovoTelefone: User.telefone, NovoCEP: User.endereco, NovaImagem: 
@@ -192,15 +241,14 @@ function Gerenciamento() {
             <input type="file" onChange={(e) => { 
 
 const file = e.target.files[0];
-setPrev(URL.createObjectURL(file))
 setMostrar(false)
 setAlterar(true)
-if(Cancelar){
+if(limparFile){
 
    e.target.value = null
    
 }
-
+setPrev(URL.createObjectURL(file))
 setNew({...NewInfos, NovaImagem: file}); 
 
 
@@ -216,7 +264,8 @@ setNew({...NewInfos, NovaImagem: file});
           <div className='div-inpt1'>
 
             <label className='labelInpts'>Nome</label>
-            <input className='inpts' type="text" disabled={NomeEdit} value={NewInfos.NovoNome}  onChange={(e) => 
+            <input className={NomeEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={NomeEdit} value= 
+                     {NewInfos.NovoNome}  onChange={(e) => 
                  setNew({...NewInfos, NovoNome: e.target.value})}/>
 
               <img tabIndex={0} onClick={ChangeName} className={Pcd ? 'LapisEditNomeDef' 
@@ -228,7 +277,7 @@ setNew({...NewInfos, NovaImagem: file});
              <InputMask
              mask="(99) 99999-9999"
              alwaysShowMask={false}
-             className='inpts' type="text" disabled={TelefoneEdit} 
+             className={TelefoneEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={TelefoneEdit} 
              onChange={(e) => setNew({...NewInfos, NovoTelefone: e.target.value})}
              value={NewInfos.NovoTelefone}
              ></InputMask>
@@ -239,7 +288,8 @@ setNew({...NewInfos, NovaImagem: file});
 
             
             <label className='labelInpts'>CEP</label>
-            <input className='inpts' type="text" disabled={CEPEdit} value={NewInfos.NovoCEP}/> <br />
+            <input className={CEPEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={CEPEdit} value= 
+                     {NewInfos.NovoCEP}/> <br />
 
             <img tabIndex={0} onClick={ChangeCEP} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
                     src="./img/iconLapis.png" alt="" />
@@ -251,13 +301,13 @@ setNew({...NewInfos, NovaImagem: file});
           <div className='div-inpt2'>
 
           <label className='labelInpts'>E-mail</label>
-          <input className='inpts' type="text" disabled value={User.email}/>
+          <input className='InptDisabledGerenciamento' type="text" disabled value={User.email}/>
 
             <label className='labelInpts'>CPF</label>
-            <input className='inpts' type="text" disabled value={User.cpf} />
+            <input className='InptDisabledGerenciamento' type="text" disabled value={User.cpf} />
 
             <label className='labelInpts'>Senha</label>
-            <input className='inpts' type="text" disabled value={User.senha}/> <br />
+            <input className='InptDisabledGerenciamento' type="text" disabled value={User.senha}/> <br />
 
 
 
@@ -300,7 +350,12 @@ setNew({...NewInfos, NovaImagem: file});
 
 
         <label className='detalhes'>Detalhes:</label>
-        <input className='inptsTela2' type="text" value={Pcd ? NewInfos.NovaDetalhesDef : 'Não possui'} />
+        <input className={DefEdit ? 'inptsTela2Disabled' : 'inptsTela2'} disabled={DefEdit} type="text" value={Pcd ? NewInfos.NovaDetalhesDef : 'Não possui'} 
+        />
+
+        { Pcd &&  
+        <img tabIndex={0} onClick={ChangeDef} className={Pcd ? 'LapisEditDetalhesDef' : 'LapisEditDetalhes'} 
+                    src="./img/iconLapis.png" alt="" />}
       </div>
 
 
