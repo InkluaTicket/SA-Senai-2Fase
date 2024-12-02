@@ -17,8 +17,15 @@
     align-items: center;
   }
   
+  .ImgVoltar{
+    width: 60px;
+  }
   .imagemscadastrarLog {
-    width: 60%;
+    width: 50%;
+    height: 50%;
+  }
+  .imagemscadastrarLog2 {
+    width:  60%;
     height: 50%;
   }
   
@@ -35,7 +42,7 @@
   
   .cadastrarLog{
     height: 25%;
-    margin-top: -3%;
+    margin-top: -1%;
     margin-right: 30%;
     color: darkgrey;
   }.Cadastre-seLog {
@@ -50,8 +57,9 @@
     color: black;
     width: 50%;
     height: 50%;
-    margin-top: -15%;
+    margin-top: -30%;
     margin-left: 9%;
+    margin-bottom: 10%;
   }.parteUmInpusLog {
     align-items: start;
     width: 90%;
@@ -59,8 +67,8 @@
   }.inputsLocalLog {
     align-items: start;
     width: fit-content;
-    margin-top: 10%;
-    margin-bottom: 25%;
+    margin-top: 15%;
+    margin-bottom: 15%;
   }
   
   .tamanhoInputsLog {
@@ -79,7 +87,7 @@
     margin-bottom: 5%;
     margin-left: 10%;
     color: black;
-    width: 55%;
+    width: 70%;
     text-align: start;
   }
   
@@ -88,8 +96,12 @@
     align-items: center;
   }
   .btCadastrarLog{
-    margin-left: 17%;
+    margin-top: 5%;
+    margin-left: 18%;
     width: 50%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
     background-color: #024959;
     color: #FFFFFF;
     transform: scale(1.1); 
@@ -105,7 +117,7 @@
   }
   
   .tudoInputsCheckBTLog{
-    margin-top: 7%;
+    margin-top: 5%;
     margin-left: -4%;
     width: 70%;
     height: 70%;
@@ -123,8 +135,8 @@
   }
   .btSenhaLog{
     position: absolute;
-    margin-top: -2.8%;
-    margin-left: 24%;
+    margin-top: -2.2%;
+    margin-left: 24.5%;
     background-color: #FFFFFF;
     color: black;
     border: none;

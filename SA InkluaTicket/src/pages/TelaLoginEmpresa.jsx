@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import '../styles/TelaLogin.css'
 import jwt_decode from 'jwt-decode';
 
-function TelaLogin() {
+function telaLoginEmpresa() {
 
 
     const [FormLogin, setLogin] = useState ({ Email: '', Senha: ''})
@@ -88,15 +88,15 @@ function TelaLogin() {
         </div>
         <div className="parteBrancaLog">
           <div className="cadastrarLog">
-            <h1 className='Cadastre-seLog'>Login de usuário</h1>
-            <h3>Digite seus dados abaixo</h3>
+            <h1 className='Cadastre-seLog'>Login de Empresa</h1>
+            <h3>Digite os dados da Empresa abaixo</h3>
           </div>
           <div className="tudoInputsCheckBTLog">
             <div className="partesInputsUmDoisLog">
               <div className="parteUmInpusLog">
                 <div className="inputsLocalLog">
-                  <label>E-mail
-                    <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
+                  <label>CNPJ
+                    <input type="CNPJ" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu CNPJ' />
                   </label>
                 </div>
                 <div className="inputsLocaLog">
@@ -117,7 +117,7 @@ function TelaLogin() {
 
             <div className="checkboxPCDLog">
               <label>
-                Não possui uma conta? <Link to="/CadastroUser">Cadastre-se</Link>
+                Não possui uma conta? <Link to="/CadastroEmpresa">Cadastre-se empresa</Link>
               </label>
             </div>
             <div className="btLocalLog">
@@ -133,4 +133,4 @@ function TelaLogin() {
   )
 }
 
-export default TelaLogin
+export default telaLoginEmpresa
