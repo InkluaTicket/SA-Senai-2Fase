@@ -28,7 +28,7 @@ function TelaUsuarioOuEmpresa() {
                             <div className="imagemDiv">
                                 <img src="./img/mãos .png" className="imagemEmpre" />
                             </div>
-                            <Link to='' className='botaoImg'>Empresa</Link>
+                            <Link to='/LoginEmpresa' className='botaoImg'>Empresa</Link>
                         </div>
                         <img src="./img/image.png" className="imagemPcds" />
                         <div className="btsImgs">

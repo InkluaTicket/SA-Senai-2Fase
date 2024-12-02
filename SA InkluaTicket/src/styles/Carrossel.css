@@ -70,21 +70,21 @@
 }
 .btCarrosselPrincipal{
   font-weight: 900;
-  background-color: #024959;
-  color: #d9d9d9;
+  background-color: #d9d9d9;
+  color: #024959;
   width: 50%;
-  height: 30%;
-  border: 1px solid #d9d9d9;
+  height: 25%;
+  border: 1px solid #024959;
   border-radius: 10px;
   transform: scale(1.1); 
   transition: 1s;
 }.btCarrosselPrincipal:hover{
   font-weight: 900;
-  background-color: #d9d9d9;
-  color: #024959;
-  width: 60%;
-  height: 40%; 
-  border: 1px solid #024959;
+  background-color: #024959;
+  color: #d9d9d9;
+  width: 55%;
+  height: 30%; 
+  border: 1px solid #d9d9d9;
   border-radius: 10px;
   transform: scale(1.1); 
   transition: 1s;
@@ -102,11 +102,13 @@
   padding: 10px;
   cursor: pointer;
   font-size: 18px;
+  transform: scale(1.1); 
+  transition: 1s;
 }.carrossel-botao:hover {
   font-weight: 900;
   position: absolute;
   top: 40%;
-  height: 10%;
+  height: 12%;
   background-color: #024959;
   color: #d9d9d9;
   border: 1px solid #d9d9d9;
