@@ -1,27 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
 import '../styles/Navbar.css'
 
-function Navbar() {
+export default function Navbar() {
   return (
-    <div>
-      <header className="ContainerHome">
-        <div className="EndElementsHome">
+    <div className='navbar-containerGerenc'>
+      
+      <div className='testeGerenc'>
 
-          <Link to="/">
-            <img src="./img/seta.png" alt="voltar" className="seta" />
-          </Link>
+      <img className='voltarGerenc' src="./img/arrow_back (2).png" alt="" />
+      <h1 className='gerenciamentoDaConta'>Gerenciamento da conta</h1>
 
-          <img
-            className="LogoFundoAzulHome"
-            src="./img/logo.png"
-            alt="Logo Inklua"
-          />
+      </div>
 
-        </div>
-      </header>
+      <div><img className='logo' src="./img/InKlua.png" alt="" /></div>
+
     </div>
-  );
+  )
 }
 
-export default Navbar;

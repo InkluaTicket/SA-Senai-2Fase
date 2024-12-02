@@ -1,0 +1,203 @@
+:root {
+    --cor-1: #024959;
+    --cor-2: #5C868F;
+    --cor-3: #7B9AAB;
+    --cor-4: #D9D9D9;
+  }
+ 
+  .Corpo-containerUser {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  
+  .divUmUser, .divDoisUser {
+    background-color: var(--cor-4);
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+
+  .iconUser {
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 10px;
+    margin-left: 90px;
+    margin-bottom: 2px;
+    margin-top: 100px;
+  }
+
+  .nomeUser{
+    display: block;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-left: -372px;
+    margin-top: -5px;
+  }
+
+
+  .verificado2User{
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin-left: 135px;
+    margin-top: -140px;
+  }
+  .verificado1User{
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin-left: 155px;
+    margin-top: -70px;
+  }
+
+  .gerenciarUser{
+    width: 200px;
+    padding: 8px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 12px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: whitesmoke;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--cor-1);
+    margin-left: -40px;
+ 
+  }
+
+  .iconGerenciarUser{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 210px;
+    margin-top: -40px;
+  }
+  
+  
+  .divLinhaUser {
+    width: 1px;
+    background-color: #b9b8b8;
+    height: 100%;
+  }
+  
+  
+  /*Tela2*/
+  
+  
+  .divDoisUser{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  
+  .Frase1User{
+    font-size: 30px;
+    font-weight: 400px;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    margin-right: 10%;
+    
+  }
+  
+  .Texto1User{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 100px;
+    margin-right: 0%;
+  }
+
+  .Frase2User{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: -200px;
+  }
+  
+  .Texto2User{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 50px;
+    margin-right: 0%;
+  }
+  
+  .possuiDeficienciaUser{
+    font-size: 24px;
+    color: rgb(40, 40, 40);
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
+    margin-bottom: 1%;
+    margin-left: 100px;
+  }
+  .verificado2User{
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin: 0;
+    margin-top: -15px;
+  }
+  .checkBoxGroupUser{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  
+  .checkBoxGroupUser label {
+    font-size: 14px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-left: 5px;
+  }
+  
+  
+  .deficienciaUser{
+    font-size: 14px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  .detalhesUser{
+    font-size: 14px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-left: 100px;
+    margin-top: 30px;
+  }
+  .inptsUser{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: -12px;
+    font-family: "Poppins", sans-serif;
+    margin-left: 100px;
+    margin-top: 6px;
+  }

@@ -108,7 +108,7 @@ function NavBarForHome() {
         <>
         <nav className='InfosHome'>
           <div className='CondicionalNav'>
-          <Link className='InfosNavHomeUser' to='/GerenciamentoUser'>
+          <Link className='InfosNavHomeUser' to='/PerfilUser'>
 
           Bem vindo {UsuarioLogado.nome}!
 

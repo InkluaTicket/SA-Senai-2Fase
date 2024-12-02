@@ -4,6 +4,7 @@ import '../styles/Corpo.css';
 import { useState, useEffect } from 'react';
 import InputMask from 'react-input-mask';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 
 function Gerenciamento() {
@@ -228,13 +229,16 @@ function Gerenciamento() {
   }, [User])
 
   return (
+    <>  
     <div className='Corpo-container'>
+
+        <Navbar/>
 
       <div className='divUm'>
         <h1 className='dadosDaConta'>Dados da Conta</h1>
 
         {  MostrarPrev ? <>  <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> </> : 
-        <> <img className='iconUser' src={imgPreview} style={{borderRadius: '50%'}} alt="" /> </>
+        <> <img className='iconUserGerenc' src={imgPreview} style={{borderRadius: '50%'}} alt="" /> </>
           }
 
         <label className='alterarfoto'>
@@ -360,6 +364,7 @@ setNew({...NewInfos, NovaImagem: file});
 
 
     </div>
+    </>
   );
 }
 

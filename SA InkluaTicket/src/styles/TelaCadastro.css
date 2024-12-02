@@ -1,253 +1,254 @@
-.tudoCadastro {
-  display: inline-flex;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  margin-top: 0%;
-  font-family: "Poppins", sans-serif;
-}
-
-/* tudo */
-
-.parteAzul {
-  width: 100%;
-  height: 100%;
-  background-color: #024959;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.imagemscadastrar {
-  width:  50%;
-  height: 50%;
-}
-.imagemscadastrar2 {
-  width:  60%;
-  height: 50%;
-}
-
-/* tela branca funcional*/
-.parteBranca {
-  width: 100%;
-  height: 100%;
-  background-color: #d9d9d9;
-  border-radius: 1%;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cadastrar {
-  height: 25%;
-  margin-top: 0%;
-  margin-right: 50%;
-  color: darkgrey;
-}.Cadastre-se {
-  font-weight: 100;
-  margin-left: -2%;
-  color: #024959;
-  margin-bottom: -3%;
-}
-
-.partesInputsUmDois {
-  display: inline-flex;
-  align-items: center;
-  color: #333;
-  width: 90%;
-  height: 90%;
-  margin-top: -15%;
-}
-
-.parteUmInpus {
-  align-items: start;
-  width: 100%;
-  height: 60%;
-}.parteDoisInpus {
-  margin-top: 7.3%;
-  margin-left: 10%;
-  align-items: end;
-  width: 100%;
-  height: 60%;
-}
-.parteDoisInpusCad{
-  margin-left: 10%;
-  align-items: end;
-  width: 100%;
-  height: 60%;
-}
-
-.inputsLocal {
-  align-items: start;
-  margin-top: 5%;
-}
-
-.tamanhoInputs {
-  background-color: #FFFFFF;
-  color: #000000;
-  border: none;
-  outline: 0;
-  border-radius: 8px;
-  width: 110%;
-  padding: 8px;
-  text-align: start;
-  padding-left: 10px;
-}
-.InptDisabled{
-
-
-  background-color: #d9d9d9;
-  color: black;
-  border: 1px solid black;
-  outline: 0;
-  border-radius: 8px;
-  width: 110%;
-  padding: 8px;
-  text-align: start;
-  padding-left: 10px;
   
-
-}
-
-.imgTipo{
-  margin-left: 1%;
-  width: 7%;
-  height: 7%;
-}
-.checkboxPCD{
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  margin-top: -8%;
-  margin-bottom: 5%;
-  margin-left: 5%;
-  color: black;
-  width: 40%;
-  text-align: start;
-}.imgPCD{
-  margin-left: 2%;
-  width: 7%;
-  height: 7%;
-}
-.inputsCheckbox {
-  background-color: #ffff;
-  color: #FFFFFF;
-  border:1px solid #FFFFFF;
-}
-.labelCheckbox1{
-  margin-left: 10%;
-}
-.labelCheckbox{
-  margin-left: -10%;
-  margin-top: 14%;
-  margin-bottom: 2%;
-}
-
-.btLocal{
-  margin-left: 10%;
-  align-items: center;
-}
-.btCadastrar{
-  margin-top: 5%;
-  margin-left: 20%;
-  width: 50%;
-  height: 30px;
-  border-radius: 5px;
-  border: none;
-  background-color: #024959;
-  color: #FFFFFF;
-  transform: scale(1.1); 
-  transition: 1s;
-}
-.btCadastrar:hover{
-  transform: scale(1.1); 
-  transition: 1s;
-  width: 55%;
-  border:1px solid #024959;
-  background-color: #d9d9d9;
-  color: #024959;
-}
-
-.tudoInputsCheckBT{
-  margin-bottom: 4%;
-  margin-left: 3%;
-  width: 95%;
-  height: 100%;
-}
-
-.btVoltarIMG{
-  position: absolute;
-  margin-top: 2%;
-  margin-left: -40%;
-  width: 6%;
-  height: 10%;
-  border-radius: 45%;
-  background-color: #024959;
-  color: #FFFFFF;
-}
-.btSenha{
-  position: absolute;
-  margin-top: -2%;
-  margin-left: 19%;
-  background-color: #FFFFFF;
-  color: black;
-  border: none;
-  border-radius: 10px;
-}
-
-.olhoSenha{
-
-  width: 20px;
-
-}
-
-.LabelInpt{
-
-  font-family: 'Poppins', sans-serif;
-
-}
-
-.avisoLabel {
-  font-size: 10px; /* Tamanho pequeno para mensagens */
-  color: red; /* Destaque em vermelho */
-  margin-top: 4px; /* Espaçamento do input acima */
-  position: relative; /* Para evitar problemas com contêiner pai */
-  display: block; /* Garante que a mensagem fique abaixo do campo */
-}
-
-
-.OpDef{
-
-  box-shadow: 0 6px 12px rgba(0.1, 0.1, 0.1, 0.2);
-  border-radius: 10px;
-
-}
-
-
-.OpDefMae {
-  position: absolute; /* Para alinhar a lista abaixo do input */
-  width: 305px; /* Largura reduzida para 50% do tamanho do input (ajustável) */
-  margin-top: 4px; /* Pequeno espaçamento entre o input e a lista */
-  background-color: #fff; /* Fundo branco */
-  border: 1px solid #ccc; /* Borda discreta */
-  border-radius: 4px; /* Cantos arredondados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  z-index: 10; /* Garante que a lista fique acima de outros elementos */
-  list-style: none; /* Remove marcadores de lista */
-  padding: 0; /* Remove padding extra */
-}
-
-.OpDef {
-  padding: 6px 10px; /* Espaçamento menor para compactar */
-  cursor: pointer; /* Mostra o cursor de clique */
-  font-size: 13px; /* Tamanho de fonte menor para economizar espaço */
-  color: #333; /* Cor do texto */
-  transition: background-color 0.2s ease; /* Transição suave */
-}
-
-.OpDef:hover, 
-.OpDef:focus {
-  background-color: #f0f0f0; /* Destaque claro no hover */
-  color: #000; /* Cor do texto no hover */
-  outline: none; /* Remove borda de foco padrão */
-}
+  .tudoCadastro {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-top: 0%;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* tudo */
+  
+  .parteAzul {
+    width: 100%;
+    height: 100%;
+    background-color: #024959;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .imagemscadastrar {
+    width:  50%;
+    height: 50%;
+  }
+  .imagemscadastrar2 {
+    width:  60%;
+    height: 50%;
+  }
+  
+  /* tela branca funcional*/
+  .parteBranca {
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    border-radius: 1%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cadastrar {
+    height: 25%;
+    margin-top: 0%;
+    margin-right: 50%;
+    color: darkgrey;
+  }.Cadastre-se {
+    font-weight: 100;
+    margin-left: -2%;
+    color: #024959;
+    margin-bottom: -3%;
+  }
+  
+  .partesInputsUmDois {
+    display: inline-flex;
+    align-items: center;
+    color: #333;
+    width: 90%;
+    height: 90%;
+    margin-top: -15%;
+  }
+  
+  .parteUmInpus {
+    align-items: start;
+    width: 100%;
+    height: 60%;
+  }.parteDoisInpus {
+    margin-top: 7.3%;
+    margin-left: 10%;
+    align-items: end;
+    width: 100%;
+    height: 60%;
+  }
+  .parteDoisInpusCad{
+    margin-left: 10%;
+    align-items: end;
+    width: 100%;
+    height: 60%;
+  }
+  
+  .inputsLocal {
+    align-items: start;
+    margin-top: 5%;
+  }
+  
+  .tamanhoInputs {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: none;
+    outline: 0;
+    border-radius: 8px;
+    width: 110%;
+    padding: 8px;
+    text-align: start;
+    padding-left: 10px;
+  }
+  .InptDisabled{
+  
+  
+    background-color: #d9d9d9;
+    color: black;
+    border: 1px solid black;
+    outline: 0;
+    border-radius: 8px;
+    width: 110%;
+    padding: 8px;
+    text-align: start;
+    padding-left: 10px;
+    
+  
+  }
+  
+  .imgTipo{
+    margin-left: 1%;
+    width: 7%;
+    height: 7%;
+  }
+  .checkboxPCD{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: -8%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    color: black;
+    width: 40%;
+    text-align: start;
+  }.imgPCD{
+    margin-left: 2%;
+    width: 7%;
+    height: 7%;
+  }
+  .inputsCheckbox {
+    background-color: #ffff;
+    color: #FFFFFF;
+    border:1px solid #FFFFFF;
+  }
+  .labelCheckbox1{
+    margin-left: 10%;
+  }
+  .labelCheckbox{
+    margin-left: -10%;
+    margin-top: 14%;
+    margin-bottom: 2%;
+  }
+  
+  .btLocal{
+    margin-left: 10%;
+    align-items: center;
+  }
+  .btCadastrar{
+    margin-top: 5%;
+    margin-left: 20%;
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #024959;
+    color: #FFFFFF;
+    transform: scale(1.1); 
+    transition: 1s;
+  }
+  .btCadastrar:hover{
+    transform: scale(1.1); 
+    transition: 1s;
+    width: 55%;
+    border:1px solid #024959;
+    background-color: #d9d9d9;
+    color: #024959;
+  }
+  
+  .tudoInputsCheckBT{
+    margin-bottom: 4%;
+    margin-left: 3%;
+    width: 95%;
+    height: 100%;
+  }
+  
+  .btVoltarIMG{
+    position: absolute;
+    margin-top: 2%;
+    margin-left: -40%;
+    width: 6%;
+    height: 10%;
+    border-radius: 45%;
+    background-color: #024959;
+    color: #FFFFFF;
+  }
+  .btSenha{
+    position: absolute;
+    margin-top: -2%;
+    margin-left: 19%;
+    background-color: #FFFFFF;
+    color: black;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .olhoSenha{
+  
+    width: 20px;
+  
+  }
+  
+  .LabelInpt{
+  
+    font-family: 'Poppins', sans-serif;
+  
+  }
+  
+  .avisoLabel {
+    font-size: 10px; /* Tamanho pequeno para mensagens */
+    color: red; /* Destaque em vermelho */
+    margin-top: 4px; /* Espaçamento do input acima */
+    position: relative; /* Para evitar problemas com contêiner pai */
+    display: block; /* Garante que a mensagem fique abaixo do campo */
+  }
+  
+  
+  .OpDef{
+  
+    box-shadow: 0 6px 12px rgba(0.1, 0.1, 0.1, 0.2);
+    border-radius: 10px;
+  
+  }
+  
+  
+  .OpDefMae {
+    position: absolute; /* Para alinhar a lista abaixo do input */
+    width: 305px; /* Largura reduzida para 50% do tamanho do input (ajustável) */
+    margin-top: 4px; /* Pequeno espaçamento entre o input e a lista */
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #ccc; /* Borda discreta */
+    border-radius: 4px; /* Cantos arredondados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    z-index: 10; /* Garante que a lista fique acima de outros elementos */
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0; /* Remove padding extra */
+  }
+  
+  .OpDef {
+    padding: 6px 10px; /* Espaçamento menor para compactar */
+    cursor: pointer; /* Mostra o cursor de clique */
+    font-size: 13px; /* Tamanho de fonte menor para economizar espaço */
+    color: #333; /* Cor do texto */
+    transition: background-color 0.2s ease; /* Transição suave */
+  }
+  
+  .OpDef:hover, 
+  .OpDef:focus {
+    background-color: #f0f0f0; /* Destaque claro no hover */
+    color: #000; /* Cor do texto no hover */
+    outline: none; /* Remove borda de foco padrão */
+  }

@@ -10,6 +10,7 @@ import TelaCadastro from "../pages/TelaCadastro";
 import TelaLogin from "../pages/TelaLogin";
 import TelaCadastroEmpresa from "../pages/TelaCadastroEmpresa";
 import TelaLoginEmpresa from "../pages/TelaLoginEmpresa";
+import Perfil from "../pages/Perfil";
 
 const PageWrapper = ({ element, screenName }) => {
   const location = useLocation();
@@ -23,15 +24,16 @@ const PageWrapper = ({ element, screenName }) => {
 };
 
 const Routes = createBrowserRouter([
-  {path: '/', element: <PageWrapper element={ <Home />} screenName='Tela de início'/> },
-  {path: '/TelaLogin', element: <PageWrapper element={ <TelaLogin />} screenName='Tela de login para usuários'/>},
+  { path: '/', element: <PageWrapper element={ <Home />} screenName='Tela de início'/> },
+  { path: '/TelaLogin', element: <PageWrapper element={ <TelaLogin />} screenName='Tela de login para usuários'/>},
   { path: '/CadastroUser', element: <PageWrapper element={ <TelaCadastro />} screenName='Tela de cadastro para usuários' /> },
-  {path: '/LoginEmpresa', element: <PageWrapper element={ <TelaLoginEmpresa />} screenName='Tela de login para Empresa'/>},
+  { path: '/LoginEmpresa', element: <PageWrapper element={ <TelaLoginEmpresa />} screenName='Tela de login para Empresa'/>},
   { path: '/CadastroEmpresa', element: <PageWrapper element={ <TelaCadastroEmpresa />} screenName='Tela de cadastro para Empresa' /> },
   { path: '/CriarEvento', element: <PageWrapper element={ <CriarEvento />} screenName='Tela de criação de eventos'/> },
   { path: '/EscolhaCadastro', element: <PageWrapper element={ <TelaUsuarioOuEmpresa />} screenName='Tela de escolha, forma de cadastro' /> },
   { path: '/EscolhaLogin', element: <PageWrapper element={ <TelaUsuarioOuEmpresaLogin />} screenName='Tela de escolha, forma de login' /> },
   { path: '/GerenciamentoUser', element: <PageWrapper element={ <Gerenciamento/>} screenName='Tela de gerenciamento de perfil do usuário'/> },
+  { path: '/PerfilUser', element: <PageWrapper element={ <Perfil/>} screenName='Tela de gerenciamento de perfil do usuário'/> },
 ]);
 
 export default Routes;
