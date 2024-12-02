@@ -2,22 +2,25 @@ import React from 'react';
 import jwt_decode from "jwt-decode"
 import '../styles/Corpo.css';
 import { useState, useEffect } from 'react';
+import InputMask from 'react-input-mask';
 import { useNavigate } from 'react-router-dom';
 
 
 function Gerenciamento() {
 
   const [User, setUser] = useState('')
-  const [Mostrar, setMostrar] = useState(false)
-  const [isDisable, setDisable] = useState(true)
+  const [MostrarPrev, setMostrar] = useState(true)
+  const [SalvarAlteracoes, setAlterar] = useState(false)
   const [NewInfos, setNew] = useState({NovoNome:'', NovaImagem: null, 
   NovoCEP: '', NovoTelefone: '', NovaDetalhesDef: ''  })
 
-  const [SalvarEdicoes, setSalvar] = useState(false)
   const [imgPreview, setPrev] = useState(null)
   const [limparFile, setLimpar] = useState(false)
   const [isCheckedTrue, setChecked] = useState(false)
   const [isCheckedFalse, setCheckedFalse] = useState(false)
+  const [NomeEdit, setNomeEdit] = useState(true)
+  const [TelefoneEdit, setTeleEdit] = useState(true)
+  const [CEPEdit, setCEPEdit] = useState(true)
   const [Pcd, setPcd] = useState(false)
   const navigate = useNavigate();
   const token = localStorage.getItem('token') || localStorage.getItem('tokenAdm')
@@ -71,6 +74,76 @@ function Gerenciamento() {
 
   }
 
+  const ChangeName = () => {
+
+    if(NomeEdit === true)
+        {setNomeEdit(false); setAlterar(true)}; 
+
+    if(NomeEdit === false){ 
+    setNomeEdit(true); if(TelefoneEdit === true && CEPEdit === true && imgPreview === false){
+
+        setAlterar(false)
+
+    }} 
+
+  }
+
+  const ChangeTele = () => {
+
+    if(TelefoneEdit === true)
+        {setTeleEdit(false); setAlterar(true)}; 
+
+    if(TelefoneEdit === false){ 
+    setTeleEdit(true); if(NomeEdit === true && CEPEdit === true && imgPreview === false){
+
+        setAlterar(false)
+
+    }} 
+
+  }
+
+  const ChangeCEP = () => {
+
+    if(CEPEdit === true)
+        {setCEPEdit(false); setAlterar(true)}; 
+
+    if(CEPEdit === false){ 
+    setCEPEdit(true); if(TelefoneEdit === true && NomeEdit === true && imgPreview === false){
+
+        setAlterar(false)
+
+    }} 
+
+  }
+
+  const Cancelar = () =>{
+
+    setCEPEdit(true)
+    setNomeEdit(true)
+    setTeleEdit(true)
+    setAlterar(false)
+    setMostrar(true)
+
+    if(NewInfos.NovaImagem){
+        setNew({NovoNome: User.nome, NovoTelefone: User.telefone, NovoCEP: User.endereco, NovaImagem: 
+     User.imagem, NovaDetalhesDef: User.detalhes_deficiencia})
+    }else{
+    
+      setNew({NovoNome: User.nome, NovoTelefone: User.telefone, NovoCEP: User.endereco, NovaImagem: null, NovaDetalhesDef: User.detalhes_deficiencia})
+    
+    }
+    
+
+  }
+
+  const Salvar = () => {
+
+    alert("Filho da puta")
+
+  }
+
+
+
   useEffect(() => {
 
     Renderizar();
@@ -111,10 +184,27 @@ function Gerenciamento() {
       <div className='divUm'>
         <h1 className='dadosDaConta'>Dados da Conta</h1>
 
-        <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" />
+        {  MostrarPrev ? <>  <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> </> : 
+        <> <img className='iconUser' src={imgPreview} style={{borderRadius: '50%'}} alt="" /> </>
+          }
 
         <label className='alterarfoto'>
-            <input type="file" style={{display: 'none'}} />
+            <input type="file" onChange={(e) => { 
+
+const file = e.target.files[0];
+setPrev(URL.createObjectURL(file))
+setMostrar(false)
+setAlterar(true)
+if(Cancelar){
+
+   e.target.value = null
+   
+}
+
+setNew({...NewInfos, NovaImagem: file}); 
+
+
+}} style={{display: 'none'}} />
           alterar foto <img className='iconeFoto' src="./img/iconFoto.png" alt="Change Photo Icon" />
         </label>
 
@@ -126,21 +216,33 @@ function Gerenciamento() {
           <div className='div-inpt1'>
 
             <label className='labelInpts'>Nome</label>
-            <input className='inpts' type="text" disabled={isDisable} value={NewInfos.NovoNome}  onChange={(e) => 
+            <input className='inpts' type="text" disabled={NomeEdit} value={NewInfos.NovoNome}  onChange={(e) => 
                  setNew({...NewInfos, NovoNome: e.target.value})}/>
 
-              <img className={Pcd ? 'LapisEditNomeDef' :'LapisEditNome' } src="./img/iconLapis.png" alt="" />
+              <img tabIndex={0} onClick={ChangeName} className={Pcd ? 'LapisEditNomeDef' 
+                :'LapisEditNome' } 
+               src="./img/iconLapis.png" alt="Editar nome" />
 
             <label className='labelInpts'>Telefone</label>
-            <input className='inpts' type="text" disabled value={NewInfos.NovoTelefone}/>
 
-            <img className={Pcd ? 'LapisEditTeleDef' : 'LapisEditTele'} src="./img/iconLapis.png" alt="" />
+             <InputMask
+             mask="(99) 99999-9999"
+             alwaysShowMask={false}
+             className='inpts' type="text" disabled={TelefoneEdit} 
+             onChange={(e) => setNew({...NewInfos, NovoTelefone: e.target.value})}
+             value={NewInfos.NovoTelefone}
+             ></InputMask>
+
+
+            <img tabIndex={0} onClick={ChangeTele} className={Pcd ? 'LapisEditTeleDef' : 'LapisEditTele'} 
+                    src="./img/iconLapis.png" alt="" />
 
             
             <label className='labelInpts'>CEP</label>
-            <input className='inpts' type="text" disabled value={NewInfos.NovoCEP}/> <br />
+            <input className='inpts' type="text" disabled={CEPEdit} value={NewInfos.NovoCEP}/> <br />
 
-            <img className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} src="./img/iconLapis.png" alt="" />
+            <img tabIndex={0} onClick={ChangeCEP} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
+                    src="./img/iconLapis.png" alt="" />
 
 
             
@@ -163,6 +265,9 @@ function Gerenciamento() {
           </div>
 
         </div>
+
+         {SalvarAlteracoes &&  
+        <><button onClick={Salvar} className='sair'>Salvar alterações</button> <button onClick={Cancelar}>Cancelar</button></>}
 
         <button onClick={Logout} className='sair'>Sair da conta</button>
 
@@ -195,7 +300,7 @@ function Gerenciamento() {
 
 
         <label className='detalhes'>Detalhes:</label>
-        <input className='inptsTela2' type="text" />
+        <input className='inptsTela2' type="text" value={Pcd ? NewInfos.NovaDetalhesDef : 'Não possui'} />
       </div>
 
 
