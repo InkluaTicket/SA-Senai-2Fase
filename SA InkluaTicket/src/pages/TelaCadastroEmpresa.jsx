@@ -231,7 +231,7 @@ function TelaCadastroEmpresa() {
                 <div className="parteUmInpus">
                   <div className="inputsLocal">
                     
-                    <label>Nome de usuário
+                    <label>Nome da Empresa
 
                       <input type="text" className='tamanhoInputs'
                         placeholder='Digite seu nome de Usuário' onChange={(e) => { handleChange(e); setForm({ ...Form, Nome: e.target.value }) }} />
@@ -249,7 +249,7 @@ function TelaCadastroEmpresa() {
                     </label>
                   </div>
                   <div className="inputsLocal">
-                    <label>CPF
+                    <label>CNPJ
                       <InputMask
                         mask="999.999.999-99"
                         alwaysShowMask={false}

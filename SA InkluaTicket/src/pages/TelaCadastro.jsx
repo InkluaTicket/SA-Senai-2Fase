@@ -222,7 +222,7 @@ function TelaCadastro() {
           </div>
           <div className="parteBranca">
             <div className="cadastrar">
-              <h1 className='Cadastre-se'>Cadastre-se</h1>
+              <h1 className='Cadastre-se'>Cadastre-se usuário</h1>
               <h3>Digite seus dados abaixo</h3>
             </div>
             
