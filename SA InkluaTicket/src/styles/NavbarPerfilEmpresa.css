@@ -1,0 +1,38 @@
+:root{
+    --cor-1: #024959;
+    --cor-2: #5C868F;
+    --cor-3: #7B9AAB;
+    --cor-4: #D9D9D9;
+}
+.navbar-containerEmpresa{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--cor-1);
+    padding: 5px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    align-items: center;
+}
+.logoNaveEmp{
+    width: 190px;
+    height: min-content;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.voltarNavEmp{
+    width: 30px;
+    margin-left: 12px;
+    margin-right: 40px;
+}
+.perfilEmpresa{
+    color: var(--cor-4);
+    text-align: center;
+    font-size: 30px;  
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+
+}
+.div-navbarEmp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
