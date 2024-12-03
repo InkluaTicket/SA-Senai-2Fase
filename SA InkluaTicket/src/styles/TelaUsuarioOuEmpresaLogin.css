@@ -24,7 +24,6 @@
 }
 
 .posiImg {
-
     height: 10%;
     margin-top: 0.2%;
     margin-left: -22%;
@@ -55,23 +54,28 @@
     gap: 10%;
 }
 
+
 .btsImgs {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    gap: 3%;
-    width: 80%;
-    height: 70%;
+    border: 1px solid #d9d9d9;
+    width: 200px;
+    height: 60%;
     transform: scale(1.1);
     transition: 1s;
 }
 
 .btsImgsLINKS {
+    gap: 3%;
+    justify-items: center;
     text-decoration: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.btsImgs:hover {
+.btsImgsLINKS:hover {
     display: inline-flex;
     transform: scale(1.2);
     transition: 1s;
@@ -90,14 +94,12 @@
 }
 
 .botaoImg {
-    background-color: #d9d9d9;
-    color: #024959;
-    border: none;
-    border-radius: 10px;
-    font-size: 20px;
-    margin-left: 2%;
-    width: 110%;
-    height: 20%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    width: 10px;
+    height: 60%;
     transform: scale(1.1);
     transition: 1s;
 }
