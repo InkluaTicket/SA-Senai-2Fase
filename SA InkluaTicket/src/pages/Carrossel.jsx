@@ -13,13 +13,13 @@ function Carrossel() {
   function imgAnterior() {
     setSlideAtual((prev) => (prev - 1 + 3) % 3)
   }
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     proximoImg();
-  //   }, 4000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      proximoImg();
+    }, 4500);
 
-  //   return () => clearInterval(interval);
-  // }, []);
+    return () => clearInterval(interval);
+  }, []);
 
 
   function proximoShow() {
@@ -101,7 +101,7 @@ function Carrossel() {
       <div className="carrosselShowsFestivaisEventos">
         {/* Carrossel de Shows */}
         <div className="carrossel">
-          <h2>Shows</h2>
+          <h1 className='carrosselShFeEvTEXTO'>Shows</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideShow * 35}%)` }}>
             <div className="cartao">
               <h3>Show 1</h3>
@@ -169,7 +169,7 @@ function Carrossel() {
 
         {/* Carrossel de Festivais */}
         <div className="carrossel">
-          <h2>Festivais</h2>
+          <h1 className='carrosselShFeEvTEXTO'>Festivais</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * 35}%)` }}>
             <div className="cartao">
               <h3>Festival 1</h3>
@@ -237,7 +237,7 @@ function Carrossel() {
 
         {/* Carrossel de Eventos */}
         <div className="carrossel">
-          <h2>Eventos</h2>
+          <h1 className='carrosselShFeEvTEXTO'>Eventos</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideEventos * 35}%)` }}>
             <div className="cartao">
               <h3>Eventos 1</h3>

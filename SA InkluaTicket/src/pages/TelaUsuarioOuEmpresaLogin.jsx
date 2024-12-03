@@ -36,7 +36,7 @@ function TelaUsuarioOuEmpresa() {
                     <div className="btsImgs">
                         <Link to='/TelaLogin' className="btsImgsLINKS">
                             <div className="imagemDiv">
-                                <img src="./img/img usuario.png" className="imagemUsuar" />
+                                <img src="./img/imgUsuarioLogin.png" className="imagemUsuar2" />
                             </div>
                             <div className='botaoImg'>Usuário</div>
                         </Link>

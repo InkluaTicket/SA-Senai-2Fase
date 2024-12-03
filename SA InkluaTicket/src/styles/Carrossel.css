@@ -181,6 +181,11 @@
   flex-direction: column;
   gap: 30%;
 }
+.carrosselShFeEvTEXTO{
+  text-align: start;
+  margin-left: 6%;
+  font-weight: 750;
+}
 .carrossel-conteudo {
   transition: transform 0.5s ease;
   display: inline-flex;
