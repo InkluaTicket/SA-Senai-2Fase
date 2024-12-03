@@ -229,10 +229,11 @@ function Gerenciamento() {
   }, [User])
 
   return (
-    <>  
+    <>
+    <Navbar/>  
     <div className='Corpo-container'>
 
-        <Navbar/>
+        
 
       <div className='divUm'>
         <h1 className='dadosDaConta'>Dados da Conta</h1>
@@ -268,11 +269,12 @@ setNew({...NewInfos, NovaImagem: file});
           <div className='div-inpt1'>
 
             <label className='labelInpts'>Nome</label>
-            <input className={NomeEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={NomeEdit} value= 
+            <input className={NomeEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={NomeEdit} 
+                      value= 
                      {NewInfos.NovoNome}  onChange={(e) => 
                  setNew({...NewInfos, NovoNome: e.target.value})}/>
 
-              <img tabIndex={0} onClick={ChangeName} className={Pcd ? 'LapisEditNomeDef' 
+              <img tabIndex={0} onClick={ChangeName} onKeyDown={() => {if(key === 'Enter')ChangeName}} className={Pcd ? 'LapisEditNomeDef' 
                 :'LapisEditNome' } 
                src="./img/iconLapis.png" alt="Editar nome" />
 
@@ -287,7 +289,7 @@ setNew({...NewInfos, NovaImagem: file});
              ></InputMask>
 
 
-            <img tabIndex={0} onClick={ChangeTele} className={Pcd ? 'LapisEditTeleDef' : 'LapisEditTele'} 
+            <img tabIndex={0} onClick={ChangeTele} onKeyDown={ ()  => {if(key === 'Enter'){ChangeTele();}}} className={Pcd ? 'LapisEditTeleDef' : 'LapisEditTele'} 
                     src="./img/iconLapis.png" alt="" />
 
             
@@ -295,7 +297,7 @@ setNew({...NewInfos, NovaImagem: file});
             <input className={CEPEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={CEPEdit} value= 
                      {NewInfos.NovoCEP}/> <br />
 
-            <img tabIndex={0} onClick={ChangeCEP} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
+            <img tabIndex={0} onClick={ChangeCEP} onKeyDown={ () => {if(key === 'Enter'){ChangeCEP();}}} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
                     src="./img/iconLapis.png" alt="" />
 
 
@@ -358,7 +360,7 @@ setNew({...NewInfos, NovaImagem: file});
         />
 
         { Pcd &&  
-        <img tabIndex={0} onClick={ChangeDef} className={Pcd ? 'LapisEditDetalhesDef' : 'LapisEditDetalhes'} 
+        <img tabIndex={0} onClick={ChangeDef} onKeyDown={ChangeDef} className={Pcd ? 'LapisEditDetalhesDef' : 'LapisEditDetalhes'} 
                     src="./img/iconLapis.png" alt="" />}
       </div>
 

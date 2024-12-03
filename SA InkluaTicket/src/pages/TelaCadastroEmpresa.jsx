@@ -8,33 +8,24 @@ function TelaCadastroEmpresa() {
 
   const [Form, setForm] = useState({
     Nome: '', Email: '', Senha: '', SenhaConfirm: '', Endereco: '', Telefone: '',
-    CPF: '', Deficiencia: 'Não especificado', PCD: false
+    CNPJ: ''
   })
 
   const [erros, setErros] = useState({
     Nome: '', Email: '', Senha: '', SenhaConfirm: '', Endereco: '', Telefone: '',
-    CPF: '', Endereco: ''
+    CNPJ: ''
   })
 
-  const [mostrarOp, setOp] = useState(false)
-  const [disable, setDisable] = useState(true)
+
   const navigator = useNavigate();
 
 
-  const opcoes = [
-
-    'Deficiência visual',
-    'Deficiência física',
-    'Deficiência cognitiva',
-    'Deficiência auditiva',
-    'Não especificado'
-
-  ]
+  
 
   const [verSenha, setVerSenha] = useState(false);
   const [verConfirmarSenha, setVerConfirmarSenha] = useState(false);
 
-  const handleForm = async (e) => {
+ const handleSubmit = async (e) =>{
 
     e.preventDefault();
 
@@ -47,40 +38,51 @@ function TelaCadastroEmpresa() {
 
 
 
-      const response = await fetch('http://localhost:3000/usuarios', {
+      
 
+       
+
+        const response = await fetch('http://localhost:3000/criarempresa',{
+            
         method: 'POST',
-        headers: {
-
-          'Content-type': 'application/json'
-
-        },
-
+        headers: {'Content-type' : 'application/json'},
         body: JSON.stringify(Form)
 
-      });
 
-      if (response.ok) {
+        })
 
-        const data = await response.json();
+        try{
 
-        if (!data.token) {
+          if (response.ok) {
 
-          console.error('Token não encontrado!')
-          return
+            const data = await response.json();
+    
+            if (!data.token) {
+    
+              console.error('Token não encontrado!')
+              return
+    
+            }
+    
+            localStorage.setItem('tokenEmpresa', data.token)
+            navigator('/')
+    
+          }
+           else { 
+    
+          console.log('Fudeu')}
+    
+        
+
+        }catch(err){
+       
+         console.error('Erro ao cadastrar empresa!', err)
 
         }
 
-        localStorage.setItem('token', data.token)
-        navigator('/')
-
-      }
-    } else {
-
-      console.log('Fudeu')
-
     }
-  }
+  
+}
 
 
   useEffect(() => {
@@ -145,22 +147,30 @@ function TelaCadastroEmpresa() {
       erros.Email = 'Email inválido!';
     }
 
-    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-  if (!data.CPF) {
-    erros.CPF = 'Campo obrigatório!';
-  } else if (!cpfRegex.test(data.CPF)) {
-    erros.CPF = 'CPF inválido! Use o formato XXX.XXX.XXX-XX.';
+    const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+
+  if (!data.CNPJ) {
+    erros.CNPJ = 'Campo obrigatório!';
+  } else if (!cnpjRegex.test(data.CNPJ)) {
+    erros.CNPJ = 'CNPJ inválido! Use o formato XX.XXX.XXX/XXXX-XX.';
   }
 
   const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/; 
+
   if (!data.Telefone) {
     erros.Telefone = 'Campo obrigatório!';
   } else if (!telefoneRegex.test(data.Telefone)) {
     erros.Telefone = 'Telefone inválido! Use o formato (XX) XXXXX-XXXX.';
   }
+    const cepRegex = /^\d{5}-\d{3}$/;
+
     if(!data.Endereco){
 
       erros.Endereco = 'Campo obrigatório!'
+
+    }else if(!cepRegex.test(data.Endereco)){
+
+      erros.Endereco = 'CEP inválido! Use o formato XXXXX-XXX'
 
     }
 
@@ -211,7 +221,7 @@ function TelaCadastroEmpresa() {
 
     <div>
 
-      <form onSubmit={handleForm}>
+      <form onSubmit={handleSubmit}>
         <div className='tudoCadastro'>
           <div className="parteAzul">
 
@@ -251,14 +261,14 @@ function TelaCadastroEmpresa() {
                   <div className="inputsLocal">
                     <label>CNPJ
                       <InputMask
-                        mask="999.999.999-99"
+                        mask="99.999.999/9999-99"
                         alwaysShowMask={false}
                         className="tamanhoInputs"
-                        placeholder="Digite seu CPF"
-                        onChange={(e) => { handleChange(e); setForm({ ...Form, CPF: e.target.value }) }}
+                        placeholder="Digite seu CNPJ"
+                        onChange={(e) => { handleChange(e); setForm({ ...Form, CNPJ: e.target.value }) }}
                       >
                       </InputMask>
-                      {erros.CPF && <p className='avisoLabel'>{erros.CPF}</p>}
+                      {erros.CNPJ && <p className='avisoLabel'>{erros.CNPJ}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -277,10 +287,19 @@ function TelaCadastroEmpresa() {
                 </div>
                 <div className="parteDoisInpusCad">
                   <div className="inputsLocal">
-                    <label>Endereço 
-                      <input type="text" className='tamanhoInputs' placeholder='Digite seu Endereço'
-                        onChange={(e) => { handleChange(e); setForm({ ...Form, Endereco: e.target.value }) }} />
-                        {erros.Endereco && <p className='avisoLabel'>{erros.Endereco}</p>}
+                    <label>CEP 
+
+                       <InputMask
+                       mask= '99999-999'
+                       alwaysShowMask={false}
+                       className='tamanhoInputs'
+                       placeholder="Digite seu CEP"
+                       onChange={(e) => { handleChange(e); setForm({ ...Form, Endereco: e.target.value }) }}
+
+                       ></InputMask>
+                       {erros.Endereco && <p className='avisoLabel'>{erros.Endereco}</p>}
+
+                      
                     </label>
                   </div>
                   <div className="inputsLocal">

@@ -158,9 +158,16 @@ function TelaCadastro() {
   } else if (!telefoneRegex.test(data.Telefone)) {
     erros.Telefone = 'Telefone inválido! Use o formato (XX) XXXXX-XXXX.';
   }
+
+  const cepRegex = /^\d{5}-\d{3}$/;
+
     if(!data.Endereco){
 
       erros.Endereco = 'Campo obrigatório!'
+
+    }else if(!cepRegex.test(data.Endereco)){
+
+      erros.Endereco = 'CEP inválido! Use o formato XXXXX-XXX'
 
     }
 
@@ -285,8 +292,17 @@ function TelaCadastro() {
                 <div className="parteDoisInpus">
                   <div className="inputsLocal">
                     <label>Endereço 
-                      <input type="text" className='tamanhoInputs' placeholder='Digite seu Endereço'
-                        onChange={(e) => { handleChange(e); setForm({ ...Form, Endereco: e.target.value }) }} />
+
+                    <InputMask
+                       mask= '99999-999'
+                       alwaysShowMask={false}
+                       className='tamanhoInputs'
+                       placeholder="Digite seu CEP"
+                       onChange={(e) => { handleChange(e); setForm({ ...Form, Endereco: e.target.value }) }}
+
+                       ></InputMask>
+
+                      
                         {erros.Endereco && <p className='avisoLabel'>{erros.Endereco}</p>}
                     </label>
                   </div>

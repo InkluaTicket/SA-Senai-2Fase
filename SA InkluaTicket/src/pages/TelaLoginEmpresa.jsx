@@ -2,70 +2,89 @@ import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../styles/TelaLogin.css'
 import jwt_decode from 'jwt-decode';
+import InputMask from 'react-input-mask'
 
 function telaLoginEmpresa() {
 
 
-    const [FormLogin, setLogin] = useState ({ Email: '', Senha: ''})
+    const [FormLogin, setLogin] = useState ({ CNPJ: '', Senha: ''})
+    const [erros, setErros] = useState({
+     CNPJ: '',  Senha: ''
+      
+    })
+  
     const [Mensagem, setMensagem] = useState('')
     const navigate = useNavigate();
 
-    const EfetuarLogin = async (e) =>{
+    const EfetuarLogin = async (e) => {
 
-        e.preventDefault();
+      e.preventDefault();
 
-        try{
+      try{ 
 
-            const response = await fetch('http://localhost:3000/login', {
+      const response = await fetch('http://localhost:3000/loginEmpresa', {
 
-                method: 'POST',
-                headers: {'Content-type':'application/json'},
-                body: JSON.stringify(FormLogin)
-                
-                
-            });
+      method: 'POST',
+      headers: {'Content-type' : 'application/json'},
+      body: JSON.stringify(Form)
 
-            
+      })
 
-            
+      if(response.ok){
 
-            if(!response.ok){
+          const data = await response.json();
+          const token = data.token
+          localStorage.setItem('tokenEmpresa', token)
+          navigator('/')
 
-                setMensagem("Senha incorreta!")
+      }
 
-            }else{
+    }catch(err){
 
-                
+      console.error('Erro ao efetuar login!', err.message)
+      
 
-                const data = await response.json();
-
-                if(!data.token){
-
-                    setMensagem('Token não recebido');
-                    return
-
-                }
-                const decode = jwt_decode(data.token)
-
-                if(decode.papel === 'Administrador'){
-
-                    setMensagem('Administrador logado!')
-                    localStorage.setItem('tokenAdm', data.token)
-                    navigate('/')
-
-                }else{
-                setMensagem("Login bem sucedido!")
-                localStorage.setItem('token', data.token)
-                navigate('/')
-             }
-            } 
-         }   catch (error){
-
-            setMensagem('Erro ao fazer login!')
-            console.error('Erro durante o login!', error)
-
-            }
     }
+  }
+
+  const handleChange = (e) => {
+
+    const { name, value } = e.target;
+
+    setLogin({
+
+      ...FormLogin, [name]: value
+
+    })
+
+  }
+
+  const validateForm = (data) => {
+
+    const erros = {}
+
+    const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+
+  if (!data.CNPJ) {
+    erros.CNPJ = 'Campo obrigatório!';
+  } else if (!cnpjRegex.test(data.CNPJ)) {
+    erros.CNPJ = 'CNPJ inválido! Use o formato XX.XXX.XXX/XXXX-XX.';
+  }
+
+  
+
+    if (!data.Senha) {
+      erros.Senha = 'Campo obrigatório!';
+    } else if (data.Senha.length < 6) {
+      erros.Senha = 'A senha deve ter pelo menos 6 caracteres';
+    }
+
+ 
+
+    return erros;
+
+  }
+
 
     const [verSenha, setVerSenha] = useState(false);
 
@@ -96,7 +115,15 @@ function telaLoginEmpresa() {
               <div className="parteUmInpusLog">
                 <div className="inputsLocalLog">
                   <label>CNPJ
-                    <input type="CNPJ" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu CNPJ' />
+                  <InputMask
+                        mask="99.999.999/9999-99"
+                        alwaysShowMask={false}
+                       className='tamanhoInputsLog'
+                        placeholder="Digite seu CNPJ"
+                        onChange={(e) => { handleChange(e); setLogin({ ...FormLogin, CNPJ: e.target.value }) }}
+                      >
+                      </InputMask>
+                      {erros.CNPJ && <p className='avisoLabel'>{erros.CNPJ}</p>}
                   </label>
                 </div>
                 <div className="inputsLocaLog">

@@ -100,24 +100,29 @@ function NavBarForHome() {
           </nav>
         </>
       ) : validação && isEmpresa ? (
-        <>
-          <Link to='/criarevento'>Crie seu evento</Link>
-          <Link to='/perfilempresa'>Perfil Empresa</Link>
+        <> <nav className='InfosHome'> 
+     
+        
+          <Link className='InfosNavHome' to='/criarevento'>Crie seu evento</Link>
+          <Link className='InfosNavHome' to='/perfilempresa'>Perfil Empresa</Link>
+        
+          
+          </nav>
         </>
       ) : validação && isUser ? (
         <>
         <nav className='InfosHome'>
           <div className='CondicionalNav'>
-          <Link className='InfosNavHomeUser' to='/PerfilUser'>
+          <div className='InfosNavHomeUser'>
 
           Bem vindo {UsuarioLogado.nome}!
 
           <li className='separadorHome'></li>
 
           { imgPerfil ? 
-          (<></>) : (<><div  className='backPng'><img className='imageUser' src="./img/User.png" alt="" /></div></>)}
+          (<></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
           
-          </Link>
+          </div>
           </div>
           </nav>
         </>

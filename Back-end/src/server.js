@@ -79,7 +79,7 @@ app.post('/usuarios', async (req, res) => {
 
 app.post('/criarempresa', async (req, res) => {
 
-    const {Nome, cnpj, Email, Senha} = req.body;
+    const {Nome, CNPJ, Email, Senha, Telefone, Endereco} = req.body;
 
     const salt = await bcrypt.genSalt(10);
     const HashedPassword = await bcrypt.hash(Senha, salt);
@@ -88,12 +88,22 @@ app.post('/criarempresa', async (req, res) => {
 
         const result = await pool.query(
 
-            'INSERT INTO empresa (nome, cnpj, email, senha) VALUES ($1, $2, $3, $4) RETURNING *',
-            [Nome, cnpj, Email, HashedPassword]
+            'INSERT INTO empresa (nome, cnpj, email, senha, telefone, endereco) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+            [Nome, CNPJ, Email, HashedPassword, Telefone, Endereco]
             
         );
 
-        res.status(201).json(result.rows[0]);
+        empresa = result.rows[0]
+       
+        const token = jwt.sign({
+
+            id: empresa.id,
+            email: empresa.email,
+            papel: 'Empresa'
+
+        },SECRET_KEY, {expiresIn: '1hr'});
+
+        res.json({message: 'Logado!', token})
 
 
     }catch(err){

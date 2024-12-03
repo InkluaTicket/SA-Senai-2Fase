@@ -8,6 +8,7 @@ function TelaLogin() {
 
     const [FormLogin, setLogin] = useState ({ Email: '', Senha: ''})
     const [Mensagem, setMensagem] = useState('')
+    const [SenhaIncorreta, setIncorreta] = useState('')
     const navigate = useNavigate();
 
     const EfetuarLogin = async (e) =>{
@@ -31,7 +32,21 @@ function TelaLogin() {
 
             if(!response.ok){
 
-                setMensagem("Senha incorreta!")
+              const data = await response.json();
+
+              if(data.message === 'Usuário não encontrado!'){
+
+                setMensagem(data.message)
+                setIncorreta('')
+
+              }else{
+
+                setIncorreta(data.message)
+                setMensagem('')
+
+              }
+
+              
 
             }else{
 
@@ -97,6 +112,7 @@ function TelaLogin() {
                 <div className="inputsLocalLog">
                   <label>E-mail
                     <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
+                    {Mensagem}
                   </label>
                 </div>
                 <div className="inputsLocaLog">
@@ -110,6 +126,7 @@ function TelaLogin() {
                     <button className='btSenhaLog' onClick={alternarConfirmarVerSenha}>
                     {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
                     </button>
+                    {SenhaIncorreta}
                   </label>
                 </div>
               </div>
