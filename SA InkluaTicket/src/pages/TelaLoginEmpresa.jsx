@@ -8,13 +8,10 @@ function telaLoginEmpresa() {
 
 
     const [FormLogin, setLogin] = useState ({ CNPJ: '', Senha: ''})
+    const [erros, setErros] = useState({ CNPJ: '',  Senha: ''})
     const [SenhaIncorreta, setIncorreta] = useState('')
-    const [erros, setErros] = useState({
-     CNPJ: '',  Senha: ''
-      
-    })
-  
     const [Mensagem, setMensagem] = useState('')
+    const [LoginBemSucedido, setSucesso] = useState('')
     const navigate = useNavigate();
 
     const EfetuarLogin = async (e) => {
@@ -60,7 +57,10 @@ function telaLoginEmpresa() {
           const data = await response.json();
           const token = data.token
           localStorage.setItem('tokenEmpresa', token)
-          navigate('/')
+          setSucesso('Login bem sucedido!')
+
+          setTimeout(() => {navigate('/')}, 2500)
+         
 
       }
     }
@@ -98,15 +98,18 @@ function telaLoginEmpresa() {
   if (!data.CNPJ) {
     erros.CNPJ = 'Campo obrigatório!';
   } else if (!cnpjRegex.test(data.CNPJ)) {
-    erros.CNPJ = 'CNPJ inválido! Use o formato XX.XXX.XXX/XXXX-XX.';
+    erros.CNPJ = 'CNPJ inválido! Preencha o campo corretamente.';
     setMensagem('')
   }
 
   
 
+    if(data.CNPJ){ 
     if (!data.Senha) {
       erros.Senha = 'Campo obrigatório!';
     } 
+  
+  }
 
  
 
@@ -152,7 +155,7 @@ function telaLoginEmpresa() {
                         onChange={(e) => { handleChange(e); setLogin({ ...FormLogin, CNPJ: e.target.value }) }}
                       >
                       </InputMask>
-                      {Mensagem}
+                      {<p className='avisoLabel'>  {Mensagem} </p>}
                       {erros.CNPJ && <p className='avisoLabel'>{erros.CNPJ}</p>}
                   </label>
                 </div>
@@ -167,7 +170,7 @@ function telaLoginEmpresa() {
                     <button className='btSenhaLog' onClick={alternarConfirmarVerSenha}>
                     {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
                     </button>
-                    {SenhaIncorreta}
+                    {<p className='avisoLabel'>  {SenhaIncorreta} </p>}
                     {erros.Senha && <p className='avisoLabel'>{erros.Senha}</p>}
                   </label>
                 </div>
@@ -175,6 +178,7 @@ function telaLoginEmpresa() {
             </div>
 
             <div className="checkboxPCDLog">
+              {<p aria-live='assertive'>{LoginBemSucedido}</p>}
               <label>
                 Não possui uma conta? <Link to="/CadastroEmpresa">Cadastre-se empresa</Link>
               </label>

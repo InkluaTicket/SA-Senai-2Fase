@@ -11,7 +11,7 @@ function NavBarForHome() {
   const [isUser, setUser] = useState(false);
   const [imgPerfil, setImg] = useState(null)
   const [UsuarioLogado, setUserLog] = useState('')
- 
+  const [CadastreSe, setCadastre] = useState(false)
 
  
 
@@ -52,6 +52,46 @@ function NavBarForHome() {
 
     }
 
+    const PuxarEmpresa = async () => {
+
+      const token = localStorage.getItem('tokenEmpresa');
+
+      
+      try{  
+      const response = await fetch('http://localhost:3000/perfilEmpresa', {
+
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      }
+
+      });
+
+      if (response.ok) {
+
+          const empresaData = await response.json();
+          setUserLog(empresaData)
+
+      }else{
+
+        console.log('deu b.o', response)
+
+      }
+    
+    }
+
+      catch (err) {
+
+        console.error('Erro ao buscar usuario', err)
+  
+      }
+
+    }
+
+
+
+
 
 
 
@@ -70,6 +110,7 @@ function NavBarForHome() {
         setEmpresa(true);
         setAdm(false);
         setUser(false);
+        PuxarEmpresa();
       } else if (decode.papel === 'Usuário') {
         setUser(true);
         setAdm(false);
@@ -101,12 +142,17 @@ function NavBarForHome() {
         </>
       ) : validação && isEmpresa ? (
         <> <nav className='InfosHome'> 
+            <div className='CondicionalNav' > 
+              <div className='InfosNavHomeUser'>  
      
-        
+           <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
           <Link className='InfosNavHome' to='/criarevento'>Crie seu evento</Link>
-          <Link className='InfosNavHome' to='/perfilempresa'>Perfil Empresa</Link>
-        
+          { imgPerfil ? 
+          (<></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
           
+        
+          </div>
+          </div>
           </nav>
         </>
       ) : validação && isUser ? (
@@ -128,8 +174,12 @@ function NavBarForHome() {
         </>
       ) : (
         <nav className='InfosHome'>
-          <Link to="" role='button' tabIndex={0} className='InfosNavHome'>
+          <Link to="" onClick={() => {setCadastre(true)}} role='button' tabIndex={0} className='InfosNavHome'>
             Criar seu evento
+
+            {CadastreSe && 
+            <div  className='AvisoParaCadastro'> <p onClick={(e) => {e.stopPropagation(); e.preventDefault();setCadastre(false)}}>X</p> Para criar um evento é necessário que você tenha uma conta empresarial! </div>} 
+             
           </Link>
           <li className='separadorHome'></li>
           <Link to='/EscolhaLogin' tabIndex={0} className='InfosNavHome'>

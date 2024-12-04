@@ -1,8 +1,50 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/PerfilEmpresa.css';
+import jwt_decode from 'jwt-decode'
 import NavbarPerfilEmpresa from '../components/NavbarPerfilEmpresa';
 
 function PerfilEmpresa() {
+
+  
+  const [Empresa, setEmpresa] = useState('')
+  const token = localStorage.getItem('tokenEmpresa')
+
+
+  const Renderizar = async () => {
+
+    try {
+      const response = await fetch('http://localhost:3000/perfilEmpresa', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+
+          const EmpresaData = await response.json();
+          setEmpresa(EmpresaData)
+        
+    }
+  }
+
+    catch (err) {
+
+      console.error('Erro ao buscar empresa', err)
+
+    }
+
+  }
+
+
+  useEffect(() => {
+
+    Renderizar();
+
+
+  }, [])
+
   return (
     <div>
       <NavbarPerfilEmpresa/>
@@ -12,17 +54,17 @@ function PerfilEmpresa() {
 
   <img className='iconEmp' src="./img/fotoUser.png" />
   <img className='verificadoEmp' src="./img/verif-empresa.png"/>
-  <p className='nomeEmp'>InKluaTicket</p>
+  <p className='nomeEmp'>{Empresa.nome}</p>
 
 
   <label className='labelEmp'>Email para contato:</label>
-  <input className='inptsEmp' type="text" />
+  <input className='inptsEmp' type="text" disabled value={Empresa.email} />
 
   <label className='labelEmp'>Telefone para contato:</label>
-  <input className='inptsEmp' type="text" />
+  <input className='inptsEmp' type="text" disabled value={Empresa.telefone}/>
 
   <label className='labelEmp'>Endereço fiscal:</label>
-  <input className='inptsEmp' type="text" />
+  <input className='inptsEmp' type="text" disabled value={Empresa.endereco}/>
 
 </div>
 

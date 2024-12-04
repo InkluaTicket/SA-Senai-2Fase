@@ -403,6 +403,46 @@ return res.status(401).json({message: 'Usuário ', error: err.message})
 
 });
 
+//Perfil de usuário
+app.get('/perfilEmpresa', AutenticaçãoDeToken, async (req, res) => {
+
+    const empresaId = req.user.id
+
+    try{
+    const result = await pool.query(
+
+        'SELECT * FROM empresa WHERE id = $1', [empresaId]
+
+    );
+
+    if(result.rows.length === 0){
+
+        return res.status(404).json({message: 'Empresa não encontarda!'})
+
+    }
+
+    const empresa = result.rows[0]
+
+    if(empresa.imagem){
+        
+        const imgConvert = Buffer.from(user.imagem).toString('base64')
+        empresa.imagem = `data:image/*;base64,${imgConvert}`;
+
+
+    }
+
+    res.json(empresa);
+
+} catch( err ){
+
+console.error(err.message)
+return res.status(401).json({message: 'Usuário ', error: err.message})
+
+}
+
+});
+
+
 //Atualizar usuario
 app.post('/editar', AutenticaçãoDeToken, upload.single('NovaImagem'), async (req, res) => {
 

@@ -116,7 +116,7 @@ function TelaLogin() {
                 <div className="inputsLocalLog">
                   <label>E-mail
                     <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
-                    {<p aria-live='assertive'>  {Mensagem}</p>}
+                    {<p className='avisoLabel' aria-live='assertive'>  {Mensagem}</p>}
                   </label>
                 </div>
                 <div className="inputsLocaLog">
@@ -130,7 +130,7 @@ function TelaLogin() {
                     <button  type='button' className='btSenhaLog' onClick={alternarConfirmarVerSenha}>
                     {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
                     </button>
-                    {<p aria-live='assertive'> {SenhaIncorreta}</p>}
+                    {<p className='avisoLabel' aria-live='assertive'>  {SenhaIncorreta} </p>}
                   </label>
                 </div>
               </div>

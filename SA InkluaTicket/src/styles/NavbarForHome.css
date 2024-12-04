@@ -116,3 +116,15 @@ height: min-content;
     align-items: center;
     
 }
+
+.AvisoParaCadastro{
+
+    position: absolute;
+    top: 200px;
+    right: -90px;
+    
+    background-color: #024959;
+    width: 600px;
+    z-index: 1000;
+
+}
