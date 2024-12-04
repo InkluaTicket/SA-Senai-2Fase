@@ -1,0 +1,159 @@
+:root {
+    --cor-1: #024959;
+    --cor-2: #5C868F;
+    --cor-3: #7B9AAB;
+    --cor-4: #D9D9D9;
+}
+
+.Corpo-containerEmpresa {
+    overflow: hidden;
+    display: flex;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+
+.div1Emp,
+.div2Emp {
+    background-color: var(--cor-4);
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+.iconEmp {
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 10px;
+    margin-left: 90px;
+    margin-bottom: 2px;
+    margin-top: 40px;
+}
+
+.nomeEmp {
+    display: block;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-left: -645px;
+    margin-top: -5px;
+}
+
+
+.verificadoEmp {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin-left: 152px;
+    margin-top: -55px;
+}
+
+.gerenciarEmp {
+    width: 200px;
+    padding: 12px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    color: whitesmoke;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--cor-1);
+    margin-left: -80px;
+    margin-top: 10%;
+}
+
+.iconGerenciarEmp {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin-left: 170px;
+    margin-top: -40px;
+}
+
+
+.divLinhaEmp {
+    border: 1px solid #b6b6b6;
+    border-radius: 1%;
+    position: absolute;
+    margin-left: 50%;
+    height: 91.6%;
+}
+
+
+/*Tela2*/
+
+
+.div2Emp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.Frase1Emp {
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: -340px;
+}
+
+.Texto1Emp {
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 100px;
+    margin-right: 0%;
+}
+
+.Frase2Emp {
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: -450px;
+}
+
+.Texto2Emp {
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 50px;
+    margin-right: 0%;
+}
+
+
+.labelEmp {
+    font-size: 14px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.inptsEmp {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: -12px;
+    font-family: "Poppins", sans-serif;
+    margin-left: 100px;
+    margin-top: 6px;
+}
