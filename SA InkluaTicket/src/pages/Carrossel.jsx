@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import '../styles/Carrossel.css'
+import React, { useState, useEffect } from 'react';
+import '../styles/Carrossel.css';
 
 function Carrossel() {
-  const [slideAtual, setSlideAtual] = useState(0)
+  const [slideAtual, setSlideAtual] = useState(0);
   const [slideShow, setSlideShow] = useState(0)
   const [slideFestival, setSlideFestival] = useState(0)
   const [slideEventos, setSlideEventos] = useState(0)
 
+
+  const imagensDeFundo = [
+    '/public/img/imgC.jpg',
+    '/public/img/imgI.png',
+    '/public/img/imgS.jpg',
+  ];
+
   function proximoImg() {
-    setSlideAtual((prev) => (prev + 1) % 3)
+    setSlideAtual((prev) => (prev + 1) % imagensDeFundo.length);
+  } function imgAnterior() {
+    setSlideAtual((prev) => (prev - 1 + imagensDeFundo.length) % imagensDeFundo.length);
   }
-  function imgAnterior() {
-    setSlideAtual((prev) => (prev - 1 + 3) % 3)
-  }
-  useEffect(() => {
-    const interval = setInterval(() => {
-      proximoImg();
-    }, 4500);
-
-    return () => clearInterval(interval);
-  }, []);
-
 
   function proximoShow() {
     setSlideShow((prev) => (prev + 1) % 4)
@@ -40,61 +38,83 @@ function Carrossel() {
     setSlideEventos((prev) => (prev - 1 + 4) % 4)
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      proximoImg();
+    }, 5500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="tudocarrossel">
-      <div className="carrosselPrincipal">
+      <div
+        className="carrosselPrincipal"
+        style={{
+          backgroundImage: `url(${imagensDeFundo[slideAtual]})`,
+        }}
+      >
         <h2>Eventos em alta</h2>
         <div className="carrosselTudoImgTt" style={{ transform: `translateX(-${slideAtual * 100}%)` }}>
           <div className="carrosselsImgsTts">
-            <div className="carrossel-item">
-              <div className="carrosselImgTt">
-                <img src="./img/imgC.jpg" className="imgs123" />
+            <div className="carrossel-container">
+              <div className="carrossel-item">
+                <div className="carrosselImgTt">
+                  <img src="./img/imgC.jpg" className="imgs123" />
+                </div>
+                <div className="carrosselImgTtDois">
+                  <div className="textosDosShows">
+                    <div className="carrosselTts">
+                      <h2>Evento 1</h2>
+                      <h3>Descrição do evento 1</h3>
+                      <h3>Data do evento 1</h3>
+                      <h3>Localização do evento 1</h3>
+                    </div>
+                    <button className="btCarrosselPrincipal">Ver Mais</button>
+                  </div>
+                </div>
               </div>
-              <div className="carrosselImgTtDois">
-                <div className="textosDosShows">
-                  <h2>h1 bla bla bla bla</h2>
-                  <h3>h2 descrição do shows bla bla bla bla</h3>
-                  <h3>h2 data do shows bla bla bla bla</h3>
-                  <h3>h2 localização do shows bla bla bla bla</h3>
-                  <button className='btCarrosselPrincipal'>Ver Mais</button>
+              <div className="carrossel-item2">
+                <div className="carrosselImgTt2">
+                  <img src="./img/imgI.png" className="imgs123" />
+                </div>
+                <div className="carrosselImgTtDois">
+                  <div className="textosDosShows">
+                    <div className='carrosselTts'>
+                      <h2>Evento 2</h2>
+                      <h3>Descrição do evento 2</h3>
+                      <h3>Data do evento 2</h3>
+                      <h3>Localização do evento 2</h3>
+                    </div>
+                    <button className="btCarrosselPrincipal">Ver Mais</button>
+                  </div>
+                </div>
+              </div>
+              <div className="carrossel-item3">
+                <div className="carrosselImgTt3">
+                  <img src="./img/imgS.jpg" className="imgs123" />
+                </div>
+                <div className="carrosselImgTtDois3">
+                  <div className="textosDosShows">
+                    <div className="carrosselTts">
+                      <h2>Evento 3</h2>
+                      <h3>Descrição do evento 3</h3>
+                      <h3>Data do evento 3</h3>
+                      <h3>Localização do evento 3</h3>
+                    </div>
+                    <button className="btCarrosselPrincipal">Ver Mais</button>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="carrossel-item2">
-              <div className="carrosselImgTt2">
-                <img src="./img/imgI.png" className="imgs123" />
-              </div>
-              <div className="carrosselImgTtDois2">
-                <div className="textosDosShows2 ">
-                  <h2>h1 bla bla bla bla 2</h2>
-                  <h3>h2 descrição do shows bla bla bla bla 2</h3>
-                  <h3>h2 data do shows bla bla bla bla 2</h3>
-                  <h3>h2 localização do shows bla bla bla bla 2</h3>
-                  <button className='btCarrosselPrincipal'>Ver Mais</button>
-                </div>
-              </div>
-            </div>
-
-            <div className="carrossel-item3">
-              <div className="carrosselImgTt3">
-                <img src="./img/imgS.jpg" className="imgs123" />
-              </div>
-              <div className="carrosselImgTtDois3">
-                <div className="textosDosShows3">
-                  <h2>h1 bla bla bla bla</h2>
-                  <h3>h2 descrição do shows bla bla bla 3</h3>
-                  <h3>h2 data do shows bla bla bla bla 3</h3>
-                  <h3>h2 localização do shows bla bla bla bla 3</h3>
-                  <button className='btCarrosselPrincipal'>Ver Mais</button>
-                </div>
-              </div>
-            </div>
-
+            {/* Repetir para outros itens */}
           </div>
         </div>
-        <button className="carrossel-botao anterior" onClick={imgAnterior}>‹</button>
-        <button className="carrossel-botao proximo" onClick={proximoImg}>›</button>
+        <button className="carrossel-botao anterior" onClick={imgAnterior}>
+          ‹
+        </button>
+        <button className="carrossel-botao proximo" onClick={proximoImg}>
+          ›
+        </button>
       </div>
 
       {/* carrosssel de Shows e Festivais e Eventos */}
@@ -103,7 +123,7 @@ function Carrossel() {
         <div className="carrossel">
           <h1 className='carrosselShFeEvTEXTO'>Shows</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideShow * 35}%)` }}>
-            <div className="cartao">
+            <div tabIndex={0} className="cartao">
               <h3>Show 1</h3>
               <p>Detalhes sobre o Show 1</p>
             </div>
