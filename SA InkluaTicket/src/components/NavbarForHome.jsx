@@ -115,7 +115,7 @@ function NavBarForHome() {
           <div className='CondicionalNav'>
           <div className='InfosNavHomeUser'>
 
-          Bem vindo {UsuarioLogado.nome}!
+          <p aria-live='assertive'> Bem vindo {UsuarioLogado.nome}!</p>
 
           <li className='separadorHome'></li>
 

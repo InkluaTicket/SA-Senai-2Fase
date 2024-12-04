@@ -24,23 +24,23 @@ function TelaUsuarioOuEmpresa() {
                     <h3>cadastre-se como usuário para avaliar eventos ou como empresa para organizá-los.</h3>
                 </div>
                 <div className="posiBtImg">
-                    <div className="btsImgs">
-                        <Link to='/CadastroEmpresa' className="btsImgsLINKS">
+                    <nav className="btsImgs" aria-live='assertive' alt='Cadastrar empresa'>
+                        <Link tabIndex={0} to='/CadastroEmpresa' className="btsImgsLINKS" aria-live='assertive'>
                             <div className="imagemDiv">
                                 <img src="./img/imgEmpresa.png" className="imagemEmpre" />
                             </div>
                             <div className='botaoImg' aria-label='Cadastre-se como empresa'>Empresa</div>
                         </Link>
-                    </div>
+                    </nav>
                     <img src="./img/image.png" className="imagemPcds" />
-                    <div className="btsImgs">
-                        <Link to='/CadastroUser' className="btsImgsLINKS">
+                    <nav className="btsImgs" aria-live='assertive' alt='Cadastrar usuário'>
+                        <Link tabIndex={0} to='/CadastroUser' className="btsImgsLINKS">
                             <div className="imagemDiv">
                                 <img src="./img/img usuario.png" className="imagemUsuar" />
                             </div>
                             <div className='botaoImg' aria-label='Cadastre-se como usuário'>Usuário</div>
                         </Link>
-                    </div>
+                    </nav>
                 </div>
             </div>
 

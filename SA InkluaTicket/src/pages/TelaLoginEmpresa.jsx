@@ -8,6 +8,7 @@ function telaLoginEmpresa() {
 
 
     const [FormLogin, setLogin] = useState ({ CNPJ: '', Senha: ''})
+    const [SenhaIncorreta, setIncorreta] = useState('')
     const [erros, setErros] = useState({
      CNPJ: '',  Senha: ''
       
@@ -20,32 +21,61 @@ function telaLoginEmpresa() {
 
       e.preventDefault();
 
+      const validationErrors = validateForm(FormLogin);
+    setErros(validationErrors);
+
+
+    if (Object.values(validationErrors).every(error => error === '')) {
+      console.log('Formulário enviado com sucesso!', FormLogin);
+
+
       try{ 
 
       const response = await fetch('http://localhost:3000/loginEmpresa', {
 
       method: 'POST',
       headers: {'Content-type' : 'application/json'},
-      body: JSON.stringify(Form)
+      body: JSON.stringify(FormLogin)
 
       })
 
-      if(response.ok){
+
+              if(!response.ok){ 
+              const data = await response.json();
+
+              if(data.message === 'Empresa não encontrada!'){
+
+                setMensagem(data.message)
+                setIncorreta('')
+
+              }else{
+
+                setIncorreta(data.message)
+                setMensagem('')
+
+              }
+            
+            }else{  
 
           const data = await response.json();
           const token = data.token
           localStorage.setItem('tokenEmpresa', token)
-          navigator('/')
+          navigate('/')
 
       }
+    }
 
-    }catch(err){
+      
+
+      catch(err){
 
       console.error('Erro ao efetuar login!', err.message)
       
-
+    
+    
+        }
+      }
     }
-  }
 
   const handleChange = (e) => {
 
@@ -69,15 +99,14 @@ function telaLoginEmpresa() {
     erros.CNPJ = 'Campo obrigatório!';
   } else if (!cnpjRegex.test(data.CNPJ)) {
     erros.CNPJ = 'CNPJ inválido! Use o formato XX.XXX.XXX/XXXX-XX.';
+    setMensagem('')
   }
 
   
 
     if (!data.Senha) {
       erros.Senha = 'Campo obrigatório!';
-    } else if (data.Senha.length < 6) {
-      erros.Senha = 'A senha deve ter pelo menos 6 caracteres';
-    }
+    } 
 
  
 
@@ -123,6 +152,7 @@ function telaLoginEmpresa() {
                         onChange={(e) => { handleChange(e); setLogin({ ...FormLogin, CNPJ: e.target.value }) }}
                       >
                       </InputMask>
+                      {Mensagem}
                       {erros.CNPJ && <p className='avisoLabel'>{erros.CNPJ}</p>}
                   </label>
                 </div>
@@ -137,6 +167,8 @@ function telaLoginEmpresa() {
                     <button className='btSenhaLog' onClick={alternarConfirmarVerSenha}>
                     {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
                     </button>
+                    {SenhaIncorreta}
+                    {erros.Senha && <p className='avisoLabel'>{erros.Senha}</p>}
                   </label>
                 </div>
               </div>

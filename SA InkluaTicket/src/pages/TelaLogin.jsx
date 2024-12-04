@@ -9,6 +9,7 @@ function TelaLogin() {
     const [FormLogin, setLogin] = useState ({ Email: '', Senha: ''})
     const [Mensagem, setMensagem] = useState('')
     const [SenhaIncorreta, setIncorreta] = useState('')
+    const [LoginBemSucedido, setSucesso] = useState('')
     const navigate = useNavigate();
 
     const EfetuarLogin = async (e) =>{
@@ -69,9 +70,12 @@ function TelaLogin() {
                     navigate('/')
 
                 }else{
-                setMensagem("Login bem sucedido!")
+                setSucesso("Login bem sucedido!")
                 localStorage.setItem('token', data.token)
-                navigate('/')
+
+                setTimeout(() => { navigate('/') }, 2000)
+
+                
              }
             } 
          }   catch (error){
@@ -112,7 +116,7 @@ function TelaLogin() {
                 <div className="inputsLocalLog">
                   <label>E-mail
                     <input type="email" className='tamanhoInputsLog' value={FormLogin.Email} onChange={(e) => setLogin({...FormLogin, Email: e.target.value})} placeholder='Digite seu E-mail' />
-                    {Mensagem}
+                    {<p aria-live='assertive'>  {Mensagem}</p>}
                   </label>
                 </div>
                 <div className="inputsLocaLog">
@@ -123,20 +127,23 @@ function TelaLogin() {
                       value={FormLogin.Senha} onChange={(e) => setLogin({...FormLogin, Senha: e.target.value})}
                       placeholder='Digite sua senha'
                     />
-                    <button className='btSenhaLog' onClick={alternarConfirmarVerSenha}>
+                    <button  type='button' className='btSenhaLog' onClick={alternarConfirmarVerSenha}>
                     {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
                     </button>
-                    {SenhaIncorreta}
+                    {<p aria-live='assertive'> {SenhaIncorreta}</p>}
                   </label>
                 </div>
               </div>
+              
             </div>
 
+            
             <div className="checkboxPCDLog">
               <label>
                 Não possui uma conta? <Link to="/CadastroUser">Cadastre-se</Link>
               </label>
             </div>
+            { <p aria-live='assertive'> {LoginBemSucedido}</p> }
             <div className="btLocalLog">
               <input type='submit' className='btCadastrarLog'/>
               
@@ -145,6 +152,7 @@ function TelaLogin() {
         </div>
       </div>
       </form>
+      
     </div>
 
   )

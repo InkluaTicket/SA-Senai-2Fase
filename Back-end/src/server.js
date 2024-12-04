@@ -286,19 +286,19 @@ app.post('/login', async(req, res) => {
 
 app.post('/loginEmpresa', async (req, res) => {
 
-    const {cnpj, Senha} = req.body;
+    const {CNPJ, Senha} = req.body;
 
     try{
 
         const result = await pool.query(
 
-            'SELECT * FROM empresa WHERE cnpj = $1', [cnpj]
+            'SELECT * FROM empresa WHERE cnpj = $1', [CNPJ]
 
         );
 
         if(result.rows.length === 0){
 
-            return res.status(400).json({message: 'Usuário não encontrado!'})
+            return res.status(400).json({message: 'Empresa não encontrada!'})
 
         }
 
