@@ -1,4 +1,9 @@
-
+:root {
+  --cor1: #024959;
+  --cor2: #D9D9D9;
+  --cor3: #ffffff;
+  --cor4: #7B9AAB;
+}
 
 .colocar-foto {
   display: flex;
@@ -34,7 +39,7 @@ main div h1 {
   justify-content: center;
   align-items: center;
   width: 90%;
-  height: 20rem;
+  height: 25rem;
   padding: 10px 20px;
   cursor: pointer;
   border: none;
@@ -178,7 +183,8 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   font-size: 25px;
-  padding: 20px;
+  padding: 15px;
+  margin-bottom: 3rem;
   border: 0;
   border-radius: 10px;
   background-color: var(--cor1);
@@ -190,19 +196,27 @@ textarea {
 
 .salvar:hover {
   color: #024959;
-  background-color: var(--cor3);
-  box-shadow: 0 0 20px var(--cor4);
+  background-color: #d9d9d9;
+  box-shadow: 0 0 15px var(--cor1);
   transform: scale(1.1);
 }
 
 .salvar:active {
   background-color: var(--cor1);
-  color: var(--cor3);
+  color: var(--cor4);
   transition: all 0.25s;
   -webkit-transition: all 0.3s;
   box-shadow: none;
   transform: scale(0.98);
 }
+
+#custom-select {
+  -webkit-appearance: none; /* Remove a seta no Chrome, Safari, etc. */
+  -moz-appearance: none; /* Remove a seta no Firefox */
+  appearance: none; /* Remove a seta no padrão moderno */
+  opacity: 0.7;
+}
+
 
 /* Media Query */
 @media (max-width: 768px) {
@@ -215,8 +229,12 @@ textarea {
     height: 13rem;
   }
 
+  #comentario{
+    width: 90%;
+  }
+
   .comentario {
-    width: 100%;
+    width: 90%;
     font-size: 1rem;
   }
 
@@ -235,6 +253,4 @@ textarea {
   .colocar-foto {
     height: 100%;
   }
-
-  
 }

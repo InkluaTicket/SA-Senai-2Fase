@@ -12,6 +12,7 @@ import TelaCadastroEmpresa from "../pages/TelaCadastroEmpresa";
 import TelaLoginEmpresa from "../pages/TelaLoginEmpresa";
 import PerfilUser from "../pages/PerfilUser";
 import PerfilEmpresa from "../pages/PerfilEmpresa";
+import Shows from "../pages/Shows";
 
 const PageWrapper = ({ element, screenName }) => {
   const location = useLocation();
@@ -33,8 +34,9 @@ const Routes = createBrowserRouter([
   { path: '/CriarEvento', element: <PageWrapper element={ <CriarEvento />} screenName='Tela de criação de eventos'/> },
   { path: '/EscolhaCadastro', element: <PageWrapper element={ <TelaUsuarioOuEmpresa />} screenName='Tela de escolha, forma de cadastro' /> },
   { path: '/EscolhaLogin', element: <PageWrapper element={ <TelaUsuarioOuEmpresaLogin />} screenName='Tela de escolha, forma de login' /> },
-  { path: '/GerenciamentoUser', element: <PageWrapper element={ <Gerenciamento/>} screenName='Tela de gerenciamento de perfil do usuário'/> },
+  { path: '/GerenciamentoUser', element: <PageWrapper element={ <Gerenciamento/>} screenName='Tela de visualizações de shows'/> },
   { path: '/PerfilUser', element: <PageWrapper element={ <PerfilUser/>} screenName='Tela de gerenciamento de perfil do usuário'/> },
+  { path: '/Shows', element: <PageWrapper element={ <Shows/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PerfilEmpresa', element: <PageWrapper element={ <PerfilEmpresa/>} screenName='Tela de perfil da empresa'/> },
 ]);
 
