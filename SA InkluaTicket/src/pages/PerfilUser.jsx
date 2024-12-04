@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/Perfil2.css';
+import '../styles/PerfilUser.css';
 import NavbarPefil from './NavbarPerfil';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
-function Perfil() {
+function PerfilUser() {
 
   const [isCheckedTrue, setChecked] = useState(false)
   const [isCheckedFalse, setCheckedFalse] = useState(false)  
@@ -148,4 +148,4 @@ function Perfil() {
   )
 }
 
-export default Perfil
+export default PerfilUser
