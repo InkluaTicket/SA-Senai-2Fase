@@ -1,10 +1,10 @@
 import React from 'react';
 import jwt_decode from "jwt-decode"
-import '../styles/Corpo.css';
+import '../styles/GerenciamentoUser.css';
 import { useState, useEffect } from 'react';
 import InputMask from 'react-input-mask';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import NavbarGerenciamentoP from '../components/NavbarGerenciamentoP';
 
 
 function Gerenciamento() {
@@ -230,7 +230,7 @@ function Gerenciamento() {
 
   return (
     <>
-    <Navbar/>  
+    <NavbarGerenciamentoP/>  
     <div className='Corpo-container'>
 
         
