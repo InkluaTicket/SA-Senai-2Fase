@@ -52,10 +52,11 @@ function PerfilEmpresa() {
 
 <div className='div1Emp'>
 
+<div className='ImagemENome'>  
   <img className='iconEmp' src="./img/fotoUser.png" />
   <img className='verificadoEmp' src="./img/verif-empresa.png"/>
-  <p className='nomeEmp'>pau no cu</p>
-
+  <p className='nomeEmp'>{Empresa.nome}</p>
+</div>
 
   <label className='labelEmp'>Email para contato:</label>
   <input className='inptsEmp' type="text" disabled value={Empresa.email} />

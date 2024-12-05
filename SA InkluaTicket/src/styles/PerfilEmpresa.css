@@ -29,7 +29,7 @@
     cursor: pointer;
     display: block;
     margin: 0 auto 10px;
-    margin-left: 230px;
+   
     margin-bottom: 2px;
     margin-top: 40px;
 }
@@ -41,7 +41,7 @@
     color: #333;
     text-align: center;
     margin-bottom: 50px;
-    margin-left: -175px;
+    
     margin-top: -5px;
 }
 
@@ -50,7 +50,7 @@
     width: 26px;
     height: 26px;
     vertical-align: middle;
-    margin-left: 290px;
+    margin-left: 400px;
     margin-top: -55px;
 }
 
@@ -106,7 +106,7 @@
     margin: 20px;
     margin-bottom: 10px;
     margin-right: 0%;
-    margin-left: -25%;
+    margin-left: -14%;
 }
 
 .Texto1Emp {
@@ -127,7 +127,7 @@
     margin: 20px;
     margin-bottom: 10px;
     margin-right: 0%;
-    margin-left: -39.5%;
+    margin-left: -31.2%;
 }
 
 .Texto2Emp {
@@ -161,4 +161,15 @@
     margin-left: 100px;
     margin-top: 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.ImagemENome{
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-left: -130px;
+
 }
