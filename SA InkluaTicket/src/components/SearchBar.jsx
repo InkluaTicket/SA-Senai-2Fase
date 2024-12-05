@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/SearchBar.css'
 
 
 function SearchBar() {
 
+  const [Pesquisa, setPesquisa] = useState('')
+  const [Resultados, setResultados] = useState([])
+  
 
   return (
     
@@ -13,6 +16,8 @@ function SearchBar() {
         title='Barra de pesquisa'
         aria-label='Barra de pesquisa'
         className="search-input"
+        onChange={(e) => setPesquisa(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && alert('InkluaTicket')}
         placeholder="Pesquisar..."
       />
       <button className='search-button'>

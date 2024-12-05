@@ -24,10 +24,10 @@ function TelaUsuarioOuEmpresa() {
                     <h3>Login como usuário para avaliar eventos ou como empresa para organizá-los.</h3>
                 </div>
                 <div className="posiBtImg">
-                    <nav className="btsImgs" aria-live='assertive' alt='Login como empresa'>
+                    <nav className="btsImgs" aria-live='assertive'>
                         <Link to='/LoginEmpresa' className="btsImgsLINKS" aria-live='assertive'>
                             <div className="imagemDiv">
-                                <img src="./img/mãos .png" className="imagemEmpre" />
+                                <img src="./img/mãos .png" className="imagemEmpre" alt='Login como empresa' />
                             </div>
                             <div className='botaoImg'>Empresa</div>
                         </Link>
@@ -36,7 +36,7 @@ function TelaUsuarioOuEmpresa() {
                     <nav className="btsImgs" aria-live='assertive' alt='Login como usuário'>
                         <Link to='/TelaLogin' className="btsImgsLINKS">
                             <div className="imagemDiv">
-                                <img src="./img/imgUsuarioLogin.png" className="imagemUsuar2" />
+                                <img src="./img/imgUsuarioLogin.png" className="imagemUsuar2" alt='Login usuário' />
                             </div>
                             <div className='botaoImg'>Usuário</div>
                         </Link>
