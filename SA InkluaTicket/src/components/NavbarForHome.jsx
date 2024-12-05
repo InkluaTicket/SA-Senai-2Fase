@@ -178,7 +178,8 @@ function NavBarForHome() {
             Criar seu evento
 
             {CadastreSe && 
-            <div  className='AvisoParaCadastro'> <p onClick={(e) => {e.stopPropagation(); e.preventDefault();setCadastre(false)}}>X</p> Para criar um evento é necessário que você tenha uma conta empresarial! </div>} 
+            <div  className='AvisoParaCadastro'> <p tabIndex={0} alt='Fechar' 
+                onKeyDown={(e) => {e.key === 'Enter' && e.stopPropagation(); e.preventDefault();setCadastre(false)}} onClick={(e) => {e.stopPropagation(); e.preventDefault();setCadastre(false)}}>X</p> Para criar um evento é necessário que você tenha uma conta empresarial! </div>} 
              
           </Link>
           <li className='separadorHome'></li>
