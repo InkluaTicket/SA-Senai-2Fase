@@ -6,9 +6,11 @@ import { useState } from "react";
 function CriarEvento() {
   const [showInput, setShowInput] = useState(false); // Estado para controlar a exibição do input
 
+
   const handleButtonClick = () => {
-    setShowInput(true); // Mostra o input quando o botão é clicado
+    setShowInput(true); 
   };
+
 
   return (
     <>
