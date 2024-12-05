@@ -45,6 +45,7 @@ function CriarEvento() {
               type="text"
               className="comentario"
               placeholder="Obrigatório"
+              aria-label="Nome do evento"
             />
 
             <h2 className="titles">Data de início do evento</h2>
@@ -53,6 +54,7 @@ function CriarEvento() {
               className="comentario"
               min="2024-11-19"
               max="2024-12-31"
+              aria-label="Data de início do evento"
             />
 
             <h2 className="titles">Data de término do evento</h2>
@@ -61,6 +63,7 @@ function CriarEvento() {
               className="comentario"
               min="2024-11-19"
               max="2024-12-31"
+              aria-label="Data de término do evento"
             />
 
             <h2 className="titles">Insira o endereço do seu evento</h2>
@@ -68,6 +71,7 @@ function CriarEvento() {
               type="text"
               className="comentario"
               placeholder="Obrigatório"
+              aria-label="Endereço do evento"
             />
 
             <h2 className="titles">
@@ -77,13 +81,15 @@ function CriarEvento() {
               id="comentario"
               placeholder="Máx. 315 caracteres"
               maxLength={315}
+              aria-label="Descrição do evento"
             ></textarea>
 
             <h2 className="titles">
               Coloque os tipos de acessibilidade que seu evento fornece
             </h2>
 
-            <section id="checkbox">
+            <section id="checkbox" aria-label="Tipos de acessibilidade">
+            
               <div className="column">
                 {[
                   "Deficiencia física","Deficiencia visual","Deficiencia intelectual"
@@ -139,7 +145,7 @@ function CriarEvento() {
 
             <h2 className="titles">Escolha a categoria do seu evento </h2>
 
-            <select
+            <select aria-label="Categoria do evento"
               name="plataforma"
               required="required"
               className="comentario"
@@ -161,6 +167,7 @@ function CriarEvento() {
               type="text"
               className="comentario"
               placeholder="Obrigatório"
+              aria-label="Link para a compra de ingressos do evento"
             />
 
             <button className="salvar">Salvar Alterações</button>

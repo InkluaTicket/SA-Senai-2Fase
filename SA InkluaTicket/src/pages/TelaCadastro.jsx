@@ -18,6 +18,7 @@ function TelaCadastro() {
 
   const [mostrarOp, setOp] = useState(false)
   const [disable, setDisable] = useState(true)
+  const [CadastroBemSucedido, setSucesso] = useState('')
   const navigator = useNavigate();
 
 
@@ -72,8 +73,13 @@ function TelaCadastro() {
         }
 
         localStorage.setItem('token', data.token)
-        navigator('/')
+        setSucesso('Cadastro bem sucedido!')
+        setTimeout(() => {
 
+          navigator('/')
+
+        }, 2500)
+        
       }
     } else {
 
@@ -392,6 +398,7 @@ function TelaCadastro() {
               <label className='labelCheckbox1'>
                 Já possui uma conta? <Link to='/TelaLogin'>Fazer login</Link>
               </label>
+              {<p aria-live='assertive'>{CadastroBemSucedido}</p>}
               <div className="btLocal">
                 <input type='submit' className='btCadastrar' /><br />
               </div>

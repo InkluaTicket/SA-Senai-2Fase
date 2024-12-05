@@ -12,7 +12,7 @@ function NavBarForHome() {
   const [imgPerfil, setImg] = useState(null)
   const [UsuarioLogado, setUserLog] = useState('')
   const [CadastreSe, setCadastre] = useState(false)
-
+  const [Mensagem, setMensagem] = useState('')
  
 
     const PuxarUsuario = async () => {
@@ -35,6 +35,7 @@ function NavBarForHome() {
 
           const userData = await response.json();
           setUserLog(userData)
+       
 
       }else{
 
@@ -115,8 +116,8 @@ function NavBarForHome() {
         setUser(true);
         setAdm(false);
         setEmpresa(false);
-         
         PuxarUsuario();
+        
         
       }
     } else {
@@ -126,6 +127,15 @@ function NavBarForHome() {
       setUser(false);
     }
   }, []);
+
+  useEffect(() => {
+    
+    
+
+setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
+   
+    
+}, [UsuarioLogado])
 
   return (
     <header className='ContainerHome'>
@@ -161,7 +171,7 @@ function NavBarForHome() {
           <div className='CondicionalNav'>
           <div className='InfosNavHomeUser'>
 
-          <p aria-live='assertive'> Bem vindo {UsuarioLogado.nome}!</p>
+          <p aria-live='assertive' role='alert'> {Mensagem}</p>
 
           <li className='separadorHome'></li>
 
