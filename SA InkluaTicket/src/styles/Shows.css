@@ -1,41 +1,47 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
-  
-  .evento-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .evento-header {
-    text-align: center;
-    background-color: #f3f3f3;
-    padding: 20px;
-  }
-  
-  .evento-banner img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .evento-descricao {
-    padding: 20px;
-  }
-  
-  .btn-comprar {
-    background-color: #f05a28;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .evento-rodape {
-    text-align: center;
-    padding: 10px;
-    background-color: #f3f3f3;
-  }  
+.img-fundo {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  filter: blur(10px) brightness(0.7);
+  z-index: -1;
+}
+
+/* Estilos da Navbar */
+.nav-show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; 
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.content h1 {
+  color: white;
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.content p {
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.img-frente{
+  display: flex;
+
+}
+
+.img-container{
+  text-align: center;
+}
