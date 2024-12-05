@@ -24,28 +24,32 @@
   .divUm {
     flex: 1;
     margin-right: 15px; /* Menor espaçamento entre as divs */
+    overflow: hidden;
   }
   
   .divDois {
     flex: 1;
+    overflow: hidden;
   }
   
   .dadosDaConta {
-    font-size: 24px; /* Fonte menor */
+    font-size: 22px; /* Fonte menor */
     color: rgb(40, 40, 40);
     font-family: "Poppins", sans-serif;
     text-align: center;
     margin-bottom: 20px; /* Menor margem */
+    margin-left: -300px;
+    margin-top: -2%;
   }
   
-  .iconUser {
-    width: 90px;
-    height: 90px;
+  .iconeUser {
+    width: 100px;
+    height: 900px;
     cursor: pointer;
     display: block;
     margin: 0 auto 10px;
-    margin-left: 70px;
-    margin-bottom: 5px;
+    margin-left: -100%;
+    margin-bottom: 500px;
   }
   
   .alterarfoto {
@@ -125,11 +129,13 @@
   }
   
   .especificacoes{
-    font-size: 30px;
+    font-size: 22px;
     color: rgb(40, 40, 40);
     font-family: "Poppins", sans-serif;
     margin: 20px;
     margin-bottom: 50px;
+    margin-top: -2%;
+    margin-left: -250px;
     
   }
   
@@ -137,63 +143,64 @@
     position: absolute;
     display: inline-flex;
     justify-items: center;
-    margin-top: 0%;
-    margin-left: 35%;
+    margin-top: -20px;
+    margin-left: 330px;
   }
   
   .iconLixo{
     margin-top: 4px;
-    margin-left: -120px;
-    width: 18px;
-    height: 18px;
+    margin-left: -75px;
+    width: 10px;
+    height: 10px;
     cursor: pointer;
   }
   .excluir {
     font-family: "Poppins", sans-serif;
-    font-size: 12px; /* Fonte menor */
+    font-size: 8px; /* Fonte menor */
     color: #333;
     cursor: pointer;
   }
   
   .possuiDeficiencia{
-    font-size: 24px;
+    font-size: 20px;
     color: rgb(40, 40, 40);
     font-family: "Poppins", sans-serif;
-    margin-left: -330px;
-    margin-bottom: 10px;
+    margin-left: -170px;
     margin-bottom: 22%;
   }
   
   .verificado2{
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
     vertical-align: middle;
     margin: 0;
-    margin-left: 0px;
-    margin-top: -166px;
+    margin-left: 110px;
+    margin-top: -135px;
   }
   
   .checkBox{
+    width: 10px;
     cursor: pointer;
     margin-right: 90%;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-left: 40px;
   }
   
   .sim{
-    font-size: 14px;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-    margin-right: 82%;
-    margin-top: -18px;
-    
-  }
-  .nao{
-    font-size: 14px;
+    font-size: 12px;
     color: #333;
     font-family: "Poppins", sans-serif;
     margin-right: 82%;
     margin-top: -16px;
-    margin-bottom: 4%;
+    margin-left: 45px;
+  }
+  .nao{
+    font-size: 12px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-right: 82%;
+    margin-top: -16px;
+    margin-left: 45px;
   }
   
   .deficiencia{

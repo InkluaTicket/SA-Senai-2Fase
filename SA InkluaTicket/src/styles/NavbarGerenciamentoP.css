@@ -8,12 +8,12 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--cor-1);
-    padding: 5px;
+    padding: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     align-items: center;
 }
 .logoGP{
-    width: 190px;
+    width: 130px;
     height: min-content;
     margin-left: 20px;
     margin-right: 20px;
@@ -26,7 +26,7 @@
 .gerenciamentoDaConta{
     color: var(--cor-4);
     text-align: center;
-    font-size: 30px;  
+    font-size: 20px;  
     font-family: "Poppins", sans-serif;
     margin: 0;
 
