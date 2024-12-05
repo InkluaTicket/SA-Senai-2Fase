@@ -54,7 +54,7 @@ function PerfilEmpresa() {
 
   <img className='iconEmp' src="./img/fotoUser.png" />
   <img className='verificadoEmp' src="./img/verif-empresa.png"/>
-  <p className='nomeEmp'>{Empresa.nome}</p>
+  <p className='nomeEmp'>pau no cu</p>
 
 
   <label className='labelEmp'>Email para contato:</label>
