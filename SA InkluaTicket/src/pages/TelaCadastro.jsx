@@ -395,7 +395,7 @@ function TelaCadastro() {
                   <input type="checkbox" className='inputsCheckbox' />Eu li e aceito os termos de uso
                 </label>
               </div>
-              <label className='labelCheckbox1'>
+              <label tabIndex={0} className='labelCheckbox1'>
                 Já possui uma conta? <Link to='/TelaLogin'>Fazer login</Link>
               </label>
               {<p aria-live='assertive'>{CadastroBemSucedido}</p>}

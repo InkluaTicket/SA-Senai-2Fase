@@ -139,7 +139,7 @@ function TelaLogin() {
 
             
             <div className="checkboxPCDLog">
-              <label>
+              <label tabIndex={0}>
                 Não possui uma conta? <Link to="/CadastroUser">Cadastre-se</Link>
               </label>
             </div>

@@ -345,7 +345,7 @@ function TelaCadastroEmpresa() {
                   <input type="checkbox" className='inputsCheckbox' />Eu li e aceito os termos de uso
                 </label>
               </div>
-              <label className='labelCheckbox1'>
+              <label className='labelCheckbox1' tabIndex={0}>
                 Já possui uma conta? <Link to='/LoginEmpresa'>login Empresa</Link>
               </label>
               <div className="btLocal">

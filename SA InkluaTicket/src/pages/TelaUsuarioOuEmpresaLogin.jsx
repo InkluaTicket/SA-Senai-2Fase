@@ -24,19 +24,19 @@ function TelaUsuarioOuEmpresa() {
                     <h3>Login como usuário para avaliar eventos ou como empresa para organizá-los.</h3>
                 </div>
                 <div className="posiBtImg">
-                    <nav className="btsImgs" aria-live='assertive'>
-                        <Link to='/LoginEmpresa' className="btsImgsLINKS" aria-live='assertive'>
-                            <div className="imagemDiv">
-                                <img src="./img/mãos .png" className="imagemEmpre" alt='Login como empresa' />
-                            </div>
+                    <nav className="btsImgs" aria-live='assertive' aria-label='Faça login como empresa' role='alert'>
+                        <Link to='/LoginEmpresa' className="btsImgsLINKS" >
+                            <section className="imagemDiv">
+                                <img src="./img/mãos .png" className="imagemEmpre" />
+                            </section>
                             <div className='botaoImg'>Empresa</div>
                         </Link>
                     </nav>
                     <img src="./img/image.png" className="imagemPcds" />
-                    <nav className="btsImgs" aria-live='assertive' alt='Login como usuário'>
-                        <Link to='/TelaLogin' className="btsImgsLINKS">
+                    <nav className="btsImgs" aria-label=' Faça login como usuário' role='alert'>
+                        <Link to='/TelaLogin' className="btsImgsLINKS" >
                             <div className="imagemDiv">
-                                <img src="./img/imgUsuarioLogin.png" className="imagemUsuar2" alt='Login usuário' />
+                                <img src="./img/imgUsuarioLogin.png" className="imagemUsuar2" />
                             </div>
                             <div className='botaoImg'>Usuário</div>
                         </Link>

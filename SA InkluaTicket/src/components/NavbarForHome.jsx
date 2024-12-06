@@ -188,7 +188,7 @@ setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
             Criar seu evento
 
             {CadastreSe && 
-            <div  className='AvisoParaCadastro'> <p tabIndex={0} alt='Fechar' 
+            <div  className='AvisoParaCadastro' role='alert'> <p tabIndex={0} alt='Fechar' 
                 onKeyDown={(e) => {e.key === 'Enter' && e.stopPropagation(); e.preventDefault();setCadastre(false)}} onClick={(e) => {e.stopPropagation(); e.preventDefault();setCadastre(false)}}>X</p> Para criar um evento é necessário que você tenha uma conta empresarial! </div>} 
              
           </Link>

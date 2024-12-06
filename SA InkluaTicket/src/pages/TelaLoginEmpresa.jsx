@@ -179,7 +179,7 @@ function telaLoginEmpresa() {
 
             <div className="checkboxPCDLog">
               {<p aria-live='assertive'>{LoginBemSucedido}</p>}
-              <label>
+              <label tabIndex={0}>
                 Não possui uma conta? <Link to="/CadastroEmpresa">Cadastre-se empresa</Link>
               </label>
             </div>
