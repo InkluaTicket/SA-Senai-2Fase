@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Carrossel.css';
+import CardEventos from './cardEventos';
+import CardEventosCopy from './CardEventosCopy';
+import CardEventosCopy1 from './CardEventosCopy1';
+import CardEventosCopy2 from './CardEventosCopy2';
+import CardEventosCopy3 from './CardEventosCopy3';
+import CardEventosCopy4 from './CardEventosCopy4';
+import CardEventosCopy5 from './CardEventosCopy5';
+
 
 function Carrossel() {
   const [slideAtual, setSlideAtual] = useState(0);
@@ -9,9 +17,9 @@ function Carrossel() {
 
 
   const imagensDeFundo = [
-    '/public/img/imgC.jpg',
+    '/public/img/ClimaCarbono2.png',
     '/public/img/imgI.png',
-    '/public/img/imgS.jpg',
+    '/public/img/img-card.png',
   ];
 
   function proximoImg() {
@@ -21,21 +29,21 @@ function Carrossel() {
   }
 
   function proximoShow() {
-    setSlideShow((prev) => (prev + 1) % 4)
+    setSlideShow((prev) => (prev + 1) % 3)
   } function showAnterior() {
-    setSlideShow((prev) => (prev - 1 + 4) % 4)
+    setSlideShow((prev) => (prev - 1 + 2) % 3)
   }
 
   function proximoFestival() {
-    setSlideFestival((prev) => (prev + 1) % 4)
+    setSlideFestival((prev) => (prev + 1) % 3)
   } function festivalAnterior() {
-    setSlideFestival((prev) => (prev - 1 + 4) % 4)
+    setSlideFestival((prev) => (prev - 1 + 3) % 3)
   }
 
   function proximoEventos() {
-    setSlideEventos((prev) => (prev + 1) % 4)
+    setSlideEventos((prev) => (prev + 1) % 3)
   } function eventosAnterior() {
-    setSlideEventos((prev) => (prev - 1 + 4) % 4)
+    setSlideEventos((prev) => (prev - 1 + 3) % 3)
   }
 
   useEffect(() => {
@@ -59,7 +67,7 @@ function Carrossel() {
             <div className="carrossel-container">
               <div className="carrossel-item">
                 <div className="carrosselImgTt">
-                  <img src="./img/imgC.jpg" className="imgs123" />
+                  <img src="./img/ClimaCarbono2.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois">
                   <div className="textosDosShows">
@@ -91,7 +99,7 @@ function Carrossel() {
               </div>
               <div className="carrossel-item3">
                 <div className="carrosselImgTt3">
-                  <img src="./img/imgS.jpg" className="imgs123" />
+                  <img src="./img/img-card.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois3">
                   <div className="textosDosShows">
@@ -123,65 +131,19 @@ function Carrossel() {
         <div className="carrossel">
           <h1 className='carrosselShFeEvTEXTO'>Shows</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideShow * 35}%)` }}>
-            <div tabIndex={0} className="cartao">
-              <h3>Show 1</h3>
-              <p>Detalhes sobre o Show 1</p>
-            </div>
+            <CardEventos />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 2</h3>
-              <p>Detalhes sobre o Show 2</p>
-            </div>
+            <CardEventosCopy />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 3</h3>
-              <p>Detalhes sobre o Show 3</p>
-            </div>
+            <CardEventosCopy1 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 4</h3>
-              <p>Detalhes sobre o Show 4</p>
-            </div>
+            <CardEventosCopy2 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 5</h3>
-              <p>Detalhes sobre o Show 5</p>
-            </div>
+            <CardEventosCopy3 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 6</h3>
-              <p>Detalhes sobre o Show 6</p>
-            </div>
+            <CardEventosCopy4 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 7</h3>
-              <p>Detalhes sobre o Show 7</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 8</h3>
-              <p>Detalhes sobre o Show 8</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 9</h3>
-              <p>Detalhes sobre o Show 9</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 10</h3>
-              <p>Detalhes sobre o Show 10</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 11</h3>
-              <p>Detalhes sobre o Show 11</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Show 12</h3>
-              <p>Detalhes sobre o Show 12</p>
-            </div>
+            <CardEventosCopy5/>
           </div>
           <button className="carrossel-botao2 anterior2" onClick={showAnterior}>‹</button>
           <button className="carrossel-botao2 proximo2" onClick={proximoShow}>›</button>
@@ -191,65 +153,19 @@ function Carrossel() {
         <div className="carrossel">
           <h1 className='carrosselShFeEvTEXTO'>Festivais</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * 35}%)` }}>
-            <div className="cartao">
-              <h3>Festival 1</h3>
-              <p>Detalhes sobre o Festival 1</p>
-            </div>
+            <CardEventos />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 2</h3>
-              <p>Detalhes sobre o Festival 2</p>
-            </div>
+            <CardEventosCopy />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 3</h3>
-              <p>Detalhes sobre o Festival 3</p>
-            </div>
+            <CardEventosCopy1 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 4</h3>
-              <p>Detalhes sobre o Festival 4</p>
-            </div>
+            <CardEventosCopy2 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 5</h3>
-              <p>Detalhes sobre o Festival 5</p>
-            </div>
+            <CardEventosCopy3 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 6</h3>
-              <p>Detalhes sobre o Festival 6</p>
-            </div>
+            <CardEventosCopy4 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 7</h3>
-              <p>Detalhes sobre o Festival 7</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 8</h3>
-              <p>Detalhes sobre o Festival 8</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 9</h3>
-              <p>Detalhes sobre o Festival 9</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 10</h3>
-              <p>Detalhes sobre o Festival 10</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 11</h3>
-              <p>Detalhes sobre o Festival 10</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Festival 12</h3>
-              <p>Detalhes sobre o Festival 10</p>
-            </div>
+            <CardEventosCopy5/>
           </div>
           <button className="carrossel-botao2 anterior2" onClick={festivalAnterior}>‹</button>
           <button className="carrossel-botao2 proximo2" onClick={proximoFestival}>›</button>
@@ -259,65 +175,19 @@ function Carrossel() {
         <div className="carrossel">
           <h1 className='carrosselShFeEvTEXTO'>Eventos</h1>
           <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideEventos * 35}%)` }}>
-            <div className="cartao">
-              <h3>Eventos 1</h3>
-              <p>Detalhes sobre o Eventos 1</p>
-            </div>
+            <CardEventos />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 2</h3>
-              <p>Detalhes sobre o Eventos 2</p>
-            </div>
+            <CardEventosCopy />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 3</h3>
-              <p>Detalhes sobre o Eventos 3</p>
-            </div>
+            <CardEventosCopy1 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 4</h3>
-              <p>Detalhes sobre o Eventos 4</p>
-            </div>
+            <CardEventosCopy2 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 5</h3>
-              <p>Detalhes sobre o Eventos 5</p>
-            </div>
+            <CardEventosCopy3 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 6</h3>
-              <p>Detalhes sobre o Eventos 6</p>
-            </div>
+            <CardEventosCopy4 />
             <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 7</h3>
-              <p>Detalhes sobre o Eventos 7</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 8</h3>
-              <p>Detalhes sobre o Eventos 8</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 9</h3>
-              <p>Detalhes sobre o Eventos 9</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 10</h3>
-              <p>Detalhes sobre o Eventos 10</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 11</h3>
-              <p>Detalhes sobre o Eventos 11</p>
-            </div>
-            <div className="espacoShowFestivais"></div>
-            <div className="cartao">
-              <h3>Eventos 12</h3>
-              <p>Detalhes sobre o Eventos 12</p>
-            </div>
+            <CardEventosCopy5/> 
           </div>
           <button className="carrossel-botao2 anterior2" onClick={eventosAnterior}>‹</button>
           <button className="carrossel-botao2 proximo2" onClick={proximoEventos}>›</button>
