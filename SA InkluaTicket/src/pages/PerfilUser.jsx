@@ -93,29 +93,29 @@ function PerfilUser() {
   <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> 
   { Pcd &&
   <img className='verificado1User' src="./img/img logo.png" alt="" />}
-  <p className='nomeUser'>{User.nome}</p>
+  <p tabIndex={0} aria-label='Nome de usuário' className='nomeUser'>{User.nome}</p>
 
-  <label className='possuiDeficienciaUser'>Possui alguma deficiência?</label> <img className='verificado2User' src="./img/img logo.png" alt="" />
+  <label tabIndex={0} className='possuiDeficienciaUser'>Possui alguma deficiência?</label> <img className='verificado2User' src="./img/img logo.png" alt="" />
   
   <div className="checkBoxGroupUser">
   <div>
-    <input type="checkbox" checked={isCheckedTrue} className="checkBoxUser" id="sim" />
+    <input type="checkbox" aria-disabled='true' checked={isCheckedTrue} className="checkBoxUser" id="sim" />
     <label htmlFor="simUser">Sim</label>
   </div>
   <div>
-    <input type="checkbox" checked={isCheckedFalse} className="checkBoxUser" id="nao" />
+    <input type="checkbox" aria-disabled checked={isCheckedFalse} className="checkBoxUser" id="nao" />
     <label htmlFor="naoUser">Não</label>
   </div>
 </div>
 
 
   <label className='deficienciaUser'>Deficiência:</label>
-  <input className='inptsUser' disabled value={Pcd ? User.deficiencia
+  <input tabIndex={0}  className='inptsUser' aria-disabled='true' value={Pcd ? User.deficiencia
           : ('Não possui')} type="text" />
 
 
   <label className='detalhesUser'>Detalhes:</label>
-  <input className='inptsUser' disabled value={Pcd ? User.detalhes_deficiencia : ('Não possui')}  type="text" />
+  <input tabIndex={0} className='inptsUser' aria-disabled='true' value={Pcd ? User.detalhes_deficiencia : ('Não possui')}  type="text" />
 
 </div>
 

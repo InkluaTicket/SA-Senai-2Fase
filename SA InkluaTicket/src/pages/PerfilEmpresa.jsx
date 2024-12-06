@@ -55,17 +55,17 @@ function PerfilEmpresa() {
 <div className='ImagemENome'>  
   <img className='iconEmp' src="./img/fotoUser.png" />
   <img className='verificadoEmp' src="./img/verif-empresa.png"/>
-  <p className='nomeEmp'>{Empresa.nome}</p>
+  <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmp'>{Empresa.nome}</p>
 </div>
 
   <label className='labelEmp'>Email para contato:</label>
-  <input className='inptsEmp' type="text" disabled value={Empresa.email} />
+  <input tabIndex={0} aria-label='Email da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.email} />
 
-  <label className='labelEmp'>Telefone para contato:</label>
-  <input className='inptsEmp' type="text" disabled value={Empresa.telefone}/>
+  <label  className='labelEmp'>Telefone para contato:</label>
+  <input tabIndex={0} aria-label='Telefone da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.telefone}/>
 
   <label className='labelEmp'>Endereço fiscal:</label>
-  <input className='inptsEmp' type="text" disabled value={Empresa.endereco}/>
+  <input tabIndex={0} aria-label='Endereço da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.endereco}/>
 
 </div>
 

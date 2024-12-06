@@ -119,12 +119,24 @@ height: min-content;
 
 .AvisoParaCadastro{
 
+    justify-content: ;
     position: absolute;
-    top: 200px;
+    top: 50px;
     right: -90px;
-    
+    width: 300px;
+    height: 500px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #024959;
     width: 600px;
     z-index: 1000;
+    border-radius: 10px;
 
 }
+
+.x{
+
+    margin-left: 100px;
+
+}
+
+

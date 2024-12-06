@@ -201,4 +201,6 @@
     font-family: "Poppins", sans-serif;
     margin-left: 100px;
     margin-top: 6px;
+    pointer-events: none;
+    outline: 0;
   }
