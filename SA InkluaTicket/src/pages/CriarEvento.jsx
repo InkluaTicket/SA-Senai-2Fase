@@ -1,15 +1,80 @@
 import React from "react";
 import "../styles/CriarEvento.css";
+import jwt_decode from 'jwt-decode'
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 
 function CriarEvento() {
+  
   const [showInput, setShowInput] = useState(false); // Estado para controlar a exibição do input
-
+  const [imgPreview, setPrev] = useState(null)
+  
+  const token = localStorage.getItem('tokenEmpresa')
+    let empresaId = null;
+    const decode = jwt_decode(token)
+    empresaId = decode.id
+    const [FormEvento, setFormE] = useState({ Nome: '', Descricao: '', DataInicio: '', DataFim: '', Endereco: '', 
+     Descricao: '', Categoria: '', LinkIngressos: '', empresa: empresaId})
 
   const handleButtonClick = () => {
     setShowInput(true); 
   };
+
+  
+  const UploadImagemEvento = (e) => {
+
+  
+
+   document.getElementById('upload').click();
+
+  }
+
+  const OutraAcessibilidade = (item) => {
+
+    if(item === 'Outro?'){
+
+      setShowInput((prev) => !prev);
+
+    }else{
+
+      console.log('Deu b.o')
+
+    }
+
+  }
+
+  const handleSubmit =  async (e) => {
+
+    e.preventDefault();
+    
+    const formData = new FormData();
+
+
+    formData.append('Nome', FormEvento.Nome)
+    formData.append('Descricao', FormEvento.Descricao)
+    formData.append('Data', FormEvento.Data)
+    formData.append('empresa', FormEvento.empresa)
+
+const response = await fetch('http://localhost:3000/criacaoevento', {
+
+
+   method: 'POST',
+   body: formData
+   
+});
+
+if(response.ok){
+
+    navigate('/')
+
+}else{
+
+  console.log('Evento não criado!')
+
+}
+
+}
+
 
 
   return (
@@ -19,24 +84,54 @@ function CriarEvento() {
       </header>
 
       <main>
-        <section className="corpo-pagina">
+
+        {imgPreview === null ? <>  <section className="corpo-pagina" onClick={ () => {if(imgPreview == null) UploadImagemEvento();}}>
           <div id="container">
             <h1 className="titles">Adicione uma foto ao seu evento:</h1>
-            <button className="butao">
+            <div className="butao">
               <div className="colocar-foto">
                 <img
                   src="./img/colocar-foto.png"
                   alt="Adicionar foto"
                   className="img-foto"
                 />
+
+                 <input id="upload" type="file" style={{display: 'none'}}
+                 
+                 onChange={(e) => { 
+
+                  const file = e.target.files[0];
+                 
+                  setPrev(URL.createObjectURL(file));
+                  console.log('Imagem adicionada!')
+                  
+
+                    }
+                  } 
+
+                 />
+
                 <article className="comnt">Arraste ou coloque uma foto</article>
                 <article className="comnt2">
                   (A dimensão recomendada é de 1600 x 838)
                 </article>
               </div>
-            </button>
+            </div>
           </div>
-        </section>
+        </section></> : <>
+       <div id="container">
+
+       <h1 className="titles">Foto do seu evento:</h1>
+
+        <div className="butao"> <img className="ImgPrev" src={imgPreview} alt="" /> </div>
+
+        <button className="salvar" onClick={(e) =>{e.preventDefault(); 
+          setPrev(null); console.log('Imagem removida')} }>Remover imagem</button>
+
+        </div>
+
+        </>}
+        
 
         <section className="comentarios">
           <form action="">
@@ -118,6 +213,7 @@ function CriarEvento() {
                         type="checkbox"
                         className="checagem"
                         id={`checkbox-${index + 3}`}
+                        onChange={ () => OutraAcessibilidade(item)}
                       />
                       <label
                         className="info-label"
@@ -170,7 +266,7 @@ function CriarEvento() {
               aria-label="Link para a compra de ingressos do evento"
             />
 
-            <button className="salvar">Salvar Alterações</button>
+            <button className="salvar" onClick={handleSubmit}>Salvar Alterações</button>
           </form>
         </section>
       </main>
