@@ -40,10 +40,15 @@
     align-items: center;
   }
   
-  .cadastrarLog{
+  .cadastrarL{
     height: 25%;
     margin-top: -1%;
-    margin-right: 51%;
+    margin-right: 45%;
+    color: darkgrey;
+  }.cadastrarLog{
+    height: 25%;
+    margin-top: -1%;
+    margin-right: 54%;
     color: darkgrey;
   }.cadastrarLog2{
     height: 25%;
@@ -91,7 +96,7 @@
   .checkboxPCDLog{
     margin-top: 10%;
     margin-bottom: 5%;
-    margin-left: 10%;
+    margin-left: 2%;
     color: black;
     width: 70%;
     text-align: start;
@@ -114,7 +119,7 @@
     transition: 1s;
   }
   .btCadastrarLog:hover{
-    transform: scale(1.1); 
+    transform: scale(1.2); 
     transition: 1s;
     width: 55%;
     border:1px solid #024959;

@@ -138,7 +138,7 @@ function telaLoginEmpresa() {
           <img className='imagemscadastrarLog2' src="./img/image.png" alt="Imagem Login" />
         </div>
         <div className="parteBrancaLog">
-          <div className="cadastrarLog">
+          <div className="cadastrarL">
             <h1 className='Cadastre-seLog'>Login de Empresa</h1>
             <h3>Digite os dados da Empresa abaixo</h3>
           </div>
@@ -180,7 +180,7 @@ function telaLoginEmpresa() {
             <div className="checkboxPCDLog">
               {<p aria-live='assertive'>{LoginBemSucedido}</p>}
               <label tabIndex={0}>
-                Não possui uma conta? <Link to="/CadastroEmpresa">Cadastre-se empresa</Link>
+                Não possui uma conta? <Link to="/CadastroEmpresa">Cadastre-se</Link>
               </label>
             </div>
             <div className="btLocalLog">
