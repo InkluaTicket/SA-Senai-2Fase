@@ -13,13 +13,14 @@
     align-items: center;
 }
 .logoGP{
-    width: 130px;
+    width: 150px;
     height: min-content;
     margin-left: 20px;
     margin-right: 20px;
 }
-.voltarGP{
-    width: 30px;
+.voltarGPU{
+    width: 50px;
+    height: min-content;
     margin-left: 12px;
     margin-right: 40px;
 }

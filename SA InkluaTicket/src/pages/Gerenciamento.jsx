@@ -238,11 +238,11 @@ function Gerenciamento() {
       <div className='divUm'>
         <h1 className='dadosDaConta'>Dados da Conta</h1>
 
-        {  MostrarPrev ? <>  <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> </> : 
+        {  MostrarPrev ? <>  <img className='iconUserGeren' src="./img/fotoUser.png" alt="User Icon" /> </> : 
         <> <img className='iconUserGerenc' src={imgPreview} style={{borderRadius: '50%'}} alt="" /> </>
           }
 
-        <label className='alterarfoto'>
+        <label className='alterarfotoGeren'>
             <input type="file" onChange={(e) => { 
 
 const file = e.target.files[0];
