@@ -322,6 +322,7 @@ setNew({...NewInfos, NovaImagem: file});
 
         </div>
 
+
          {SalvarAlteracoes &&  
         <><button onClick={Salvar} className='sair'>Salvar alterações</button> <button onClick={Cancelar}>Cancelar</button></>}
 
