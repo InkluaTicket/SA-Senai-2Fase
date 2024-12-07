@@ -147,7 +147,7 @@ setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
       {validação && isAdm ? (
         <>
         <nav className='InfosHome'>
-          <Link className='InfosNavHome' to='/admPainel'>Administração</Link>
+          <Link className='InfosNavHome' to='/PainelModerador'>Administração</Link>
           </nav>
         </>
       ) : validação && isEmpresa ? (

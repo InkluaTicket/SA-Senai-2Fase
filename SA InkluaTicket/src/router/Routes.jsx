@@ -13,6 +13,7 @@ import TelaLoginEmpresa from "../pages/TelaLoginEmpresa";
 import PerfilUser from "../pages/PerfilUser";
 import PerfilEmpresa from "../pages/PerfilEmpresa";
 import Shows from "../pages/Shows";
+import PainelModerador from "../pages/PainelModerador";
 
 const PageWrapper = ({ element, screenName }) => {
   const location = useLocation();
@@ -38,6 +39,7 @@ const Routes = createBrowserRouter([
   { path: '/PerfilUser', element: <PageWrapper element={ <PerfilUser/>} screenName='Tela de gerenciamento de perfil do usuário'/> },
   { path: '/Shows', element: <PageWrapper element={ <Shows/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PerfilEmpresa', element: <PageWrapper element={ <PerfilEmpresa/>} screenName='Tela de perfil da empresa'/> },
+  { path: '/PainelModerador', element: <PageWrapper element={ <PainelModerador/>} screenName='Tela de painel do moderador'/> },
 ]);
 
 export default Routes;
