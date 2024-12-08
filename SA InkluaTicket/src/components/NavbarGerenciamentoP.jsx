@@ -9,7 +9,7 @@ function NavbarGerenciamentoP() {
       <div className='teste'>
 
       <img className='voltarGPU' src="./img/arrow_back (2).png" alt="" />
-      <h1 className='gerenciamentoDaConta'>Gerenciamento da conta</h1>
+      <h1 className='gerenciamentoDaContaUser'>Gerenciamento da conta</h1>
 
       </div>
 

@@ -47,9 +47,9 @@
     height: 90px;
     cursor: pointer;
     display: block;
-    margin-left: 4%;
+    margin-left: 300px;
     margin-bottom: 510px;
-    margin-top: -140px;
+    margin-top: 15px;
   }
   
   .alterarfotoGeren {
@@ -60,7 +60,7 @@
     text-align: center;
     cursor: pointer;
     margin-bottom: -5px;
-    margin-left: -485px;
+    margin-left: -16px;
     margin-top: -500px;
   }
   
@@ -69,6 +69,17 @@
     height: 18px;
     vertical-align: middle;
     margin-left: -3px;
+  }
+
+  .iconUserGerenc{
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    display: block;
+    margin-left: 300px;
+    margin-bottom: 510px;
+    margin-top: 15px;
+
   }
   
   .verificado{
@@ -90,31 +101,64 @@
   .div-inpt1, .div-inpt2 {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Menor espaçamento entre os inputs */
+    gap: 12px;
     flex: 1;
     min-width: 45%; /* Ajuste para os inputs não ficarem muito largos */
   }
   
   .labelInpts {
-    font-size: 13px; /* Fonte menor */
+    font-size: 13px;
     color: #333;
     font-family: "Poppins", sans-serif;
     margin-bottom: -2px;
   }
   
   
-  .sair{
-    width: 200px;
-    padding: 8px;
-    font-size: 20px;
-    border: none;
-    border-radius: 8px;
+  .iconsair{
+    width: 20px;
+    height: min-content;
     cursor: pointer;
-    color: white;
+    margin-left: -3px;
+    margin-top: -2%;
+  }
+
+  .sairGerenUser{
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 22px;
+    margin-top: -18px; 
+  }
+
+  .salvarGerenUser{
+    width: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    color: whitesmoke;
     font-family: "Poppins", sans-serif;
     background-color: var(--cor-1);
-    margin-left: 200px;
-    margin-top: 5%;
+    margin-left: 12px;
+    margin-top: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cancelarGerenUser{
+    width: 115px;
+    padding: 8px;
+    font-size: 14px;
+    border: solid 2px var(--cor-1);
+    border-radius: 7px;
+    cursor: pointer;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    background-color: var(--cor-4);
+    margin-left: 10px;
+    margin-top: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .divLinha {
@@ -138,7 +182,7 @@
     margin: 20px;
     margin-bottom: 50px;
     margin-top: -2%;
-    margin-left: -450px;
+    margin-left: -486px;
     
   }
   
@@ -151,7 +195,7 @@
   }
   
   .iconLixo{
-    margin-top: 4px;
+    margin-top: 2px;
     margin-left: -100px;
     width: 15px;
     height: min-content;
@@ -159,18 +203,18 @@
   }
   .excluir {
     font-family: "Poppins", sans-serif;
-    font-size: 10px; /* Fonte menor */
+    font-size: 10px;
     color: #333;
     cursor: pointer;
-    margin-left: 200px;
+    margin-left: 225px;
   }
   
   .possuiDeficiencia{
     font-size: 23px;
     color: rgb(40, 40, 40);
     font-family: "Poppins", sans-serif;
-    margin-left: -350px;
-    margin-bottom: 5%;
+    margin-left: -375px;
+    margin-bottom: 5px;
   }
   
   .verificado2{
@@ -179,8 +223,8 @@
     vertical-align: middle;
     position: absolute;
     margin: 0;
-    margin-left: -35px;
-    top: 170px;
+    margin-left: -55px;
+    top: 153px;
     
   }
   
@@ -214,17 +258,18 @@
     color: #333;
     font-family: "Poppins", sans-serif;
     display: block;
-    margin-left: -535px;
-    margin-top: 79px;
+    margin-left: -583px;
+    margin-top: 50px;
+    margin-bottom: 10px;
   }
   .detalhes{
     font-size: 13px;
     color: #333;
     font-family: "Poppins", sans-serif;
     display: block;
-    margin-left: -545px;
-    margin-top: 23.5px;
-    margin-bottom: 5px;
+    margin-left: -583px;
+    margin-top: 50px;
+    margin-bottom: 10px;
   }
   
   .inptsTela2{
@@ -235,6 +280,7 @@
     font-size: 14px;
     font-family: "Poppins", sans-serif;
     margin-left: -280px;
+    margin-bottom: -20px;
     
   }
 
@@ -242,8 +288,8 @@
 
     width: 20px;
     position: absolute;
-    top: 371px;
-    left: 310px;
+    top: 309px;
+    left: 350px;
     cursor: pointer;
 
   }
@@ -252,8 +298,8 @@
 
     width: 20px;
     position: absolute;
-    top: 452px;
-    left: 310px;
+    top: 390px;
+    left: 350px;
     cursor: pointer;
 
   }
@@ -262,8 +308,8 @@
 
     width: 20px;
     position: absolute;
-    top: 532px;
-    left: 310px;
+    top: 472px;
+    left: 350px;
     cursor: pointer;
 
   }
@@ -272,8 +318,8 @@
 
     width: 20px;
     position: absolute;
-    top: 390px;
-    left: 310px;
+    top: 309px;
+    left: 350px;
     cursor: pointer;
 
   }
@@ -282,8 +328,8 @@
 
     width: 20px;
     position: absolute;
-    top: 470px;
-    left: 310px;
+    top: 390px;
+    left: 350px;
     cursor: pointer;
 
   }
@@ -292,8 +338,8 @@
 
     width: 20px;
     position: absolute;
-    top: 550px;
-    left: 310px;
+    top: 472px;
+    left: 350px;
     cursor: pointer;
 
   }
@@ -333,7 +379,6 @@
   .inptsTela2Disabled{
     width: 50%;
     padding: 8px;
-  
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 14px;
