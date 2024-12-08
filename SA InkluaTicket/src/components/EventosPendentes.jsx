@@ -37,16 +37,43 @@ function EventosPendentes() {
 
     }
 
+
+    const [slideFestival, setSlideFestival] = useState(0);
+     
+    const totalSlides = EventosAnalise.length;
+
+  function proximoFestival() {
+    if (totalSlides > 0) {
+        setSlideFestival((prev) => (prev + 2) % totalSlides);
+    }
+  }
+  function festivalAnterior() {
+    if (totalSlides > 0) {
+        setSlideFestival((prev) => (prev - 2 + totalSlides) % totalSlides);
+    }
+  }
+
+
     useEffect(() => {
 
      SelectEvent();
+     console.log(EventosAnalise.length)
 
     }, [])
 
   return (
-    <div>
-      
-      {EventosAnalise.map((evento) =>(
+    
+<div>
+
+<div className="tudocarrossel">
+
+       {EventosAnalise.length == 0 ? <> <h1>Sem eventos</h1> </> : <>{/* Carrossel de Festivais */}
+      <div className="carrossel">
+        <h1 className='carrosselShFeEvTEXTO'>Festivais</h1>
+        <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
+          
+
+        {EventosAnalise.map((evento) =>(
 
 <ul className='container'>
 
@@ -67,7 +94,16 @@ function EventosPendentes() {
 </li>
 </ul>
 ))}
+
+        </div>
+        <button className="carrossel-botao2 anterior2" onClick={festivalAnterior}>‹</button>
+        <button className="carrossel-botao2 proximo2" onClick={proximoFestival}>›</button>
+      </div> </>}
+
+      
     </div>
+</div>
+    
   )
 }
 

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EventosPendentes from '../components/EventosPendentes';
+
 
 function PainelModerador() {
 
@@ -15,13 +16,19 @@ function PainelModerador() {
 
     }
 
+   
 
 
   return (
     <div>
       <h1>Painel Moderador</h1>
 
-      <EventosPendentes/>
+      
+
+      
+     
+          <EventosPendentes/>
+       
 
       <button onClick={Logout}>Sair da conta</button>
 
