@@ -164,8 +164,32 @@ app.get('/eventosAnalise', async(req, res) => {
 
     try{
 
-        const result = await pool.query('SELECT * FROM eventos WHERE aceito IS NULL')
-        res.status(200).json(result.rows)
+        const result = await pool.query('SELECT * FROM evento WHERE aceito IS NULL')
+
+       const eventos = result.rows
+
+       const eventosComImagem = eventos.map(evento => {
+        if (evento.imagem) {
+            const imgConvert = Buffer.from(evento.imagem).toString('base64');
+            evento.imagem = `data:image/*;base64,${imgConvert}`;
+        }
+
+        if (evento.data_inicio) {
+            const dateInicio = new Date(evento.data_inicio);
+            evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+        }
+        if (evento.data_fim) {
+            const dateFim = new Date(evento.data_fim);
+            evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+        }
+
+        return evento;
+    });
+
+    
+
+
+        res.status(200).json(eventosComImagem)
 
     }catch(err){
 

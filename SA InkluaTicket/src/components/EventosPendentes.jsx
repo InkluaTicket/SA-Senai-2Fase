@@ -53,11 +53,11 @@ function EventosPendentes() {
 <li className='Card'  onClick={() => navigator(`/eventosAceitos/${evento.id}`)} key={evento.id}>
 
 <div className="card">
-                <img className='imagemEvento' src="./img/imgS.jpg"/>
+                <img className='imagemEvento' src={evento.imagem}/>
                 <div className="div-inform">
-                    <h2 className='descricao'>27º Congresso Internacional UNIDAS - Inovação impulsionando o propósito das autogestões</h2>
-                    <h2 className='data'>27 nov - 2024 • 08:00 {'>'} 29 nov - 2024 • 19:00</h2>
-                    <p className='local'>CentroSul Florianópolis, Florianópolis - SC</p>
+                    <h2 className='descricao'>{evento.nome}</h2>
+                    <h2 className='data'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
+                    <p className='local'>{evento.local_evento}</p>
                 </div>
             </div>
 
