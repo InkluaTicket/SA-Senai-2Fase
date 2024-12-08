@@ -1,47 +1,155 @@
+body {
+  overflow-x: hidden;
+}
+
 .img-fundo {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 30rem;
+  width: 110%;
+  margin-left: -30px;
+  height: 33rem;
   object-fit: cover;
-  filter: blur(10px) brightness(0.7);
+  filter: blur(20px);
   z-index: -1;
 }
 
-/* Estilos da Navbar */
-.nav-show {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10; 
+.img-frente {
+  width: 60rem;
+  height: 30rem;
+  border-radius: 20px;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-  padding-top: 60px;
-  text-align: center;
-}
-
-.content h1 {
-  color: white;
-  font-size: 36px;
-  margin-top: 50px;
-}
-
-.content p {
-  color: white;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-.img-frente{
+.img-container {
   display: flex;
-
+  justify-content: center;
+  margin-top: 4%;
 }
 
-.img-container{
-  text-align: center;
+.title-show {
+  color: #024959;
+  opacity: 79%;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.link-show {
+  text-decoration: none;
+  color: #0076d7;
+}
+
+.p-show {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-desc {
+  display: inline-block;
+  width: 100%; /* Ocupa 100% da largura de card-show */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo do tamanho */
+  overflow: hidden; /* Garante que o conteúdo extra não saia da área */
+}
+
+.card-show{
+  display: grid;
+  margin-top: 5%;
+  background-color: #f2f2f2;
+  color: #000000;
+  opacity: 73%;
+  border-radius: 20px;
+  height: 100%;
+  width: 40%;
+  padding: 5vh;
+  margin-left: 5%;
+  font-size: 20px
+}
+
+.card-show2{
+  margin-top: 5%;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  color: #000000;
+  opacity: 73%;
+  height: 100%;
+  width: 25%;
+  padding: 15px;
+  margin-left: 5%;
+  font-size: 20px
+}
+
+.card-show3{
+  margin-top: 5%;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  color: #000000;
+  opacity: 73%;
+  height: 100%;
+  width: 40%;
+  padding: 15px;
+  margin-left: 5%;
+  font-size: 20px
+}
+
+.compra{
+  color: #ffffff;
+  background-color: #024959;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.titulo{
+  color: #024959;
+  font-size: 5vh;
+  opacity: 78%;
+  display: flex;
+  justify-content: center;
+}
+
+.itens-data{
+text-align: center;
+}
+
+
+/* ------- avaliação do show ------- */
+
+.avaliacao{
+  display: flex;
+  font-size: 100px;
+}
+
+.star-icon{
+  list-style-type: none;
+  cursor: pointer;
+  color: #ffe500;
+}
+
+.star-icon::before{
+  content: "\2605";
+}
+
+.star-icon.ativo ~ .star-icon::before{
+  content: "\2606";
+}
+
+.avaliacao:hover .star-icon::before{
+  content: "\2605";
+}
+
+.star-icon:hover ~ .star-icon::before{
+  content: "\2606";
+}
+
+/* --------------------------------- */
+
+
+.avaliar{
+  font-size: 30px
 }

@@ -244,7 +244,7 @@ function TelaCadastro() {
                 <div className="parteUmInpus">
                    
                 <label className='labelCheckboxPcd'>
-                  <input id='PCD' type="checkbox" className='inputsCheckbox' onKeyDown={(e) => {if(e.key === 'Enter') Check()}} onChange={Check} />Você é uma pessoa PCD?
+                  <input id='PCD' type="checkbox" className='inputsCheckbox' onChange={Check} />Você é uma pessoa PCD?
                   <img src="./img/img logo.png" className="imgPCD" alt="Logo PCD" />
                 </label>
 
