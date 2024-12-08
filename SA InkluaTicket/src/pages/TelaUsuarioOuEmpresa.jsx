@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function TelaUsuarioOuEmpresa() {
 
     useEffect(() => {
-        document.title = 'Tela de escolha'; // Altera o título da aba
+        document.title = 'Tela de escolha cadastro'; // Altera o título da aba
     }, []);
 
     return (

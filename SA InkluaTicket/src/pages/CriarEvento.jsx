@@ -3,6 +3,7 @@ import "../styles/CriarEvento.css";
 import jwt_decode from 'jwt-decode'
 import Navbar from "../components/Navbar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CriarEvento() {
   
@@ -14,7 +15,14 @@ function CriarEvento() {
     const decode = jwt_decode(token)
     empresaId = decode.id
     const [FormEvento, setFormE] = useState({ Nome: '', Descricao: '', DataInicio: '', DataFim: '', Endereco: '', 
-     Descricao: '', Categoria: '', LinkIngressos: '', empresa: empresaId})
+      Categoria: 'Show', LinkIngressos: '', imagem: null,  empresa: empresaId})
+
+    const [Acessibilidades, setAcess] = useState({DefFisica: null, DefVisual: null, DefIntelectual: null, DefAuditiva: null, DefMultipla: null, OutraDef: null, OutraDescricao: null, }) 
+
+    const [erros, setErros] = useState({Nome: '', Descricao: '', DataInicio: '', DataFim: '', Endereco: '', 
+      LinkIngressos: '', imagem: null, acess: Acessibilidades})
+
+    const navigate = useNavigate();
 
   const handleButtonClick = () => {
     setShowInput(true); 
@@ -29,30 +37,120 @@ function CriarEvento() {
 
   }
 
-  const OutraAcessibilidade = (item) => {
+  const handleCheckbox = (event) => {
+    const { id, checked } = event.target;
+  
+    setAcess((prevState) => ({
+      ...prevState,
+      [id]: checked,
+    }));
 
-    if(item === 'Outro?'){
+    if (id === "OutraDef") {
+      setShowInput(checked);  // Exibe ou esconde o campo de descrição
+      if (!checked) {
+        // Se o checkbox for desmarcado, limpa a descrição
+        setAcess((prevState) => ({
+          ...prevState,
+          OutraDescricao: "",  // Limpa o valor de OutraDescricao
+        }));
+      }}
 
-      setShowInput((prev) => !prev);
+    console.log(Acessibilidades)
+  };
 
-    }else{
+  const handleOutraDescricaoChange = (event) => {
 
-      console.log('Deu b.o')
+    const { value } = event.target;
+  
+    if (Acessibilidades.OutraDef) {
+
+      setAcess((prevState) => ({
+        ...prevState,
+        OutraDescricao: value, 
+      }));
+    }
+  }
+
+
+  const validateForm = (data, acessibilidades) => {
+
+    const erros = {}
+
+    if (!data.Nome) {
+      erros.Nome = 'O nome do evento é obrigatório!'
+    }
+
+    if (!data.Descricao) {
+      erros.Descricao = 'A descrição do evento é obrigatória!';
+    } 
+
+    if(!data.DataInicio){
+
+      erros.DataInicio = 'A data de início do evento é obrigatória!'
+
+    }
+   
+  if (!data.DataFim) {
+    erros.DataFim = 'A data de término do evento é obrigatória!';
+  } 
+
+
+
+    if(!data.Endereco){
+
+      erros.Endereco = 'O endereço do evento é obrigatório!'
 
     }
 
+    if (!data.LinkIngressos) {
+      erros.LinkIngressos = 'O link para ingressos é obrigatório!';
+    } else if (!/^https?:\/\/.+/.test(data.LinkIngressos)) {
+      erros.LinkIngressos = 'O link para ingressos deve ser uma URL válida.';
+    }
+
+    if (!data.imagem) {
+      erros.imagem = 'A imagem do evento é obrigatória!!'
+    }
+
+
+    const acessErrors = {};
+  Object.entries(acessibilidades).forEach(([key, value]) => {
+    if (!value && key !== 'OutraDescricao') {
+      acessErrors[key] = true;
+    }
+  });
+
+  if (!Object.values(acessibilidades).some(Boolean)) {
+    erros.acess = { message: 'O evento deve conter ao menos uma acessibilidade selecionada.', ...acessErrors };
   }
+
+    return erros;
+
+  }
+ 
 
   const handleSubmit =  async (e) => {
 
     e.preventDefault();
+
+    const validationErrors = validateForm(FormEvento, Acessibilidades);
+    setErros(validationErrors);
+
+
+    if (Object.values(validationErrors).every(error => error === '')) {
+      console.log('Formulário enviado com sucesso!', FormEvento);
     
     const formData = new FormData();
 
 
     formData.append('Nome', FormEvento.Nome)
     formData.append('Descricao', FormEvento.Descricao)
-    formData.append('Data', FormEvento.Data)
+    formData.append('DataInicio', FormEvento.DataInicio)
+    formData.append('DataFim', FormEvento.DataFim)
+    formData.append('Categoria', FormEvento.Categoria)
+    formData.append('Endereco', FormEvento.Endereco)
+    formData.append('LinkIngressos', FormEvento.LinkIngressos)
+    formData.append('imagem', FormEvento.imagem)
     formData.append('empresa', FormEvento.empresa)
 
 const response = await fetch('http://localhost:3000/criacaoevento', {
@@ -65,16 +163,35 @@ const response = await fetch('http://localhost:3000/criacaoevento', {
 
 if(response.ok){
 
-    navigate('/')
+  const data = await response.json();
+  const eventoId = data.id
+
+  console.log(eventoId)
+  
+const acessibilidades = {
+  id_evento: eventoId,
+  ...Acessibilidades, // Incluir todas as informações de acessibilidade do estado
+};
+ 
+
+ await fetch('http://localhost:3000/acessibilidades', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(acessibilidades),
+            });
+
+
+ navigate('/')
 
 }else{
 
   console.log('Evento não criado!')
+  console.log(FormEvento)
 
 }
 
 }
-
+  }
 
 
   return (
@@ -103,6 +220,7 @@ if(response.ok){
                   const file = e.target.files[0];
                  
                   setPrev(URL.createObjectURL(file));
+                  setFormE({...FormEvento, imagem: file})
                   console.log('Imagem adicionada!')
                   
 
@@ -121,7 +239,7 @@ if(response.ok){
         </section></> : <>
        <div id="container">
 
-       <h1 className="titles">Foto do seu evento:</h1>
+       <h1 className="titles">Imagem do seu evento:</h1>
 
         <div className="butao"> <img className="ImgPrev" src={imgPreview} alt="" /> </div>
 
@@ -131,6 +249,8 @@ if(response.ok){
         </div>
 
         </>}
+
+        {erros.imagem && <p className='avisoLabel'>{erros.imagem}</p>}
         
 
         <section className="comentarios">
@@ -141,7 +261,10 @@ if(response.ok){
               className="comentario"
               placeholder="Obrigatório"
               aria-label="Nome do evento"
+              onChange={(e) => setFormE({...FormEvento, Nome: e.target.value})}
             />
+
+            {erros.Nome && <p className='avisoLabel'>{erros.Nome}</p>}
 
             <h2 className="titles">Data de início do evento</h2>
             <input
@@ -150,7 +273,9 @@ if(response.ok){
               min="2024-11-19"
               max="2024-12-31"
               aria-label="Data de início do evento"
+              onChange={(e) => setFormE({...FormEvento, DataInicio: e.target.value})}
             />
+            {erros.DataInicio && <p className='avisoLabel'>{erros.DataInicio}</p>}
 
             <h2 className="titles">Data de término do evento</h2>
             <input
@@ -159,7 +284,10 @@ if(response.ok){
               min="2024-11-19"
               max="2024-12-31"
               aria-label="Data de término do evento"
+              onChange={(e) => setFormE({...FormEvento, DataFim: e.target.value})}
             />
+
+            {erros.DataFim && <p className='avisoLabel'>{erros.DataFim}</p>}
 
             <h2 className="titles">Insira o endereço do seu evento</h2>
             <input
@@ -167,7 +295,9 @@ if(response.ok){
               className="comentario"
               placeholder="Obrigatório"
               aria-label="Endereço do evento"
+              onChange={(e) => setFormE({...FormEvento, Endereco: e.target.value})}
             />
+            {erros.Endereco && <p className='avisoLabel'>{erros.Endereco}</p>}
 
             <h2 className="titles">
               Coloque uma breve descrição sobre seu evento
@@ -177,7 +307,10 @@ if(response.ok){
               placeholder="Máx. 315 caracteres"
               maxLength={315}
               aria-label="Descrição do evento"
+              onChange={(e) => setFormE({...FormEvento, Descricao: e.target.value})}
             ></textarea>
+
+            {erros.Descricao && <p className='avisoLabel'>{erros.Descricao}</p>}
 
             <h2 className="titles">
               Coloque os tipos de acessibilidade que seu evento fornece
@@ -187,17 +320,20 @@ if(response.ok){
             
               <div className="column">
                 {[
-                  "Deficiencia física","Deficiencia visual","Deficiencia intelectual"
-                ].map((item, index) => (
+                  { label: "Deficiencia física", id: "DefFisica" },
+                  { label: "Deficiencia visual", id: "DefVisual" },
+                  { label: "Deficiencia intelectual", id: "DefIntelectual" },
+                ].map(({label, id}, index) => (
 
                   <article key={index}>
                     <input
                       type="checkbox"
                       className="checagem"
-                      id={`checkbox-${index}`}
+                      id={id}
+                      onChange={handleCheckbox}
                     />
-                    <label className="info-label" htmlFor={`checkbox-${index}`}>
-                      {item}
+                    <label className="info-label" htmlFor={id}>
+                      {label}
                     </label>
                   </article>
                   
@@ -205,21 +341,23 @@ if(response.ok){
               </div>
 
               <div className="column">
-                {["Deficiencia auditiva", "Deficiencia multipla", "Outro?"].map(
+                {[{ label: "Deficiencia auditiva", id: "DefAuditiva" },
+                  { label: "Deficiencia multipla", id: "DefMultipla" },
+                  { label: "Outro?", id: "OutraDef" },].map(
 
-                  (item, index) => (
+                  ({label, id}, index) => (
                     <article key={index + 3}>
                       <input
                         type="checkbox"
                         className="checagem"
-                        id={`checkbox-${index + 3}`}
-                        onChange={ () => OutraAcessibilidade(item)}
+                        id={id}
+                        onChange={handleCheckbox}
                       />
                       <label
                         className="info-label"
-                        htmlFor={`checkbox-${index + 3}`}
+                        htmlFor={id}
                       >
-                        {item}
+                        {label}
                       </label>
                     </article>
                   
@@ -236,8 +374,18 @@ if(response.ok){
                 id="comentario"
                 placeholder="Max 315 caracteres"
                 maxLength={315}
+                value={Acessibilidades.OutraDescricao}
+                onChange={handleOutraDescricaoChange}
               ></textarea>
             )}
+
+{erros.acess && typeof erros.acess === 'object' && (
+  <div className='avisoLabel'>
+    <p>{erros.acess.message}</p>
+  </div>
+)}
+
+                        
 
             <h2 className="titles">Escolha a categoria do seu evento </h2>
 
@@ -247,6 +395,7 @@ if(response.ok){
               className="comentario"
               id="custom-select"
               defaultValue="Shows"
+              onChange={(e) => setFormE({...FormEvento, Categoria: e.target.value})}
             >
               {/* Shows, Festivais, Tecnologia, Esportes, Educação, Saúde */}
               <option value="Shows">Show</option>
@@ -264,7 +413,10 @@ if(response.ok){
               className="comentario"
               placeholder="Obrigatório"
               aria-label="Link para a compra de ingressos do evento"
+              onChange={(e) => setFormE({...FormEvento, LinkIngressos: e.target.value})}
             />
+
+            {erros.LinkIngressos && <p className='avisoLabel'>{erros.LinkIngressos}</p>}
 
             <button className="salvar" onClick={handleSubmit}>Salvar Alterações</button>
           </form>

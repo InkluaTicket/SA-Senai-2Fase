@@ -233,10 +233,11 @@ function Gerenciamento() {
     <NavbarGerenciamentoP/>  
     <div className='Corpo-container'>
 
-        
 
       <div className='divUm'>
-        <h1 className='dadosDaConta'>Dados da Conta</h1>
+        
+      <img tabIndex={0} onClick={Logout} className='iconsair' src="./img/icon-LogOut.png" />
+      <h1 className='sairGerenUser'>SAIR DA CONTA</h1>
 
         {  MostrarPrev ? <>  <img className='iconUserGeren' src="./img/fotoUser.png" alt="User Icon" /> </> : 
         <> <img className='iconUserGerenc' src={imgPreview} style={{borderRadius: '50%'}} alt="" /> </>
@@ -322,10 +323,11 @@ setNew({...NewInfos, NovaImagem: file});
 
         </div>
 
-         {SalvarAlteracoes &&  
-        <><button onClick={Salvar} className='sair'>Salvar alterações</button> <button onClick={Cancelar}>Cancelar</button></>}
 
-        <button onClick={Logout} className='sair'>Sair da conta</button>
+         {SalvarAlteracoes &&  
+        <><button onClick={Salvar} className='salvarGerenUser'>Salvar alterações</button> <button onClick={Cancelar} className='cancelarGerenUser'>Cancelar</button></>}
+
+        
 
 
       </div>

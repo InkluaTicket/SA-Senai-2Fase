@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
 import '../styles/Home.css'
-import NavBarForHome from '../components/NavbarForHome'
-import Carrossel from '../pages/Carrossel';
-import Rodape from '../components/Rodape';
+import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import NavBarForHome from '../components/NavbarForHome'
+import CarrosselEventosEmAlta from './CarrosselEventosEmAlta';
+import CarrosselShows from './CarrosselShows';
+import CarrosselFestivais from './CarrosselFestivais';
+import CarrosselEventos from './CarrosselEventos';
+import Rodape from '../components/Rodape';
 
 function Home() {
 
@@ -23,7 +26,10 @@ function Home() {
     <div>
       <UpdatePageTitle title="Página Inicial - InkluaTicket" />
       <NavBarForHome/>
-      <Carrossel/>
+      <CarrosselEventosEmAlta/>
+      <CarrosselShows/>
+      <CarrosselFestivais/>
+      <CarrosselEventos/>
       <Rodape/>
     </div>
   )

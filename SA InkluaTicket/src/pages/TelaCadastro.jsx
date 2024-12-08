@@ -90,7 +90,7 @@ function TelaCadastro() {
 
 
   useEffect(() => {
-    document.title = 'Tela de cadastro'; // Altera o título da aba
+    document.title = 'Tela de cadastro usuário'; // Altera o título da aba
   }, []);
 
 
@@ -400,7 +400,7 @@ function TelaCadastro() {
               </label>
               {<p aria-live='assertive'>{CadastroBemSucedido}</p>}
               <div className="btLocal">
-                <input type='submit' className='btCadastrar' /><br />
+                <input type='submit' className='btCadastrarEmpresa' /><br />
               </div>
             </div>
           </div>

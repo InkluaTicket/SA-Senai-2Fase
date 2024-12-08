@@ -86,7 +86,7 @@ function TelaCadastroEmpresa() {
 
 
   useEffect(() => {
-    document.title = 'Tela de cadastro'; // Altera o título da aba
+    document.title = 'Tela de cadastro empresa'; // Altera o título da aba
   }, []);
 
 
@@ -231,9 +231,9 @@ function TelaCadastroEmpresa() {
             <img className='imagemscadastrar2' src="./img/image.png" alt="Imagem Cadastro" />
           </div>
           <div className="parteBranca">
-            <div className="cadastrar">
-              <h1 className='Cadastre-se'>Cadastre-se Empresa</h1>
-              <h3>Digite os dados da Empresa abaixo</h3>
+            <div className="cadastrarEmpre">
+              <h1 className='Cadastre-se'>Cadastre-se empresa</h1>
+              <h3>Digite os dados da empresa abaixo</h3>
             </div>
             
             <div className="tudoInputsCheckBT">
@@ -241,7 +241,7 @@ function TelaCadastroEmpresa() {
                 <div className="parteUmInpus">
                   <div className="inputsLocal">
                     
-                    <label>Nome da Empresa
+                    <label>Nome da empresa
 
                       <input type="text" className='tamanhoInputs'
                         placeholder='Digite seu nome de Usuário' onChange={(e) => { handleChange(e); setForm({ ...Form, Nome: e.target.value }) }} />
@@ -346,7 +346,7 @@ function TelaCadastroEmpresa() {
                 </label>
               </div>
               <label className='labelCheckbox1' tabIndex={0}>
-                Já possui uma conta? <Link to='/LoginEmpresa'>login Empresa</Link>
+                Já possui uma conta? <Link to='/LoginEmpresa'>Fazer login</Link>
               </label>
               <div className="btLocal">
                 <input type='submit' className='btCadastrar' /><br />
