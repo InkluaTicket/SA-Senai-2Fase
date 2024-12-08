@@ -117,16 +117,16 @@ app.post('/criarempresa', async (req, res) => {
 })
 
 //Adicionar um evento ao banco de dados
-app.post('/criacaoevento', upload.none(), async (req, res) => {
+app.post('/criacaoevento', upload.single('imagem'), async (req, res) => {
 
-   const {Nome, Descricao, Data, empresa} = req.body;
+   const {Nome, Descricao, DataInicio, DataFim, Endereco, Categoria, LinkIngressos, empresa } = req.body;
+   const imagemBuffer = req.file ? req.file.buffer : null;
 
    try{
 
    const result = await pool.query(
-
-        'INSERT INTO eventos (nome, descricao, data_evento, empresa_id) VALUES ($1, $2, $3, $4) RETURNING *',
-        [Nome, Descricao, Data, empresa]
+'INSERT INTO evento (nome, descricao, data_inicio, data_fim, local_evento, categoria, url, imagem, id_empresa) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+                    [Nome, Descricao, DataInicio, DataFim, Endereco, Categoria, LinkIngressos, imagemBuffer, empresa]
 
    );
 
@@ -140,6 +140,24 @@ res.status(400).json({error: 'Erro ao criar evento!', details: err.message})
 
 }
 });
+
+// Endpoint para adicionar acessibilidades
+app.post('/acessibilidades', async (req, res) => {
+    const { id_evento, DefFisica, DefVisual, DefIntelectual, DefAuditiva, DefMultipla, OutraDef, OutraDescricao } = req.body;
+
+    try {
+        await pool.query(
+            'INSERT INTO acessibilidade (evento_id, deficiencia_fisica, deficiencia_visual, deficiencia_intelectual, deficiencia_auditiva, deficiencia_multiplas, outro) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [id_evento, DefFisica, DefVisual, DefIntelectual, DefAuditiva, DefMultipla, OutraDescricao]
+        );
+
+        res.status(201).json({ message: 'Acessibilidades associadas com sucesso!' });
+    } catch (err) {
+        console.error('Erro ao adicionar acessibilidades!', err);
+        res.status(400).json({ error: 'Erro ao adicionar acessibilidades!', details: err.message });
+    }
+});
+
 
 //Selecionar eventos em análise
 app.get('/eventosAnalise', async(req, res) => {
