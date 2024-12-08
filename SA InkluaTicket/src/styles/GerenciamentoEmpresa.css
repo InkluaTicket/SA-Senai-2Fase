@@ -1,0 +1,388 @@
+:root {
+    --cor-1: #024959;
+    --cor-2: #5C868F;
+    --cor-3: #7B9AAB;
+    --cor-4: #D9D9D9;
+  }
+  
+  .Corpo-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Evitar barra de rolagem */
+  }
+  
+  .divUm, .divDois {
+    background-color: var(--cor-4);
+    padding: 15px;
+    height: 100%;
+    overflow-y: hidden;
+  }
+  
+  .divUm {
+    flex: 1;
+    margin-right: 15px; /* Menor espaçamento entre as divs */
+    overflow: hidden;
+  }
+  
+  .divDois {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .dadosDaConta {
+    font-size: 22px; /* Fonte menor */
+    color: rgb(40, 40, 40);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin-bottom: 200px; /* Menor margem */
+    margin-left: -500px;
+    margin-top: -2%;
+  }
+  
+  .iconUserGeren {
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    display: block;
+    margin-left: 300px;
+    margin-bottom: 510px;
+    margin-top: 15px;
+  }
+  
+  .alterarfotoGeren {
+    display: block;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: -5px;
+    margin-left: -16px;
+    margin-top: -500px;
+  }
+  
+  .iconeFoto {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-left: -3px;
+  }
+
+  .iconUserGerenc{
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    display: block;
+    margin-left: 300px;
+    margin-bottom: 510px;
+    margin-top: 15px;
+
+  }
+  
+  .verificado{
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    margin-left: 135px;
+    margin-top: -140px;
+  }
+  
+  .div-inptMae{
+    width: 100%;
+    display: inline-flex;
+    gap: 1%;
+    margin-left: 10px;
+    margin-top: 42px;
+  }
+  
+  .div-inpt1, .div-inpt2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 45%; /* Ajuste para os inputs não ficarem muito largos */
+  }
+  
+  .labelInpts {
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: -2px;
+  }
+  
+  
+  .iconsair{
+    width: 20px;
+    height: min-content;
+    cursor: pointer;
+    margin-left: -3px;
+    margin-top: -2%;
+  }
+
+  .sairGerenUser{
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 22px;
+    margin-top: -18px; 
+  }
+
+  .salvarGerenUser{
+    width: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    color: whitesmoke;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--cor-1);
+    margin-left: 12px;
+    margin-top: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cancelarGerenUser{
+    width: 115px;
+    padding: 8px;
+    font-size: 14px;
+    border: solid 2px var(--cor-1);
+    border-radius: 7px;
+    cursor: pointer;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    background-color: var(--cor-4);
+    margin-left: 10px;
+    margin-top: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .divLinha {
+    width: 1px;
+    background-color: #b9b8b8;
+    height: 95%;
+    margin-top: -20px;
+    
+  }
+
+  .divDois {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .especificacoes{
+    font-size: 22px;
+    color: rgb(40, 40, 40);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 50px;
+    margin-top: -2%;
+    margin-left: -486px;
+    
+  }
+  
+  .div-excluir{
+    position: absolute;
+    display: inline-flex;
+    justify-items: center;
+    margin-top: -20px;
+    margin-left: 280px;
+  }
+  
+  .iconLixo{
+    margin-top: 2px;
+    margin-left: -100px;
+    width: 15px;
+    height: min-content;
+    cursor: pointer;
+  }
+  .excluir {
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 225px;
+  }
+  
+  .possuiDeficiencia{
+    font-size: 23px;
+    color: rgb(40, 40, 40);
+    font-family: "Poppins", sans-serif;
+    margin-left: -375px;
+    margin-bottom: 5px;
+  }
+  
+  .verificado2{
+    width: 30px;
+    height: min-content;
+    vertical-align: middle;
+    position: absolute;
+    margin: 0;
+    margin-left: -55px;
+    top: 153px;
+    
+  }
+  
+  .checkBox{
+  
+    cursor: pointer;
+    margin-right: 90%;
+    margin-top: 20px;
+    margin-left: -1px;
+  }
+  
+  .sim{
+    font-size: 12px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-right: 82%;
+    margin-top: -16px;
+    margin-left: -10px;
+  }
+  .nao{
+    font-size: 12px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    margin-right: 82%;
+    margin-top: -16px;
+    margin-left: -10px;
+  }
+  
+  .deficiencia{
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-left: -583px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  .detalhes{
+    font-size: 13px;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin-left: -583px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .inptsTela2{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    margin-left: -280px;
+    margin-bottom: -20px;
+    
+  }
+
+  .LapisEditNome{
+
+    width: 20px;
+    position: absolute;
+    top: 309px;
+    left: 350px;
+    cursor: pointer;
+
+  }
+
+  .LapisEditTele{
+
+    width: 20px;
+    position: absolute;
+    top: 390px;
+    left: 350px;
+    cursor: pointer;
+
+  }
+
+  .LapisEditCEP{
+
+    width: 20px;
+    position: absolute;
+    top: 472px;
+    left: 350px;
+    cursor: pointer;
+
+  }
+
+  .LapisEditNomeDef{
+
+    width: 20px;
+    position: absolute;
+    top: 309px;
+    left: 350px;
+    cursor: pointer;
+
+  }
+
+  .LapisEditTeleDef{
+
+    width: 20px;
+    position: absolute;
+    top: 390px;
+    left: 350px;
+    cursor: pointer;
+
+  }
+
+  .LapisEditCEPDef{
+
+    width: 20px;
+    position: absolute;
+    top: 472px;
+    left: 350px;
+    cursor: pointer;
+
+  }
+
+
+  .LapisEditDetalhesDef{
+
+    width: 20px;
+    position: absolute;
+    top: 478px;
+    left: 1010px;
+    cursor: pointer;
+  }
+
+  .InptDisabledGerenciamento{
+
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .inpts {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+   
+  }
+
+  .inptsTela2Disabled{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    margin-left: -280px;
+   
+  }
