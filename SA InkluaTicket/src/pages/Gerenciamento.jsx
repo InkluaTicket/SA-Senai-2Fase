@@ -87,6 +87,7 @@ function Gerenciamento() {
         false){
 
             setAlterar(false)
+            setNew({...NewInfos, NovoNome: User.nome})
     
         }
 
@@ -94,6 +95,8 @@ function Gerenciamento() {
     setNomeEdit(true); if(TelefoneEdit === true && CEPEdit === true && imgPreview === null || imgPreview === false){
 
         setAlterar(false)
+        setNew({...NewInfos, NovoNome: User.nome})
+        
 
     }}
 
@@ -113,6 +116,7 @@ function Gerenciamento() {
         false){
 
             setAlterar(false)
+            setNew({...NewInfos, NovoTelefone: User.telefone})
     
         }
     }
@@ -121,6 +125,7 @@ function Gerenciamento() {
     setTeleEdit(true); if(NomeEdit === true && CEPEdit === true && imgPreview === null || imgPreview === false){
 
         setAlterar(false)
+        setNew({...NewInfos, NovoTelefone: User.telefone})
 
     }} 
 
@@ -138,13 +143,15 @@ function Gerenciamento() {
         false){
 
             setAlterar(false)
-    
+            setNew({...NewInfos, NovoCEP: User.endereco})
+     
         }}
 
     else if(!Pcd && CEPEdit === false){ 
     setCEPEdit(true); if(TelefoneEdit === true && NomeEdit === true && imgPreview === null || imgPreview === false){
 
         setAlterar(false)
+        setNew({...NewInfos, NovoCEP: User.endereco})
 
     }} 
 
@@ -159,6 +166,14 @@ function Gerenciamento() {
     setDefEdit(true); if(TelefoneEdit === true && NomeEdit === true && CEPEdit === true  &&imgPreview === null  || imgPreview === false){
 
         setAlterar(false)
+
+        if(NewInfos.NovaDetalhesDef === null){ 
+        setNew({...NewInfos, NovaDetalhesDef: 'Não possui'})
+      }else{
+
+        
+setNew({...NewInfos, NovaDetalhesDef: User.detalhes_deficiencia})
+      }
 
     }} 
 
@@ -187,9 +202,53 @@ function Gerenciamento() {
 
   }
 
-  const Salvar = () => {
+  const Salvar = async (e) => {
 
-    alert("Filho da puta")
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('NovoNome', NewInfos.NovoNome);
+    formData.append('NovoCEP', NewInfos.NovoCEP);
+    formData.append('NovaTelefone', NewInfos.NovoTelefone);
+    formData.append('NovaDetalhesDef', NewInfos.NovaDetalhesDef)
+
+
+    if(NewInfos.NovaImagem){
+
+      formData.append('NovaImagem', NewInfos.NovaImagem);
+
+    }
+
+
+    try{ 
+    const response = await fetch('http://localhost:3000/editar', {
+
+      method: 'POST', 
+      headers: {
+                'Authorization': `Bearer ${token}`
+
+               },
+                
+      body: formData
+
+    })
+
+     if(response.ok){
+       const data = await response.json();
+       setNew({...User, ...NewInfos} )
+       
+       
+       window.location.reload();
+       
+       
+
+     }
+}catch(err){
+
+  console.error('DEU MERDA AI PATRÃO', err)
+
+}
 
   }
 
@@ -204,11 +263,12 @@ function Gerenciamento() {
   useEffect(() => {
 
     setNew({ NovoNome: User.nome, 
-        NovaImagem: User.imagem, 
+        NovaImagem: User.foto_perfil, 
         NovoCEP: User.endereco, 
         NovoCPF: User.cpf,
         NovaDetalhesDef: User.detalhes_deficiencia,
-        NovoTelefone: User.telefone })
+        NovoTelefone: User.telefone
+         })
 
         
         if(User.possui_deficiencia){
@@ -225,7 +285,7 @@ function Gerenciamento() {
 
         }
 
-        console.log(User)
+        console.log(NewInfos)
 
   }, [User])
 
@@ -240,9 +300,10 @@ function Gerenciamento() {
       <img tabIndex={0} onClick={Logout} className='iconsair' src="./img/icon-LogOut.png" />
       <h1 className='sairGerenUser'>SAIR DA CONTA</h1>
 
-        {  MostrarPrev ? <>  <img className='iconUserGeren' src="./img/fotoUser.png" alt="User Icon" /> </> : 
+        {  MostrarPrev ? <><> {NewInfos.NovaImagem ? <> <img className='iconUserGerenc' style={{marginLeft: '260px', borderRadius:'50%'}} src={NewInfos.NovaImagem} alt="" /> </> : <> <img className='iconUserGeren' src="./img/fotoUser.png" alt="User Icon" /></>}  </>  </> : 
         <> <img className='iconUserGerenc' src={imgPreview} style={{borderRadius: '50%', marginLeft: '260px'}} alt="" /> </>
           }
+
 
         <label className='alterarfotoGeren'>
             <input type="file" onChange={(e) => { 
@@ -359,7 +420,7 @@ setNew({...NewInfos, NovaImagem: file});
 
 
         <label className='detalhes'>Detalhes:</label>
-        <input className={DefEdit ? 'inptsTela2Disabled' : 'inptsTela2'} disabled={DefEdit} type="text" value={Pcd ? NewInfos.NovaDetalhesDef : 'Não possui'} 
+        <input className={DefEdit ? 'inptsTela2Disabled' : 'inptsTela2'} onChange={(e) => setNew({...NewInfos, NovaDetalhesDef: e.target.value})} disabled={DefEdit} type="text" value={Pcd ? NewInfos.NovaDetalhesDef : 'Não possui'} 
         />
 
         { Pcd &&  

@@ -91,7 +91,8 @@ function PerfilUser() {
 <div className='divUmUser'>
 
 <div className='ImagemENomeUser'>
-  <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> 
+  {User.foto_perfil ? <> <img src={User.foto_perfil} className='iconUser' style={{borderRadius: '50%'}} alt="" /> </> : <> <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> </>}
+  
   { Pcd &&
   <img className='verificado1User' src="./img/img logo.png" alt="" />}
   <p tabIndex={0} aria-label='Nome de usuário' className='nomeUser'>{User.nome}</p>

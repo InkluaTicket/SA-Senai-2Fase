@@ -282,8 +282,9 @@
     width: 20px;
     position: absolute;
     top: 309px;
-    left: 350px;
+    margin-left: -40px;
     cursor: pointer;
+   
 
   }
 
@@ -292,7 +293,7 @@
     width: 20px;
     position: absolute;
     top: 390px;
-    left: 350px;
+    margin-left: -40px;
     cursor: pointer;
 
   }
@@ -302,7 +303,7 @@
     width: 20px;
     position: absolute;
     top: 472px;
-    left: 350px;
+    margin-left: -40px;
     cursor: pointer;
 
   }

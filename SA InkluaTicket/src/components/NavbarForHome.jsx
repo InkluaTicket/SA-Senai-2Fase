@@ -133,6 +133,7 @@ function NavBarForHome() {
     
 
 setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
+setImg(UsuarioLogado.foto_perfil)
    
     
 }, [UsuarioLogado])
@@ -176,7 +177,7 @@ setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
           <li className='separadorHome'></li>
 
           { imgPerfil ? 
-          (<></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
+          (<><Link to='/PerfilUser'><img src={imgPerfil} style={{width: '50px', borderRadius: '50%', margin: '0px'}} alt="" /></Link></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
           
           </div>
           </div>

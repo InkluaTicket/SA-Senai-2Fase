@@ -426,10 +426,10 @@ app.get('/perfil', AutenticaçãoDeToken, async (req, res) => {
 
     const user = result.rows[0]
 
-    if(user.imagem){
+    if(user.foto_perfil){
         
-        const imgConvert = Buffer.from(user.imagem).toString('base64')
-        user.imagem = `data:image/*;base64,${imgConvert}`;
+        const imgConvert = Buffer.from(user.foto_perfil).toString('base64')
+        user.foto_perfil = `data:image/*;base64,${imgConvert}`;
 
 
     }
@@ -490,7 +490,7 @@ app.post('/editar', AutenticaçãoDeToken, upload.single('NovaImagem'), async (r
 
   const userId = req.user.id;
 
-  const {NovoNome, NovoEmail, NovaSenha} = req.body;
+  const {NovoNome, NovoTelefone, NovoCEP, NovaDetalhesDef} = req.body;
   const imagemBuffer = req.file ? req.file.buffer : null;
    
  
@@ -506,23 +506,30 @@ app.post('/editar', AutenticaçãoDeToken, upload.single('NovaImagem'), async (r
 
   }
   
-  if(NovoEmail){
+  if(NovoTelefone){
 
-    fields.push('email = $' + (fields.length+1));
-    values.push(NovoEmail);
+    fields.push('telefone = $' + (fields.length+1));
+    values.push(NovoTelefone);
 
   }
 
-  if(NovaSenha){
+  if(NovoCEP){
 
-    fields.push('senha = $' + (fields.length+1));
-    values.push(NovaSenha);
+    fields.push('endereco = $' + (fields.length+1));
+    values.push(NovoCEP);
+
+  }
+
+  if(NovaDetalhesDef){
+
+    fields.push('detalhes_deficiencia = $' + (fields.length+1));
+    values.push(NovaDetalhesDef);
 
   }
 
   if(imagemBuffer){
 
-    fields.push('imagem = $' + (fields.length+1));
+    fields.push('foto_perfil = $' + (fields.length+1));
     values.push(imagemBuffer);
 
   }
