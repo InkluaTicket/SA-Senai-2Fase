@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Home from "../pages/Home";
 import CriarEvento from "../pages/CriarEvento";
 import Gerenciamento from "../pages/Gerenciamento";
+import GerenciamentoEmpresa from "../pages/GerenciamentoEmpresa";
 import TelaUsuarioOuEmpresa from "../pages/TelaUsuarioOuEmpresa";
 import TelaUsuarioOuEmpresaLogin from "../pages/TelaUsuarioOuEmpresaLogin";
 import TelaCadastro from "../pages/TelaCadastro";
@@ -36,6 +37,7 @@ const Routes = createBrowserRouter([
   { path: '/EscolhaCadastro', element: <PageWrapper element={ <TelaUsuarioOuEmpresa />} screenName='Tela de escolha, forma de cadastro' /> },
   { path: '/EscolhaLogin', element: <PageWrapper element={ <TelaUsuarioOuEmpresaLogin />} screenName='Tela de escolha, forma de login' /> },
   { path: '/GerenciamentoUser', element: <PageWrapper element={ <Gerenciamento/>} screenName='Tela de gerenciamente do petfil do usuário'/> },
+  { path: '/GerenciamentoEmpre', element: <PageWrapper element={ <GerenciamentoEmpresa/>} screenName='Tela de gerenciamente do perfil da empresa'/> },
   { path: '/PerfilUser', element: <PageWrapper element={ <PerfilUser/>} screenName='Tela de perfil do usuário'/> },
   { path: '/Shows', element: <PageWrapper element={ <Shows/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PerfilEmpresa', element: <PageWrapper element={ <PerfilEmpresa/>} screenName='Tela de perfil da empresa'/> },
