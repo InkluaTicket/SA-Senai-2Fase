@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/PerfilUserVisualizar.css';
+import '../styles/VisualizarPerfilUsuario.css';
 import NavbarPefil from './NavbarPerfil';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
-function PerfilUserVisualizar() {
+function VisualizarPerfilUsuario() {
 
   const [isCheckedTrue, setChecked] = useState(false)
   const [isCheckedFalse, setCheckedFalse] = useState(false)
@@ -129,4 +129,4 @@ function PerfilUserVisualizar() {
   )
 }
 
-export default PerfilUserVisualizar
+export default VisualizarPerfilUsuario

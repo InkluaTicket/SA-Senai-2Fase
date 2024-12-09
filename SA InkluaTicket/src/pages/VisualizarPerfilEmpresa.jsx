@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/PerfilUserVisualizar.css';
+import '../styles/VisualizarPerfilEmpresa.css';
 import NavbarPefil from './NavbarPerfil';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
-function PerfilUserVisualizarEmpresa() {
+function VisualizarPerfilEpresa() {
 
   
   const [Empresa, setEmpresa] = useState('')
@@ -45,7 +45,7 @@ function PerfilUserVisualizarEmpresa() {
 
 
   }, [])
-  
+
   return (
     <>
       <NavbarPefil />
@@ -54,10 +54,10 @@ function PerfilUserVisualizarEmpresa() {
         <div className='divUmUser'>
           <div className="posidivUmUser">
 
-            <div className='ImagemENome'>
+            <div className='ImagemENomeEmpresa'>
               <img className='iconEmp' src="./img/fotoUser.png" />
               <img className='verificadoEmp' src="./img/verif-empresa.png" />
-              <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmp'>{Empresa.nome}</p>
+              <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmp'>apagar{Empresa.nome}</p>
             </div>
 
             <label className='labelEmp'>Email para contato:</label>
@@ -73,7 +73,7 @@ function PerfilUserVisualizarEmpresa() {
         </div>
 
         <div className='divDoisUser'>
-          <img src="./img/mãos .png" className="imagemsUmPerfil" />
+          <img src="./img/mãos .png" className="imagemsUmPerfilEmp" />
         </div>
 
       </div>
@@ -81,4 +81,4 @@ function PerfilUserVisualizarEmpresa() {
   )
 }
 
-export default PerfilUserVisualizarEmpresa
+export default VisualizarPerfilEpresa

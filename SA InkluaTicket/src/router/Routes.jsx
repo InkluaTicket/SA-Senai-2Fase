@@ -12,9 +12,9 @@ import TelaLogin from "../pages/TelaLogin";
 import TelaCadastroEmpresa from "../pages/TelaCadastroEmpresa";
 import TelaLoginEmpresa from "../pages/TelaLoginEmpresa";
 import PerfilUser from "../pages/PerfilUser";
-import PerfilUserVisualizar from "../pages/PerfilUserVisualizar";
-import PerfilUserVisualizarEmpresa from "../pages/PerfilUserVisualizarEmpresa";
 import PerfilEmpresa from "../pages/PerfilEmpresa";
+import VisualizarPerfilUsuario from "../pages/VisualizarPerfilUsuario";
+import VisualizarPerfilEmpresa from "../pages/VisualizarPerfilEmpresa";
 import Shows from "../pages/Shows";
 import PainelModerador from "../pages/PainelModerador";
 
@@ -41,8 +41,8 @@ const Routes = createBrowserRouter([
   { path: '/GerenciamentoUser', element: <PageWrapper element={ <Gerenciamento/>} screenName='Tela de gerenciamente do petfil do usuário'/> },
   { path: '/GerenciamentoEmpre', element: <PageWrapper element={ <GerenciamentoEmpresa/>} screenName='Tela de gerenciamente do perfil da empresa'/> },
   { path: '/PerfilUser', element: <PageWrapper element={ <PerfilUser/>} screenName='Tela de perfil do usuário'/> },
-  { path: '/PerfilUserVisualizar', element: <PageWrapper element={ <PerfilUserVisualizar/>} screenName='Tela de perfil do usuário para Visualizar'/> },
-  { path: '/PerfilUserVisualizarEmpresa', element: <PageWrapper element={ <PerfilUserVisualizarEmpresa/>} screenName='Tela de perfil do usuário para Visualizar a Empresa'/> },
+  { path: '/VisualizarPerfilUsuario', element: <PageWrapper element={ <VisualizarPerfilUsuario/>} screenName='Tela de perfil do usuário para Visualizar'/> },
+  { path: '/VisualizarPerfilEmpresa', element: <PageWrapper element={ <VisualizarPerfilEmpresa/>} screenName='Tela de perfil do usuário para Visualizar Empresa'/> },
   { path: '/Shows', element: <PageWrapper element={ <Shows/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PerfilEmpresa', element: <PageWrapper element={ <PerfilEmpresa/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PainelModerador', element: <PageWrapper element={ <PainelModerador/>} screenName='Tela de painel do moderador'/> },
