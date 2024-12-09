@@ -5,7 +5,7 @@
     --cor-4: #D9D9D9;
   }
   
-  .Corpo-container {
+  .container-GerenEmpre {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -14,35 +14,35 @@
     overflow: hidden; /* Evitar barra de rolagem */
   }
   
-  .divUm, .divDois {
+  .divUmEmpre, .divDoisEmpre {
     background-color: var(--cor-4);
     padding: 15px;
     height: 100%;
     overflow-y: hidden;
   }
   
-  .divUm {
+  .divUmEmpre {
     flex: 1;
     margin-right: 15px; /* Menor espaçamento entre as divs */
     overflow: hidden;
   }
   
-  .divDois {
+  .divDoisEmpre {
     flex: 1;
     overflow: hidden;
   }
-  
-  .dadosDaConta {
-    font-size: 22px; /* Fonte menor */
+
+  .eventosEmpre{
+    font-size: 22px;
     color: rgb(40, 40, 40);
     font-family: "Poppins", sans-serif;
-    text-align: center;
-    margin-bottom: 200px; /* Menor margem */
-    margin-left: -500px;
-    margin-top: -2%;
+    margin: 20px;
+    margin-bottom: 50px;
+    margin-top: -12px;
+    margin-left: -25px;
   }
   
-  .iconUserGeren {
+  .iconEmpre {
     width: 90px;
     height: 90px;
     cursor: pointer;
@@ -52,7 +52,7 @@
     margin-top: 15px;
   }
   
-  .alterarfotoGeren {
+  .alterarfotoEmpre {
     display: block;
     font-size: 14px;
     font-family: "Poppins", sans-serif;
@@ -60,45 +60,44 @@
     text-align: center;
     cursor: pointer;
     margin-bottom: -5px;
-    margin-left: -16px;
+    margin-left: -3px;
     margin-top: -500px;
   }
   
-  .iconeFoto {
+  .iconeFotoEmpre {
     width: 18px;
     height: 18px;
     vertical-align: middle;
     margin-left: -3px;
   }
 
-  .iconUserGerenc{
+  .iconEmpre {
     width: 90px;
     height: 90px;
     cursor: pointer;
     display: block;
-    margin-left: 300px;
-    margin-bottom: 510px;
+    margin-left: 273px;
+    margin-bottom: 507px;
     margin-top: 15px;
-
   }
   
-  .verificado{
+  .verific-empresa{
     width: 26px;
     height: 26px;
     vertical-align: middle;
-    margin-left: 135px;
-    margin-top: -140px;
+    margin-left: 333px;
+    margin-top: -98px;
   }
   
-  .div-inptMae{
+  .div-inptMaeEmpre{
     width: 100%;
     display: inline-flex;
     gap: 1%;
-    margin-left: 10px;
-    margin-top: 42px;
+    margin-left: 4px;
+    margin-top: 20px;
   }
   
-  .div-inpt1, .div-inpt2 {
+  .div-inpt1Empre, .div-inpt2Empre {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -106,15 +105,14 @@
     min-width: 45%; /* Ajuste para os inputs não ficarem muito largos */
   }
   
-  .labelInpts {
+  .labelInptsEmpre {
     font-size: 13px;
     color: #333;
     font-family: "Poppins", sans-serif;
     margin-bottom: -2px;
   }
   
-  
-  .iconsair{
+  .iconsairEmpre{
     width: 20px;
     height: min-content;
     cursor: pointer;
@@ -122,7 +120,7 @@
     margin-top: -2%;
   }
 
-  .sairGerenUser{
+  .sairGerenEmpre{
     font-family: "Poppins", sans-serif;
     font-size: 10px;
     color: #333;
@@ -131,7 +129,7 @@
     margin-top: -18px; 
   }
 
-  .salvarGerenUser{
+  .salvarGerenEmpre{
     width: 150px;
     padding: 10px;
     font-size: 14px;
@@ -146,7 +144,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .cancelarGerenUser{
+  .cancelarGerenEmpre{
     width: 115px;
     padding: 8px;
     font-size: 14px;
@@ -161,31 +159,19 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .divLinha {
+  .divLinhaEmpre{
     width: 1px;
     background-color: #b9b8b8;
     height: 95%;
     margin-top: -20px;
-    
   }
 
-  .divDois {
+  .divDoisEmpre{
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
-  .especificacoes{
-    font-size: 22px;
-    color: rgb(40, 40, 40);
-    font-family: "Poppins", sans-serif;
-    margin: 20px;
-    margin-bottom: 50px;
-    margin-top: -2%;
-    margin-left: -486px;
-    
-  }
-  
+
   .div-excluir{
     position: absolute;
     display: inline-flex;
@@ -194,178 +180,49 @@
     margin-left: 280px;
   }
   
-  .iconLixo{
-    margin-top: 2px;
-    margin-left: -100px;
+  .iconLixoEmpre{
+    position: absolute;
+    margin-top: -22px;
+    margin-left: 530px;
     width: 15px;
     height: min-content;
     cursor: pointer;
   }
-  .excluir {
+
+  .excluirEmpre {
     font-family: "Poppins", sans-serif;
     font-size: 10px;
     color: #333;
     cursor: pointer;
-    margin-left: 225px;
-  }
-  
-  .possuiDeficiencia{
-    font-size: 23px;
-    color: rgb(40, 40, 40);
-    font-family: "Poppins", sans-serif;
-    margin-left: -375px;
-    margin-bottom: 5px;
-  }
-  
-  .verificado2{
-    width: 30px;
-    height: min-content;
-    vertical-align: middle;
-    position: absolute;
-    margin: 0;
-    margin-left: -55px;
-    top: 153px;
-    
-  }
-  
-  .checkBox{
-  
-    cursor: pointer;
-    margin-right: 90%;
-    margin-top: 20px;
-    margin-left: -1px;
-  }
-  
-  .sim{
-    font-size: 12px;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-    margin-right: 82%;
-    margin-top: -16px;
-    margin-left: -10px;
-  }
-  .nao{
-    font-size: 12px;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-    margin-right: 82%;
-    margin-top: -16px;
-    margin-left: -10px;
-  }
-  
-  .deficiencia{
-    font-size: 13px;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-    display: block;
-    margin-left: -583px;
-    margin-top: 50px;
-    margin-bottom: 10px;
-  }
-  .detalhes{
-    font-size: 13px;
-    color: #333;
-    font-family: "Poppins", sans-serif;
-    display: block;
-    margin-left: -583px;
-    margin-top: 50px;
-    margin-bottom: 10px;
-  }
-  
-  .inptsTela2{
-    width: 50%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: "Poppins", sans-serif;
-    margin-left: -280px;
-    margin-bottom: -20px;
-    
+    margin-left: 550px;
+    margin-top: -18px;
   }
 
   .LapisEditNome{
-
     width: 20px;
     position: absolute;
     top: 309px;
     left: 350px;
     cursor: pointer;
-
   }
 
   .LapisEditTele{
-
     width: 20px;
     position: absolute;
     top: 390px;
     left: 350px;
     cursor: pointer;
-
   }
 
   .LapisEditCEP{
-
     width: 20px;
     position: absolute;
     top: 472px;
     left: 350px;
     cursor: pointer;
-
-  }
-
-  .LapisEditNomeDef{
-
-    width: 20px;
-    position: absolute;
-    top: 309px;
-    left: 350px;
-    cursor: pointer;
-
-  }
-
-  .LapisEditTeleDef{
-
-    width: 20px;
-    position: absolute;
-    top: 390px;
-    left: 350px;
-    cursor: pointer;
-
-  }
-
-  .LapisEditCEPDef{
-
-    width: 20px;
-    position: absolute;
-    top: 472px;
-    left: 350px;
-    cursor: pointer;
-
-  }
-
-
-  .LapisEditDetalhesDef{
-
-    width: 20px;
-    position: absolute;
-    top: 478px;
-    left: 1010px;
-    cursor: pointer;
-  }
-
-  .InptDisabledGerenciamento{
-
-    width: 90%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 10px;
-    font-family: "Poppins", sans-serif;
   }
   
-  .inpts {
+  .inptsEmpre{
     width: 90%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -373,16 +230,4 @@
     font-size: 14px;
     margin-bottom: 10px;
     font-family: "Poppins", sans-serif;
-   
-  }
-
-  .inptsTela2Disabled{
-    width: 50%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: "Poppins", sans-serif;
-    margin-left: -280px;
-   
   }
