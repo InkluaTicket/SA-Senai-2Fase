@@ -169,6 +169,7 @@ function Gerenciamento() {
     setCEPEdit(true)
     setNomeEdit(true)
     setTeleEdit(true)
+    setDefEdit(true)
     setAlterar(false)
     setMostrar(true)
     setLimpar(true)
@@ -240,7 +241,7 @@ function Gerenciamento() {
       <h1 className='sairGerenUser'>SAIR DA CONTA</h1>
 
         {  MostrarPrev ? <>  <img className='iconUserGeren' src="./img/fotoUser.png" alt="User Icon" /> </> : 
-        <> <img className='iconUserGerenc' src={imgPreview} style={{borderRadius: '50%'}} alt="" /> </>
+        <> <img className='iconUserGerenc' src={imgPreview} style={{borderRadius: '50%', marginLeft: '260px'}} alt="" /> </>
           }
 
         <label className='alterarfotoGeren'>
