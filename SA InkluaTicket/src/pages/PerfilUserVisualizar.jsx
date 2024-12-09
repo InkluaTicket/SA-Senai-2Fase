@@ -82,11 +82,8 @@ function PerfilUserVisualizar() {
 
   return (
     <>
-
       <NavbarPefil />
       <div className='Corpo-containerUser'>
-
-
 
         <div className='divUmUser'>
           <div className="posidivUmUser">
