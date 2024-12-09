@@ -67,7 +67,7 @@ function EventosPendentes() {
 
 <div className="tudocarrossel">
 
-       {EventosAnalise.length == 0 ? <> <h1>Sem eventos</h1> </> : <>{/* Carrossel de Festivais */}
+       {EventosAnalise.length == 0 ? <> <h1 className='semEventos'>Sem eventos</h1> <img className="vazio" src="./img/icon-vazio.png" alt="" /> </> : <>{/* Carrossel de Festivais */}
       <div className="carrossel">
         <h1 className='carrosselShFeEvTEXTO'>Festivais</h1>
         <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
