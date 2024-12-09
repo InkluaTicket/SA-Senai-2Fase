@@ -34,8 +34,6 @@ body {
   justify-content: center;
 }
 
-
-
 .link-show {
   text-decoration: none;
   color: #0076d7;
@@ -55,8 +53,8 @@ body {
   overflow: hidden; /* Garante que o conteúdo extra não saia da área */
 }
 
-.card-show{
-  display: grid;
+.card-show {
+  display: inline-block;
   margin-top: 5%;
   background-color: #f2f2f2;
   color: #000000;
@@ -66,23 +64,29 @@ body {
   width: 40%;
   padding: 5vh;
   margin-left: 5%;
-  font-size: 20px
+  font-size: 20px;
 }
 
-.card-show2{
+.card-show2 {
   margin-top: 5%;
+  margin-right: 6%;
+  float: right;
   background-color: #f2f2f2;
   border-radius: 20px;
   color: #000000;
   opacity: 73%;
   height: 100%;
   width: 25%;
-  padding: 15px;
+  padding: 10px;
+  padding-bottom: 25px;
   margin-left: 5%;
-  font-size: 20px
+  font-size: 20px;
 }
 
-.card-show3{
+.card-show3 {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
   margin-top: 5%;
   background-color: #f2f2f2;
   border-radius: 20px;
@@ -91,21 +95,43 @@ body {
   height: 100%;
   width: 40%;
   padding: 15px;
-  margin-left: 5%;
-  font-size: 20px
+  font-size: 20px;
 }
 
-.compra{
-  color: #ffffff;
-  background-color: #024959;
-  border: none;
-  border-radius: 10px;
+
+.compra {
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
   font-size: 20px;
   padding: 10px;
-  cursor: pointer;
+  margin-bottom: 3rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #024959;
+  color: #ffffff;
+  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  max-width: 30em;
 }
 
-.titulo{
+.compra:hover {
+  color: #024959;
+  background-color: #d9d9d9;
+  box-shadow: 0 0 15px var(--cor1);
+  transform: scale(1.1);
+}
+
+.compra:active {
+  background-color: var(--cor1);
+  color: var(--cor4);
+  transition: all 0.25s;
+  -webkit-transition: all 0.3s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+.titulo {
   color: #024959;
   font-size: 5vh;
   opacity: 78%;
@@ -113,43 +139,39 @@ body {
   justify-content: center;
 }
 
-.itens-data{
-text-align: center;
+.itens-data {
+  text-align: center;
 }
-
 
 /* ------- avaliação do show ------- */
+.rating-container {
+  text-align: center;
+}
 
-.avaliacao{
+.stars {
   display: flex;
-  font-size: 100px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.star-icon{
-  list-style-type: none;
+.star {
+  font-size: 50px;
+  color: #d3d3d3; /* Cor padrão */
   cursor: pointer;
-  color: #ffe500;
+  transition: color 0.3s ease;
 }
 
-.star-icon::before{
-  content: "\2605";
+.star.active {
+  color: #ffc107; /* Cor ativa */
 }
 
-.star-icon.ativo ~ .star-icon::before{
-  content: "\2606";
-}
-
-.avaliacao:hover .star-icon::before{
-  content: "\2605";
-}
-
-.star-icon:hover ~ .star-icon::before{
-  content: "\2606";
+.rating-text {
+  font-size: 18px;
+  color: #333;
 }
 
 /* --------------------------------- */
 
-
-.avaliar{
-  font-size: 30px
+.avaliar {
+  font-size: 30px;
 }
