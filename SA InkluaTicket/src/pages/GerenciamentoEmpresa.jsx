@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/GerenciamentoEmpresa.css';
+import jwt_decode from "jwt-decode"
 import NavbarGerenEmpre from '../components/NavbarGerenEmpre';
+import { useNavigate } from 'react-router-dom';
+import InputMask from 'react-input-mask';
 
 function GerenciamentoEmpresa() {
 
+  const [User, setUser] = useState('')
   const [NomeEdit, setNomeEdit] = useState(true)
   const [TelefoneEdit, setTeleEdit] = useState(true)
+  const [limparFile, setLimpar] = useState(false)
   const [CEPEdit, setCEPEdit] = useState(true)
   const [DefEdit, setDefEdit] = useState(true)
   const [Pcd, setPcd] = useState(false)
@@ -13,8 +18,12 @@ function GerenciamentoEmpresa() {
   const [disabledTele, setDisabledTele] = useState(false)
   const [SalvarAlteracoes, setAlterar] = useState(false)
   const [MostrarPrev, setMostrar] = useState(true)
-  const [NewInfos, setNew] = useState({NovoNome:'', NovaImagem: null, 
-    NovoCEP: '', NovoTelefone: '', NovaDetalhesDef: ''  })
+  const [imgPreview, setPrev] = useState(null)
+  const [NewInfos, setNew] = useState({ NovaImagem: null, 
+    NovoCEP: '', NovoTelefone: '', NovaCNPJ: ''  })
+
+    const token = localStorage.getItem('tokenEmpresa') 
+    const navigate = useNavigate();
 
 
   const dados = false
@@ -61,7 +70,7 @@ const ChangeTele = () => {
 
     // Verificar condições para restaurar o estado inicial
     if (NomeEdit && CEPEdit && (!imgPreview || imgPreview === false)) {
-      setAlterar(false);
+      setAlterar(true);
       setNew((prev) => ({ ...prev, NovoTelefone: User.telefone }));
     }
   }
@@ -81,7 +90,7 @@ const ChangeCEP = () => {
 
     // Restaurar valor inicial do CEP, se necessário
     if (!imgPreview || imgPreview === false) {
-      setAlterar(false);
+      setAlterar(true);
       setNew((prev) => ({ ...prev, NovoCEP: User.endereco }));
     }
   }
@@ -93,10 +102,10 @@ const Salvar = async (e) => {
 
   const formData = new FormData();
 
-  formData.append('NovoNome', NewInfos.NovoNome);
+
   formData.append('NovoCEP', NewInfos.NovoCEP);
-  formData.append('NovaTelefone', NewInfos.NovoTelefone);
-  formData.append('NovaDetalhesDef', NewInfos.NovaDetalhesDef)
+  formData.append('NovoTelefone', NewInfos.NovoTelefone);
+
 
 
   if(NewInfos.NovaImagem){
@@ -107,7 +116,7 @@ const Salvar = async (e) => {
 
 
   try{ 
-  const response = await fetch('http://localhost:3000/editar', {
+  const response = await fetch('http://localhost:3000/editarEmpresa', {
 
     method: 'POST', 
     headers: {
@@ -137,6 +146,48 @@ console.error('DEU MERDA AI PATRÃO', err)
 
 }
 
+const Renderizar = async () => {
+
+  try {
+    const response = await fetch('http://localhost:3000/perfilEmpresa', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+
+      
+      const decode = jwt_decode(token)
+
+      if(decode.papel === 'Empresa'){
+        const userData = await response.json();
+        setUser(userData)
+        console.log(decode)
+
+        
+    
+      }else{
+
+        console.log('ADM ATIVO')
+
+      }
+      
+    }
+
+  }
+
+  catch (err) {
+
+    console.error('Erro ao buscar usuario', err)
+
+  }
+
+}
+
+
 const Cancelar = () =>{
 
   setCEPEdit(true)
@@ -163,10 +214,31 @@ const Cancelar = () =>{
 
   const Logout = () => {
 
-    localStorage.removeItem('token') 
+    localStorage.removeItem('tokenEmpresa') 
     navigate('/')
 
   }
+
+  useEffect(() =>{
+
+Renderizar();
+
+  }, [])
+
+  useEffect(() => {
+
+    setNew({ 
+        NovaImagem: User.imagem, 
+        NovoCEP: User.endereco, 
+        NovoTelefone: User.telefone
+         })
+
+        
+        
+
+        console.log(NewInfos)
+
+  }, [User])
 
   return (
 
@@ -177,7 +249,7 @@ const Cancelar = () =>{
     <div className='container-GerenEmpre'>
 
       <div className='divUmEmpre'>
-      <img className='iconsairEmpre' src="./img/icon-LogOut.png" />
+      <img onClick={Logout} className='iconsairEmpre' src="./img/icon-LogOut.png" />
       <h1 className='sairGerenEmpre'>SAIR DA CONTA</h1>
 
       <div className='div-excluirEmpre'>
@@ -218,18 +290,33 @@ setNew({...NewInfos, NovaImagem: file});
 
           <div className='div-inpt1Empre'>
             <label className='labelInptsEmpre'>Nome empresa</label>
-            <input className='inptsEmpre' type="text" aria-disabled='true' value={ dados? 'Dados da empresa' : 'sem dados'} />
+            <input className='inptsEmpre' type="text" aria-disabled='true' value={User.nome} />
 
             
             
             <label className='labelInptsEmpre'>Telefone</label>
-            <input className={disabledTele ? 'inptsEmpreHab' : 'inptsEmpre'} type="text" aria-disabled='true' value={ dados? 'Dados da empresa' : 'sem dados'} />
+          
+            <InputMask
+             mask="(99) 99999-9999"
+             alwaysShowMask={false}
+             className={disabledTele ? 'inptsEmpreHab' : 'inptsEmpre'} type="text" aria-disabled={disabledTele}
+             onChange={(e) => setNew({...NewInfos, NovoTelefone: e.target.value})}
+             value={NewInfos.NovoTelefone}
+             ></InputMask>
  
             <img tabIndex={0} onClick={ChangeTele} onKeyDown={ ()  => {if(key === 'Enter'){ChangeTele();}}} className='LapisEditTeleEmp'
                     src="./img/iconLapis.png" alt="" />
  
             <label className='labelInptsEmpre'>CEP</label>
-            <input className={disabledCEP ? 'inptsEmpreHab' : 'inptsEmpre'} type="text" aria-disabled='true' value={ dados? 'Dados da empresa' : 'sem dados'}/> <br />
+        
+
+            <InputMask
+             mask='99999-999'
+             className={disabledCEP ? 'inptsEmpreHab' : 'inptsEmpre'}
+             type="text" aria-disabled={disabledCEP}
+             onChange={(e) => setNew({...NewInfos, NovoCEP: e.target.value})}
+             value={NewInfos.NovoCEP}/>
+
           </div>
 
           <img tabIndex={0} onClick={ChangeCEP} onKeyDown={ ()  => {if(key === 'Enter'){ChangeCEP();}}} className='LapisEditCEPEmp'
@@ -237,15 +324,16 @@ setNew({...NewInfos, NovaImagem: file});
 
           <div className='div-inpt2Empre'>
             <label className='labelInptsEmpre'>E-mail</label>
-            <input className='inptsEmpre' type="text" aria-disabled='true' value={ dados? 'Dados da empresa' : 'sem dados'}/>
+            <input className='inptsEmpre' type="text" aria-disabled='true' value={User.email}/>
 
 
             <label className='labelInptsEmpre'>CNPJ</label>
-            <input className='inptsEmpre' type="text" aria-disabled='true' value={ dados? 'Dados da empresa' : 'sem dados'} />
+            <input className='inptsEmpre' type="text" aria-disabled='true' value={User.cnpj} />
+            
 
 
             <label className='labelInptsEmpre'>Senha</label>
-            <input className='inptsEmpre' type="password" aria-disabled='true' value={ dados? 'Dados da empresa' : 'sem dados'} /> <br />
+            <input className='inptsEmpre' type="text" aria-disabled='true' value={User.senha} /> <br />
           </div>
 
           

@@ -380,9 +380,6 @@ app.post('/loginEmpresa', async (req, res) => {
 const AutenticaçãoDeToken = (req, res, next) => {
 
     const token = req.headers['authorization']?.split(' ')[1];
-
-    console.log(token)
-
     
 
     if (!token) {
@@ -467,7 +464,7 @@ app.get('/perfilEmpresa', AutenticaçãoDeToken, async (req, res) => {
 
     if(empresa.imagem){
         
-        const imgConvert = Buffer.from(user.imagem).toString('base64')
+        const imgConvert = Buffer.from(empresa.imagem).toString('base64')
         empresa.imagem = `data:image/*;base64,${imgConvert}`;
 
 
@@ -483,6 +480,68 @@ return res.status(401).json({message: 'Usuário ', error: err.message})
 }
 
 });
+
+app.post('/editarEmpresa', AutenticaçãoDeToken, upload.single('NovaImagem'), async (req, res) => {
+
+    const empresa = req.user.id;
+  
+    const {NovoTelefone, NovoCEP} = req.body;
+    const imagemBuffer = req.file ? req.file.buffer : null;
+     
+   
+    
+  
+    const fields = []
+    const values = []
+  
+    
+    
+    if(NovoTelefone){
+  
+      fields.push('telefone = $' + (fields.length+1));
+      values.push(NovoTelefone);
+  
+    }
+  
+    if(NovoCEP){
+  
+      fields.push('endereco = $' + (fields.length+1));
+      values.push(NovoCEP);
+  
+    }
+
+  
+    if(imagemBuffer){
+  
+      fields.push('imagem = $' + (fields.length+1));
+      values.push(imagemBuffer);
+  
+    }
+  
+    if(fields.length===0){
+  
+      return res.status(400).json({error: 'Não há campos para atualizar!'})
+  
+    }
+  
+    let query =  `UPDATE empresa SET ${fields.join(', ')} WHERE id = $${fields.length + 1}`;
+    values.push(empresa);
+  
+    try{ 
+  
+    const result = await pool.query(query, values)
+    
+    return res.status(200).json({message: 'Empresa atualizada com sucesso!'})
+  
+  } catch (err){
+  
+      console.error('Erro ao atualizar empresa!', err)
+      return res.status(500).json({error: 'Erro ao atualizar empresa!'})
+  
+  }
+      
+  
+  });
 
 
 //Atualizar usuario

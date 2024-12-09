@@ -47,7 +47,7 @@ function Gerenciamento() {
         if(decode.papel === 'Usuário'){
           const userData = await response.json();
           setUser(userData)
-          console.log(userData)
+          console.log(decode)
 
           
       
@@ -357,8 +357,11 @@ setNew({...NewInfos, NovaImagem: file});
 
             
             <label className='labelInpts'>CEP</label>
-            <input className={CEPEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={CEPEdit} value= 
-                     {NewInfos.NovoCEP}/> <br />
+            <InputMask
+             mask='99999-999'
+             className={CEPEdit ? "InptDisabledGerenciamento" : "inpts"} 
+             type="text" disabled={CEPEdit} 
+             value={NewInfos.NovoCEP}/> <br />
 
             <img tabIndex={0} onClick={ChangeCEP} onKeyDown={ () => {if(key === 'Enter'){ChangeCEP();}}} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
                     src="./img/iconLapis.png" alt="" />
