@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import EventosPendentes from '../components/EventosPendentes';
 import NavbarPeinelMod from '../components/NavbarPeinelMod';
 import '../styles/PainelModerador.css';
-import CarrosselFestivais from '../pages/CarrosselFestivais'; /* TIRAR DEPOIS */
+import CarrosselEventosSolicitados from '../pages/CarrosselEventosSolicitados';
 
 
 function PainelModerador() {
@@ -33,7 +33,7 @@ function PainelModerador() {
       <h1 className='sairPainelMod'>SAIR DA CONTA</h1>
 
       
-          <CarrosselFestivais/>
+          <CarrosselEventosSolicitados/>
       
      
           <EventosPendentes/>
