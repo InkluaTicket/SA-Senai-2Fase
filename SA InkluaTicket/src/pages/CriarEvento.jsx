@@ -417,6 +417,7 @@ function CriarEvento() {
                 setFormE({ ...FormEvento, Categoria: e.target.value })
               }
             >
+              
               {/* Shows, Festivais, Tecnologia, Esportes, Educação, Saúde */}
               <option value="Shows">Show</option>
               <option value="Festivais">Festivais</option>

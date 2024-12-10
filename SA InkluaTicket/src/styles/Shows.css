@@ -39,6 +39,10 @@ body {
   color: #0076d7;
 }
 
+.coment {
+  padding: 10px;
+}
+
 .p-show {
   font-size: 20px;
   display: flex;
@@ -97,7 +101,6 @@ body {
   padding: 15px;
   font-size: 20px;
 }
-
 
 .compra {
   text-align: center;

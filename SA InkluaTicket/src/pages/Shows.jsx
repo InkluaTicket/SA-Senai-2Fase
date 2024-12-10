@@ -17,11 +17,16 @@ function Shows() {
   // Função para lidar com o envio do comentário
   const handleAddComment = () => {
     if (newComment.trim() !== "" && userName.trim() !== "") {
-      setComments([...comments, { name: userName, text: newComment }]);
+      setComments([
+        ...comments,
+        { name: userName, text: newComment, stars: rating },
+      ]);
       setNewComment("");
       setUserName("");
+      setRating(0); // Resetar avaliação após envio
     }
   };
+  
 
   return (
     <div>
@@ -79,6 +84,45 @@ function Shows() {
                 alimentação e acesso ao coquetel de encerramento, com vendas em
                 lotes que aumentam de preço conforme esgotam.
               </p>
+
+              <div className="column">
+                {[
+                  { label: "Deficiencia auditiva", id: "DefAuditiva" },
+                  { label: "Deficiencia multipla", id: "DefMultipla" },
+                  { label: "Outro?", id: "OutraDef" },
+                ].map(({ label, id }, index) => (
+                  <article key={index + 3}>
+                    <input
+                      type="checkbox"
+                      className="checagem"
+                      id={id}
+                    />
+                    <label className="info-label" htmlFor={id}>
+                      {label}
+                    </label>
+                  </article>
+                ))}
+              </div>
+
+              <div className="column">
+                {[
+                  { label: "Deficiencia física", id: "DefFisica" },
+                  { label: "Deficiencia visual", id: "DefVisual" },
+                  { label: "Deficiencia intelectual", id: "DefIntelectual" },
+                ].map(({ label, id }, index) => (
+                  <article key={index}>
+                    <input
+                      type="checkbox"
+                      className="checagem"
+                      id={id}
+                    />
+                    <label className="info-label" htmlFor={id}>
+                      {label}
+                    </label>
+                  </article>
+                ))}
+              </div>
+
             </div>
           </div>
 
@@ -148,6 +192,7 @@ function Shows() {
               style={{
                 width: "100%",
                 padding: "10px",
+                fontSize: "20px",
                 marginBottom: "10px",
                 borderRadius: "5px",
                 border: "1px solid #ccc",
@@ -161,12 +206,12 @@ function Shows() {
                 width: "100%",
                 height: "100px",
                 padding: "10px",
+                fontSize: "20px",
                 borderRadius: "5px",
                 border: "1px solid #ccc",
                 marginBottom: "10px",
               }}
             ></textarea>
-            <br />
             <button
               onClick={handleAddComment}
               style={{
@@ -174,8 +219,10 @@ function Shows() {
                 color: "#fff",
                 padding: "10px 20px",
                 border: "none",
+                fontSize: "20px",
                 borderRadius: "5px",
                 cursor: "pointer",
+                marginBottom: "20px",
               }}
             >
               Enviar
@@ -183,32 +230,50 @@ function Shows() {
 
             {/* Renderização Condicional dos Comentários */}
             {comments.length > 0 && (
-              <div style={{ marginTop: "20px", textAlign: "left" }}>
+              <div style={{ marginTop: "30px", textAlign: "left" }}>
                 <h3>Comentários:</h3>
-                <ul style={{ listStyleType: "none", padding: "0" }}>
+                <ul style={{ listStyleType: "none", padding: "0px" }}>
                   {comments.map((comment, index) => (
                     <li
                       key={index}
                       style={{
-                        background: "#f2f2f2",
-                        marginBottom: "10px",
-                        padding: "10px",
-                        borderRadius: "5px",
-                        maxWidth: "100%",
-                        overflowWrap: "break-word",
-                        wordWrap: "break-word",
-                        overflow: "hidden",
+                        background: "#fff",
+                        marginBottom: "30px",
+                        borderRadius: "8px",
+                        border: "1px solid #ccc",
                       }}
                     >
-                      <h1>
-                        <strong
-                          style={{ display: "block", color:'#000', marginBottom: "5px" }}
-                        >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginBottom: "5px",
+                          borderRadius: "5px 5px 0 0",
+                          padding: "10px",
+                          backgroundColor: "#024959",
+                        }}
+                      >
+                        <strong style={{ color: "#fff", fontSize: "18px" }}>
                           {comment.name}
                         </strong>
-                      </h1>
-
-                      <p style={{ margin: "0" }}>{comment.text}</p>
+                        <div style={{ marginLeft: "10px" }}>
+                          {[...Array(5)].map((_, starIndex) => (
+                            <span
+                              key={starIndex}
+                              style={{
+                                color:
+                                  starIndex < comment.stars
+                                    ? "#ffc107"
+                                    : "#ccc",
+                                fontSize: "25px",
+                              }}
+                            >
+                              &#9733;
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <p className="coment">{comment.text}</p>
                     </li>
                   ))}
                 </ul>
