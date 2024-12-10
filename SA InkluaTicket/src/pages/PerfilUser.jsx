@@ -101,23 +101,23 @@ function PerfilUser() {
   
   <div className="checkBoxGroupUser">
   <div>
-    <input type="checkbox" aria-disabled='true' checked={isCheckedTrue} className="checkBoxUser" id="sim" />
+    <input type="checkbox" aria-disabled='true' aria-label='Sim' checked={isCheckedTrue} className="checkBoxUser" id="sim" />
     <label htmlFor="simUser">Sim</label>
   </div>
   <div>
-    <input type="checkbox" aria-disabled checked={isCheckedFalse} className="checkBoxUser" id="nao" />
+    <input type="checkbox" aria-disabled aria-label='Não' checked={isCheckedFalse} className="checkBoxUser" id="nao" />
     <label htmlFor="naoUser">Não</label>
   </div>
 </div>
 
 
   <label className='deficienciaUser'>Deficiência:</label>
-  <input tabIndex={0}  className='inptsUser' aria-disabled='true' value={Pcd ? User.deficiencia
+  <input tabIndex={0}  className='inptsUser' aria-disabled='true' aria-label='Deficiência' value={Pcd ? User.deficiencia
           : ('Não possui')} type="text" />
 
 
   <label className='detalhesUser'>Detalhes:</label>
-  <input tabIndex={0} className='inptsUser' aria-disabled='true' value={Pcd ? User.detalhes_deficiencia : ('Não possui')}  type="text" />
+  <input tabIndex={0} className='inptsUser' aria-disabled='true' aria-label='Detalhes da deficiência' value={Pcd ? User.detalhes_deficiencia : ('Não possui')}  type="text" />
 
 </div>
 

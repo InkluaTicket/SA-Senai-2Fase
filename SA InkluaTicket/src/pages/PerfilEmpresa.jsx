@@ -56,7 +56,7 @@ function PerfilEmpresa() {
 <div className='ImagemENome'>  
   {Empresa.imagem ? <> <img className='iconEmp' src={Empresa.imagem} style={{borderRadius: '50%'}} alt="" /> </> : <> <img className='iconEmp' src="./img/fotoUser.png" /> </>}
   
-  <img className='verificadoEmp' src="./img/verif-empresa.png"/>
+  <img className='verificadoEmp' src="./img/verif-empresa.png"/>  
   <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmp'>{Empresa.nome}</p>
 </div>
 
@@ -64,7 +64,7 @@ function PerfilEmpresa() {
   <input tabIndex={0} aria-label='Email da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.email} />
 
   <label  className='labelEmp'>Telefone para contato:</label>
-  <input tabIndex={0} aria-label='Telefone da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.telefone}/>
+  <input tabIndex={0} aria-label='Telefone da empresa para contato' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.telefone}/>
 
   <label className='labelEmp'>Endereço fiscal:</label>
   <input tabIndex={0} aria-label='Endereço da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.endereco}/>

@@ -11,7 +11,7 @@ function EventosPendentesEmpresa() {
 
         try{
 
-         const response = await fetch('http://localhost:3000/eventosAnalise', {
+         const response = await fetch('http://localhost:3000/eventosPendentes', {
 
             method: 'GET',
             headers: {'Content-type' : 'application/json'}
@@ -57,7 +57,7 @@ function EventosPendentesEmpresa() {
     useEffect(() => {
 
      SelectEvent();
-     console.log(EventosAnalise.length)
+     
 
     }, [])
 

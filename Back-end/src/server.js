@@ -672,11 +672,12 @@ app.get('/eventosPendentes', AutenticaçãoDeToken, async (req, res) => {
     try {
         const result = await pool.query(
             'SELECT * FROM evento WHERE id_empresa = $1 AND aceito = $2',
-            [empresaId, 'pendente']
+            [empresaId, null]
         );
 
         if (result.rows.length === 0) {
             return res.status(404).json({ message: 'Nenhum evento pendente encontrado!' });
+            
         }
 
         res.json(result.rows);
