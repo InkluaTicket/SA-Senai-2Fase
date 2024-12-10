@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../styles/CardEventos.css'
+import '../styles/CardEventosEmpresa.css'
 
-function EventosPendentes() {
+function EventosPendentesEmpresa() {
     const navigator = useNavigate();
     const [EventosAnalise, setAnalise] = useState([])
 
@@ -11,7 +11,7 @@ function EventosPendentes() {
 
         try{
 
-         const response = await fetch('http://localhost:3000/eventosPendentes', {
+         const response = await fetch('http://localhost:3000/eventosAnalise', {
 
             method: 'GET',
             headers: {'Content-type' : 'application/json'}
@@ -107,4 +107,4 @@ function EventosPendentes() {
   )
 }
 
-export default EventosPendentes
+export default EventosPendentesEmpresa

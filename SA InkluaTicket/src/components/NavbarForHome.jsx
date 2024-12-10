@@ -13,82 +13,82 @@ function NavBarForHome() {
   const [UsuarioLogado, setUserLog] = useState('')
   const [CadastreSe, setCadastre] = useState(false)
   const [Mensagem, setMensagem] = useState('')
- 
 
-    const PuxarUsuario = async () => {
 
-      const token = localStorage.getItem('token');
+  const PuxarUsuario = async () => {
 
-      
-      try{  
+    const token = localStorage.getItem('token');
+
+
+    try {
       const response = await fetch('http://localhost:3000/perfil', {
 
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-type': 'application/json'
-      }
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        }
 
       });
 
       if (response.ok) {
 
-          const userData = await response.json();
-          setUserLog(userData)
-       
+        const userData = await response.json();
+        setUserLog(userData)
 
-      }else{
+
+      } else {
 
         console.log('deu b.o', response)
 
       }
-    
-    }
-
-      catch (err) {
-
-        console.error('Erro ao buscar usuario', err)
-  
-      }
 
     }
 
-    const PuxarEmpresa = async () => {
+    catch (err) {
 
-      const token = localStorage.getItem('tokenEmpresa');
+      console.error('Erro ao buscar usuario', err)
 
-      
-      try{  
+    }
+
+  }
+
+  const PuxarEmpresa = async () => {
+
+    const token = localStorage.getItem('tokenEmpresa');
+
+
+    try {
       const response = await fetch('http://localhost:3000/perfilEmpresa', {
 
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-type': 'application/json'
-      }
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        }
 
       });
 
       if (response.ok) {
 
-          const empresaData = await response.json();
-          setUserLog(empresaData)
+        const empresaData = await response.json();
+        setUserLog(empresaData)
 
-      }else{
+      } else {
 
         console.log('deu b.o', response)
 
       }
-    
-    }
-
-      catch (err) {
-
-        console.error('Erro ao buscar usuario', err)
-  
-      }
 
     }
+
+    catch (err) {
+
+      console.error('Erro ao buscar usuario', err)
+
+    }
+
+  }
 
 
 
@@ -117,8 +117,8 @@ function NavBarForHome() {
         setAdm(false);
         setEmpresa(false);
         PuxarUsuario();
-        
-        
+
+
       }
     } else {
       setVali(false);
@@ -129,14 +129,14 @@ function NavBarForHome() {
   }, []);
 
   useEffect(() => {
-    
-    
 
-setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
-setImg(UsuarioLogado.foto_perfil)
-   
-    
-}, [UsuarioLogado])
+
+
+    setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
+    setImg(UsuarioLogado.foto_perfil)
+
+
+  }, [UsuarioLogado])
 
   return (
     <header className='ContainerHome'>
@@ -147,56 +147,62 @@ setImg(UsuarioLogado.foto_perfil)
 
       {validação && isAdm ? (
         <>
-        <nav className='InfosHome'>
-          <Link className='InfosNavHome' to='/PainelModerador'>Administração</Link>
+          <nav className='InfosHome'>
+            <Link className='InfosNavHome' to='/PainelModerador'>Administração</Link>
           </nav>
         </>
       ) : validação && isEmpresa ? (
-        <> <nav className='InfosHome'> 
-            <div className='CondicionalNav' > 
-              <div className='InfosNavHomeUser'>  
-     
-           <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
-          <Link className='InfosNavHome' to='/criarevento'>Crie seu evento</Link>
-          { imgPerfil ? 
-          (<></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
-          
-        
+        <> <nav className='InfosHome'>
+          <div className='CondicionalNav' >
+            <div className='InfosNavHomeUser'>
+
+              <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
+              <Link className='InfosNavHome' to='/criarevento'>Crie seu evento</Link>
+              {imgPerfil ?
+                (<></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
+
+
+            </div>
           </div>
-          </div>
-          </nav>
+        </nav>
         </>
       ) : validação && isUser ? (
         <>
-        <nav className='InfosHome'>
-          <div className='CondicionalNav'>
-          <div className='InfosNavHomeUser'>
+          <nav className='InfosHome'>
+            <div className='CondicionalNav'>
+              <div className='InfosNavHomeUser'>
 
-          <p aria-live='assertive' role='alert'> {Mensagem}</p>
+                <p aria-live='assertive' role='alert'> {Mensagem}</p>
 
-          <li className='separadorHome'></li>
+                <li className='separadorHome'></li>
 
-          { imgPerfil ? 
-          (<><Link to='/PerfilUser'><img src={imgPerfil} style={{width: '50px', borderRadius: '50%', margin: '0px'}} alt="" /></Link></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
-          
-          </div>
-          </div>
+                {imgPerfil ?
+                  (<><Link to='/PerfilUser'><img src={imgPerfil} style={{ width: '50px', borderRadius: '50%', margin: '0px' }} alt="" /></Link></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
+
+              </div>
+            </div>
           </nav>
         </>
       ) : (
         <nav className='InfosHome'>
-          <Link to="" onClick={() => {setCadastre(true)}} role='button' tabIndex={0} className='InfosNavHome'>
+          <Link to="" onClick={() => { setCadastre(true) }} role='button' tabIndex={0} className='InfosNavHome'>
             Criar seu evento
 
-            {CadastreSe && 
-            <div  className='AvisoParaCadastro' role='alert'> <p tabIndex={0} className='x' aria-label='Fechar' 
-                onKeyDown={(e) => {e.key === 'Enter' && e.stopPropagation(); 
-                 e.preventDefault();setCadastre(false)}} onClick={(e) => {e.stopPropagation(); 
-                  e.preventDefault();setCadastre(false)}}>X</p> 
-                  
-                  <h4> Para criar um evento é necessário que você tenha 
-                   uma conta empresarial!</h4> </div>} 
-             
+            {CadastreSe &&
+              <div className='AvisoParaCadastro' role='alert'> <p tabIndex={0} className='x' aria-label='Fechar'
+                onKeyDown={(e) => {
+                  e.key === 'Enter' && e.stopPropagation();
+                  e.preventDefault(); setCadastre(false)
+                }} onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault(); setCadastre(false)
+                }}>X</p> 
+                <center>
+                <h4> Para criar um evento é necessário que você tenha uma conta empresarial!</h4>
+                
+                </center>
+              </div>}
+
           </Link>
           <li className='separadorHome'></li>
           <Link to='/EscolhaLogin' tabIndex={0} className='InfosNavHome'>

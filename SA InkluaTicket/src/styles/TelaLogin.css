@@ -116,16 +116,26 @@
     background-color: #024959;
     color: #FFFFFF;
     transform: scale(1.0); 
-    transition: 1s;
   }
-  .btCadastrarLog:hover{
-   
-
-    width: 55%;
-    border:1px solid #024959;
-    background-color: #d9d9d9;
-    color: #024959;
+  .btCadastrarLog {
+    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease; /* Transição rápida */
+    background-color: #024959; /* Cor inicial */
+    color: #fff; /* Cor inicial */
+    border: 1px solid #024959; /* Cor inicial da borda */
   }
+  
+  .btCadastrarLog:hover {
+    background-color: #d9d9d9; /* Cor de fundo ao passar o mouse */
+    color: #024959; /* Cor do texto ao passar o mouse */
+    border: 1.5px solid #024959; /* Cor da borda ao passar o mouse */
+    transition-duration: 1.0s; /* Rápido */
+  }
+  
+  .btCadastrarLog:not(:hover) {
+    transition-duration: 1.0s; /* Mais lento ao sair */
+    background-color: #024959; /* Voltar à cor inicial */
+    color: #fff; /* Cor inicial do texto */
+    border: 1px solid #024959; /* Voltar à borda inicial */}
   
   .tudoInputsCheckBTLog{
     margin-top: 5%;

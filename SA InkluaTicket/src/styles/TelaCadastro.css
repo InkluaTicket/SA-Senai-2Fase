@@ -181,7 +181,6 @@
 .btCadastrar:hover , .btCadastrarEmpresa:hover{
   transform: scale(1.1); 
   transition: 1s;
-  width: 50%;
   border:1px solid #024959;
   background-color: #d9d9d9;
   color: #024959;

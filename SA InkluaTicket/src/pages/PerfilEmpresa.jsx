@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../styles/PerfilEmpresa.css';
+import { Link } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import NavbarPerfilEmpresa from '../components/NavbarPerfilEmpresa';
 
@@ -53,7 +54,8 @@ function PerfilEmpresa() {
 <div className='div1Emp'>
 
 <div className='ImagemENome'>  
-  <img className='iconEmp' src="./img/fotoUser.png" />
+  {Empresa.imagem ? <> <img className='iconEmp' src={Empresa.imagem} style={{borderRadius: '50%'}} alt="" /> </> : <> <img className='iconEmp' src="./img/fotoUser.png" /> </>}
+  
   <img className='verificadoEmp' src="./img/verif-empresa.png"/>
   <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmp'>{Empresa.nome}</p>
 </div>
@@ -84,7 +86,7 @@ function PerfilEmpresa() {
   
   <p className='Texto2Emp'>Informações precisas garantem uma comunicação eficiente e uma experiência mais personalizada para sua empresa e seus clientes.</p>
 
-  <button className='gerenciarEmp'>Gerenciar Perfil</button>
+  <Link className='gerenciarEmp' to='/GerenciamentoEmpre' >Gerenciar Perfil</Link>
   <img className='iconGerenciarEmp' src="./img/gerenciamentoUser.png"/>
   
   
