@@ -24,23 +24,23 @@ function CarrosselEventosSolicitados() {
       {/* Carrossel de Eventos Solicitados */}
       <div className="carrosselEventSoli">
         <h1 className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1>
-        <div className="carrossel-conteudoSolici" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
+        <div className="carrossel-conteudoSoliciEventSoli" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
           <CardEventos />
-          <div className="espacoEventos"></div>
+          <div className="espacoEventosEventSoli"></div>
           <CardEventosCopy />
-          <div className="espacoEventos"></div>
+          <div className="espacoEventosEventSoli"></div>
           <CardEventosCopy1 />
-          <div className="espacoEventos"></div>
+          <div className="espacoEventosEventSoli"></div>
           <CardEventosCopy2 />
-          <div className="espacoEventos"></div>
+          <div className="espacoEventosEventSoli"></div>
           <CardEventosCopy3 />
-          <div className="espacoEventos"></div>
+          <div className="espacoEventosEventSoli"></div>
           <CardEventosCopy4 />
-          <div className="espacoEventos"></div>
+          <div className="espacoEventosEventSoli"></div>
           <CardEventosCopy5 />
         </div>
-        <button className="carrossel-botao1 anterior2EventSoli" onClick={EventoSoliAnterior}>‹</button>
-        <button className="carrossel-botao2 proximo2EventSoli" onClick={proximoEventoSoli}>›</button>
+        <button className="carrossel-botao11 anterior2EventSoli" onClick={EventoSoliAnterior}>‹</button>
+        <button className="carrossel-botao22 proximo2EventSoli" onClick={proximoEventoSoli}>›</button>
       </div>
     </div>
   )

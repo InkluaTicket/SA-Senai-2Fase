@@ -1,120 +1,109 @@
-:root {
-    --cor-1: #024959;
-    --cor-2: #5C868F;
-    --cor-3: #7B9AAB;
-    --cor-4: #D9D9D9;
-}
-
 .tudocarrosselEventSoli {
     overflow: hidden;
     font-family: "Poppins", sans-serif;
-    background-color: var(--cor-4);
-    /* Fundo cinza claro */
+    background-color: #d9d9d9;
     color: #024959;
     text-align: center;
     max-width: 100%;
-    padding: 20px 0;
+    max-height: 100%;
 }
 
 .carrosselEventSoli {
-    position: relative;
-    max-width: max-content;
-    margin: 0 auto;
-    /* Centraliza o carrossel */
-    overflow: hidden;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    align-items: center;
+    gap: 30%;
 }
 
 .carrosselShFeEvTEXTOEventSoli {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    width: 100%;
-    color: #024959;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    text-align: start;
+    margin-left: 5%;
+    font-weight: 750;
 }
 
-
 .carrossel-conteudoSoliciEventSoli {
-    display: flex;
-    gap: 6%;
-    /* Espaço entre os cards */
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
+    transition: transform 0.5s ease;
+    display: inline-flex;
 }
 
 .espacoEventosEventSoli {
-    width: 20px;
-    /* Ajuste o espaço */
+    margin-left: 5%;
+    margin-right: 3%;
 }
 
-.carrossel-itemEventSoli {
-    flex: 0 0 30%;
-    /* Tamanho fixo dos cards */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-    border-radius: 12px;
-    overflow: hidden;
-    
-    transition: transform 0.3s ease;
-}
-
-.carrossel-itemEventSoli:hover {
-    transform: scale(1.05);
-    /* Zoom ao passar o mouse */
-}
-
-.carrossel-botao1EventSoli,
-.carrossel-botao2EventSoli {
+.carrossel-botao11 {
+    font-weight: 900;
     position: absolute;
-    top: 50%;
+    top: 40%;
+    height: 25%;
     transform: translateY(-50%);
-    background-color: #f4a700;
-    /* Fundo amarelo */
-    color: var(--cor-4);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #d9d9d9;
+    color: #024959;
+    border: 1px solid #024959;
+    border-radius: 10%;
+    padding: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    font-size: 18px;
+    transform: scale(1.1); 
+    transition: 1s;
 }
 
-.carrossel-botao1EventSoli:hover,
-.carrossel-botao2EventSoli:hover {
-    background-color: #d99100;
-    /* Amarelo mais escuro no hover */
+.carrossel-botao11:hover {
+    font-weight: 900;
+    position: absolute;
+    top: 38%;
+    height: 30%;
+    transform: translateY(-50%);
+    background-color: #024959;
+    color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    border-radius: 10%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transform: scale(1.1); 
+    transition: 1s;
 }
 
-.carrossel-botao1.anterior2EventSoli {
-    left: -10px;
-    /* Ajusta a posição do botão esquerdo */
+.carrossel-botao22 {
+    font-weight: 900;
+    position: absolute;
+    top: 40%;
+    height: 25%;
+    transform: translateY(-50%);
+    background-color: #d9d9d9;
+    color: #024959;
+    border: 1px solid #024959;
+    border-radius: 10%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transform: scale(1.1); 
+    transition: 1s;
 }
 
-.carrossel-botao2.proximo2EventSoli {
-    right: -25px;
-    /* Ajusta a posição do botão direito */
+.carrossel-botao22:hover {
+    font-weight: 900;
+    position: absolute;
+    top: 38%;
+    height: 30%;
+    transform: translateY(-50%);
+    background-color: #024959;
+    color: #d9d9d9;
+    border: 1px solid #d9d9d9;
+    border-radius: 10%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transform: scale(1.1); 
+    transition: 1s;
 }
 
-.carrossel-itemEventSoli {
-    flex: 0 0 80%;
-    /* Ocupa mais espaço na tela menor */
+.carrossel-botao11.anterior2EventSoli {
+    position: absolute;
+    left: 20px;
 }
 
-.carrossel-botao1EventSoli,
-.carrossel-botao2EventSoli {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+.carrossel-botao22.proximo2EventSoli {
+    position: absolute;
+    left: 96%;
 }
