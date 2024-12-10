@@ -94,9 +94,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   .checkboxPCDLog{
-    margin-top: 10%;
-    margin-bottom: 5%;
-    margin-left: 9%;
+    margin-top: 14%;
+    margin-bottom: -2%;
+    margin-left: 17%;
     color: black;
     width: 70%;
     text-align: start;
@@ -108,23 +108,34 @@
   }
   .btCadastrarLog{
     margin-top: 5%;
-    margin-left: 25%;
+    margin-left: 18%;
     width: 50%;
     height: 30px;
     border-radius: 5px;
     border: none;
     background-color: #024959;
     color: #FFFFFF;
-    transform: scale(1.1); 
-    transition: 1s;
+    transform: scale(1.0); 
   }
-  .btCadastrarLog:hover{
-    transform: scale(1.2); 
-    transition: 1s;
-    border:1px solid #024959;
-    background-color: #d9d9d9;
-    color: #024959;
+  .btCadastrarLog {
+    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease; /* Transição rápida */
+    background-color: #024959; /* Cor inicial */
+    color: #fff; /* Cor inicial */
+    border: 1px solid #024959; /* Cor inicial da borda */
   }
+  
+  .btCadastrarLog:hover {
+    background-color: #d9d9d9; /* Cor de fundo ao passar o mouse */
+    color: #024959; /* Cor do texto ao passar o mouse */
+    border: 1.5px solid #024959; /* Cor da borda ao passar o mouse */
+    transition-duration: 1.0s; /* Rápido */
+  }
+  
+  .btCadastrarLog:not(:hover) {
+    transition-duration: 1.0s; /* Mais lento ao sair */
+    background-color: #024959; /* Voltar à cor inicial */
+    color: #fff; /* Cor inicial do texto */
+    border: 1px solid #024959; /* Voltar à borda inicial */}
   
   .tudoInputsCheckBTLog{
     margin-top: 5%;
