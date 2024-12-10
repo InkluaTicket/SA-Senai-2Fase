@@ -5,7 +5,7 @@
     --cor-4: #D9D9D9;
 }
 
-.tudocarrossel {
+.tudocarrosselEventSoli {
     overflow: hidden;
     font-family: "Poppins", sans-serif;
     background-color: var(--cor-4);
@@ -16,7 +16,7 @@
     padding: 20px 0;
 }
 
-.carrossel {
+.carrosselEventSoli {
     position: relative;
     max-width: max-content;
     margin: 0 auto;
@@ -27,7 +27,7 @@
     align-items: center;
 }
 
-.carrosselShFeEvTEXTO {
+.carrosselShFeEvTEXTOEventSoli {
     font-size: 24px;
     font-weight: bold;
     text-align: left;
@@ -39,7 +39,7 @@
 }
 
 
-.carrossel-conteudoSolici {
+.carrossel-conteudoSoliciEventSoli {
     display: flex;
     gap: 6%;
     /* Espaço entre os cards */
@@ -47,12 +47,12 @@
     will-change: transform;
 }
 
-.espacoEventos {
+.espacoEventosEventSoli {
     width: 20px;
     /* Ajuste o espaço */
 }
 
-.carrossel-item {
+.carrossel-itemEventSoli {
     flex: 0 0 30%;
     /* Tamanho fixo dos cards */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -63,13 +63,13 @@
     transition: transform 0.3s ease;
 }
 
-.carrossel-item:hover {
+.carrossel-itemEventSoli:hover {
     transform: scale(1.05);
     /* Zoom ao passar o mouse */
 }
 
-.carrossel-botao1,
-.carrossel-botao2 {
+.carrossel-botao1EventSoli,
+.carrossel-botao2EventSoli {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -91,29 +91,29 @@
     z-index: 10;
 }
 
-.carrossel-botao1:hover,
-.carrossel-botao2:hover {
+.carrossel-botao1EventSoli:hover,
+.carrossel-botao2EventSoli:hover {
     background-color: #d99100;
     /* Amarelo mais escuro no hover */
 }
 
-.carrossel-botao1.anterior2 {
+.carrossel-botao1.anterior2EventSoli {
     left: -10px;
     /* Ajusta a posição do botão esquerdo */
 }
 
-.carrossel-botao2.proximo2 {
+.carrossel-botao2.proximo2EventSoli {
     right: -25px;
     /* Ajusta a posição do botão direito */
 }
 
-.carrossel-item {
+.carrossel-itemEventSoli {
     flex: 0 0 80%;
     /* Ocupa mais espaço na tela menor */
 }
 
-.carrossel-botao1,
-.carrossel-botao2 {
+.carrossel-botao1EventSoli,
+.carrossel-botao2EventSoli {
     width: 40px;
     height: 40px;
     font-size: 20px;

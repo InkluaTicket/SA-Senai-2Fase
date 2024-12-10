@@ -20,10 +20,10 @@ function CarrosselEventosSolicitados() {
   }
 
   return (
-    <div className="tudocarrossel">
+    <div className="tudocarrosselEventSoli">
       {/* Carrossel de Eventos Solicitados */}
-      <div className="carrossel">
-        <h1 className='carrosselShFeEvTEXTO'>Eventos Solicitados</h1>
+      <div className="carrosselEventSoli">
+        <h1 className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1>
         <div className="carrossel-conteudoSolici" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
           <CardEventos />
           <div className="espacoEventos"></div>
@@ -39,8 +39,8 @@ function CarrosselEventosSolicitados() {
           <div className="espacoEventos"></div>
           <CardEventosCopy5 />
         </div>
-        <button className="carrossel-botao1 anterior2" onClick={EventoSoliAnterior}>‹</button>
-        <button className="carrossel-botao2 proximo2" onClick={proximoEventoSoli}>›</button>
+        <button className="carrossel-botao1 anterior2EventSoli" onClick={EventoSoliAnterior}>‹</button>
+        <button className="carrossel-botao2 proximo2EventSoli" onClick={proximoEventoSoli}>›</button>
       </div>
     </div>
   )
