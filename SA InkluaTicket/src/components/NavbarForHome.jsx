@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import '../styles/NavbarForHome.css';
+import '../styles/BtsNavbarForHome.css'
 import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import jwt_decode from 'jwt-decode';
 import SearchBar from './SearchBar';
 
@@ -196,10 +197,29 @@ function NavBarForHome() {
                 }} onClick={(e) => {
                   e.stopPropagation();
                   e.preventDefault(); setCadastre(false)
-                }}>X</p> 
+                }}>X</p>
                 <center>
-                <h4> Para criar um evento é necessário que você tenha uma conta empresarial!</h4>
-                
+                  <h4> Para criar um evento é necessário que você tenha uma conta empresarial!</h4>
+
+                  <div className="posiBtImgNav" aria-hidden>
+                    <nav className="btsImgsNav" aria-label='Faça cadastro como empresa' role='alert'>
+                      <Link tabIndex={0} to='/CadastroEmpresa' className="btsImgsNavLINKS">
+                        <div className="imagemDivNav">
+                          <img src="./img/imgEmpresa.png" className="imagemEmpreNav" />
+                        </div>
+                        <div className='botaoImgNav'>Cadastrar Empresa</div>
+                      </Link>
+                    </nav>
+                    <img src="./img/pessoaEmpresa.png" className="imgPcdNav" />
+                    <nav className="btsImgsNav" aria-live='assertive' aria-label='Faça login como empresa' role='alert'>
+                      <Link to='/LoginEmpresa' className="btsImgsNavLINKS" >
+                        <section className="imagemDivNav">
+                          <img src="./img/mãos .png" className="imagemEmpreNav" />
+                        </section>
+                        <div className='botaoImgNav'>Login Empresa</div>
+                      </Link>
+                    </nav>
+                  </div>
                 </center>
               </div>}
 
