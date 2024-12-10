@@ -242,15 +242,14 @@
   .inptsEmpreHab{
 
     
-      width: 90%;
-      padding: 8px;
-      border: 1px solid #9c9c9c;
-      border-radius: 8px;
-      font-size: 14px;
-      margin-bottom: 10px;
-      opacity: 50%;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-family: "Poppins", sans-serif;
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       
       outline: 0;
     

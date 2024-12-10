@@ -54,26 +54,26 @@ function VisualizarPerfilEpresa() {
         <div className='divUmUser'>
           <div className="posidivUmUser">
 
-            <div className='ImagemENomeEmpresa'>
-              <img className='iconEmp' src="./img/fotoUser.png" />
-              <img className='verificadoEmp' src="./img/verif-empresa.png" />
-              <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmp'>apagar{Empresa.nome}</p>
+            <div className='ImagemENomeEmpresaAcesso'>
+              <img className='iconEmpAcesso' src="./img/fotoUser.png" />
+              <img className='verificadoEmpAcesso' src="./img/verif-empresa.png" />
+              <p tabIndex={0} aria-label='Nome da empresa' className='nomeEmpAcesso'>apagar{Empresa.nome}</p>
             </div>
 
             <label className='labelEmp'>Email para contato:</label>
-            <input tabIndex={0} aria-label='Email da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.email} />
+            <input tabIndex={0} aria-label='Email da empresa' className='inptsEmpAcesso' type="text" aria-disabled='true' value={Empresa.email} />
 
             <label className='labelEmp'>Telefone para contato:</label>
-            <input tabIndex={0} aria-label='Telefone da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.telefone} />
+            <input tabIndex={0} aria-label='Telefone da empresa' className='inptsEmpAcesso' type="text" aria-disabled='true' value={Empresa.telefone} />
 
             <label className='labelEmp'>Endereço fiscal:</label>
-            <input tabIndex={0} aria-label='Endereço da empresa' className='inptsEmp' type="text" aria-disabled='true' value={Empresa.endereco} />
+            <input tabIndex={0} aria-label='Endereço da empresa' className='inptsEmpAcesso' type="text" aria-disabled='true' value={Empresa.endereco} />
 
           </div>
         </div>
 
         <div className='divDoisUser'>
-          <img src="./img/mãos .png" className="imagemsUmPerfilEmp" />
+          <img src="./img/mãos .png" className="imagemsUmPerfilEmpAcesso" />
         </div>
 
       </div>

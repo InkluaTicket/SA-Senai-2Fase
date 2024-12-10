@@ -332,7 +332,7 @@ setNew({...NewInfos, NovaImagem: file});
           <div className='div-inpt1'>
 
             <label className='labelInpts'>Nome</label>
-            <input className={NomeEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={NomeEdit} 
+            <input className={NomeEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" aria-disabled={NomeEdit} 
                       value= 
                      {NewInfos.NovoNome}  onChange={(e) => 
                  setNew({...NewInfos, NovoNome: e.target.value})}/>
@@ -346,7 +346,7 @@ setNew({...NewInfos, NovaImagem: file});
              <InputMask
              mask="(99) 99999-9999"
              alwaysShowMask={false}
-             className={TelefoneEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" disabled={TelefoneEdit} 
+             className={TelefoneEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" aria-disabled={TelefoneEdit} 
              onChange={(e) => setNew({...NewInfos, NovoTelefone: e.target.value})}
              value={NewInfos.NovoTelefone}
              ></InputMask>
@@ -360,7 +360,7 @@ setNew({...NewInfos, NovaImagem: file});
             <InputMask
              mask='99999-999'
              className={CEPEdit ? "InptDisabledGerenciamento" : "inpts"} 
-             type="text" disabled={CEPEdit} 
+             type="text" aria-disabled={CEPEdit} 
              value={NewInfos.NovoCEP}/> <br />
 
             <img tabIndex={0} onClick={ChangeCEP} onKeyDown={ () => {if(key === 'Enter'){ChangeCEP();}}} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
@@ -373,13 +373,13 @@ setNew({...NewInfos, NovaImagem: file});
           <div className='div-inpt2'>
 
           <label className='labelInpts'>E-mail</label>
-          <input className='InptDisabledGerenciamento' type="text" disabled value={User.email}/>
+          <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.email}/>
 
             <label className='labelInpts'>CPF</label>
-            <input className='InptDisabledGerenciamento' type="text" disabled value={User.cpf} />
+            <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.cpf} />
 
             <label className='labelInpts'>Senha</label>
-            <input className='InptDisabledGerenciamento' type="text" disabled value={User.senha}/> <br />
+            <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.senha}/> <br />
 
 
 

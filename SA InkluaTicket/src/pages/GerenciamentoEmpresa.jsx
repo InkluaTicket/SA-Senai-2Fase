@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode"
 import NavbarGerenEmpre from '../components/NavbarGerenEmpre';
 import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask';
+import EventosPendentesEmpresa from '../components/EventosPendentesEmpresa';
 
 function GerenciamentoEmpresa() {
 
@@ -353,6 +354,8 @@ setNew({...NewInfos, NovaImagem: file});
       <div className='divDoisEmpre'>
         
         <h1 className='eventosEmpre'>Eventos</h1>
+
+        <EventosPendentesEmpresa/>
 
         
 

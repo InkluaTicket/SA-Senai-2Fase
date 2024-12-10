@@ -647,7 +647,7 @@ app.get('/buscarComentarios/:id', async (req, res) => {
 try{
 
     
-    const result = await pool.query('SELECT * FROM comentarios WHERE evento_id = $1', [id]);4
+    const result = await pool.query('SELECT * FROM comentarios WHERE evento_id = $1', [id]);
 
     if(result.rows.length > 0){
 
@@ -665,6 +665,27 @@ try{
 }
 
 });
+
+app.get('/eventosPendentes', AutenticaçãoDeToken, async (req, res) => {
+    const empresaId = req.user.id; // Supondo que o ID da empresa seja obtido pelo token do usuário
+
+    try {
+        const result = await pool.query(
+            'SELECT * FROM evento WHERE id_empresa = $1 AND aceito = $2',
+            [empresaId, 'pendente']
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ message: 'Nenhum evento pendente encontrado!' });
+        }
+
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).json({ message: 'Erro ao buscar eventos pendentes', error: err.message });
+    }
+});
+
 
 app.get('/buscarUsuarioComentarios/:userId', async (req, res) => {
 
