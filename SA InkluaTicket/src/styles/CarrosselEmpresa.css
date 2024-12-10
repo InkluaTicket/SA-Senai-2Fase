@@ -188,9 +188,9 @@
     flex-direction: column;
     gap: 30%;
   }
-  .carrosselShFeEvTEXTO{
+  .carrosselShFeEvTEXTOEmp{
     text-align: start;
-    margin-left: 5%;
+    margin-left: 316%;
     font-weight: 750;
   }
   .carrossel-conteudo {
@@ -199,10 +199,11 @@
   }
   .carrosselEmp{
     gap: 5% ;
-    position: relative;
+    position: absolute;
     width: 100%; 
     overflow: hidden;
     margin-bottom: 5%;
+    margin-left: -54%;
   }
   .lista-eventos {
     margin-top: 10px;
@@ -267,11 +268,12 @@
     font-size: 18px;
     transform: scale(1.1); 
     transition: 1s;
-  }.carrossel-botao2.anterior2 {
+  }.carrossel-botao2.anterior2Emp {
     position: absolute;
-    left: 20px;
-  }.carrossel-botao2.proximo2 {
+    left: 410px;
+  }.carrossel-botao2.proximo2Emp {
     position: absolute;
-    left: 96%;
+    left: 76.1%;
+    
   }
   

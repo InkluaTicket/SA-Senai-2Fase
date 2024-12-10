@@ -250,8 +250,8 @@ Renderizar();
     <div className='container-GerenEmpre'>
 
       <div className='divUmEmpre'>
-      <img onClick={Logout} className='iconsairEmpre' src="./img/icon-LogOut.png" />
-      <h1 className='sairGerenEmpre'>SAIR DA CONTA</h1>
+      <img tabIndex={0} onClick={Logout} className='iconsairEmpre' src="./img/icon-LogOut.png" />
+      <h1  className='sairGerenEmpre'>SAIR DA CONTA</h1>
 
       <div className='div-excluirEmpre'>
         <h1 className='excluirEmpre'>EXCLUIR CONTA</h1>
@@ -353,7 +353,7 @@ setNew({...NewInfos, NovaImagem: file});
 
       <div className='divDoisEmpre'>
         
-        <h1 className='eventosEmpre'>Eventos</h1>
+        
 
         <EventosPendentesEmpresa/>
 
