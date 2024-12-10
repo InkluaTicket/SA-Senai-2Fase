@@ -1,0 +1,120 @@
+:root {
+    --cor-1: #024959;
+    --cor-2: #5C868F;
+    --cor-3: #7B9AAB;
+    --cor-4: #D9D9D9;
+}
+
+.tudocarrossel {
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--cor-4);
+    /* Fundo cinza claro */
+    color: #024959;
+    text-align: center;
+    max-width: 100%;
+    padding: 20px 0;
+}
+
+.carrossel {
+    position: relative;
+    max-width: max-content;
+    margin: 0 auto;
+    /* Centraliza o carrossel */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carrosselShFeEvTEXTO {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    color: #024959;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.carrossel-conteudoSolici {
+    display: flex;
+    gap: 6%;
+    /* Espaço entre os cards */
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.espacoEventos {
+    width: 20px;
+    /* Ajuste o espaço */
+}
+
+.carrossel-item {
+    flex: 0 0 30%;
+    /* Tamanho fixo dos cards */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    border-radius: 12px;
+    overflow: hidden;
+    
+    transition: transform 0.3s ease;
+}
+
+.carrossel-item:hover {
+    transform: scale(1.05);
+    /* Zoom ao passar o mouse */
+}
+
+.carrossel-botao1,
+.carrossel-botao2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f4a700;
+    /* Fundo amarelo */
+    color: var(--cor-4);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.carrossel-botao1:hover,
+.carrossel-botao2:hover {
+    background-color: #d99100;
+    /* Amarelo mais escuro no hover */
+}
+
+.carrossel-botao1.anterior2 {
+    left: -10px;
+    /* Ajusta a posição do botão esquerdo */
+}
+
+.carrossel-botao2.proximo2 {
+    right: -25px;
+    /* Ajusta a posição do botão direito */
+}
+
+.carrossel-item {
+    flex: 0 0 80%;
+    /* Ocupa mais espaço na tela menor */
+}
+
+.carrossel-botao1,
+.carrossel-botao2 {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+}

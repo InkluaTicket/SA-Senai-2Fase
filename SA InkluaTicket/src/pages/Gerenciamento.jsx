@@ -24,6 +24,7 @@ function Gerenciamento() {
   const [CEPEdit, setCEPEdit] = useState(true)
   const [DefEdit, setDefEdit] = useState(true)
   const [Pcd, setPcd] = useState(false)
+  const [alteraçõesSucesso, setSucesso] = useState(false)
   const navigate = useNavigate();
   const token = localStorage.getItem('token') || localStorage.getItem('tokenAdm')
 
@@ -173,6 +174,7 @@ function Gerenciamento() {
 
         
 setNew({...NewInfos, NovaDetalhesDef: User.detalhes_deficiencia})
+
       }
 
     }} 
@@ -192,7 +194,7 @@ setNew({...NewInfos, NovaDetalhesDef: User.detalhes_deficiencia})
 
     if(NewInfos.NovaImagem){
         setNew({NovoNome: User.nome, NovoTelefone: User.telefone, NovoCEP: User.endereco, NovaImagem: 
-     User.imagem, NovaDetalhesDef: User.detalhes_deficiencia})
+     User.foto_perfil, NovaDetalhesDef: User.detalhes_deficiencia})
     }else{
     
       setNew({NovoNome: User.nome, NovoTelefone: User.telefone, NovoCEP: User.endereco, NovaImagem: null, NovaDetalhesDef: User.detalhes_deficiencia})
@@ -237,9 +239,14 @@ setNew({...NewInfos, NovaDetalhesDef: User.detalhes_deficiencia})
      if(response.ok){
        const data = await response.json();
        setNew({...User, ...NewInfos} )
+       setSucesso(true)
        
-       
+       setTimeout(() => {
+
        window.location.reload();
+       
+       }, 1000)
+       
        
        
 
@@ -297,7 +304,7 @@ setNew({...NewInfos, NovaDetalhesDef: User.detalhes_deficiencia})
 
       <div className='divUm'>
         
-      <img tabIndex={0} onClick={Logout} className='iconsair' src="./img/icon-LogOut.png" />
+      <img tabIndex={0} onClick={Logout} className='iconsair' alt='Sair da conta' src="./img/icon-LogOut.png" />
       <h1 className='sairGerenUser'>SAIR DA CONTA</h1>
 
         {  MostrarPrev ? <><> {NewInfos.NovaImagem ? <> <img className='iconUserGerenc' style={{marginLeft: '260px', borderRadius:'50%'}} src={NewInfos.NovaImagem} alt="" /> </> : <> <img className='iconUserGeren' src="./img/fotoUser.png" alt="User Icon" /></>}  </>  </> : 
@@ -305,7 +312,7 @@ setNew({...NewInfos, NovaDetalhesDef: User.detalhes_deficiencia})
           }
 
 
-        <label className='alterarfotoGeren'>
+        <label tabIndex={0} aria-label='alterar foto de perfil' className='alterarfotoGeren'>
             <input type="file" onChange={(e) => { 
 
 const file = e.target.files[0];
@@ -335,9 +342,10 @@ setNew({...NewInfos, NovaImagem: file});
             <input className={NomeEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" aria-disabled={NomeEdit} 
                       value= 
                      {NewInfos.NovoNome}  onChange={(e) => 
-                 setNew({...NewInfos, NovoNome: e.target.value})}/>
+                 setNew({...NewInfos, NovoNome: e.target.value})}
+                 aria-label='Nome de usuário'/>
 
-              <img tabIndex={0} onClick={ChangeName} onKeyDown={() => {if(key === 'Enter')ChangeName}} className={Pcd ? 'LapisEditNomeDef' 
+              <img tabIndex={0} onClick={ChangeName} onKeyDown={(e) => {if(e.key === 'Enter')ChangeName}} className={Pcd ? 'LapisEditNomeDef' 
                 :'LapisEditNome' } 
                src="./img/iconLapis.png" alt="Editar nome" />
 
@@ -349,11 +357,12 @@ setNew({...NewInfos, NovaImagem: file});
              className={TelefoneEdit ? "InptDisabledGerenciamento" : "inpts"} type="text" aria-disabled={TelefoneEdit} 
              onChange={(e) => setNew({...NewInfos, NovoTelefone: e.target.value})}
              value={NewInfos.NovoTelefone}
+             aria-label='Telefone'
              ></InputMask>
 
 
-            <img tabIndex={0} onClick={ChangeTele} onKeyDown={ ()  => {if(key === 'Enter'){ChangeTele();}}} className={Pcd ? 'LapisEditTeleDef' : 'LapisEditTele'} 
-                    src="./img/iconLapis.png" alt="" />
+            <img tabIndex={0} onClick={ChangeTele} onKeyDown={ (e)  => {if(e.key === 'Enter')ChangeTele}} className={Pcd ? 'LapisEditTeleDef' : 'LapisEditTele'} 
+                    src="./img/iconLapis.png" alt="Editar Telefone" />
 
             
             <label className='labelInpts'>CEP</label>
@@ -361,10 +370,11 @@ setNew({...NewInfos, NovaImagem: file});
              mask='99999-999'
              className={CEPEdit ? "InptDisabledGerenciamento" : "inpts"} 
              type="text" aria-disabled={CEPEdit} 
+             aria-label='CEP'
              value={NewInfos.NovoCEP}/> <br />
 
-            <img tabIndex={0} onClick={ChangeCEP} onKeyDown={ () => {if(key === 'Enter'){ChangeCEP();}}} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
-                    src="./img/iconLapis.png" alt="" />
+            <img tabIndex={0} onClick={ChangeCEP} onKeyDown={ (e) => {if(e.key === 'Enter')ChangeCEP}} className={Pcd ? 'LapisEditCEPDef' : 'LapisEditCEP'} 
+                    src="./img/iconLapis.png" alt="Editar CEP" />
 
 
             
@@ -373,13 +383,15 @@ setNew({...NewInfos, NovaImagem: file});
           <div className='div-inpt2'>
 
           <label className='labelInpts'>E-mail</label>
-          <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.email}/>
+          <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.email}
+          aria-label='E-mail não editavel'/>
 
             <label className='labelInpts'>CPF</label>
-            <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.cpf} />
+            <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.cpf}
+            aria-label='CPF não editavel' />
 
             <label className='labelInpts'>Senha</label>
-            <input className='InptDisabledGerenciamento' type="text" aria-disabled value={User.senha}/> <br />
+            <input className='InptDisabledGerenciamento' aria-label='Senha não editavel' type="text" aria-disabled value={User.senha}/> <br />
 
 
 
@@ -390,8 +402,8 @@ setNew({...NewInfos, NovaImagem: file});
 
 
          {SalvarAlteracoes &&  
-        <><button onClick={Salvar} className='salvarGerenUser'>Salvar alterações</button> <button onClick={Cancelar} className='cancelarGerenUser'>Cancelar</button></>}
-
+        <><button onClick={Salvar} aria-label='Botão salvar alterações' role='alert' className='salvarGerenUser'>Salvar alterações</button> <button aria-label='Botão cancelar alterações' role='alert' onClick={Cancelar} className='cancelarGerenUser'>Cancelar</button></>}
+        {alteraçõesSucesso && <><p role='alert'>Alterações bem sucedidas!</p></>}
         
 
 
@@ -412,9 +424,9 @@ setNew({...NewInfos, NovaImagem: file});
 
 
 
-        <label className='possuiDeficiencia'>Possui alguma deficiência?</label> <img className='verificado2' src="./img/img logo.png" alt="" />
-        <input type="checkbox" className='checkBox' checked={isCheckedTrue} /> <label className='sim'>Sim</label>
-        <input type="checkbox" className='checkBox' checked={isCheckedFalse}/> <label className='nao'>Não</label>
+        <label tabIndex={0} className='possuiDeficiencia'>Possui alguma deficiência?</label> <img className='verificado2' src="./img/img logo.png" alt="" />
+        <input type="checkbox" className='checkBox' aria-label='Sim' checked={isCheckedTrue} /> <label className='sim'>Sim</label>
+        <input type="checkbox" className='checkBox' aria-label='Não' checked={isCheckedFalse}/> <label className='nao'>Não</label>
 
 
         <label className='deficiencia'>Deficiência:</label>
@@ -427,8 +439,8 @@ setNew({...NewInfos, NovaImagem: file});
         />
 
         { Pcd &&  
-        <img tabIndex={0} onClick={ChangeDef} onKeyDown={ChangeDef} className={Pcd ? 'LapisEditDetalhesDef' : 'LapisEditDetalhes'} 
-                    src="./img/iconLapis.png" alt="" />}
+        <img tabIndex={0} onClick={ChangeDef} onKeyDown={(e) => {if(e.key === 'Enter')ChangeDef}} className={Pcd ? 'LapisEditDetalhesDef' : 'LapisEditDetalhes'} 
+                    src="./img/iconLapis.png" alt="Editar detalhes de sua deficiência" />}
       </div>
 
 

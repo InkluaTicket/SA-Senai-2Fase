@@ -8,7 +8,7 @@
 .administracaoEventos{
     font-size: 30px;
     color: var(--cor-1);
-    margin-left: 580px;
+    margin-left: 440px;
 }
 
 .iconSairPainelMod{
@@ -16,8 +16,8 @@
     width: 20px;
     height: min-content;
     cursor: pointer;
-    margin-left: 10px;
-    margin-top: -125px;
+    margin-left: 12px;
+    margin-top: -625px;
 }
 
 .sairPainelMod{
@@ -33,12 +33,12 @@
 .semEventos{
     font-size: 30px;
     color: #333;
-    margin-left: -180px; 
+    margin-left: -100px; 
 }
 .vazio{
     position: absolute;
     width: 50px;
     height: min-content;
-    margin-left: 15px;
+    margin-left: 50px;
     margin-top: -65px;
 }

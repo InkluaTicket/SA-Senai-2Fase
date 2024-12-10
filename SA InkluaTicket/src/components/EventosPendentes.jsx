@@ -9,33 +9,34 @@ function EventosPendentes() {
 
     const SelectEvent = async () =>{
 
-        try{
+      try{
 
-         const response = await fetch('http://localhost:3000/eventosPendentes', {
+       const response = await fetch('http://localhost:3000/eventosAnalise', {
 
-            method: 'GET',
-            headers: {'Content-type' : 'application/json'}
-         })
+          method: 'GET',
+          headers: {'Content-type' : 'application/json'}
+       })
 
-         if(response.ok){
+       if(response.ok){
 
-            const data = await response.json();
-            setAnalise(data)
+          const data = await response.json();
+          setAnalise(data)
 
 
-         }else{
+       }else{
 
-            console.error('Erro ao buscar eventos pendentes!')
+          console.error('Erro ao buscar eventos pendentes!')
 
-         }
+       }
 
-        }catch(err){
+      }catch(err){
 
-            console.error('Erro de rede:', err);
+          console.error('Erro de rede:', err);
 
-        }
+      }
 
-    }
+  }
+
 
 
     const [slideFestival, setSlideFestival] = useState(0);
