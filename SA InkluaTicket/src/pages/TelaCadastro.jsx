@@ -33,14 +33,6 @@ function TelaCadastro() {
   const [CadastroBemSucedido, setSucesso] = useState("");
   const navigator = useNavigate();
 
-  const opcoes = [
-    "Deficiência visual",
-    "Deficiência física",
-    "Deficiência cognitiva",
-    "Deficiência auditiva",
-    "Não especificado",
-  ];
-
   const [verSenha, setVerSenha] = useState(false);
   const [verConfirmarSenha, setVerConfirmarSenha] = useState(false);
 
@@ -80,6 +72,8 @@ function TelaCadastro() {
       console.log("Fudeu");
     }
   };
+
+
 
   useEffect(() => {
     document.title = "Tela de cadastro usuário"; // Altera o título da aba
@@ -405,6 +399,7 @@ function TelaCadastro() {
                         alt="Logo Tipo"
                       />
                       <select
+                       tabIndex={0}
                         type="text"
                         id="InptDeficiencias"
                         className={disable ? "InptDisabled" : "tamanhoInputs"}
@@ -414,12 +409,13 @@ function TelaCadastro() {
                         onChange={handleChangeDef}
                         value={Form.Deficiencia}
                       >
-                        {/* Shows, Festivais, Tecnologia, Esportes, Educação, Saúde */}
+
                         <option value="def-fisica">Deficiencia física</option>
                         <option value="def-visual">Deficiencia visual</option>
                         <option value="def-intelectual">Deficiencia intelectual</option>
                         <option value="def-auditiva">Deficiencia auditiva </option>
                         <option value="def-multipla">Deficiencia multipla</option>
+                        <option value="def-multipla">Deficiencia não específicada</option>
                       </select>
                     </label>
                   </div>

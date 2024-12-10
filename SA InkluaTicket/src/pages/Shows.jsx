@@ -12,17 +12,15 @@ function Shows() {
   // renderização dos comentarios
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
-  const [userName, setUserName] = useState("");
 
   // Função para lidar com o envio do comentário
   const handleAddComment = () => {
-    if (newComment.trim() !== "" && userName.trim() !== "") {
+    if (newComment.trim() !== "") {
       setComments([
         ...comments,
-        { name: userName, text: newComment, stars: rating },
+        { text: newComment, stars: rating },
       ]);
       setNewComment("");
-      setUserName("");
       setRating(0); // Resetar avaliação após envio
     }
   };
@@ -184,20 +182,7 @@ function Shows() {
         <section className="comentarios">
           <div style={{ width: "50%", margin: "0 auto", textAlign: "center" }}>
             <h2>Deixe seu comentário</h2>
-            <input
-              type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              placeholder="Digite seu nome"
-              style={{
-                width: "100%",
-                padding: "10px",
-                fontSize: "20px",
-                marginBottom: "10px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-            />
+
             <textarea
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
@@ -251,6 +236,7 @@ function Shows() {
                           borderRadius: "5px 5px 0 0",
                           padding: "10px",
                           backgroundColor: "#024959",
+                          width: '100%'
                         }}
                       >
                         <strong style={{ color: "#fff", fontSize: "18px" }}>
