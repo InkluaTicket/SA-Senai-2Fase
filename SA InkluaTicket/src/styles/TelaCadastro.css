@@ -1,4 +1,5 @@
 .tudoCadastro {
+  overflow: hidden;
   display: inline-flex;
   width: 100%;
   height: 100%;
@@ -19,16 +20,19 @@
 }
 
 .imagemscadastrar {
-  width:  50%;
-  height: 50%;
+  height: 100%;
 }
 .imagemscadastrar2 {
-  width:  60%;
-  height: 50%;
+  width: 100%;
+}
+
+.imgs-azul{
+  height: 20rem;
 }
 
 /* tela branca funcional*/
 .parteBranca {
+  padding: 30px;
   width: 100%;
   height: 100%;
   background-color: #d9d9d9;
@@ -37,17 +41,19 @@
   flex-direction: column;
   align-items: center;
 }
-.cadastrarEmpre{
+.cadastrarEmpre {
   height: 25%;
   margin-top: 0%;
-  margin-right:46%;
+  margin-right: 46%;
   color: darkgrey;
-}.cadastrar {
+}
+.cadastrar {
   height: 25%;
   margin-top: 0%;
-  margin-right:50%;
+  margin-right: 50%;
   color: darkgrey;
-}.Cadastre-se {
+}
+.Cadastre-se {
   font-weight: 100;
   margin-left: -2%;
   color: #024959;
@@ -67,14 +73,17 @@
   align-items: start;
   width: 100%;
   height: 60%;
-}.parteDoisInpus {
+}
+
+.parteDoisInpus {
   margin-top: 7.3%;
   margin-left: 10%;
   align-items: end;
   width: 100%;
   height: 60%;
 }
-.parteDoisInpusCad{
+
+.parteDoisInpusCad {
   margin-left: 10%;
   align-items: end;
   width: 100%;
@@ -87,7 +96,7 @@
 }
 
 .tamanhoInputs {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: #000000;
   border: none;
   outline: 0;
@@ -98,10 +107,13 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding-left: 10px;
 }
-.InptDisabled{
 
+.inpts-cadastro{
+  text-align: center;
+}
 
-  background-color: #99aab3; 
+.InptDisabled {
+  background-color: #99aab3;
   color: black;
   border: none;
   outline: 0;
@@ -113,17 +125,15 @@
   padding-left: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 50%;
-  
-
 }
 
-.imgTipo{
+.imgTipo {
   margin-left: 1%;
   width: 7%;
   height: 7%;
 }
-.checkboxPCD{
-  display: flex;
+
+.checkboxPCD {
   flex-direction: column;
   gap: 0px;
   margin-top: -8%;
@@ -132,41 +142,43 @@
   color: black;
   width: 40%;
   text-align: start;
-}.imgPCD{
+  align-items: center;
+}
+
+.imgPCD {
   margin-left: 2%;
   width: 7%;
   height: 7%;
 }
+
 .inputsCheckbox {
   background-color: #ffff;
-  color: #FFFFFF;
-  border:1px solid #FFFFFF;
-}
-.labelCheckbox1{
-  margin-left: 10%;
-}
-.labelCheckbox{
-  margin-left: -10%;
-  margin-top: 14%;
-  margin-bottom: 2%;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+
 }
 
-.btLocal{
-  margin-left: 10%;
+.labelCheckbox1 {
   align-items: center;
 }
-.btCadastrarEmpresa{
-  margin-top:2%;
-  margin-left: 20%;
+
+.labelCheckbox {
+  align-items: center;
+}
+
+.btCadastrarEmpresa {
+  margin-top: 2%;
   width: 50%;
   height: 30px;
   border-radius: 5px;
   border: none;
   background-color: #024959;
-  color: #FFFFFF;
-  transform: scale(1); 
+  color: #ffffff;
+  transform: scale(1);
   transition: 1s;
-}.btCadastrar{
+}
+
+.btCadastrar {
   margin-top: 5%;
   margin-left: 20%;
   width: 50%;
@@ -174,26 +186,27 @@
   border-radius: 5px;
   border: none;
   background-color: #024959;
-  color: #FFFFFF;
-  transform: scale(1); 
+  color: #ffffff;
+  transform: scale(1);
   transition: 1s;
 }
-.btCadastrar:hover , .btCadastrarEmpresa:hover{
-  transform: scale(1.1); 
+.btCadastrar:hover,
+.btCadastrarEmpresa:hover {
+  transform: scale(1.1);
   transition: 1s;
-  border:1px solid #024959;
+  border: 1px solid #024959;
   background-color: #d9d9d9;
   color: #024959;
 }
 
-.tudoInputsCheckBT{
+.tudoInputsCheckBT {
   margin-bottom: 4%;
   margin-left: 3%;
   width: 95%;
   height: 100%;
 }
 
-.btVoltarIMG{
+.btVoltarIMG {
   position: absolute;
   margin-top: 2%;
   margin-left: -40%;
@@ -201,28 +214,24 @@
   height: 10%;
   border-radius: 45%;
   background-color: #024959;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.btSenha{
+.btSenha {
   position: absolute;
   margin-top: -2%;
   margin-left: 19%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
   border: none;
   border-radius: 10px;
 }
 
-.olhoSenha{
-
+.olhoSenha {
   width: 20px;
-
 }
 
-.LabelInpt{
-
-  font-family: 'Poppins', sans-serif;
-
+.LabelInpt {
+  font-family: "Poppins", sans-serif;
 }
 
 .avisoLabel {
@@ -233,14 +242,10 @@
   display: block; /* Garante que a mensagem fique abaixo do campo */
 }
 
-
-.OpDef{
-
+.OpDef {
   box-shadow: 0 6px 12px rgba(0.1, 0.1, 0.1, 0.2);
   border-radius: 10px;
-
 }
-
 
 .OpDefMae {
   position: absolute; /* Para alinhar a lista abaixo do input */
@@ -263,7 +268,7 @@
   transition: background-color 0.2s ease; /* Transição suave */
 }
 
-.OpDef:hover, 
+.OpDef:hover,
 .OpDef:focus {
   background-color: #f0f0f0; /* Destaque claro no hover */
   color: #000; /* Cor do texto no hover */

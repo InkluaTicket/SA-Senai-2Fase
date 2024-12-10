@@ -28,7 +28,6 @@ function TelaCadastro() {
     Endereco: "",
   });
 
-  const [mostrarOp, setOp] = useState(false);
   const [disable, setDisable] = useState(true);
   const [CadastroBemSucedido, setSucesso] = useState("");
   const navigator = useNavigate();
@@ -72,8 +71,6 @@ function TelaCadastro() {
       console.log("Fudeu");
     }
   };
-
-
 
   useEffect(() => {
     document.title = "Tela de cadastro usuário"; // Altera o título da aba
@@ -184,16 +181,22 @@ function TelaCadastro() {
               <img className="ImgVoltar" src="./img/seta.png" alt="Voltar" />
             </Link>
 
-            <img
-              className="imagemscadastrar"
-              src="./img/IMG.png"
-              alt="Imagem Cadastro"
-            />
-            <img
-              className="imagemscadastrar2"
-              src="./img/image.png"
-              alt="Imagem Cadastro"
-            />
+            <div className="imgs-azul">
+              <img
+                className="imagemscadastrar"
+                src="./img/IMG.png"
+                alt="Imagem Cadastro"
+              />
+            </div>
+
+            <div className="imgs-azul">
+              <img
+                className="imagemscadastrar2"
+                src="./img/image.png"
+                alt="Imagem Cadastro"
+              />
+            </div>
+
           </div>
           <div className="parteBranca">
             <div className="cadastrar">
@@ -399,7 +402,7 @@ function TelaCadastro() {
                         alt="Logo Tipo"
                       />
                       <select
-                       tabIndex={0}
+                        tabIndex={0}
                         type="text"
                         id="InptDeficiencias"
                         className={disable ? "InptDisabled" : "tamanhoInputs"}
@@ -409,32 +412,41 @@ function TelaCadastro() {
                         onChange={handleChangeDef}
                         value={Form.Deficiencia}
                       >
-
                         <option value="def-fisica">Deficiencia física</option>
                         <option value="def-visual">Deficiencia visual</option>
-                        <option value="def-intelectual">Deficiencia intelectual</option>
-                        <option value="def-auditiva">Deficiencia auditiva </option>
-                        <option value="def-multipla">Deficiencia multipla</option>
-                        <option value="def-multipla">Deficiencia não específicada</option>
+                        <option value="def-intelectual">
+                          Deficiencia intelectual
+                        </option>
+                        <option value="def-auditiva">
+                          Deficiencia auditiva{" "}
+                        </option>
+                        <option value="def-multipla">
+                          Deficiencia multipla
+                        </option>
+                        <option value="def-multipla">
+                          Deficiencia não específicada
+                        </option>
                       </select>
                     </label>
                   </div>
                 </div>
               </div>
 
-              <div className="checkboxPCD">
+              <div className="inpts-cadastro">
                 <label className="labelCheckbox">
                   <input type="checkbox" className="inputsCheckbox" />
                   Eu li e aceito os termos de uso
                 </label>
-              </div>
-              <label tabIndex={0} className="labelCheckbox1">
-                Já possui uma conta? <Link to="/TelaLogin">Fazer login</Link>
-              </label>
-              {<p aria-live="assertive">{CadastroBemSucedido}</p>}
-              <div className="btLocal">
-                <input type="submit" className="btCadastrarEmpresa" />
-                <br />
+
+                <p tabIndex={0} className="labelCheckbox1">
+                  Já possui uma conta? <Link to="/TelaLogin">Fazer login</Link>
+                </p>
+
+                {<p aria-live="assertive">{CadastroBemSucedido}</p>}
+                <div className="btLocal">
+                  <input type="submit" className="btCadastrarEmpresa" />
+                  <br />
+                </div>
               </div>
             </div>
           </div>

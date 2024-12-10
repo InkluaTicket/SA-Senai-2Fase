@@ -87,7 +87,6 @@ function Shows() {
                 {[
                   { label: "Deficiencia auditiva", id: "DefAuditiva" },
                   { label: "Deficiencia multipla", id: "DefMultipla" },
-                  { label: "Outro?", id: "OutraDef" },
                 ].map(({ label, id }, index) => (
                   <article key={index + 3}>
                     <input
@@ -114,11 +113,19 @@ function Shows() {
                       className="checagem"
                       id={id}
                     />
+                    
                     <label className="info-label" htmlFor={id}>
                       {label}
                     </label>
+
                   </article>
                 ))}
+              </div>
+
+              <div>
+                <label>
+                  outras acessibiladades que terão nesse evento: 
+                </label>
               </div>
 
             </div>
@@ -197,6 +204,7 @@ function Shows() {
                 marginBottom: "10px",
               }}
             ></textarea>
+
             <button
               onClick={handleAddComment}
               style={{
@@ -223,6 +231,7 @@ function Shows() {
                       key={index}
                       style={{
                         background: "#fff",
+                        width: '100%',
                         marginBottom: "30px",
                         borderRadius: "8px",
                         border: "1px solid #ccc",
@@ -236,7 +245,6 @@ function Shows() {
                           borderRadius: "5px 5px 0 0",
                           padding: "10px",
                           backgroundColor: "#024959",
-                          width: '100%'
                         }}
                       >
                         <strong style={{ color: "#fff", fontSize: "18px" }}>
