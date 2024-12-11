@@ -96,8 +96,8 @@ function EventosPendentesEmpresa() {
 ))}
 
         </div>
-        <button className="carrossel-botao2 anterior2Emp" onClick={festivalAnterior}>‹</button>
-        <button className="carrossel-botao2 proximo2Emp" onClick={proximoFestival}>›</button>
+        <button className="carrossel-botao2Emp anterior2Emp" onClick={festivalAnterior}>‹</button>
+        <button className="carrossel-botao2Emp proximo2Emp" onClick={proximoFestival}>›</button>
       </div> </>}
 
       

@@ -157,8 +157,9 @@ function NavBarForHome() {
           <div className='CondicionalNav' >
             <div className='InfosNavHomeUser'>
 
-              <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
               <Link className='InfosNavHome' to='/criarevento'>Crie seu evento</Link>
+              <li className='separadorHome'></li>
+              <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
               {imgPerfil ?
                 (<></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
 
