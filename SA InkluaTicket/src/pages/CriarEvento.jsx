@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 function CriarEvento() {
   const [showInput, setShowInput] = useState(false); // Estado para controlar a exibição do input
   const [imgPreview, setPrev] = useState(null);
+  const [BemSucedido, setSucesso] = useState('')
 
   const token = localStorage.getItem("tokenEmpresa");
   let empresaId = null;
@@ -183,7 +184,14 @@ function CriarEvento() {
           body: JSON.stringify(acessibilidades),
         });
 
-        navigate("/");
+        setSucesso('Evento enviado para análise!')
+
+        setTimeout(() => {
+
+          navigate("/");
+
+        }, 1000)
+        
       } else {
         console.log("Evento não criado!");
         console.log(FormEvento);
@@ -207,7 +215,7 @@ function CriarEvento() {
                 if (imgPreview == null) UploadImagemEvento();
               }}
             >
-              <div id="container">
+              <div id="container" tabIndex={0}>
                 <h1 className="titles">Adicione uma foto ao seu evento:</h1>
                 <div className="butao">
                   <div className="colocar-foto">
@@ -218,6 +226,8 @@ function CriarEvento() {
                     />
 
                     <input
+                    
+                    aria-label="Adicionar foto ao evento"
                       id="upload"
                       type="file"
                       style={{ display: "none" }}
@@ -265,7 +275,7 @@ function CriarEvento() {
           </>
         )}
 
-        {erros.imagem && <p className="avisoLabel">{erros.imagem}</p>}
+        {erros.imagem && <p role="alert" className="avisoLabel">{erros.imagem}</p>}
 
         <section className="comentarios">
           <form action="">
@@ -280,7 +290,7 @@ function CriarEvento() {
               }
             />
 
-            {erros.Nome && <p className="avisoLabel">{erros.Nome}</p>}
+            {erros.Nome && <p role="alert"  className="avisoLabel">{erros.Nome}</p>}
 
             <h2 className="titles">Data de início do evento</h2>
             <input
@@ -294,7 +304,7 @@ function CriarEvento() {
               }
             />
             {erros.DataInicio && (
-              <p className="avisoLabel">{erros.DataInicio}</p>
+              <p role="alert"  className="avisoLabel">{erros.DataInicio}</p>
             )}
 
             <h2 className="titles">Data de término do evento</h2>
@@ -309,7 +319,7 @@ function CriarEvento() {
               }
             />
 
-            {erros.DataFim && <p className="avisoLabel">{erros.DataFim}</p>}
+            {erros.DataFim && <p role="alert"  className="avisoLabel">{erros.DataFim}</p>}
 
             <h2 className="titles">Insira o endereço do seu evento</h2>
             <input
@@ -321,7 +331,7 @@ function CriarEvento() {
                 setFormE({ ...FormEvento, Endereco: e.target.value })
               }
             />
-            {erros.Endereco && <p className="avisoLabel">{erros.Endereco}</p>}
+            {erros.Endereco && <p role="alert"  className="avisoLabel">{erros.Endereco}</p>}
 
             <h2 className="titles">
               Coloque uma breve descrição sobre seu evento
@@ -400,9 +410,9 @@ function CriarEvento() {
 
             {erros.acess && typeof erros.acess === "object" && (
               <div className="avisoLabel">
-                <p>{erros.acess.message}</p>
+                <p role="alert" >{erros.acess.message}</p>
               </div>
-            )}
+            )} 
 
             <h2 className="titles">Escolha a categoria do seu evento </h2>
 
@@ -440,8 +450,10 @@ function CriarEvento() {
             />
 
             {erros.LinkIngressos && (
-              <p className="avisoLabel">{erros.LinkIngressos}</p>
+              <p role="alert" className="avisoLabel">{erros.LinkIngressos}</p>
             )}
+
+            <p role="alert" >{BemSucedido}</p>
 
             <button className="salvar" onClick={handleSubmit}>
               Salvar Alterações

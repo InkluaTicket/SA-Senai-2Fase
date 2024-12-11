@@ -75,16 +75,16 @@ function EventosAceitosEmpresa() {
 
         {EventosAnalise.map((evento) =>(
 
-<ul className='container'>
+<ul aria-label='Card de evento' className='container'>
 
-<li className='Card'  onClick={() => navigator(`/eventosAceitos/${evento.id}`)} key={evento.id}>
+<li tabIndex={0} className='Card'  onClick={() => navigator(`/eventosAceitos/${evento.id}`)} key={evento.id}>
 
 <div className="cardEmp">
                 <img className='imagemEventoEmp' src={evento.imagem}/>
                 <div className="div-informEmp">
-                    <h2 className='descricaoEmp'>{evento.nome}</h2>
-                    <h2 className='dataEmp'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
-                    <p className='localEmp'>{evento.local_evento}</p>
+                    <h2 aria-label='Nome do evento' className='descricaoEmp'>{evento.nome}</h2>
+                    <h2 aria-label='Data de início do evento' className='dataEmp'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
+                    <p aria-label='Local do evento' className='localEmp'>{evento.local_evento}</p>
                 </div>
             </div>
 

@@ -211,6 +211,15 @@ app.get('/eventosAceitos', async (req,res) => {
             if (evento.imagem) {
                 const imgConvert = Buffer.from(evento.imagem).toString('base64');
                 evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
             }
             return evento;
         });
@@ -224,6 +233,44 @@ app.get('/eventosAceitos', async (req,res) => {
 
 
        }
+
+});
+
+app.get('/eventosAceitosEsportes', async (req,res) => {
+
+    try{
+
+     const result = await pool.query('SELECT * FROM evento WHERE aceito IS true AND categoria = $1', ['Esportes']);
+     const evento = result.rows
+
+     const eventos = result.rows.map(evento => {
+         if (evento.imagem) {
+             const imgConvert = Buffer.from(evento.imagem).toString('base64');
+             evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+             if (evento.data_inicio) {
+                const dateInicio = new Date(evento.data_inicio);
+                evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+            }
+            if (evento.data_fim) {
+                const dateFim = new Date(evento.data_fim);
+                evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+            }
+
+
+         }
+         return evento;
+     });
+
+ res.json(evento);
+
+    }catch(err){
+
+     console.error('Erro ao buscar eventos aceitos!', err)
+     res.status(400).json({error: 'Erro ao buscar eventos!', details: err.message})
+
+
+    }
 
 });
 
@@ -274,6 +321,16 @@ app.get('/detalhesEvento/:id', async (req, res) => {
         if (evento.imagem) {
             const imgConvert = Buffer.from(evento.imagem).toString('base64');
             evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+            if (evento.data_inicio) {
+                const dateInicio = new Date(evento.data_inicio);
+                evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+            }
+            if (evento.data_fim) {
+                const dateFim = new Date(evento.data_fim);
+                evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+            }
+
         }
 
         // Retorna o evento, com ou sem imagem
@@ -720,6 +777,15 @@ app.get('/EventosPendentesEmpresa', AutenticaçãoDeToken, async (req, res) => {
             if (evento.imagem) {
                 const imgConvert = Buffer.from(evento.imagem).toString('base64');
                 evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
             }
             return evento;
         });

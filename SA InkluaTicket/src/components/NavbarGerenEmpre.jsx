@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/NavbarGerenEmpre.css';
+import { Link } from 'react-router-dom';
 
 function NavbarGerenEmpre() {
   return (
@@ -9,7 +10,7 @@ function NavbarGerenEmpre() {
       
       <div className='teste-gerenEmpr'>
 
-      <img className='voltarGE' src="./img/arrow_back (2).png" alt="" />
+      <Link to='/PerfilEmpresa'> <img className='voltarGE' src="./img/arrow_back (2).png" alt="" /></Link>
       <h1 className='gerenciamentoDaContaEmpresa'>Gerenciamento da conta de empresa</h1>
 
       </div>

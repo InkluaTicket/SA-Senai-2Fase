@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/NavbarPerfilEmpresa.css';
+import { Link } from 'react-router-dom';
 
 function NavbarPerfilEmpresa() {
   return (
@@ -8,7 +9,7 @@ function NavbarPerfilEmpresa() {
       
       <div className='div-navbarEmp'>
 
-      <img className='voltarNavEmp' src="./img/arrow_back (2).png" alt="" />
+     <Link to='/'>  <img className='voltarNavEmp' src="./img/arrow_back (2).png" alt="" /></Link>
       <h1 className='perfilEmpresa'>Perfil Empresarial</h1>
 
       </div>

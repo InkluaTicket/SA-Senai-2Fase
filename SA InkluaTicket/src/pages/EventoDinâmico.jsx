@@ -226,7 +226,7 @@ const [outro, setOutro] = useState('');
 
       
       
-        navigator('/admPainel');
+        navigator('/PainelModerador');
 
      }else{
 

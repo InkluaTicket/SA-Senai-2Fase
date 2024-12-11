@@ -1,21 +1,17 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import '../styles/CardEventosEmpresa.css'
-import '../styles/CarrosselEmpresa.css'
 
-function EventosPendentesEmpresa() {
+function EventosEsportes() {
     const navigator = useNavigate();
     const [EventosAnalise, setAnalise] = useState([])
   
 
     const SelectEvent = async () => {
         try {
-            const response = await fetch('http://localhost:3000/EventosPendentesEmpresa', {
+            const response = await fetch('http://localhost:3000/eventosAceitos', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('tokenEmpresa')}`,
+                    
                 },
             });
     
@@ -25,8 +21,8 @@ function EventosPendentesEmpresa() {
     
             if (response.ok) {
                 const data = await response.json();
-                console.log('Eventos recebidos:', data); // Verifique se os dados estão corretos
                 setAnalise(data);
+               
             } else {
                 const errorData = await response.json(); // Para ver detalhes do erro
                 console.error('Erro na resposta:', errorData);
@@ -65,12 +61,12 @@ function EventosPendentesEmpresa() {
     
 <div>
 
-<div className="tudocarrosselEmp">
+<div className="tudocarrossel">
 
        {EventosAnalise.length == 0 ? <> <h1 className='semEventos'>Sem eventos</h1> <img className="vazio" src="./img/icon-vazio.png" alt="" /> </> : <>{/* Carrossel de Festivais */}
-      <div className="carrosselEmp">
-       
-        <div className="carrossel-conteudoEmp" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
+      <div className="carrossel">
+        <h1 className='carrosselShFeEvTEXTO'>Festivais</h1>
+        <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
           
 
         {EventosAnalise.map((evento) =>(
@@ -79,12 +75,12 @@ function EventosPendentesEmpresa() {
 
 <li className='Card'  onClick={() => navigator(`/eventosAceitos/${evento.id}`)} key={evento.id}>
 
-<div className="cardEmp">
-                <img className='imagemEventoEmp' src={evento.imagem}/>
-                <div className="div-informEmp">
-                    <h2 className='descricaoEmp'>{evento.nome}</h2>
-                    <h2 className='dataEmp'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
-                    <p className='localEmp'>{evento.local_evento}</p>
+<div className="card">
+                <img className='imagemEvento' src={evento.imagem}/>
+                <div className="div-inform">
+                    <h2 className='descricao'>{evento.nome}</h2>
+                    <h2 className='data'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
+                    <p className='local'>{evento.local_evento}</p>
                 </div>
             </div>
 
@@ -96,8 +92,8 @@ function EventosPendentesEmpresa() {
 ))}
 
         </div>
-        <button className="carrossel-botao2Emp anterior2Emp" onClick={festivalAnterior}>‹</button>
-        <button className="carrossel-botao2Emp proximo2Emp" onClick={proximoFestival}>›</button>
+        <button className="carrossel-botao2 anterior2" onClick={festivalAnterior}>‹</button>
+        <button className="carrossel-botao2 proximo2" onClick={proximoFestival}>›</button>
       </div> </>}
 
       
@@ -107,4 +103,4 @@ function EventosPendentesEmpresa() {
   )
 }
 
-export default EventosPendentesEmpresa
+export default EventosEsportes

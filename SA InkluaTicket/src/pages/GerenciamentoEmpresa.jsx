@@ -355,10 +355,15 @@ setNew({...NewInfos, NovaImagem: file});
       <div className='divDoisEmpre'>
         
         
+        <h1>Eventos em análise</h1>
 
         <EventosPendentesEmpresa/>
-        
+
+        <h1>Eventos aceitos</h1>
+
         <EventosAceitosEmpresa/>
+
+      
 
         
 
