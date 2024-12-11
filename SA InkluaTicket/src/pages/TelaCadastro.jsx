@@ -333,8 +333,10 @@ function TelaCadastro() {
                         }}
                       />
                       <button
+                        aria-label="Ver senha"
+                        type="button"
                         className="btSenha"
-                        alt="Mostrar senha"
+                        
                         onClick={(e) => {
                           e.preventDefault();
                           alternarVerSenha();
@@ -378,6 +380,8 @@ function TelaCadastro() {
                         placeholder="Digite sua senha novamente"
                       />
                       <button
+                      aria-label="Ver senha"
+                        type="button"
                         className="btSenha"
                         onClick={(e) => {
                           e.preventDefault();
@@ -449,7 +453,7 @@ function TelaCadastro() {
               </div>
 
               <div className="inpts-cadastro"> 
-                {<p aria-live="assertive" className="msg-sucesso">{CadastroBemSucedido}Login bem sucedido!</p>}
+                {<p aria-live="assertive" className="msg-sucesso">{CadastroBemSucedido}</p>}
                 <p className="labelCheckbox">
                   <input type="checkbox" className="inputsCheckbox" />
                   Eu li e aceito os termos de uso

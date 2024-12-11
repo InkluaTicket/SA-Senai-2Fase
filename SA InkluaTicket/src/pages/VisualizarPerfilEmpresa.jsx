@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/VisualizarPerfilEmpresa.css';
-import NavbarPefil from './NavbarPerfil';
+import NavbarEmpresa from './NavbarEmpresa';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
 
@@ -48,7 +48,7 @@ function VisualizarPerfilEpresa() {
 
   return (
     <>
-      <NavbarPefil />
+      <NavbarEmpresa />
       <div className='Corpo-containerUser'>
 
         <div className='divUmUser'>
@@ -73,7 +73,7 @@ function VisualizarPerfilEpresa() {
         </div>
 
         <div className='divDoisUser'>
-          <img src="./img/mãos .png" className="imagemsUmPerfilEmpAcesso" />
+          <img src="./img/imgEmpresa.png" className="imagemsUmPerfilEmpAcesso" />
         </div>
 
       </div>

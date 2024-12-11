@@ -42,7 +42,8 @@ function TelaLogin() {
         if (decode.papel === "Administrador") {
           setMensagem("Administrador logado!");
           localStorage.setItem("tokenAdm", data.token);
-          navigate("/");
+          setTimeout(() => { 
+          navigate("/");}, 2000)
         } else {
           setSucesso("Login bem sucedido!");
           localStorage.setItem("token", data.token);
@@ -125,6 +126,7 @@ function TelaLogin() {
                       />
                       <button
                         type="button"
+                        aria-label="Ver senha"
                         className="btSenhaLog"
                         onClick={alternarConfirmarVerSenha}
                       >

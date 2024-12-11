@@ -357,6 +357,8 @@ function TelaCadastroEmpresa() {
                       <button
                         type="button"
                         className="btSenha9"
+                        aria-label="Ver senha"
+                       
                         onClick={(e) => {
                           e.preventDefault();
                           alternarConfirmarVerSenha();
@@ -365,6 +367,8 @@ function TelaCadastroEmpresa() {
                         {verConfirmarSenha ? (
                           <>
                             <img
+                            aria-label="Ver senha"
+                           type="button"
                               className="olhoSenha9"
                               src="../img/unnamed.png"
                               alt="Esconder senha"

@@ -33,7 +33,7 @@ function CarrosselEventosEmAlta() {
           backgroundImage: `url(${imagensDeFundo[slideAtual]})`,
         }}
       >
-        <h2>Eventos em alta</h2>
+        <h1 className='carEvent'>Eventos em alta</h1>
         <div className="carrosselTudoImgTt" style={{ transform: `translateX(-${slideAtual * 100}%)` }}>
           <div className="carrosselsImgsTts">
             <div className="carrossel-container">
@@ -44,10 +44,10 @@ function CarrosselEventosEmAlta() {
                 <div className="carrosselImgTtDois">
                   <div className="textosDosShows">
                     <div className="carrosselTts">
-                      <h2>Evento 1</h2>
-                      <h3>Descrição do evento 1</h3>
-                      <h3>Data do evento 1</h3>
-                      <h3>Localização do evento 1</h3>
+                      <h2 className='carTts'>Conferência Brasileira Clima & Carbono 2024</h2>
+                      <h3 className='carTts'>Promovido pela Aliança Brasil NBS, a Conferência Brasileira Clima e Carbono é um encontro anual que reúne  profissionais e especialistas do setor. </h3>
+                      <h3 className='carTts'>15 out - 2024 • 08:00 / 16 out - 2024 • 22:00</h3>
+                      <h3 className='carTts'>Teatro Santander, São Paulo - SP</h3>
                     </div>
                     <button className="btCarrosselPrincipal">Ver Mais</button>
                   </div>
@@ -60,10 +60,12 @@ function CarrosselEventosEmAlta() {
                 <div className="carrosselImgTtDois">
                   <div className="textosDosShows">
                     <div className='carrosselTts'>
-                      <h2>Evento 2</h2>
-                      <h3>Descrição do evento 2</h3>
-                      <h3>Data do evento 2</h3>
-                      <h3>Localização do evento 2</h3>
+                      <h2 className='carTts'>INDIE POP</h2>
+                      <h3 className='carTts'>uma edição da indiepop.
+                        unindo o mainstream com a autenticidade do alternativo,
+                        vamos curtir juntos uma noite fodaaa!</h3>
+                      <h3 className='carTts'>21 set - 2024 • 23:00 / 22 set - 2024 • 05:00</h3>
+                      <h3 className='carTts'>Rua dos Inconfidentes, 1068, Belo Horizonte - MG</h3>
                     </div>
                     <button className="btCarrosselPrincipal">Ver Mais</button>
                   </div>
@@ -76,10 +78,10 @@ function CarrosselEventosEmAlta() {
                 <div className="carrosselImgTtDois3">
                   <div className="textosDosShows">
                     <div className="carrosselTts">
-                      <h2>Evento 3</h2>
-                      <h3>Descrição do evento 3</h3>
-                      <h3>Data do evento 3</h3>
-                      <h3>Localização do evento 3</h3>
+                      <h2 className='carTts'>27º Congresso Internacional UNIDAS</h2>
+                      <h3 className='carTts'>no evento de alcance nacional que promete reunir instituições filiadas.</h3>
+                      <h3 className='carTts'>27 nov - 2024 • 08:00 / 29 nov - 2024 • 19:00</h3>
+                      <h3 className='carTts'>CentroSul Florianópolis, Florianópolis - SC</h3>
                     </div>
                     <button className="btCarrosselPrincipal">Ver Mais</button>
                   </div>

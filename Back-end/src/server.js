@@ -255,6 +255,7 @@ app.get('/eventosEsportes', async (req, res) => {
             }
             return evento;
         });
+        
 
         res.json(eventos);
     } catch (err) {
@@ -262,6 +263,123 @@ app.get('/eventosEsportes', async (req, res) => {
         res.status(400).json({ error: 'Erro ao buscar eventos de Esportes!', details: err.message });
     }
 });
+
+app.get('/eventosShows', async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'Shows' AND aceito IS true");
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+            }
+            return evento;
+        });
+        
+
+        res.json(eventos);
+    } catch (err) {
+        console.error('Erro ao buscar eventos de shows!', err);
+        res.status(400).json({ error: 'Erro ao buscar eventos de shows!', details: err.message });
+    }
+});
+
+
+app.get('/eventosFestivais', async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'Festivais' AND aceito IS true");
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+            }
+            return evento;
+        });
+        
+
+        res.json(eventos);
+    } catch (err) {
+        console.error('Erro ao buscar eventos de festivais!', err);
+        res.status(400).json({ error: 'Erro ao buscar eventos de festivais!', details: err.message });
+    }
+});
+
+app.get('/eventosSaúde', async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'Saúde' AND aceito IS true");
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+            }
+            return evento;
+        });
+        
+
+        res.json(eventos);
+    } catch (err) {
+        console.error('Erro ao buscar eventos de Saúde!', err);
+        res.status(400).json({ error: 'Erro ao buscar eventos de Saúde!', details: err.message });
+    }
+});
+
+
+app.get('/eventosEducacao', async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'Educação' AND aceito IS true");
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
+
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+            }
+            return evento;
+        });
+        
+
+        res.json(eventos);
+    } catch (err) {
+        console.error('Erro ao buscar eventos de Educação!', err);
+        res.status(400).json({ error: 'Erro ao buscar eventos de Educação!', details: err.message });
+    }
+});
+
+
+
 
 app.patch('/aceitar/:id/evento', async (req, res) => {
 

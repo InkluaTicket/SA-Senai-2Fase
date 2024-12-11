@@ -151,6 +151,8 @@ function telaLoginEmpresa() {
                         placeholder="Digite sua senha"
                       />
                       <button
+                      type="button"
+                      aria-label="Ver senha"
                         className="btSenhaLog6"
                         onClick={alternarConfirmarVerSenha}
                       >
@@ -186,7 +188,7 @@ function telaLoginEmpresa() {
               <div className="container-inputs">
                 {" "}
                 <div className="checkboxPCDLog6"> 
-                  {<p aria-live="assertive" className="mensagemSucesso">Login efetuado com sucesso!{LoginBemSucedido}</p>}
+                  {<p aria-live="assertive" className="mensagemSucesso">{LoginBemSucedido}</p>}
                   <label tabIndex={0}>
                     Não possui uma conta?{" "}
                     <Link to="/CadastroEmpresa">Cadastre-se</Link>
