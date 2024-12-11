@@ -2,10 +2,28 @@
     overflow: hidden;
     font-family: "Poppins", sans-serif;
     background-color: #d9d9d9;
-    color: #024959;
+    color: #EA9C00;
     text-align: center;
     max-width: 100%;
     max-height: 100%;
+    margin-top: 100px;
+}
+.carrosselShFeEvTEXTOEventSoli{
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    left: 11px;
+    top: 150px;
+    font-size: 30px;
+    color: rgb(29, 28, 28);
+}
+
+.iconAnalise{
+    position: absolute;
+    width: 30px;
+    height: min-content;
+    cursor: pointer;
+    margin-left:380px;
+    top: 175px;
 }
 
 .carrosselEventSoli {
@@ -30,80 +48,34 @@
     margin-right: 3%;
 }
 
-.carrossel-botao11 {
+.carrossel-botao11, .carrossel-botao22 {
     font-weight: 900;
     position: absolute;
-    top: 40%;
-    height: 25%;
+    top: 64%;
+    width: 50px;
+    height: 50px;
     transform: translateY(-50%);
-    background-color: #d9d9d9;
-    color: #024959;
-    border: 1px solid #024959;
-    border-radius: 10%;
-    padding: 10px;
+    background-color: #EA9C00;
+    color: whitesmoke;
+    border-radius: 50%; /* Botão redondo */
+    border: 0;
+    padding: 5px;
     cursor: pointer;
-    font-size: 18px;
-    transform: scale(1.1); 
-    transition: 1s;
+    font-size: 14px; /* Fonte menor */
+    transition: 0.5s;
 }
 
-.carrossel-botao11:hover {
-    font-weight: 900;
-    position: absolute;
-    top: 38%;
-    height: 30%;
-    transform: translateY(-50%);
-    background-color: #024959;
+.carrossel-botao11:hover, .carrossel-botao22:hover {
+    background-color: #b97b00;
     color: #d9d9d9;
-    border: 1px solid #d9d9d9;
-    border-radius: 10%;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    transform: scale(1.1); 
-    transition: 1s;
-}
-
-.carrossel-botao22 {
-    font-weight: 900;
-    position: absolute;
-    top: 40%;
-    height: 25%;
-    transform: translateY(-50%);
-    background-color: #d9d9d9;
-    color: #024959;
-    border: 1px solid #024959;
-    border-radius: 10%;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    transform: scale(1.1); 
-    transition: 1s;
-}
-
-.carrossel-botao22:hover {
-    font-weight: 900;
-    position: absolute;
-    top: 38%;
-    height: 30%;
-    transform: translateY(-50%);
-    background-color: #024959;
-    color: #d9d9d9;
-    border: 1px solid #d9d9d9;
-    border-radius: 10%;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    transform: scale(1.1); 
-    transition: 1s;
+    transition: 0.5s; /* Transição suavizada */
 }
 
 .carrossel-botao11.anterior2EventSoli {
-    position: absolute;
     left: 20px;
 }
 
 .carrossel-botao22.proximo2EventSoli {
-    position: absolute;
     left: 96%;
 }
+

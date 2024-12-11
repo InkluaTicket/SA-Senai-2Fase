@@ -23,7 +23,7 @@ function CarrosselEventosSolicitados() {
     <div className="tudocarrosselEventSoli">
       {/* Carrossel de Eventos Solicitados */}
       <div className="carrosselEventSoli">
-        <h1 className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1>
+        <h1 className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1> <img className='iconAnalise' src="./img/icon-analize.png" />
         <div className="carrossel-conteudoSoliciEventSoli" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
           <CardEventos />
           <div className="espacoEventosEventSoli"></div>
