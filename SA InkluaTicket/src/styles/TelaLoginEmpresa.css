@@ -1,0 +1,179 @@
+.tudoLogin6 {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+  }
+  
+  /* tudo */
+  
+  .parteAzulLog6 {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    background-color: #024959;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ImgVoltar6 {
+    width: 60px;
+  }
+  
+  .imagemscadastrarLog {
+    width: 22vw;
+    height: 50vh;
+  }
+  
+  .imagemscadastrarLog2 {
+    width: 40vw;
+    height: 50vh;
+  }
+  
+  /* tela branca funcional*/
+  .parteBrancaLog6 {
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+    background-color: #d9d9d9;
+    border-radius: 1%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cadastrarL6 {
+    height: 25%;
+    margin-top: -1%;
+    margin-right: 45%;
+    color: darkgrey;
+  }
+  .cadastrarLog {
+    height: 25%;
+    margin-top: -1%;
+    margin-right: 54%;
+    color: darkgrey;
+  }
+  
+  .cadastrarLog2 {
+    height: 25%;
+    margin-top: -1%;
+    margin-right: 60%;
+    color: darkgrey;
+  }
+  
+  .Cadastre-seLog6 {
+    font-weight: 100;
+    margin-left: -2%;
+    color: #024959;
+    margin-bottom: -3%;
+  }
+  
+  .partesInputsUmDoisLog6 {
+    display: inline-flex;
+    color: black;
+    width: 50%;
+    height: 50%;
+    margin-top: -30%;
+    margin-left: 9%;
+    margin-bottom: 10%;
+  }
+  
+  .parteUmInpusLog6 {
+    align-items: start;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .inputsLocalLog6 {
+    align-items: start;
+    width: fit-content;
+    margin-top: 15%;
+    margin-bottom: 15%;
+  }
+  
+  .tamanhoInputsLog6 {
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    outline: 0;
+    border-radius: 8px;
+    width: 26rem;
+    height: 36px;
+    text-align: start;
+    padding-left: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btCadastrarLog6 {
+    margin-top: 5%;
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #024959;
+    color: #ffffff;
+    transform: scale(1);
+  }
+  
+  .btCadastrarLog6 {
+    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease; /* Transição rápida */
+    background-color: #024959; /* Cor inicial */
+    color: #fff; /* Cor inicial */
+    border: 1px solid #024959; /* Cor inicial da borda */
+  }
+  
+  .btCadastrarLog6:hover {
+    background-color: #d9d9d9; /* Cor de fundo ao passar o mouse */
+    color: #024959; /* Cor do texto ao passar o mouse */
+    border: 1.5px solid #024959; /* Cor da borda ao passar o mouse */
+    transition-duration: 1s; /* Rápido */
+  }
+  
+  .btCadastrarLog6:not(:hover) {
+    transition-duration: 1s; /* Mais lento ao sair */
+    background-color: #024959; /* Voltar à cor inicial */
+    color: #fff; /* Cor inicial do texto */
+    border: 1px solid #024959; /* Voltar à borda inicial */
+  }
+  
+  .tudoInputsCheckBTLog6 {
+    margin-top: 5%;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+  }
+  
+  .container-inpts6{
+    text-align: center;
+  }
+  
+  .btVoltarIMGLog6 {
+    position: absolute;
+    margin-left: -40%;
+    border-radius: 100%;
+    background-color: #024959;
+    color: #ffffff;
+  }
+  
+  .btSenhaLog6 {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 24rem;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .container-inputs{
+    text-align: center;
+  }
+
+  .mensagemSucesso{
+    color: #024959;
+    font-size: 25px;
+  }
+  

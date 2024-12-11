@@ -10,6 +10,10 @@
 
 /* tudo */
 
+.ImgVoltar {
+  width: 60px;
+}
+
 .parteAzul {
   width: 100%;
   height: 100%;
@@ -65,7 +69,7 @@
   align-items: center;
   color: #333;
   width: 90%;
-  height: 90%;
+  height: 70%;
   margin-top: -15%;
 }
 
@@ -168,7 +172,7 @@
 
 .btCadastrarEmpresa {
   margin-top: 2%;
-  width: 50%;
+  width:45%;
   height: 30px;
   border-radius: 5px;
   border: none;
@@ -192,9 +196,9 @@
 }
 .btCadastrar:hover,
 .btCadastrarEmpresa:hover {
+  border: 1px solid #024959;
   transform: scale(1.1);
   transition: 1s;
-  border: 1px solid #024959;
   background-color: #d9d9d9;
   color: #024959;
 }
@@ -210,9 +214,7 @@
   position: absolute;
   margin-top: 2%;
   margin-left: -40%;
-  width: 6%;
-  height: 10%;
-  border-radius: 45%;
+  border-radius: 100%;
   background-color: #024959;
   color: #ffffff;
 }
@@ -273,4 +275,9 @@
   background-color: #f0f0f0; /* Destaque claro no hover */
   color: #000; /* Cor do texto no hover */
   outline: none; /* Remove borda de foco padrão */
+}
+
+.msg-sucesso{
+  color: #024959;
+  font-size: 20px;
 }

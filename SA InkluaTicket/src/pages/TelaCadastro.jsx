@@ -25,11 +25,10 @@ function TelaCadastro() {
     Endereco: "",
     Telefone: "",
     CPF: "",
-    Endereco: "",
   });
 
   const [disable, setDisable] = useState(true);
-  const [CadastroBemSucedido, setSucesso] = useState("");
+  const [CadastroBemSucedido, setSucesso] = useState(false);
   const navigator = useNavigate();
 
   const [verSenha, setVerSenha] = useState(false);
@@ -74,7 +73,7 @@ function TelaCadastro() {
 
   useEffect(() => {
     document.title = "Tela de cadastro usuário"; // Altera o título da aba
-  }, []);
+  }, []);   
 
   function alternarVerSenha() {
     setVerSenha((prevState) => !prevState);
@@ -196,7 +195,6 @@ function TelaCadastro() {
                 alt="Imagem Cadastro"
               />
             </div>
-
           </div>
           <div className="parteBranca">
             <div className="cadastrar">
@@ -234,7 +232,11 @@ function TelaCadastro() {
                           setForm({ ...Form, Nome: e.target.value });
                         }}
                       />
-                      {erros.Nome && <p role='alert' className="avisoLabel">{erros.Nome}</p>}
+                      {erros.Nome && (
+                        <p role="alert" className="avisoLabel">
+                          {erros.Nome}
+                        </p>
+                      )}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -250,7 +252,9 @@ function TelaCadastro() {
                         }}
                       />
                       {erros.Email && (
-                        <p role='alert' className="avisoLabel">{erros.Email}</p>
+                        <p role="alert" className="avisoLabel">
+                          {erros.Email}
+                        </p>
                       )}
                     </label>
                   </div>
@@ -267,7 +271,11 @@ function TelaCadastro() {
                           setForm({ ...Form, CPF: e.target.value });
                         }}
                       ></InputMask>
-                      {erros.CPF && <p role='alert' className="avisoLabel">{erros.CPF}</p>}
+                      {erros.CPF && (
+                        <p role="alert" className="avisoLabel">
+                          {erros.CPF}
+                        </p>
+                      )}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -284,7 +292,9 @@ function TelaCadastro() {
                         }}
                       ></InputMask>
                       {erros.Telefone && (
-                        <p role='alert' className="avisoLabel">{erros.Telefone}</p>
+                        <p role="alert" className="avisoLabel">
+                          {erros.Telefone}
+                        </p>
                       )}
                     </label>
                   </div>
@@ -304,7 +314,9 @@ function TelaCadastro() {
                         }}
                       ></InputMask>
                       {erros.Endereco && (
-                        <p role='alert' className="avisoLabel">{erros.Endereco}</p>
+                        <p role="alert" className="avisoLabel">
+                          {erros.Endereco}
+                        </p>
                       )}
                     </label>
                   </div>
@@ -347,7 +359,9 @@ function TelaCadastro() {
                         )}
                       </button>
                       {erros.Senha && (
-                        <p role='alert' className="avisoLabel">{erros.Senha}</p>
+                        <p role="alert" className="avisoLabel">
+                          {erros.Senha}
+                        </p>
                       )}
                     </label>
                   </div>
@@ -389,7 +403,9 @@ function TelaCadastro() {
                         )}
                       </button>
                       {erros.SenhaConfirm && (
-                        <p role='alert' className="avisoLabel">{erros.SenhaConfirm}</p>
+                        <p role="alert" className="avisoLabel">
+                          {erros.SenhaConfirm}
+                        </p>
                       )}
                     </label>
                   </div>
@@ -432,20 +448,20 @@ function TelaCadastro() {
                 </div>
               </div>
 
-              <div className="inpts-cadastro">
-                <label className="labelCheckbox">
+              <div className="inpts-cadastro"> 
+                {<p aria-live="assertive" className="msg-sucesso">{CadastroBemSucedido}Login bem sucedido!</p>}
+                <p className="labelCheckbox">
                   <input type="checkbox" className="inputsCheckbox" />
                   Eu li e aceito os termos de uso
-                </label>
+                </p>
 
                 <p tabIndex={0} className="labelCheckbox1">
                   Já possui uma conta? <Link to="/TelaLogin">Fazer login</Link>
                 </p>
 
-                {<p aria-live="assertive">{CadastroBemSucedido}</p>}
+               
                 <div className="btLocal">
-                  <input type="submit" className="btCadastrarEmpresa" />
-                  <br />
+                  <input type="submit" className="btCadastrarEmpresa" /> 
                 </div>
               </div>
             </div>
