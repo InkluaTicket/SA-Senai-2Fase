@@ -4,6 +4,7 @@ import EventosPendentes from '../components/EventosPendentes';
 import NavbarPeinelMod from '../components/NavbarPeinelMod';
 import '../styles/PainelModerador.css';
 import CarrosselEventosSolicitados from '../pages/CarrosselEventosSolicitados';
+import CarrosselEventosAtivosMod from './CarrosselEventosAtivosMod';
 
 
 function PainelModerador() {
@@ -34,6 +35,8 @@ function PainelModerador() {
 
       
           <CarrosselEventosSolicitados/>
+          
+          <CarrosselEventosAtivosMod/>
       
      
           <EventosPendentes/>

@@ -1,4 +1,4 @@
-.tudocarrosselEventSoli {
+.tudocarrosselEventoAtivoMod {
     overflow: hidden;
     font-family: "Poppins", sans-serif;
     background-color: #d9d9d9;
@@ -8,74 +8,90 @@
     max-height: 100%;
     margin-top: 100px;
 }
-.carrosselShFeEvTEXTOEventSoli{
+
+.carrosselShFeEvTEXTOEventoAtivoMod {
     position: absolute;
     font-family: "Poppins", sans-serif;
     left: 11px;
     top: 150px;
     font-size: 30px;
     color: rgb(29, 28, 28);
-}
-
-.iconAnalise{
-    position: absolute;
-    width: 30px;
-    height: min-content;
-    cursor: pointer;
-    margin-left:370px;
-    top: 173px;
-}
-
-.carrosselEventSoli {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 30%;
-}
-
-.carrosselShFeEvTEXTOEventSoli {
     text-align: start;
     margin-left: 5%;
     font-weight: 750;
 }
 
-.carrossel-conteudoSoliciEventSoli {
+.iconAtivo {
+    position: absolute;
+    width: 30px;
+    height: min-content;
+    cursor: pointer;
+    margin-left: 370px;
+    top: 173px;
+}
+
+.carrosselEventoAtivoMod {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 30%;
+}
+
+.carrossel-conteudoEventoAtivoMod {
     transition: transform 0.5s ease;
     display: inline-flex;
 }
 
-.espacoEventosEventSoli {
+.espacoEventosEventoAtivoMod {
     margin-left: 5%;
     margin-right: 3%;
 }
 
-.carrossel-botao11, .carrossel-botao22 {
+.botao2EventoAtivo {
     text-align: center;
     font-weight: 600;
     position: absolute;
-    top: 62%;
+    top: 857px;
     width: 50px;
     height: 50px;
     transform: translateY(-50%);
     background-color: #EA9C00;
     color: whitesmoke;
-    border-radius: 50%; /* Botão redondo */
+    border-radius: 50%;
     border: 0;
     padding: 1px;
     cursor: pointer;
-    font-size: 30px; /* Fonte menor */
+    font-size: 30px;
     transition: 0.5s;
+    left: 1217px;
+}
+.botao1EventoAtivo{
+    text-align: center;
+    font-weight: 600;
+    position: absolute;
+    top: 857px;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    background-color: #EA9C00;
+    color: whitesmoke;
+    border-radius: 50%;
+    border: 0;
+    padding: 1px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: 0.5s;  
 }
 
 .carrossel-botao11:hover, .carrossel-botao22:hover {
     background-color: #b97b00;
     color: #d9d9d9;
-    transition: 0.5s; /* Transição suavizada */
+    transition: 0.5s;
 }
 
-.carrossel-botao11.anterior2EventSoli {
+.carrossel-botao11.anterior2EventoAtivoMod {
     left: 20px;
 }
 
-.carrossel-botao22.proximo2EventSoli {
+.carrossel-botao22.proximo2EventoAtivoMod {
     left: 96%;
 }
