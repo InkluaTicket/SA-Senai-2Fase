@@ -96,7 +96,7 @@ function telaLoginEmpresa() {
     const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
 
   if (!data.CNPJ) {
-    erros.CNPJ = 'Campo obrigatório!';
+    erros.CNPJ = 'CNPJ obrigatório!';
   } else if (!cnpjRegex.test(data.CNPJ)) {
     erros.CNPJ = 'CNPJ inválido! Preencha o campo corretamente.';
     setMensagem('')
@@ -106,7 +106,7 @@ function telaLoginEmpresa() {
 
     if(data.CNPJ){ 
     if (!data.Senha) {
-      erros.Senha = 'Campo obrigatório!';
+      erros.Senha = 'Senha obrigatória!';
     } 
   
   }
@@ -156,7 +156,7 @@ function telaLoginEmpresa() {
                       >
                       </InputMask>
                       {<p className='avisoLabel'>  {Mensagem} </p>}
-                      {erros.CNPJ && <p className='avisoLabel'>{erros.CNPJ}</p>}
+                      {erros.CNPJ && <p role='alert' className='avisoLabel'>{erros.CNPJ}</p>}
                   </label>
                 </div>
                 <div className="inputsLocaLog">
@@ -171,7 +171,7 @@ function telaLoginEmpresa() {
                     {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="" /></>}
                     </button>
                     {<p className='avisoLabel'>  {SenhaIncorreta} </p>}
-                    {erros.Senha && <p className='avisoLabel'>{erros.Senha}</p>}
+                    {erros.Senha && <p role='alert' className='avisoLabel'>{erros.Senha}</p>}
                   </label>
                 </div>
               </div>

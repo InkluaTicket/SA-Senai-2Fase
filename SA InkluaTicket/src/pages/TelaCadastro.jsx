@@ -112,39 +112,39 @@ function TelaCadastro() {
     const erros = {};
 
     if (!data.Nome) {
-      erros.Nome = "Campo obrigatório!";
+      erros.Nome = "Nome obrigatório!";
     }
 
     if (!data.Email) {
-      erros.Email = "Campo obrigatório!";
+      erros.Email = "Email obrigatório!";
     } else if (!/^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.com$/.test(data.Email)) {
       erros.Email = "Email inválido!";
     }
 
     const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
     if (!data.CPF) {
-      erros.CPF = "Campo obrigatório!";
+      erros.CPF = "CPF obrigatório!";
     } else if (!cpfRegex.test(data.CPF)) {
-      erros.CPF = "CPF inválido! Use o formato XXX.XXX.XXX-XX.";
+      erros.CPF = "CPF inválido! Preencha o campo corretamente";
     }
 
     const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/;
     if (!data.Telefone) {
-      erros.Telefone = "Campo obrigatório!";
+      erros.Telefone = "Telefone obrigatório!";
     } else if (!telefoneRegex.test(data.Telefone)) {
-      erros.Telefone = "Telefone inválido! Use o formato (XX) XXXXX-XXXX.";
+      erros.Telefone = "Telefone inválido! Preencha o campo corretamente.";
     }
 
     const cepRegex = /^\d{5}-\d{3}$/;
 
     if (!data.Endereco) {
-      erros.Endereco = "Campo obrigatório!";
+      erros.Endereco = "CEP obrigatório!";
     } else if (!cepRegex.test(data.Endereco)) {
-      erros.Endereco = "CEP inválido! Use o formato XXXXX-XXX";
+      erros.Endereco = "CEP inválido! Preencha o campo corretamente";
     }
 
     if (!data.Senha) {
-      erros.Senha = "Campo obrigatório!";
+      erros.Senha = "Senha obrigatória!";
     } else if (data.Senha.length < 6) {
       erros.Senha = "A senha deve ter pelo menos 6 caracteres";
     }
@@ -234,7 +234,7 @@ function TelaCadastro() {
                           setForm({ ...Form, Nome: e.target.value });
                         }}
                       />
-                      {erros.Nome && <p className="avisoLabel">{erros.Nome}</p>}
+                      {erros.Nome && <p role='alert' className="avisoLabel">{erros.Nome}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -250,7 +250,7 @@ function TelaCadastro() {
                         }}
                       />
                       {erros.Email && (
-                        <p className="avisoLabel">{erros.Email}</p>
+                        <p role='alert' className="avisoLabel">{erros.Email}</p>
                       )}
                     </label>
                   </div>
@@ -267,7 +267,7 @@ function TelaCadastro() {
                           setForm({ ...Form, CPF: e.target.value });
                         }}
                       ></InputMask>
-                      {erros.CPF && <p className="avisoLabel">{erros.CPF}</p>}
+                      {erros.CPF && <p role='alert' className="avisoLabel">{erros.CPF}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -284,7 +284,7 @@ function TelaCadastro() {
                         }}
                       ></InputMask>
                       {erros.Telefone && (
-                        <p className="avisoLabel">{erros.Telefone}</p>
+                        <p role='alert' className="avisoLabel">{erros.Telefone}</p>
                       )}
                     </label>
                   </div>
@@ -304,7 +304,7 @@ function TelaCadastro() {
                         }}
                       ></InputMask>
                       {erros.Endereco && (
-                        <p className="avisoLabel">{erros.Endereco}</p>
+                        <p role='alert' className="avisoLabel">{erros.Endereco}</p>
                       )}
                     </label>
                   </div>
@@ -347,7 +347,7 @@ function TelaCadastro() {
                         )}
                       </button>
                       {erros.Senha && (
-                        <p className="avisoLabel">{erros.Senha}</p>
+                        <p role='alert' className="avisoLabel">{erros.Senha}</p>
                       )}
                     </label>
                   </div>
@@ -389,7 +389,7 @@ function TelaCadastro() {
                         )}
                       </button>
                       {erros.SenhaConfirm && (
-                        <p className="avisoLabel">{erros.SenhaConfirm}</p>
+                        <p role='alert' className="avisoLabel">{erros.SenhaConfirm}</p>
                       )}
                     </label>
                   </div>

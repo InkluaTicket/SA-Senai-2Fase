@@ -138,11 +138,11 @@ function TelaCadastroEmpresa() {
     const erros = {}
 
     if (!data.Nome) {
-      erros.Nome = 'Campo obrigatório!'
+      erros.Nome = 'Nome obrigatório!'
     }
 
     if (!data.Email) {
-      erros.Email = 'Campo obrigatório!';
+      erros.Email = 'Email obrigatório!';
     } else if (!/^[a-zA-Z0-9._%+-]+@(gmail|hotmail)\.com$/.test(data.Email)) {
       erros.Email = 'Email inválido!';
     }
@@ -150,32 +150,32 @@ function TelaCadastroEmpresa() {
     const cnpjRegex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
 
   if (!data.CNPJ) {
-    erros.CNPJ = 'Campo obrigatório!';
+    erros.CNPJ = 'CNPJ obrigatório!';
   } else if (!cnpjRegex.test(data.CNPJ)) {
-    erros.CNPJ = 'CNPJ inválido! Use o formato XX.XXX.XXX/XXXX-XX.';
+    erros.CNPJ = 'CNPJ inválido! Preencha o campo corretamente.';
   }
 
   const telefoneRegex = /^\(\d{2}\) \d{5}-\d{4}$/; 
 
   if (!data.Telefone) {
-    erros.Telefone = 'Campo obrigatório!';
+    erros.Telefone = 'Telefone obrigatório!';
   } else if (!telefoneRegex.test(data.Telefone)) {
-    erros.Telefone = 'Telefone inválido! Use o formato (XX) XXXXX-XXXX.';
+    erros.Telefone = 'Telefone inválido! Preencha o campo corretamente';
   }
     const cepRegex = /^\d{5}-\d{3}$/;
 
     if(!data.Endereco){
 
-      erros.Endereco = 'Campo obrigatório!'
+      erros.Endereco = 'CEP obrigatório!'
 
     }else if(!cepRegex.test(data.Endereco)){
 
-      erros.Endereco = 'CEP inválido! Use o formato XXXXX-XXX'
+      erros.Endereco = 'CEP inválido! Preencha o campo corretamente'
 
     }
 
     if (!data.Senha) {
-      erros.Senha = 'Campo obrigatório!';
+      erros.Senha = 'Senha obrigatória!';
     } else if (data.Senha.length < 6) {
       erros.Senha = 'A senha deve ter pelo menos 6 caracteres';
     }
@@ -245,7 +245,7 @@ function TelaCadastroEmpresa() {
 
                       <input type="text" className='tamanhoInputs'
                         placeholder='Digite seu nome de Usuário' onChange={(e) => { handleChange(e); setForm({ ...Form, Nome: e.target.value }) }} />
-                      {erros.Nome && <p className='avisoLabel'>{erros.Nome}</p>}
+                      {erros.Nome && <p role='alert' className='avisoLabel'>{erros.Nome}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -254,7 +254,7 @@ function TelaCadastroEmpresa() {
                       <input type="text" className='tamanhoInputs' placeholder='Digite seu E-mail'
                         onChange={(e) => { handleChange(e); setForm({ ...Form, Email: e.target.value }) }} />
 
-                      {erros.Email && <p className='avisoLabel'>{erros.Email}</p>}
+                      {erros.Email && <p role='alert' className='avisoLabel'>{erros.Email}</p>}
 
                     </label>
                   </div>
@@ -268,7 +268,7 @@ function TelaCadastroEmpresa() {
                         onChange={(e) => { handleChange(e); setForm({ ...Form, CNPJ: e.target.value }) }}
                       >
                       </InputMask>
-                      {erros.CNPJ && <p className='avisoLabel'>{erros.CNPJ}</p>}
+                      {erros.CNPJ && <p role='alert' className='avisoLabel'>{erros.CNPJ}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">
@@ -281,7 +281,7 @@ function TelaCadastroEmpresa() {
                         onChange={(e) => { handleChange(e); setForm({ ...Form, Telefone: e.target.value }) }}
                       >
                       </InputMask>
-                      {erros.Telefone && <p className='avisoLabel'>{erros.Telefone}</p>}
+                      {erros.Telefone && <p role='alert' className='avisoLabel'>{erros.Telefone}</p>}
                     </label>
                   </div>
                 </div>
@@ -297,7 +297,7 @@ function TelaCadastroEmpresa() {
                        onChange={(e) => { handleChange(e); setForm({ ...Form, Endereco: e.target.value }) }}
 
                        ></InputMask>
-                       {erros.Endereco && <p className='avisoLabel'>{erros.Endereco}</p>}
+                       {erros.Endereco && <p role='alert' className='avisoLabel'>{erros.Endereco}</p>}
 
                       
                     </label>
@@ -311,10 +311,10 @@ function TelaCadastroEmpresa() {
                         onChange={(e) => { handleChange(e); setForm({ ...Form, Senha: e.target.value }) }}
                         
                       />
-                      <button className='btSenha' alt="Mostrar senha" onClick={(e) => { e.preventDefault(); alternarVerSenha(); }}>
+                      <button type='button' className='btSenha' alt="Mostrar senha" onClick={(e) => { e.preventDefault(); alternarVerSenha(); }}>
                         {verSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="Esconder senha" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="Mostrar senha" /></>}
                       </button>
-                      {erros.Senha && <p className='avisoLabel'>{erros.Senha}</p>}
+                      {erros.Senha && <p role='alert' className='avisoLabel'>{erros.Senha}</p>}
                     
                     </label>
                   </div>
@@ -326,10 +326,10 @@ function TelaCadastroEmpresa() {
                         onChange={(e) => { handleChange(e); setForm({ ...Form, SenhaConfirm: e.target.value }) }}
                         placeholder='Digite sua senha novamente'
                       />
-                      <button className='btSenha' onClick={(e) => { e.preventDefault(); alternarConfirmarVerSenha(); }}>
+                      <button type='button' className='btSenha' onClick={(e) => { e.preventDefault(); alternarConfirmarVerSenha(); }}>
                         {verConfirmarSenha ? <><img className='olhoSenha' src="../img/unnamed.png" alt="Esconder senha" /></> : <><img className='olhoSenha' src="../img/unnamed (1).png" alt="Mostrar senha"/></>}
                       </button>
-                      {erros.SenhaConfirm && <p className='avisoLabel'>{erros.SenhaConfirm}</p>}
+                      {erros.SenhaConfirm && <p role='alert' className='avisoLabel'>{erros.SenhaConfirm}</p>}
                     </label>
                   </div>
                   <div className="inputsLocal">

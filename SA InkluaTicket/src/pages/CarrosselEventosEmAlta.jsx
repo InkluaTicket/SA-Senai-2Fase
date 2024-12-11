@@ -89,10 +89,10 @@ function CarrosselEventosEmAlta() {
             {/* Repetir para outros itens */}
           </div>
         </div>
-        <button className="carrossel-botao anterior" onClick={imgAnterior}>
+        <button aria-label='Botão carrossel' className="carrossel-botao anterior" onClick={imgAnterior}>
           ‹
         </button>
-        <button className="carrossel-botao proximo" onClick={proximoImg}>
+        <button aria-label='Botão carrossel' className="carrossel-botao proximo" onClick={proximoImg}>
           ›
         </button>
       </div>
