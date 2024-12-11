@@ -236,42 +236,31 @@ app.get('/eventosAceitos', async (req,res) => {
 
 });
 
-app.get('/eventosAceitosEsportes', async (req,res) => {
+app.get('/eventosEsportes', async (req, res) => {
+    try {
+        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'Esportes' AND aceito IS true");
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
 
-    try{
-
-     const result = await pool.query('SELECT * FROM evento WHERE aceito IS true AND categoria = $1', ['Esportes']);
-     const evento = result.rows
-
-     const eventos = result.rows.map(evento => {
-         if (evento.imagem) {
-             const imgConvert = Buffer.from(evento.imagem).toString('base64');
-             evento.imagem = `data:image/*;base64,${imgConvert}`;
-
-             if (evento.data_inicio) {
-                const dateInicio = new Date(evento.data_inicio);
-                evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                if (evento.data_inicio) {
+                    const dateInicio = new Date(evento.data_inicio);
+                    evento.data_inicio = dateInicio.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
+                if (evento.data_fim) {
+                    const dateFim = new Date(evento.data_fim);
+                    evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
+                }
             }
-            if (evento.data_fim) {
-                const dateFim = new Date(evento.data_fim);
-                evento.data_fim = dateFim.toISOString().split('T')[0]; // Removendo a parte de hora
-            }
+            return evento;
+        });
 
-
-         }
-         return evento;
-     });
-
- res.json(evento);
-
-    }catch(err){
-
-     console.error('Erro ao buscar eventos aceitos!', err)
-     res.status(400).json({error: 'Erro ao buscar eventos!', details: err.message})
-
-
+        res.json(eventos);
+    } catch (err) {
+        console.error('Erro ao buscar eventos de Esportes!', err);
+        res.status(400).json({ error: 'Erro ao buscar eventos de Esportes!', details: err.message });
     }
-
 });
 
 app.patch('/aceitar/:id/evento', async (req, res) => {
@@ -836,7 +825,7 @@ app.get('/buscarUsuarioComentarios/:userId', async (req, res) => {
 
     try{
 
-        const result = await pool.query('SELECT nome FROM usuarios WHERE id = $1 ', [userId])
+        const result = await pool.query('SELECT * FROM usuarios WHERE id = $1 ', [userId])
 
         if(result.rows.length > 0){
 

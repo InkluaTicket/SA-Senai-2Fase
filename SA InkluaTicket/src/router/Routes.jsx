@@ -47,7 +47,7 @@ const Routes = createBrowserRouter([
   { path: '/Shows', element: <PageWrapper element={ <Shows/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PerfilEmpresa', element: <PageWrapper element={ <PerfilEmpresa/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PainelModerador', element: <PageWrapper element={ <PainelModerador/>} screenName='Tela de painel do moderador'/> },
-  {path: '/eventosAceitos/:id', element: <EventoDinâmico/> }
+  {path: '/eventosAceitos/:id', element: <PageWrapper element={ <EventoDinâmico/>} screenName='Tela de evento'/>}
 ]);
 
 export default Routes;

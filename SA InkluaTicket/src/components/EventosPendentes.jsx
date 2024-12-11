@@ -76,16 +76,16 @@ function EventosPendentes() {
 
         {EventosAnalise.map((evento) =>(
 
-<ul className='container'>
+<ul aria-label='Card de evento' className='container'>
 
-<li onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
+<li tabIndex={0} onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
 
 <div className="card">
                 <img className='imagemEvento' src={evento.imagem}/>
                 <div className="div-inform">
-                    <h2 className='descricao'>{evento.nome}</h2>
-                    <h2 className='data'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
-                    <p className='local'>{evento.local_evento}</p>
+                    <h2 aria-label='Nome do evento' className='descricaoEmp'>{evento.nome}</h2>
+                    <h2 aria-label='Data de início do evento' className='dataEmp'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
+                    <p aria-label='Local do evento' className='localEmp'>{evento.local_evento}</p>
                 </div>
             </div>
 

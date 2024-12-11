@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/NavbarGerenciamentoP.css';
+import { Link } from 'react-router-dom';
 
 function NavbarGerenciamentoP() {
   return (
@@ -8,7 +9,7 @@ function NavbarGerenciamentoP() {
       
       <div className='teste'>
 
-      <img className='voltarGPU' src="./img/arrow_back (2).png" alt="" />
+      <Link to='/PerfilUser'> <img className='voltarGPU' src="./img/arrow_back (2).png" alt="" /></Link>
       <h1 className='gerenciamentoDaContaUser'>Gerenciamento da conta</h1>
 
       </div>

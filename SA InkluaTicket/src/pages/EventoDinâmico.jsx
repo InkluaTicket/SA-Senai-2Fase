@@ -155,14 +155,14 @@ const [outro, setOutro] = useState('');
         const userData = await userResponse.json();
         
 
-        return {... comentario, NomeUsuario: userData.nome, ImagemUser: userData.foto_perfil, Avaliação: userData.avaliacao}
+        return {... comentario, NomeUsuario: userData.nome, ImagemUser: userData.foto_perfil}
 
 
       }))
 
-      console.log(comentariosComNomes)
+      
       setComentarios(comentariosComNomes)
-
+      console.log(comentariosComNomes)
     }
 
    
@@ -285,16 +285,16 @@ const [outro, setOutro] = useState('');
       </div>
 
       <section>
-        <h1 className="title-show">
+        <h1 aria-label="Nome do evento" tabIndex={0} className="title-show">
           {evento.Nome}
         </h1>
 
-        <p className="p-show">
+        <p aria-label="Local do evento" tabIndex={0} className="p-show">
           evento precencial em -
           <Link
             target="_blank"
             rel="noopener noreferrer"
-            to="https://www.sympla.com.br/evento/conferencia-brasileira-clima-carbono-2024/2303614#event-location"
+            
             className="link-show"
           >
             {evento.Local}
@@ -305,7 +305,7 @@ const [outro, setOutro] = useState('');
           <div className="card-show">
             <div className="card-desc">
               <h1 className="titulo">Descrição do evento</h1>
-              <p>
+              <p aria-label="Descrição do evento" tabIndex={0}>
                {evento.Descricao}
               </p>
 
@@ -356,8 +356,8 @@ const [outro, setOutro] = useState('');
 
 
               <div>
-                <label>
-                    {outro && <> outras acessibiladades que terão nesse evento: {outro} </> }
+                <label aria-label="" tabIndex={0}>
+                    {outro && <> outras acessibilidades que terão nesse evento: {outro} </> }
                   
                 </label>
               </div>
@@ -365,7 +365,7 @@ const [outro, setOutro] = useState('');
             </div>
           </div>
 
-          <div className="card-show2">
+          <div aria-label="" tabIndex={0} className="card-show2">
             <h1 className="titulo">Datas do evento</h1>
             <div className="itens-data">
               <p>{evento.DataInicio}</p>
@@ -385,39 +385,7 @@ const [outro, setOutro] = useState('');
             </div>
           </div>
 
-          <div className="card-avaliacao">
-            <div className="card-show3">
-              <div className="rating-container">
-                <h1>Avaliar esse show</h1>
-                <div className="stars">
-                  {[...Array(5)].map((_, index) => {
-                    const starValue = index + 1;
-
-                    return (
-                      <span
-                        key={starValue}
-                        className={`star ${
-                          starValue <= (hover || comentario.Avaliação) ? "active" : ""
-                        }`}
-                        onClick={() => setComentario({...comentario, Avaliação: starValue})}
-                        onMouseEnter={() => setHover(starValue)}
-                        onMouseLeave={() => setHover(0)}
-                      >
-                        &#9733;
-                      </span>
-                    );
-                  })}
-                </div>
-                <p className="rating-text">
-                  {comentario.Avaliação
-                    ? `Você avaliou com ${comentario.Avaliação} estrela${
-                        comentario.Avaliação > 1 ? "s" : ""
-                      }.`
-                    : "Clique nas estrelas para avaliar!"}
-                </p>
-              </div>
-            </div>
-          </div>
+          
         </section>
 
         <section className="comentarios">
@@ -425,7 +393,7 @@ const [outro, setOutro] = useState('');
             <h2>Deixe seu comentário</h2>
 
             <form onSubmit={PostarComentário}>
-            <textarea
+            <textarea tabIndex={0}
               value={comentario.Comentario}
               onChange={(e) => setComentario({... comentario, Comentario: e.target.value})}
               placeholder="Escreva seu comentário aqui..."
@@ -458,63 +426,63 @@ const [outro, setOutro] = useState('');
             </form>
 
         
-            {Comentarios.length >=0 ? (
-<>
-{Comentarios.map((ComentarioPostado) => (
+            {Comentarios.length > 0 ? (
+  <>
+    {Comentarios.map((ComentarioPostado) => (
+      <div style={{ textAlign: 'start' }} key={`${ComentarioPostado.id_evento}-${ComentarioPostado.id_usuario}-${ComentarioPostado.id}`}>
+        <ul style={{ listStyleType: "none", padding: "0px" }}>
+          <li
+            style={{
+              background: "#fff",
+              width: '100%',
+              marginBottom: "30px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "5px",
+                borderRadius: "5px 5px 0 0",
+                padding: "10px",
+                backgroundColor: "#024959",
+              }}
+            >
+              <strong style={{ color: "#fff", fontSize: "18px" }}>
+                {ComentarioPostado.NomeUsuario}
+              </strong>
+              <div style={{ marginLeft: "10px" }}>
+                {[...Array(5)].map((_, starIndex) => (
+                  <span
+                    key={starIndex}
+                    style={{
+                      color:
+                        starIndex < ComentarioPostado.Avaliação
+                          ? "#ffc107"  // Estrela preenchida
+                          : "#ccc",    // Estrela vazia
+                      fontSize: "25px",
+                    }}
+                    aria-label={`Avaliação de ${starIndex + 1} estrela${starIndex + 1 > 1 ? "s" : ""}`}
+                  >
+                    &#9733; {/* Símbolo da estrela */}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-  <div style={{textAlign: 'start'}}>  
-  <ul style={{ listStyleType: "none", padding: "0px" }} key={`${ComentarioPostado.id_evento}-${ComentarioPostado.id_usuario}-${ComentarioPostado.id}`}>
-    <li style={{
-         background: "#fff",
-         width: '100%',
-         marginBottom: "30px",
-         borderRadius: "8px",
-         border: "1px solid #ccc",
-        }}>
+            <p>{ComentarioPostado.comentario}</p>
+          </li>
+        </ul>
+      </div>
+    ))}
+  </>
+) : (
+  <h3>Sem comentários!</h3>
+)}
 
-<div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          marginBottom: "5px",
-                          borderRadius: "5px 5px 0 0",
-                          padding: "10px",
-                          backgroundColor: "#024959",
-                        }}
-                      >
-                        <strong style={{ color: "#fff", fontSize: "18px" }}>
-                          {ComentarioPostado.NomeUsuario}
-                        </strong>
-                        <div style={{ marginLeft: "10px" }}>
-                          {[...Array(5)].map((_, starIndex) => (
-                            <span
-                              key={starIndex}
-                              style={{
-                                color:
-                                  starIndex < ComentarioPostado.Avaliação
-                                    ? "#ffc107"
-                                    : "#ccc",
-                                fontSize: "25px",
-                              }}
-                            >
-                              &#9733;
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-    
-      <p>{ComentarioPostado.comentario}</p>
-  
 
-    </li>
-  </ul>
-  
-  </div>
-
-))}
-</>
-
-): (<><h3>Sem comentários!</h3></>) }
           </div>
         </section>
       </section>

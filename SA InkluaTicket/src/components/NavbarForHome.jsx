@@ -131,11 +131,24 @@ function NavBarForHome() {
 
   useEffect(() => {
 
+     let token = localStorage.getItem('token') || localStorage.getItem('tokenEmpresa') || false
 
+if(token){ 
+
+     const decode = jwt_decode(token)
 
     setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
-    setImg(UsuarioLogado.foto_perfil) || setImg(UsuarioLogado.imagem)
+    if(decode.papel === 'Usuário'){
 
+      setImg(UsuarioLogado.foto_perfil)
+
+    }else if(decode.papel === 'Empresa'){
+
+      setImg(UsuarioLogado.imagem)
+
+    }
+    
+}
 
   }, [UsuarioLogado])
 
@@ -179,7 +192,7 @@ function NavBarForHome() {
                 <li className='separadorHome'></li>
 
                 {imgPerfil ?
-                  (<><Link to='/PerfilUser'><img src={imgPerfil} style={{ width: '50px', borderRadius: '50%', margin: '0px' }} alt="" /></Link></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
+                  (<><Link to='/PerfilUser'><img src={imgPerfil} style={{ width: '50px', borderRadius: '50%', margin: '0px' }} alt="" /></Link> <img src="./img/img logo.png" style={{width: '20px', position:'absolute', marginLeft: '327px', marginTop: '11px'}} alt="" /></>) : (<><Link to='/PerfilUser'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
 
               </div>
             </div>

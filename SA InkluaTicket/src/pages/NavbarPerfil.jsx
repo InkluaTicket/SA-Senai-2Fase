@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/Navbar2.css'
+import { Link } from 'react-router-dom'
 
 function NavbarPefil() {
   return (
@@ -7,7 +8,7 @@ function NavbarPefil() {
       
       <div className='teste'>
 
-      <img className='voltar' src="./img/arrow_back (2).png" alt="" />
+     <Link to='/'> <img className='voltar' src="./img/arrow_back (2).png" alt="" /></Link>
       <h1 className='gerenciamentoDaConta'>Perfil de usuário</h1>
 
       </div>

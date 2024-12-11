@@ -69,7 +69,7 @@ function EventosAceitosEmpresa() {
 
        {EventosAnalise.length == 0 ? <> <h1 className='semEventos'>Sem eventos</h1> <img className="vazio" src="./img/icon-vazio.png" alt="" /> </> : <>{/* Carrossel de Festivais */}
       <div className="carrosselEmpAceito">
-        <h1 className='carrosselShFeEvTEXTOEmpAceito'>Festivais</h1>
+   
         <div className="carrossel-conteudoEmpAceito" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
           
 
@@ -96,8 +96,8 @@ function EventosAceitosEmpresa() {
 ))}
 
         </div>
-        <button className="carrossel-botao2Emp anterior2Emp" onClick={festivalAnterior}>‹</button>
-        <button className="carrossel-botao2Emp proximo2Emp" onClick={proximoFestival}>›</button>
+        <button className="carrossel-botao2Emp anterior2EmpAceito" onClick={festivalAnterior}>‹</button>
+        <button className="carrossel-botao2Emp proximo2EmpAceito" onClick={proximoFestival}>›</button>
       </div> </>}
 
       

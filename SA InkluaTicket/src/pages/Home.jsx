@@ -9,6 +9,7 @@ import CarrosselFestivais from './CarrosselFestivais';
 import CarrosselEventos from './CarrosselEventos';
 import Rodape from '../components/Rodape';
 import EventosAceitos from '../components/EventosAceitos';
+import EventosEsportes from '../components/EventosEsportes';
 
 function Home() {
 
@@ -32,6 +33,7 @@ function Home() {
       <CarrosselFestivais/>
       <CarrosselEventos/>
       <EventosAceitos/>
+      <EventosEsportes/>
       <Rodape/>
     </div>
   )

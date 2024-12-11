@@ -75,7 +75,7 @@ function EventosAceitosEmpresa() {
 
         {EventosAnalise.map((evento) =>(
 
-<ul className='container'>
+<ul aria-label='Card de evento' className='container'>
 
 <li className='Card'  onClick={() => navigator(`/eventosAceitos/${evento.id}`)} key={evento.id}>
 
