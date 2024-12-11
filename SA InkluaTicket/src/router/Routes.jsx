@@ -17,6 +17,7 @@ import VisualizarPerfilUsuario from "../pages/VisualizarPerfilUsuario";
 import VisualizarPerfilEmpresa from "../pages/VisualizarPerfilEmpresa";
 import Shows from "../pages/Shows";
 import PainelModerador from "../pages/PainelModerador";
+import EventoDinâmico from "../pages/EventoDinâmico";
 
 const PageWrapper = ({ element, screenName }) => {
   const location = useLocation();
@@ -46,6 +47,7 @@ const Routes = createBrowserRouter([
   { path: '/Shows', element: <PageWrapper element={ <Shows/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PerfilEmpresa', element: <PageWrapper element={ <PerfilEmpresa/>} screenName='Tela de perfil da empresa'/> },
   { path: '/PainelModerador', element: <PageWrapper element={ <PainelModerador/>} screenName='Tela de painel do moderador'/> },
+  {path: '/eventosAceitos/:id', element: <EventoDinâmico/> }
 ]);
 
 export default Routes;

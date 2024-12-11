@@ -134,7 +134,7 @@ function NavBarForHome() {
 
 
     setMensagem(`Bem vindo ${UsuarioLogado.nome}`)
-    setImg(UsuarioLogado.foto_perfil)
+    setImg(UsuarioLogado.foto_perfil) || setImg(UsuarioLogado.imagem)
 
 
   }, [UsuarioLogado])
@@ -161,7 +161,7 @@ function NavBarForHome() {
               <li className='separadorHome'></li>
               <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
               {imgPerfil ?
-                (<></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
+                (<><Link to='/PerfilEmpresa'><img src={imgPerfil} style={{ width: '50px', borderRadius: '50%', margin: '0px' }} alt="" /></Link></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
 
 
             </div>

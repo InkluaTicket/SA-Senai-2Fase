@@ -5,6 +5,7 @@ import NavbarGerenEmpre from '../components/NavbarGerenEmpre';
 import { useNavigate } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 import EventosPendentesEmpresa from '../components/EventosPendentesEmpresa';
+import EventosAceitosEmpresa from '../components/EventosAceitosEmpresa';
 
 function GerenciamentoEmpresa() {
 
@@ -356,6 +357,8 @@ setNew({...NewInfos, NovaImagem: file});
         
 
         <EventosPendentesEmpresa/>
+        
+        <EventosAceitosEmpresa/>
 
         
 

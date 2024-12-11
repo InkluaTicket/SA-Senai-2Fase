@@ -1,42 +1,41 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../styles/CardEventos.css'
+import '../styles/Carrossel.css'
 
-function EventosPendentes() {
+function EventosAceitosEmpresa() {
     const navigator = useNavigate();
     const [EventosAnalise, setAnalise] = useState([])
+  
 
-    const SelectEvent = async () =>{
-
-      try{
-
-       const response = await fetch('http://localhost:3000/eventosAnalise', {
-
-          method: 'GET',
-          headers: {'Content-type' : 'application/json'}
-       })
-
-       if(response.ok){
-
-          const data = await response.json();
-          setAnalise(data)
-
-
-       }else{
-
-          console.error('Erro ao buscar eventos pendentes!')
-
-       }
-
-      }catch(err){
-
-          console.error('Erro de rede:', err);
-
-      }
-
-  }
-
+    const SelectEvent = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/eventosAceitos', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    
+                },
+            });
+    
+            // Log completo da resposta para depuração
+            console.log('Status:', response.status);
+            console.log('Resposta:', response);
+    
+            if (response.ok) {
+                const data = await response.json();
+                setAnalise(data);
+               
+            } else {
+                const errorData = await response.json(); // Para ver detalhes do erro
+                console.error('Erro na resposta:', errorData);
+            }
+        } catch (err) {
+            console.error('Erro de rede:', err);
+        }
+    };
+    
 
 
     const [slideFestival, setSlideFestival] = useState(0);
@@ -58,7 +57,7 @@ function EventosPendentes() {
     useEffect(() => {
 
      SelectEvent();
-     console.log(EventosAnalise.length)
+     
 
     }, [])
 
@@ -78,7 +77,7 @@ function EventosPendentes() {
 
 <ul className='container'>
 
-<li onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
+<li className='Card'  onClick={() => navigator(`/eventosAceitos/${evento.id}`)} key={evento.id}>
 
 <div className="card">
                 <img className='imagemEvento' src={evento.imagem}/>
@@ -108,4 +107,4 @@ function EventosPendentes() {
   )
 }
 
-export default EventosPendentes
+export default EventosAceitosEmpresa

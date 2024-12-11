@@ -204,8 +204,18 @@ app.get('/eventosAceitos', async (req,res) => {
 
        try{
 
-        const result = await pool.query('SELECT * FROM eventos WHERE aceito IS true');
-        res.status(200).json(result.rows)
+        const result = await pool.query('SELECT * FROM evento WHERE aceito IS true');
+        const evento = result.rows
+
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
+            }
+            return evento;
+        });
+
+    res.json(evento);
 
        }catch(err){
 
@@ -230,7 +240,7 @@ if(aceito != false && aceito != true){
 
 try{
 
-const result = await pool.query('UPDATE eventos SET aceito  = $1 WHERE id = $2 RETURNING *', [aceito, id])
+const result = await pool.query('UPDATE evento SET aceito  = $1 WHERE id = $2 RETURNING *', [aceito, id])
 
 if (result.rows.length > 0) {
     return res.status(200).json(result.rows[0]); 
@@ -247,25 +257,50 @@ if (result.rows.length > 0) {
 
 });
 
-app.get('/detalhesEvento/:id', async (req,res)=> {
-
+app.get('/detalhesEvento/:id', async (req, res) => {
     const { id } = req.params;
 
-    try{
+    try {
+        const result = await pool.query('SELECT * FROM evento WHERE id = $1', [id]);
 
-        const result = await pool.query('SELECT * FROM eventos WHERE id = $1', [id]);
-        res.status(200).json(result.rows[0]);
+        // Verifica se o evento existe
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Evento não encontrado!' });
+        }
 
-    }catch(err){
+        const evento = result.rows[0];
 
-        console.error('O evento não foi encontrado!', err)
-        res.status(400).json({error: 'Erro!', details: err.message})
+        // Verifica e converte a imagem, se existir
+        if (evento.imagem) {
+            const imgConvert = Buffer.from(evento.imagem).toString('base64');
+            evento.imagem = `data:image/*;base64,${imgConvert}`;
+        }
 
+        // Retorna o evento, com ou sem imagem
+        res.status(200).json(evento);
+    } catch (err) {
+        console.error('Erro ao buscar evento:', err);
+        res.status(500).json({ error: 'Erro ao buscar evento!', details: err.message });
     }
-
 });
 
 
+app.get('/acessibilidades/:eventoId', async (req, res) => {
+    const { eventoId } = req.params;
+
+    try {
+        const result = await pool.query('SELECT * FROM acessibilidade WHERE evento_id = $1', [eventoId]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Nenhuma acessibilidade encontrada para este evento.' });
+        }
+
+        res.status(200).json(result.rows);
+    } catch (err) {
+        console.error('Erro ao buscar acessibilidades:', err);
+        res.status(500).json({ error: 'Erro ao buscar acessibilidades.', details: err.message });
+    }
+});
 
 
 
@@ -620,14 +655,14 @@ app.post('/editar', AutenticaçãoDeToken, upload.single('NovaImagem'), async (r
 
 app.post('/comentarios', async (req, res) => {
 
-    const {Comentario, User_id, Evento_id} = req.body;
+    const {Comentario, User_id, Evento_id, Avaliação} = req.body;
 
     try{ 
 
     const result = await pool.query(
         
-    'INSERT INTO comentarios (comentario, evento_id, usuario_id ) VALUES ($1, $2, $3)', 
-    [Comentario, Evento_id, User_id ]
+    'INSERT INTO comentarios (comentario, avaliacao, id_evento, id_usuario ) VALUES ($1, $2, $3, $4)', 
+    [Comentario, Avaliação, Evento_id, User_id ]
 );
     
     res.status(200).json(result.rows[0])
@@ -647,7 +682,7 @@ app.get('/buscarComentarios/:id', async (req, res) => {
 try{
 
     
-    const result = await pool.query('SELECT * FROM comentarios WHERE evento_id = $1', [id]);
+    const result = await pool.query('SELECT * FROM comentarios WHERE id_evento = $1', [id]);
 
     if(result.rows.length > 0){
 
@@ -674,6 +709,37 @@ app.get('/EventosPendentesEmpresa', AutenticaçãoDeToken, async (req, res) => {
             SELECT * 
             FROM evento 
             WHERE id_empresa = $1 AND aceito IS NULL
+        `, [empresaId]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ message: 'Nenhum evento pendente encontrado!' });
+        }
+
+        // Iterar sobre os eventos para verificar a imagem
+        const eventos = result.rows.map(evento => {
+            if (evento.imagem) {
+                const imgConvert = Buffer.from(evento.imagem).toString('base64');
+                evento.imagem = `data:image/*;base64,${imgConvert}`;
+            }
+            return evento;
+        });
+
+        res.json(eventos);
+
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).json({ message: 'Erro ao buscar eventos pendentes', error: err.message });
+    }
+});
+
+app.get('/EventosAceitosEmpresa', AutenticaçãoDeToken, async (req, res) => {
+    const empresaId = req.user.id; // Supondo que o ID da empresa seja obtido pelo token do usuário
+
+    try {
+        const result = await pool.query(`
+            SELECT * 
+            FROM evento 
+            WHERE id_empresa = $1 AND aceito IS TRUE
         `, [empresaId]);
 
         if (result.rows.length === 0) {
