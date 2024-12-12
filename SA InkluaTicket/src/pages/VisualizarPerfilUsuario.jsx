@@ -1,132 +1,129 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import '../styles/VisualizarPerfilUsuario.css';
-import NavbarPefil from './NavbarPerfil';
-import { Link } from 'react-router-dom';
-import jwt_decode from 'jwt-decode'
+import NavbarPerfil from './NavbarPerfil';
+import { useParams } from 'react-router-dom';
 
 function VisualizarPerfilUsuario() {
+  const { id_usuario } = useParams(); // Obtém o ID do usuário da URL
+  const [isCheckedTrue, setChecked] = useState(false);
+  const [isCheckedFalse, setCheckedFalse] = useState(false);
+  const [Pcd, setPcd] = useState(false);
+  const [User, setUser] = useState({});
 
-  const [isCheckedTrue, setChecked] = useState(false)
-  const [isCheckedFalse, setCheckedFalse] = useState(false)
-  const [Pcd, setPcd] = useState(false)
-  const [User, setUser] = useState('')
-  const token = localStorage.getItem('token') || localStorage.getItem('tokenAdm') || localStorage.getItem('tokenEmpresa')
-
-
-  const Renderizar = async () => {
-
+  const fetchUserData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/perfil', {
+      const response = await fetch(`http://localhost:3000/perfil/${id_usuario}`, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       });
 
       if (response.ok) {
-
-
-        const decode = jwt_decode(token)
-
-        if (decode.papel === 'Usuário') {
-          const userData = await response.json();
-          setUser(userData)
-          console.log(userData)
-
-
-
-        } else {
-
-          console.log('ADM ATIVO')
-
-        }
-
+        const userData = await response.json();
+        setUser(userData);
+        console.log(userData);
+      } else {
+        console.error('Erro ao buscar o usuário:', response.statusText);
       }
-
+    } catch (err) {
+      console.error('Erro ao buscar usuário:', err);
     }
-
-    catch (err) {
-
-      console.error('Erro ao buscar usuario', err)
-
-    }
-
-  }
-
+  };
 
   useEffect(() => {
-
-    Renderizar();
-
-
-  }, [])
+    fetchUserData();
+  }, [id_usuario]);
 
   useEffect(() => {
-
     if (User.possui_deficiencia) {
-
-      setChecked(true)
-      setCheckedFalse(false)
-      setPcd(true)
-
+      setChecked(true);
+      setCheckedFalse(false);
+      setPcd(true);
     } else {
-
-      setCheckedFalse(true)
-      setChecked(false)
-      setPcd(false)
-
+      setCheckedFalse(true);
+      setChecked(false);
+      setPcd(false);
     }
-
-  }, [User])
+  }, [User]);
 
   return (
     <>
-      <NavbarPefil />
-      <div className='Corpo-containerUser'>
-
-        <div className='divUmUser'>
+      <NavbarPerfil />
+      <div className="Corpo-containerUser">
+        <div className="divUmUser">
           <div className="posidivUmUser">
+            <div className="ImagemENomeUser">
+              {User.foto_perfil ? (
+                <img
+                  src={User.foto_perfil}
+                  className="iconUser"
+                  style={{ borderRadius: '50%' }}
+                  alt="Foto de Perfil"
+                />
+              ) : (
+                <img className="iconUser" src="/img/fotoUser.png" alt="Ícone Usuário" />
+              )}
 
-            <div className='ImagemENomeUser'>
-              {User.foto_perfil ? <> <img src={User.foto_perfil} className='iconUser' style={{ borderRadius: '50%' }} alt="" /> </> : <> <img className='iconUser' src="./img/fotoUser.png" alt="User Icon" /> </>}
-
-              {Pcd &&
-                <img className='verificado1User' src="./img/img logo.png" alt="" />}
-              <p tabIndex={0} aria-label='Nome de usuário' className='nomeUser'>{User.nome}</p>
+              {Pcd && <img className="verificado1User" src="/img/img logo.png" alt="Verificado" />}
+              <p tabIndex={0} style={{marginRight: '-140px'}} aria-label="Nome de usuário" className="nomeUser">
+                {User.nome || 'Usuário Não Identificado'}
+              </p>
             </div>
-            <label tabIndex={0} className='possuiDeficienciaUser'>Possui alguma deficiência?</label> <img className='verificado2User' src="./img/img logo.png" alt="" />
+            <label tabIndex={0} className="possuiDeficienciaUser">
+              Possui alguma deficiência?
+            </label>
+            <img className="verificado2User" src="/img/img logo.png" alt="" />
 
             <div className="checkBoxGroupUser">
               <div>
-                <input type="checkbox" aria-disabled='true' checked={isCheckedTrue} className="checkBoxUser" id="sim" />
+                <input
+                  type="checkbox"
+                  aria-disabled="true"
+                  checked={isCheckedTrue}
+                  className="checkBoxUser"
+                  id="sim"
+                />
                 <label htmlFor="simUser">Sim</label>
               </div>
               <div>
-                <input type="checkbox" aria-disabled checked={isCheckedFalse} className="checkBoxUser" id="nao" />
+                <input
+                  type="checkbox"
+                  aria-disabled="true"
+                  checked={isCheckedFalse}
+                  className="checkBoxUser"
+                  id="nao"
+                />
                 <label htmlFor="naoUser">Não</label>
               </div>
             </div>
 
+            <label className="deficienciaUser">Deficiência:</label>
+            <input
+              tabIndex={0}
+              className="inptsUser"
+              aria-disabled="true"
+              value={Pcd ? User.deficiencia : 'Não possui'}
+              type="text"
+            />
 
-            <label className='deficienciaUser'>Deficiência:</label>
-            <input tabIndex={0} className='inptsUser' aria-disabled='true' value={Pcd ? User.deficiencia
-              : ('Não possui')} type="text" />
-
-
-            <label className='detalhesUser'>Detalhes:</label>
-            <input tabIndex={0} className='inptsUser' aria-disabled='true' value={Pcd ? User.detalhes_deficiencia : ('Não possui')} type="text" />
-
+            <label className="detalhesUser">Detalhes:</label>
+            <input
+              tabIndex={0}
+              className="inptsUser"
+              aria-disabled="true"
+              value={Pcd ? User.detalhes_deficiencia : 'Não possui'}
+              type="text"
+            />
           </div>
         </div>
 
-        <div className='divDoisUser'>
-          <img src="./img/img usuario.png" className="imagemsUmPerfil" />
+        <div className="divDoisUser">
+          <img src="/img/img usuario.png" className="imagemsUmPerfil" alt="Detalhes" />
         </div>
-
       </div>
     </>
-  )
+  );
 }
 
-export default VisualizarPerfilUsuario
+export default VisualizarPerfilUsuario;

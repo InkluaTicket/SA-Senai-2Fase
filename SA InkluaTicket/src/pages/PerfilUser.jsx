@@ -3,6 +3,7 @@ import '../styles/PerfilUser.css';
 import NavbarPefil from './NavbarPerfil';
 import { Link } from 'react-router-dom';
 import jwt_decode from 'jwt-decode'
+import NavbarPerfil2 from '../components/NavbarPerfil2';
 
 function PerfilUser() {
 
@@ -83,7 +84,7 @@ function PerfilUser() {
   return (
     <>  
 
-<NavbarPefil/>
+<NavbarPerfil2/>
 <div className='Corpo-containerUser'>
 
 

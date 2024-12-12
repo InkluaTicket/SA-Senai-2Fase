@@ -277,6 +277,8 @@ const [isUser, setUser] = useState(false)
 
   return (
     <div>
+
+        <Navbar/>
       
       <div className="img-container">
         <img src={evento.Imagem} className="img-frente" />
@@ -386,7 +388,7 @@ const [isUser, setUser] = useState(false)
                 to={evento.Ingressos}
                 className="compra"
               >
-                Compar Ingressos
+                Comprar Ingressos
               </Link>
             </div>
           </div>
@@ -441,8 +443,8 @@ const [isUser, setUser] = useState(false)
   <>
     {Comentarios.map((ComentarioPostado) => (
       <div style={{ textAlign: 'start' }} key={`${ComentarioPostado.id_evento}-${ComentarioPostado.id_usuario}-${ComentarioPostado.id}`}>
-        <ul style={{ listStyleType: "none", padding: "0px" }}>
-          <li
+        <ul aria-label="Comentário" tabIndex={0} style={{ listStyleType: "none", padding: "0px" }}>
+          <li 
             style={{
               background: "#fff",
               width: '100%',
@@ -461,27 +463,11 @@ const [isUser, setUser] = useState(false)
                 backgroundColor: "#024959",
               }}
             >
-              <strong style={{ color: "#fff", fontSize: "18px" }}>
-                {ComentarioPostado.NomeUsuario}
-                {ComentarioPostado.ImagemUser}
+              <strong  style={{ display: 'flex', gap: '15px', color: "#fff", fontSize: "18px" }}>
+                <p>{ComentarioPostado.NomeUsuario}</p>
+                <img tabIndex={0} aria-label="Acessar perfil deste usuário" onClick={() => navigator(`/perfil/${ComentarioPostado.id_usuario}`)} style={{width: '40px', height: '40px', marginTop: '8px', borderRadius: '50%',}} src={ComentarioPostado.ImagemUser} alt="" />
               </strong>
-              <div style={{ marginLeft: "10px" }}>
-                {[...Array(5)].map((_, starIndex) => (
-                  <span
-                    key={starIndex}
-                    style={{
-                      color:
-                        starIndex < ComentarioPostado.Avaliação
-                          ? "#ffc107"  // Estrela preenchida
-                          : "#ccc",    // Estrela vazia
-                      fontSize: "25px",
-                    }}
-                    aria-label={`Avaliação de ${starIndex + 1} estrela${starIndex + 1 > 1 ? "s" : ""}`}
-                  >
-                    &#9733; {/* Símbolo da estrela */}
-                  </span>
-                ))}
-              </div>
+              
             </div>
 
             <p>{ComentarioPostado.comentario}</p>

@@ -965,33 +965,59 @@ app.get('/EventosAceitosEmpresa', AutenticaçãoDeToken, async (req, res) => {
 });
 
 app.get('/buscarUsuarioComentarios/:userId', async (req, res) => {
+    const { userId } = req.params;
 
-    const {userId} = req.params;
-   
+    try {
+        const result = await pool.query('SELECT * FROM usuarios WHERE id = $1', [userId]);
 
-    try{
+        if (result.rows.length > 0) {
+            const user = result.rows[0];
 
-        const result = await pool.query('SELECT * FROM usuarios WHERE id = $1 ', [userId])
+            if (user.foto_perfil) {
+                const imgConvert = Buffer.from(user.foto_perfil).toString('base64');
+                user.foto_perfil = `data:image/*;base64,${imgConvert}`;
+            }
 
-        if(result.rows.length > 0){
-
-           return res.json(result.rows[0])
-
-        }else{
-
+            return res.json(user);
+        } else {
             return res.status(404).json({ message: 'Usuário não encontrado' });
-
         }
-
-    }catch(err){
-
-    console.error('Erro ao buscar usuário:', err);
-    res.status(500).json({ message: 'Erro no servidor' });
-
+    } catch (err) {
+        console.error('Erro ao buscar usuário:', err);
+        res.status(500).json({ message: 'Erro no servidor' });
     }
+});
 
-})
 
+app.get('/perfil/:id_usuario', async (req, res) => {
+    const { id_usuario } = req.params;
+
+    try {
+        // Consulta no banco de dados para buscar informações do usuário pelo ID
+        const result = await pool.query('SELECT * FROM usuarios WHERE id = $1', [id_usuario]);
+
+        // Verifica se o usuário foi encontrado
+        if (result.rows.length > 0) {
+            const user = result.rows[0];
+
+            // Converte a imagem para Base64 se ela existir
+            if (user.foto_perfil) {
+                const imgConvert = Buffer.from(user.foto_perfil).toString('base64');
+                user.foto_perfil = `data:image/*;base64,${imgConvert}`;
+            }
+
+            // Retorna os dados do usuário
+            return res.json(user);
+        } else {
+            // Retorna 404 se o usuário não foi encontrado
+            return res.status(404).json({ message: 'Usuário não encontrado' });
+        }
+    } catch (err) {
+        console.error('Erro ao buscar perfil do usuário:', err);
+        // Retorna 500 em caso de erro no servidor
+        return res.status(500).json({ message: 'Erro no servidor' });
+    }
+});
 
 
 

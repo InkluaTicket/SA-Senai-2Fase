@@ -42,7 +42,7 @@ function CarrosselEventosEmAlta() {
                   <img src="./img/ClimaCarbono2.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois">
-                  <div className="textosDosShows">
+                  <div aria-label='Descrição dos shows' tabIndex={0} className="textosDosShows">
                     <div className="carrosselTts">
                       <h2 className='carTts'>Conferência Brasileira Clima & Carbono 2024</h2>
                       <h3 className='carTts'>Promovido pela Aliança Brasil NBS, a Conferência Brasileira Clima e Carbono é um encontro anual que reúne  profissionais e especialistas do setor. </h3>
@@ -58,7 +58,7 @@ function CarrosselEventosEmAlta() {
                   <img src="./img/imgI.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois">
-                  <div className="textosDosShows">
+                  <div aria-label='Descrição dos shows' tabIndex={0}  className="textosDosShows">
                     <div className='carrosselTts'>
                       <h2 className='carTts'>INDIE POP</h2>
                       <h3 className='carTts'>uma edição da indiepop.
@@ -76,7 +76,7 @@ function CarrosselEventosEmAlta() {
                   <img src="./img/img-card.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois3">
-                  <div className="textosDosShows">
+                  <div aria-label='Descrição dos shows' tabIndex={0} className="textosDosShows">
                     <div className="carrosselTts">
                       <h2 className='carTts'>27º Congresso Internacional UNIDAS</h2>
                       <h3 className='carTts'>no evento de alcance nacional que promete reunir instituições filiadas.</h3>

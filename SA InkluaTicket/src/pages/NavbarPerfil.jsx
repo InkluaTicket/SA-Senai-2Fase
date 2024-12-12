@@ -1,14 +1,19 @@
 import React from 'react'
 import '../styles/Navbar2.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function NavbarPefil() {
+const navigate = useNavigate();
+
+
   return (
     <div className='navbar-container'>
       
       <div className='teste'>
 
-     <Link to='/'> <img className='voltar' src="./img/arrow_back (2).png" alt="" /></Link>
+     <button aria-label='Voltar' style={{background: 'none',
+        border: 'none',
+        cursor: 'pointer',}} onClick={() => navigate(-1)} > <img className='voltar' src="/img/arrow_back (2).png" alt="" /></button>
       <h1 className='gerenciamentoDaConta'>Perfil de usuário</h1>
 
       </div>

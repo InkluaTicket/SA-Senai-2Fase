@@ -302,7 +302,7 @@ function TelaCadastro() {
                 <div className="parteDoisInpus">
                   <div className="inputsLocal">
                     <label>
-                      Endereço
+                      CEP
                       <InputMask
                         mask="99999-999"
                         alwaysShowMask={false}
