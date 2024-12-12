@@ -70,7 +70,7 @@ function EventosPendentes() {
 
        {EventosAnalise.length == 0 ? <> <h1 className='semEventos'>Sem eventos</h1> <img className="vazio" src="./img/icon-vazio.png" alt="" /> </> : <>{/* Carrossel de Festivais */}
       <div className="carrossel">
-        <h1 className='carrosselShFeEvTEXTO'>Festivais</h1>
+        <h1 className='carrosselShFeEvTEXTO'>Eventos pendentes</h1>
         <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
           
 

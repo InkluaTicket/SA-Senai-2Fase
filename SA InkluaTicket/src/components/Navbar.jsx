@@ -6,9 +6,9 @@ export default function Navbar() {
   return (
     <div className="navbar-containerGerenc">
       <div className="testeGerenc">
-        <Link to="/">
+        <div >
           <img className="voltarGerenc" src="./img/arrow_back (2).png" alt="" />
-        </Link>
+        </div>
         <img className="logo" src="./img/InKlua.png" alt="" />
       </div>
     </div>

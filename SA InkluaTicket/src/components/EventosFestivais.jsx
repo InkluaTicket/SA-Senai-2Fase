@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import '../styles/CardEventos.css'
 
-function EventosEsportes() {
+function EventosFestivais() {
     const navigator = useNavigate();
     const [EventosAnalise, setAnalise] = useState([])
   
 
     const SelectEvent = async () => {
         try {
-            const response = await fetch('http://localhost:3000/eventosEsportes', {
+            const response = await fetch('http://localhost:3000/eventosFestivais', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ function EventosEsportes() {
 
        {EventosAnalise.length == 0 ? <> <h1 className='semEventos'>Sem eventos</h1> <img className="vazio" src="./img/icon-vazio.png" alt="" /> </> : <>{/* Carrossel de Festivais */}
       <div className="carrossel">
-        <h1 className='carrosselShFeEvTEXTO'>Esportes</h1>
+        <h1 className='carrosselShFeEvTEXTO'>Shows</h1>
         <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
           
 
@@ -81,7 +81,7 @@ function EventosEsportes() {
 <div className="card">
                 <img className='imagemEvento' src={evento.imagem}/>
                 <div className="div-inform">
-                    <h2 aria-label='Nome do evento' className='descricao'>{evento.nome}</h2>
+                <h2 aria-label='Nome do evento' className='descricao'>{evento.nome}</h2>
                     <h2 aria-label='Data de início do evento' className='data'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
                     <p aria-label='Local do evento' className='local'>{evento.local_evento}</p>
                 </div>
@@ -106,4 +106,5 @@ function EventosEsportes() {
   )
 }
 
-export default EventosEsportes
+
+export default EventosFestivais

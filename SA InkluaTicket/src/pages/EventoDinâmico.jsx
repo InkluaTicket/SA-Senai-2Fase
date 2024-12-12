@@ -6,6 +6,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect  } from "react";
 import jwt_decode from 'jwt-decode'
 
+
 function EventoDinâmico() {
     const [rating, setRating] = useState(0); // Estado para a avaliação selecionada
   const [hover, setHover] = useState(0); // Estado para a avaliação ao passar o mouse
@@ -20,6 +21,7 @@ const [defAuditiva, setDefAuditiva] = useState(false);
 const [defMultiplas, setDefMultiplas] = useState(false);
 const [defIntelectual, setDefIntelectual] = useState(false);
 const [outro, setOutro] = useState('');
+const [isUser, setUser] = useState(false)
 
   const {id} = useParams();
     const [evento, setEvento] = useState({ Nome: '', Descricao: '', DataInicio: '', DataFim:'', Imagem: null, Local: '', empresa: null, categoria: '', Ingressos: '', Aceito: null})
@@ -259,6 +261,10 @@ const [outro, setOutro] = useState('');
 
       setAdm(true)
 
+    }else if(decode.papel === 'Usuário'){
+
+        setUser(true)
+
     }
 
 }
@@ -271,7 +277,7 @@ const [outro, setOutro] = useState('');
 
   return (
     <div>
-      <Navbar />
+      
       <div className="img-container">
         <img src={evento.Imagem} className="img-frente" />
       </div>
@@ -388,10 +394,15 @@ const [outro, setOutro] = useState('');
           
         </section>
 
-        <section className="comentarios">
-          <div style={{ width: "50%", margin: "0 auto", textAlign: "center" }}>
-            <h2>Deixe seu comentário</h2>
 
+        
+        <section className="comentarios">
+
+        
+          <div style={{ width: "50%", margin: "0 auto", textAlign: "center" }}>
+           {isUser &&  <>
+            <h2>Deixe seu comentário</h2>
+            
             <form onSubmit={PostarComentário}>
             <textarea tabIndex={0}
               value={comentario.Comentario}
@@ -423,7 +434,7 @@ const [outro, setOutro] = useState('');
             >
               
             </input>
-            </form>
+            </form> </>}
 
         
             {Comentarios.length > 0 ? (
@@ -452,6 +463,7 @@ const [outro, setOutro] = useState('');
             >
               <strong style={{ color: "#fff", fontSize: "18px" }}>
                 {ComentarioPostado.NomeUsuario}
+                {ComentarioPostado.ImagemUser}
               </strong>
               <div style={{ marginLeft: "10px" }}>
                 {[...Array(5)].map((_, starIndex) => (
@@ -489,10 +501,10 @@ const [outro, setOutro] = useState('');
 
       { eventNull === null && isAdm ? (
 <>
-
-<button onClick={() => AceitarOuNegar (true) }>Aceitar</button>
-<button onClick={() => AceitarOuNegar (false)}>Negar</button>
-
+<div  style={{display: 'flex', justifyContent: 'center', }}> 
+<button className="Aceitar" onClick={() => AceitarOuNegar (true) }>Aceitar evento</button>
+<button className="Negar" onClick={() => AceitarOuNegar (false)}>Negar evento</button>
+</div>
 
 </>) : null }
 

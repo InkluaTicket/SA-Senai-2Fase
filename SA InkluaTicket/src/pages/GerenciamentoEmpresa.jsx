@@ -355,11 +355,11 @@ setNew({...NewInfos, NovaImagem: file});
       <div className='divDoisEmpre'>
         
         
-        <h1>Eventos em análise</h1>
+        <h1 style={{color:'#024959', marginLeft:'-300px'}}>Eventos em análise</h1>
 
         <EventosPendentesEmpresa/>
 
-        <h1>Eventos aceitos</h1>
+        <h1 style={{color:'#024959', marginLeft:'-350px', marginBottom: '-50px'}}>Eventos aceitos</h1>
 
         <EventosAceitosEmpresa/>
 

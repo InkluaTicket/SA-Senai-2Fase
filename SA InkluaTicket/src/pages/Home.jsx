@@ -10,6 +10,7 @@ import CarrosselEventos from './CarrosselEventos';
 import Rodape from '../components/Rodape';
 import EventosAceitos from '../components/EventosAceitos';
 import EventosEsportes from '../components/EventosEsportes';
+import EventosShows from '../components/EventosShows';
 
 function Home() {
 
@@ -29,11 +30,14 @@ function Home() {
       <UpdatePageTitle title="Página Inicial - InkluaTicket" />
       <NavBarForHome/>
       <CarrosselEventosEmAlta/>
+      <EventosShows/>
+      <EventosEsportes/>
       <CarrosselShows/>
       <CarrosselFestivais/>
       <CarrosselEventos/>
-      <EventosAceitos/>
-      <EventosEsportes/>
+
+      
+     
       <Rodape/>
     </div>
   )

@@ -166,15 +166,16 @@ if(token){
           </nav>
         </>
       ) : validação && isEmpresa ? (
-        <> <nav className='InfosHome'>
+        <> <nav className='InfosHomeLog'>
           <div className='CondicionalNav' >
-            <div className='InfosNavHomeUser'>
+            <div className='InfosNavHomeUserLog'>
 
-              <Link className='InfosNavHome' to='/criarevento'>Crie seu evento</Link>
+              <Link className='InfosNavHomeLog' to='/criarevento'>Crie seu evento</Link>
               <li className='separadorHome'></li>
               <p aria-live='assertive'>Bem vindo {UsuarioLogado.nome}</p>
               {imgPerfil ?
-                (<><Link to='/PerfilEmpresa'><img src={imgPerfil} style={{ width: '50px', borderRadius: '50%', margin: '0px' }} alt="" /></Link></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)}
+                (<><Link to='/PerfilEmpresa'><img src={imgPerfil} style={{ width: '50px', borderRadius: '50%', margin: '0px' }} alt="" /></Link></>) : (<><Link to='/PerfilEmpresa'><img className='imageUser' src="./img/fotoUser.png" alt="" /> </Link></>)
+                }
 
 
             </div>

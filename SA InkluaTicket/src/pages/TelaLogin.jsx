@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 function TelaLogin() {
   const [FormLogin, setLogin] = useState({ Email: "", Senha: "" });
   const [Mensagem, setMensagem] = useState("");
+  const [AdmLogado, setAdmLogado] = useState('')
   const [SenhaIncorreta, setIncorreta] = useState("");
   const [LoginBemSucedido, setSucesso] = useState("");
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ function TelaLogin() {
         const decode = jwt_decode(data.token);
 
         if (decode.papel === "Administrador") {
-          setMensagem("Administrador logado!");
+          setAdmLogado("Administrador logado!");
           localStorage.setItem("tokenAdm", data.token);
           setTimeout(() => {
             navigate("/");
@@ -167,8 +168,8 @@ function TelaLogin() {
               <div className="container-inpts">
                 {
                   <p role="alert" className="msg-sucesso">
-                    {" "}
-                    {LoginBemSucedido} Login efetuado com sucesso!{" "}
+                    
+                    {LoginBemSucedido || AdmLogado} 
                   </p>
                 }
                 <label tabIndex={0}>
