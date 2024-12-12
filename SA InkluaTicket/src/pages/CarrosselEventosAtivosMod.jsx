@@ -23,7 +23,7 @@ function CarrosselEventosAtivosMod() {
     <div className="tudocarrosselEventoAtivoMod">
       {/* Carrossel de Eventos Ativos do Painel do Moderador */}
       <div className="carrosselEventoAtivoMod">
-        <h1 className='carrosselShFeEvTEXTOEventoAtivoMod'>Eventos Ativos</h1> <img className='iconAtivo' src="IconAtivo./img/.png" />
+        <h1 className='carrosselShFeEvTEXTOEventoAtivoMod'>Eventos Ativos</h1> <img className='iconAtivo' src="./img/IconAtivo.png" />
         <div className="carrossel-conteudoEventoAtivoMod" style={{ transform: `translateX(-${slideEventoAtivoMod * 35}%)` }}>
           <CardEventos />
           <div className="espacoEventosEventoAtivoMod"></div>

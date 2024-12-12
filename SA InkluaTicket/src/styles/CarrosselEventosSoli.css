@@ -48,11 +48,29 @@
     margin-right: 3%;
 }
 
-.carrossel-botao11, .carrossel-botao22 {
+.carrossel-botao11 {
     text-align: center;
     font-weight: 600;
     position: absolute;
-    top: 62%;
+    top: 400px;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    background-color: #EA9C00;
+    color: whitesmoke;
+    border-radius: 50%; /* Botão redondo */
+    border: 0;
+    padding: 1px;
+    cursor: pointer;
+    font-size: 30px; /* Fonte menor */
+    transition: 0.5s;
+}
+
+.carrossel-botao22{
+    text-align: center;
+    font-weight: 600;
+    position: absolute;
+    top: 400px;
     width: 50px;
     height: 50px;
     transform: translateY(-50%);
