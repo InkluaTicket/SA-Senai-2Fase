@@ -42,3 +42,159 @@
     margin-left: 50px;
     margin-top: -65px;
 }
+
+.Titulo1PainelMod{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--cor-1);
+    font-family: "Poppins", sans-serif;
+    margin: 20px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: 6%;
+}
+
+.Texto1PainelMod{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 50px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.Titulo2PainelMod{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 15px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px; 
+}
+.Titulo3PainelMod{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 15px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px; 
+}
+.Titulo4PainelMod{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 15px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px; 
+}
+.Titulo5PainelMod{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 15px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px; 
+}
+.Titulo6PainelMod{
+    font-size: 20px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 15px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px; 
+}
+
+.Texto1Planejamento{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.Texto2Planejamento{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 40px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.Texto1Infraestrutura{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.Texto2Infraestrutura{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 40px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.Texto1Comunicacao{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.Texto2Comunicacao{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 40px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.Texto1Experiencia{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 10px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.Texto2Experiencia{
+    font-size: 16px;
+    color: rgb(44, 44, 44);
+    font-family: "Poppins", sans-serif;
+    margin: 30px;
+    margin-bottom: 40px;
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-right: 20px;
+}
