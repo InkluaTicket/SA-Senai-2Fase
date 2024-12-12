@@ -42,8 +42,9 @@ function TelaLogin() {
         if (decode.papel === "Administrador") {
           setMensagem("Administrador logado!");
           localStorage.setItem("tokenAdm", data.token);
-          setTimeout(() => { 
-          navigate("/");}, 2000)
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         } else {
           setSucesso("Login bem sucedido!");
           localStorage.setItem("token", data.token);
@@ -164,11 +165,17 @@ function TelaLogin() {
               </div>
 
               <div className="container-inpts">
-                  <label tabIndex={0}>
-                    Não possui uma conta?{" "}
-                    <Link to="/CadastroUser">Cadastre-se</Link>
-                  </label>
-                {<p role="alert"> {LoginBemSucedido}</p>}
+                {
+                  <p role="alert" className="msg-sucesso">
+                    {" "}
+                    {LoginBemSucedido} Login efetuado com sucesso!{" "}
+                  </p>
+                }
+                <label tabIndex={0}>
+                  Não possui uma conta?{" "}
+                  <Link to="/CadastroUser">Cadastre-se</Link>
+                </label>
+
                 <div className="btLocalLog">
                   <input type="submit" className="btCadastrarLog" />
                 </div>

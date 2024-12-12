@@ -396,7 +396,7 @@ function TelaCadastroEmpresa() {
               </div>
 
               <div className="checkbox-cadastro">
-              {<p role="alert"> {CadastroSucesso}</p>}
+              {<p role="alert" className="msg-sucesso"> {CadastroSucesso}Cadastro bem sucedido!</p>}
                   <label className="labelCheckbox9">
                     <input type="checkbox" className="inputsCheckbox9" />
                     Eu li e aceito os termos de uso

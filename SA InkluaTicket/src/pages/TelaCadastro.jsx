@@ -453,7 +453,7 @@ function TelaCadastro() {
               </div>
 
               <div className="inpts-cadastro"> 
-                {<p aria-live="assertive" className="msg-sucesso">{CadastroBemSucedido}</p>}
+                {<p aria-live="assertive" className="msg-sucesso">{CadastroBemSucedido}Cadastro bem sucedido!</p>}
                 <p className="labelCheckbox">
                   <input type="checkbox" className="inputsCheckbox" />
                   Eu li e aceito os termos de uso
