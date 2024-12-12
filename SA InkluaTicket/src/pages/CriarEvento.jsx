@@ -302,8 +302,8 @@ function CriarEvento() {
             <input
               type="date"
               className="comentario"
-              min="2024-11-19"
-              max="2024-12-31"
+              min="2024-01-01"
+              max="2026-12-31"
               aria-label="Data de início do evento"
               onChange={(e) =>
                 setFormE({ ...FormEvento, DataInicio: e.target.value })
@@ -317,8 +317,8 @@ function CriarEvento() {
             <input
               type="date"
               className="comentario"
-              min="2024-11-19"
-              max="2024-12-31"
+              min="2024-01-01"
+              max="2026-12-31"
               aria-label="Data de término do evento"
               onChange={(e) =>
                 setFormE({ ...FormEvento, DataFim: e.target.value })

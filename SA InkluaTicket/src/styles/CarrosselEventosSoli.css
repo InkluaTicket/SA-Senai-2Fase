@@ -18,11 +18,11 @@
 }
 
 .iconAnalise{
-    position: absolute;
+    
     width: 30px;
     height: min-content;
     cursor: pointer;
-    margin-left: 90px;
+    margin-left: -105px;
     top: 173px;
 }
 
@@ -96,4 +96,10 @@
 
 .carrossel-botao22.proximo2EventSoli {
     left: 96%;
+}
+
+.IconEtext{
+
+    display: flex;
+
 }

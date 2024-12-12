@@ -56,16 +56,17 @@
 
 .gerenciarEmp {
     width: 200px;
-    padding: 12px;
+    padding: 8px;
     font-size: 20px;
     border: 0;
     border-radius: 12px;
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
     color: whitesmoke;
     font-family: "Poppins", sans-serif;
     background-color: var(--cor-1);
-    margin-left: -80px;
-    margin-top: 5%;
+    margin-left: -120px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

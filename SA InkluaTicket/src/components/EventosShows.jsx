@@ -68,13 +68,13 @@ function EventosShows() {
 
        {EventosAnalise.length == 0 ? <> <h1 className='semEventos'>Sem eventos</h1> <img className="vazio" src="./img/icon-vazio.png" alt="" /> </> : <>{/* Carrossel de Festivais */}
       <div className="carrossel">
-        <h1 className='carrosselShFeEvTEXTO'>Shows</h1>
+       
         <div className="carrossel-conteudo" style={{ transform: `translateX(-${slideFestival * (100 / totalSlides)}%)`, }}>
           
 
         {EventosAnalise.map((evento) =>(
 
-<ul aria-label='Card de evento' className='container'>
+<ul aria-label='Card de evento shows' className='container'>
 
 <li tabIndex={0} onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
 

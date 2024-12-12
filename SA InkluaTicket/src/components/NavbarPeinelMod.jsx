@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/NavbarPeinelMod.css';
+import { Link } from 'react-router-dom';
 
 function NavbarPeinelMod() {
   return (
@@ -9,7 +10,7 @@ function NavbarPeinelMod() {
       
       <div className='teste-painelMod'>
 
-      <img className='voltarPainelM' src="./img/arrow_back (2).png" alt="" />
+      <Link to='/'> <img className='voltarPainelM' src="./img/arrow_back (2).png" alt="" /></Link>
       <h1 className='painelModerador'>Painel moderador</h1>
 
       </div>

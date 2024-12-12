@@ -157,7 +157,7 @@ const [isUser, setUser] = useState(false)
         const userData = await userResponse.json();
         
 
-        return {... comentario, NomeUsuario: userData.nome, ImagemUser: userData.foto_perfil}
+        return {... comentario, NomeUsuario: userData.nome, ImagemUser: userData.foto_perfil, Pcd: userData.possui_deficiencia}
 
 
       }))
@@ -474,6 +474,8 @@ const [isUser, setUser] = useState(false)
               <strong  style={{ display: 'flex', gap: '15px', color: "#fff", fontSize: "18px" }}>
                 <p>{ComentarioPostado.NomeUsuario}</p>
                 <img tabIndex={0} aria-label="Acessar perfil deste usuário" onClick={() => navigator(`/perfil/${ComentarioPostado.id_usuario}`)} style={{width: '40px', height: '40px', marginTop: '8px', borderRadius: '50%',}} src={ComentarioPostado.ImagemUser} alt="" />
+                {ComentarioPostado.Pcd && <> 
+                  <img style={{marginTop: '25px', position: 'absolute', marginLeft: '195px', width: '20px', height: '20px'}} className='verificado' src="/img/img logo.png" alt="" /></>}
               </strong>
               
             </div>

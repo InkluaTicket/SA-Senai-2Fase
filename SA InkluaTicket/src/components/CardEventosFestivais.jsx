@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import '../styles/CardEventos.css'
 
-function EventosEsportes() {
+function CardEventosFestivais() {
     const navigator = useNavigate();
     const [EventosAnalise, setAnalise] = useState([])
   
 
     const SelectEvent = async () => {
         try {
-            const response = await fetch('http://localhost:3000/eventosEsportes', {
+            const response = await fetch('http://localhost:3000/eventosFestivais', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,14 +73,14 @@ function EventosEsportes() {
 
         {EventosAnalise.map((evento) =>(
 
-<ul aria-label='Card de evento esportes' className='container'>
+<ul aria-label='Card de evento festival' className='container'>
 
 <li tabIndex={0} onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
 
 <div className="card">
                 <img className='imagemEvento' src={evento.imagem}/>
                 <div className="div-inform">
-                    <h2 aria-label='Nome do evento' className='descricao'>{evento.nome}</h2>
+                <h2 aria-label='Nome do evento' className='descricao'>{evento.nome}</h2>
                     <h2 aria-label='Data de início do evento' className='data'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
                     <p aria-label='Local do evento' className='local'>{evento.local_evento}</p>
                 </div>
@@ -105,4 +105,5 @@ function EventosEsportes() {
   )
 }
 
-export default EventosEsportes
+
+export default CardEventosFestivais

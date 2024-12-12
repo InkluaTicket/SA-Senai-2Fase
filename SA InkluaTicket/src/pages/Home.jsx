@@ -11,6 +11,10 @@ import Rodape from '../components/Rodape';
 import EventosAceitos from '../components/EventosAceitos';
 import EventosEsportes from '../components/EventosEsportes';
 import EventosShows from '../components/EventosShows';
+import EventosTecnologia from '../components/EventosTecnologia';
+import CardEventosFestivais from '../components/CardEventosFestivais';
+import EventosSaude from '../components/EventosSaude';
+import EventosEducacao from '../components/EventosEducacao';
 
 function Home() {
 
@@ -35,11 +39,18 @@ function Home() {
       <UpdatePageTitle title="Página Inicial - InkluaTicket" />
       <NavBarForHome/>
       <CarrosselEventosEmAlta/>
+      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Shows</h1>
       <EventosShows/>
+      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Esportes</h1>
       <EventosEsportes/>
-      <CarrosselShows/>
-      <CarrosselFestivais/>
-      <CarrosselEventos/>
+      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Tecnologia</h1>
+      <EventosTecnologia/>
+      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Festivais</h1>
+      <CardEventosFestivais/>
+      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Saúde</h1>
+      <EventosSaude/>
+      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Educação</h1>
+      <EventosEducacao/>
 
       
      

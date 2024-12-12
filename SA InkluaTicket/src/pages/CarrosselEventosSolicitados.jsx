@@ -60,11 +60,15 @@ function CarrosselEventosSolicitados() {
     <div className="tudocarrosselEventSoli">
       {/* Carrossel de Eventos Solicitados */}
       <div className="carrosselEventSoli">
-        <h1 className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1> <img className='iconAnalise' src="./img/icon-analize.png" />
+        
+        <div className='IconEtexto'>  
+        <h1 tabIndex={0} className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1> 
+        <img className='iconAnalise' src="./img/icon-analize.png" />
+        </div>
         <div className="carrossel-conteudoSoliciEventSoli" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
         {EventosAnalise.map((evento) =>(
 
-<ul aria-label='Card de evento' className='container'>
+<ul aria-label='Card de evento solicitado' className='container'>
 
 <li tabIndex={0} onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
 

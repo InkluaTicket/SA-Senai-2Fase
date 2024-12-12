@@ -83,16 +83,16 @@
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
-    transform: scale(1.1); 
+    transform: scale(0.1); 
     transition: 1s;
   }.carrossel-botao2Emp.anterior2Emp {
     position: absolute;
     left: 52%;
-    top: 30%;   
+    top: 40%;   
   }.carrossel-botao2Emp.proximo2Emp {
     position: absolute;
-    left: 97%;
-    top: 30%;
+    left: 96%;
+    top: 40%;
   }
 
   .Card{

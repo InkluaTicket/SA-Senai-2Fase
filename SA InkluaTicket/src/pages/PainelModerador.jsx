@@ -43,7 +43,8 @@ function PainelModerador() {
 
       <img tabIndex={0} alt='sair da conta' onClick={Logout} className='iconSairPainelMod' src="./img/icon-LogOut.png" />
 
-      <h1 className='Titulo1PainelMod'>Critérios de avaliação</h1>
+<div role='alert'> 
+      <h1 aria-live='assertive' className='Titulo1PainelMod'>Critérios de avaliação</h1>
 
       <p className='Texto1PainelMod'>Ao planejar e executar eventos inclusivos, é fundamental considerar a acessibilidade 
         como um componente central do projeto. Abaixo estão os critérios de avaliação que devem ser utilizados para garantir 
@@ -66,7 +67,7 @@ function PainelModerador() {
       <p className='Texto2Experiencia'>Avaliar a experiência das PCD após o evento.</p>
 
     </div>
-    
+    </div>
     </>
 
 

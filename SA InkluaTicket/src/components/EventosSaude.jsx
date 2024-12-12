@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import '../styles/CardEventos.css'
 
-function EventosEsportes() {
+function EventosSaude() {
     const navigator = useNavigate();
     const [EventosAnalise, setAnalise] = useState([])
   
 
     const SelectEvent = async () => {
         try {
-            const response = await fetch('http://localhost:3000/eventosEsportes', {
+            const response = await fetch('http://localhost:3000/eventosSaude', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ function EventosEsportes() {
 
         {EventosAnalise.map((evento) =>(
 
-<ul aria-label='Card de evento esportes' className='container'>
+<ul aria-label='Card de evento saúde' className='container'>
 
 <li tabIndex={0} onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
 
@@ -105,4 +105,4 @@ function EventosEsportes() {
   )
 }
 
-export default EventosEsportes
+export default EventosSaude
