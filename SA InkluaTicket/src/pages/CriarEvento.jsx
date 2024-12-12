@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/CriarEvento.css";
 import jwt_decode from "jwt-decode";
 import Navbar from "../components/Navbar";
@@ -198,6 +198,12 @@ function CriarEvento() {
       }
     }
   };
+
+  useEffect(() => {
+  
+    document.title = "Tela de criação de eventos"; 
+
+  }, [])
 
   return (
     <>

@@ -56,7 +56,9 @@ function TelaCadastroEmpresa() {
           }
 
           localStorage.setItem("tokenEmpresa", data.token);
-          navigator("/");
+          setCadastroSucesso('Cadastro bem sucedido!')
+          setTimeout(() => {navigator("/"); }, 2000)
+          
         } else {
           console.log("Fudeu");
         }

@@ -275,6 +275,14 @@ const [isUser, setUser] = useState(false)
    
   }, [id])
 
+  
+    useEffect(() => {
+      document.title = "Tela de evento"; 
+      window.scrollTo(0, 0); // Move para o topo da página
+    }, []); // Executa apenas na montagem do componente
+  
+   
+
   return (
     <div>
 

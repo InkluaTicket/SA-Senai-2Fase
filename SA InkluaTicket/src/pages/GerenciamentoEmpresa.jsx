@@ -251,7 +251,7 @@ Renderizar();
     <div className='container-GerenEmpre'>
 
       <div className='divUmEmpre'>
-      <img tabIndex={0} onClick={Logout} className='iconsairEmpre' src="./img/icon-LogOut.png" />
+      <img tabIndex={0} alt='sair da conta' onClick={Logout} className='iconsairEmpre' src="./img/icon-LogOut.png" />
       <h1  className='sairGerenEmpre'>SAIR DA CONTA</h1>
 
       <div className='div-excluirEmpre'>

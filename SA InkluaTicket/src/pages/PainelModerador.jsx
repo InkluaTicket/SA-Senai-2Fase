@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import EventosPendentes from '../components/EventosPendentes';
 import NavbarPeinelMod from '../components/NavbarPeinelMod';
@@ -20,7 +20,7 @@ function PainelModerador() {
 
     }
 
-   
+   useEffect(() => {document.title = "Painel do moderador   "; }, [])
 
 
   return (
@@ -39,10 +39,9 @@ function PainelModerador() {
           <CarrosselEventosAtivosMod/>
       
      
-          <EventosPendentes/>
        
 
-      <img onClick={Logout} className='iconSairPainelMod' src="./img/icon-LogOut.png" />
+      <img tabIndex={0} alt='sair da conta' onClick={Logout} className='iconSairPainelMod' src="./img/icon-LogOut.png" />
 
       <h1 className='Titulo1PainelMod'>Critérios de avaliação</h1>
 

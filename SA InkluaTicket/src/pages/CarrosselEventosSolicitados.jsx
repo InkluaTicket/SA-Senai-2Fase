@@ -1,14 +1,45 @@
-import React, { useState } from 'react';
+
 import '../styles/CarrosselEventosSoli.css';
-import CardEventos from './cardEventos';
-import CardEventosCopy from './CardEventosCopy';
-import CardEventosCopy1 from './CardEventosCopy1';
-import CardEventosCopy2 from './CardEventosCopy2';
-import CardEventosCopy3 from './CardEventosCopy3';
-import CardEventosCopy4 from './CardEventosCopy4';
-import CardEventosCopy5 from './CardEventosCopy5';
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import '../styles/CardEventos.css'
 
 function CarrosselEventosSolicitados() {
+
+  const navigator = useNavigate();
+    const [EventosAnalise, setAnalise] = useState([])
+
+    const SelectEvent = async () =>{
+
+      try{
+
+       const response = await fetch('http://localhost:3000/eventosAnalise', {
+
+          method: 'GET',
+          headers: {'Content-type' : 'application/json'}
+       })
+
+       if(response.ok){
+
+          const data = await response.json();
+          setAnalise(data)
+
+
+       }else{
+
+          console.error('Erro ao buscar eventos pendentes!')
+
+       }
+
+      }catch(err){
+
+          console.error('Erro de rede:', err);
+
+      }
+
+  }
+
+
 
     const [slideEventoSoli, setSlideEventoSoli] = useState(0)
 
@@ -19,28 +50,42 @@ function CarrosselEventosSolicitados() {
     setSlideEventoSoli((prev) => (prev - 1 + 3) % 3)
   }
 
+  useEffect(() => {
+
+    SelectEvent();
+
+  }, [])
+
   return (
     <div className="tudocarrosselEventSoli">
       {/* Carrossel de Eventos Solicitados */}
       <div className="carrosselEventSoli">
         <h1 className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1> <img className='iconAnalise' src="./img/icon-analize.png" />
         <div className="carrossel-conteudoSoliciEventSoli" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
-          <CardEventos />
-          <div className="espacoEventosEventSoli"></div>
-          <CardEventosCopy />
-          <div className="espacoEventosEventSoli"></div>
-          <CardEventosCopy1 />
-          <div className="espacoEventosEventSoli"></div>
-          <CardEventosCopy2 />
-          <div className="espacoEventosEventSoli"></div>
-          <CardEventosCopy3 />
-          <div className="espacoEventosEventSoli"></div>
-          <CardEventosCopy4 />
-          <div className="espacoEventosEventSoli"></div>
-          <CardEventosCopy5 />
+        {EventosAnalise.map((evento) =>(
+
+<ul aria-label='Card de evento' className='container'>
+
+<li tabIndex={0} onClick={() => navigator(`/eventosAceitos/${evento.id}`)} className='Card' key={evento.id}>
+
+<div className="card">
+                <img className='imagemEvento' src={evento.imagem}/>
+                <div className="div-inform">
+                    <h2 aria-label='Nome do evento' className='descricao'>{evento.nome}</h2>
+                    <h2 aria-label='Data de início do evento' className='data'>{evento.data_inicio} {'>'} {evento.data_fim}</h2>
+                    <p aria-label='Local do evento' className='local'>{evento.local_evento}</p>
+                </div>
+            </div>
+
+
+
+
+</li>
+</ul>
+))}
         </div>
-        <button className="carrossel-botao11 anterior2EventSoli" onClick={EventoSoliAnterior}>‹</button>
-        <button className="carrossel-botao22 proximo2EventSoli" onClick={proximoEventoSoli}>›</button>
+        <button tabIndex={-1} className="carrossel-botao11 anterior2EventSoli" onClick={EventoSoliAnterior}>‹</button>
+        <button tabIndex={-1} className="carrossel-botao22 proximo2EventSoli" onClick={proximoEventoSoli}>›</button>
       </div>
     </div>
   )

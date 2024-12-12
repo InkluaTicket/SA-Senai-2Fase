@@ -41,7 +41,9 @@ function PerfilEmpresa() {
 
   useEffect(() => {
 
+    document.title = "Tela de perfil da empresa"; 
     Renderizar();
+
 
 
   }, [])

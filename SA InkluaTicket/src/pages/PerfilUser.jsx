@@ -58,6 +58,7 @@ function PerfilUser() {
 
   useEffect(() => {
 
+    document.title = "Tela de perfil de usuário"; 
     Renderizar();
 
 

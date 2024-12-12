@@ -25,6 +25,11 @@ function Home() {
     return null;
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+  }, [])
+
   return (
     <div>
       <UpdatePageTitle title="Página Inicial - InkluaTicket" />

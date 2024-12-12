@@ -42,14 +42,14 @@ function CarrosselEventosEmAlta() {
                   <img src="./img/ClimaCarbono2.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois">
-                  <div aria-label='Descrição dos shows' tabIndex={0} className="textosDosShows">
+                  <div aria-label='Descrição dos shows' tabIndex={-1} className="textosDosShows">
                     <div className="carrosselTts">
                       <h2 className='carTts'>Conferência Brasileira Clima & Carbono 2024</h2>
                       <h3 className='carTts'>Promovido pela Aliança Brasil NBS, a Conferência Brasileira Clima e Carbono é um encontro anual que reúne  profissionais e especialistas do setor. </h3>
                       <h3 className='carTts'>15 out - 2024 • 08:00 / 16 out - 2024 • 22:00</h3>
                       <h3 className='carTts'>Teatro Santander, São Paulo - SP</h3>
                     </div>
-                    <button className="btCarrosselPrincipal">Ver Mais</button>
+                    <button tabIndex={-1} className="btCarrosselPrincipal">Ver Mais</button>
                   </div>
                 </div>
               </div>
@@ -58,7 +58,7 @@ function CarrosselEventosEmAlta() {
                   <img src="./img/imgI.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois">
-                  <div aria-label='Descrição dos shows' tabIndex={0}  className="textosDosShows">
+                  <div aria-label='Descrição dos shows' tabIndex={-1}  className="textosDosShows">
                     <div className='carrosselTts'>
                       <h2 className='carTts'>INDIE POP</h2>
                       <h3 className='carTts'>uma edição da indiepop.
@@ -67,7 +67,7 @@ function CarrosselEventosEmAlta() {
                       <h3 className='carTts'>21 set - 2024 • 23:00 / 22 set - 2024 • 05:00</h3>
                       <h3 className='carTts'>Rua dos Inconfidentes, 1068, Belo Horizonte - MG</h3>
                     </div>
-                    <button className="btCarrosselPrincipal">Ver Mais</button>
+                    <button tabIndex={-1} className="btCarrosselPrincipal">Ver Mais</button>
                   </div>
                 </div>
               </div>
@@ -76,14 +76,14 @@ function CarrosselEventosEmAlta() {
                   <img src="./img/img-card.png" className="imgs123" />
                 </div>
                 <div className="carrosselImgTtDois3">
-                  <div aria-label='Descrição dos shows' tabIndex={0} className="textosDosShows">
+                  <div aria-label='Descrição dos shows' tabIndex={-1} className="textosDosShows">
                     <div className="carrosselTts">
                       <h2 className='carTts'>27º Congresso Internacional UNIDAS</h2>
                       <h3 className='carTts'>no evento de alcance nacional que promete reunir instituições filiadas.</h3>
                       <h3 className='carTts'>27 nov - 2024 • 08:00 / 29 nov - 2024 • 19:00</h3>
                       <h3 className='carTts'>CentroSul Florianópolis, Florianópolis - SC</h3>
                     </div>
-                    <button className="btCarrosselPrincipal">Ver Mais</button>
+                    <button tabIndex={-1} className="btCarrosselPrincipal">Ver Mais</button>
                   </div>
                 </div>
               </div>
@@ -91,10 +91,10 @@ function CarrosselEventosEmAlta() {
             {/* Repetir para outros itens */}
           </div>
         </div>
-        <button aria-label='Botão carrossel' className="carrossel-botao anterior" onClick={imgAnterior}>
+        <button tabIndex={-1} aria-label='Botão carrossel' className="carrossel-botao anterior" onClick={imgAnterior}>
           ‹
         </button>
-        <button aria-label='Botão carrossel' className="carrossel-botao proximo" onClick={proximoImg}>
+        <button tabIndex={-1} aria-label='Botão carrossel' className="carrossel-botao proximo" onClick={proximoImg}>
           ›
         </button>
       </div>
