@@ -63,7 +63,7 @@ function CarrosselEventosSolicitados() {
         
         <div className='IconEtexto'>  
         <h1 tabIndex={0} className='carrosselShFeEvTEXTOEventSoli'>Eventos Solicitados</h1> 
-        <img className='iconAnalise' src="./img/icon-analize.png" />
+        
         </div>
         <div className="carrossel-conteudoSoliciEventSoli" style={{ transform: `translateX(-${slideEventoSoli * 35}%)` }}>
         {EventosAnalise.map((evento) =>(

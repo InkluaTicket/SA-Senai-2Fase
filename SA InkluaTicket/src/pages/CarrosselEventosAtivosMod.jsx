@@ -60,7 +60,7 @@ function CarrosselEventosAtivosMod() {
     <div className="tudocarrosselEventoAtivoMod">
       {/* Carrossel de Eventos Ativos do Painel do Moderador */}
       <div className="carrosselEventoAtivoMod">
-        <h1 tabIndex={0} className='carrosselShFeEvTEXTOEventoAtivoMod'>Eventos Ativos</h1> <img className='iconAtivo' src="./img/IconAtivo.png" />
+        <h1 tabIndex={0} className='carrosselShFeEvTEXTOEventoAtivoMod'>Eventos Ativos</h1> 
         <div className="carrossel-conteudoEventoAtivoMod" style={{ transform: `translateX(-${slideEventoAtivoMod * 35}%)` }}>
         {EventosAnalise.map((evento) =>(
 

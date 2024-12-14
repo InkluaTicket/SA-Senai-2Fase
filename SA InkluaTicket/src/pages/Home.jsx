@@ -42,17 +42,15 @@ function Home() {
       <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Shows</h1>
       <EventosShows/>
       <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Esportes</h1>
-      <EventosEsportes/>
-      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Tecnologia</h1>
-      <EventosTecnologia/>
+      <EventosEsportes/> 
       <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Festivais</h1>
       <CardEventosFestivais/>
-      <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Saúde</h1>
-      <EventosSaude/>
       <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Educação</h1>
-      <EventosEducacao/>
-
-      
+     <EventosEducacao/>  
+     <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Tecnologia</h1>
+     <EventosTecnologia/>  
+     <h1 tabIndex={0} style={{color: '#024959'}} className='carrosselShFeEvTEXTO'>Saúde</h1>
+      <EventosSaude/>
      
       <Rodape/>
     </div>

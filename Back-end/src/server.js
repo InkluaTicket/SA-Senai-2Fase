@@ -380,7 +380,7 @@ app.get('/eventosEducacao', async (req, res) => {
 
 app.get('/eventosTecnologia', async (req, res) => {
     try {
-        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'Tecnologia' AND aceito IS true");
+        const result = await pool.query("SELECT * FROM evento WHERE categoria = 'tecnologia' AND aceito IS true");
         const eventos = result.rows.map(evento => {
             if (evento.imagem) {
                 const imgConvert = Buffer.from(evento.imagem).toString('base64');

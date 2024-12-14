@@ -72,21 +72,6 @@
     cursor: pointer;
     font-size: 30px; /* Fonte menor */
     transition: 0.5s;
-  }.carrossel-botao2Emp:hover {
-    font-weight: 900;
-    position: absolute;
-    top: 38%;
-    height: 30%;
-    transform: translateY(-10%);
-    background-color: #024959;
-    color: #d9d9d9;
-    border: 1px solid #d9d9d9;
-    border-radius: 10%;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    transform: scale(1.1); 
-    transition: 1s;
   }.carrossel-botao2Emp.anterior2EmpAceito {
     position: absolute;
     top: 515px;
